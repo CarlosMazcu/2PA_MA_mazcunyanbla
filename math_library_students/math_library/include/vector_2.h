@@ -6,6 +6,9 @@
 #ifndef __VEC2_H__
 #define __VEC2_H__ 1
 
+#include <cmath>
+
+
 /// @class Vec2 vector2.h "vector2.h"
 /// @brief Basic float vector 2.
 class Vec2 {
@@ -77,23 +80,39 @@ inline Vec2 Vec2::operator+(const Vec2& other) const {
   return ret;
 }
 
-inline Vec2 Vec2::operator+(float value) {
-  return Vec2();
+inline Vec2 Vec2::operator+(float value)
+{
+	Vec2 aux;
+
+	aux.x = x + value;
+	aux.y = y + value;
+
+	return aux;
 }
 
-inline Vec2& Vec2::operator+=(const Vec2& other){
+inline Vec2& Vec2::operator+=(const Vec2& other)
+{
+	x += other.x;
+	y += other.y;
+
+	return *this;
+}
+
+inline Vec2& Vec2::operator+=(float value)
+{
+  x += value;
+  y += value;
   return *this;
 }
 
-inline Vec2& Vec2::operator+=(float value){
-  return *this;
-}
+inline Vec2 Vec2::operator-(const Vec2 &other) const
+{
+		Vec2 aux;
+		
+		aux.x = x - other.x;
+		aux.y = y - other.y;
 
-inline Vec2 Vec2::operator-(const Vec2& other) const {
-  Vec2 ret;
-  ret.x = x - other.x;
-  ret.y = y - other.y;
-  return ret;
+		return aux;
 }
 
 inline Vec2 Vec2::operator-(float value) const {
@@ -110,20 +129,31 @@ inline Vec2 Vec2::operator-() const {
 	return ret;
 }
 
-inline Vec2& Vec2::operator-=(const Vec2& other) {
-  return *this;
+inline Vec2 &Vec2::operator-=(const Vec2 &other)
+{
+	x -= other.x;
+	y -= other.y;
+
+	return *this;	
 }
 
-inline Vec2& Vec2::operator-=(float value){
-  return *this;
+inline Vec2 &Vec2::operator-=(float value)
+{
+
+	x -= value;
+	y -= value;
+
+	return *this;	
+
 }
+
 
 inline bool Vec2::operator==(const Vec2& value) const {
   return ((x == value.x) && (y == value.y));
 }
 
 inline bool Vec2::operator!=(const Vec2& value) const {
-  return true;
+  return ((x != value.x) && (y != value.y));;
 }
 
 // Vec2 v = { 1.0f, 2.0f };
@@ -140,7 +170,7 @@ inline void Vec2::operator=(float value) {
 }
 
 inline Vec2 Vec2::operator*(float value) const {
-	return Vec2();
+	return Vec2(x * value, y * value);
 }
 
 // Vec2 v = { 1.0f, 2.0f };
@@ -152,35 +182,48 @@ inline Vec2& Vec2::operator*=(float value) {
 }
 
 inline Vec2 Vec2::operator/(float value) const {
-	return Vec2();
+	return Vec2(x / value, y / value);
 }
 
-inline Vec2& Vec2::operator/=(float value) {
+inline Vec2& Vec2::operator/=(float value)
+{
+	x /= value;
+	y /= value;
+
 	return *this;
 }
 
 inline float Vec2::Magnitude() const {
-  return 0.0f;
+
+  return std::sqrt(x * x + y * y);
 }
 
 inline void Vec2::Normalize() {  
+  float inverse_magnitude = 1.0f / Magnitude();
+	*this *= inverse_magnitude;
 }
 
 inline Vec2 Vec2::Normalized() const {
-	return Vec2();
+  Vec2 ret;
+  ret.x = (x)/(Magnitude());
+  ret.y = (y)/(Magnitude());
+	return ret;
 }
 
 inline void Vec2::Scale(const Vec2 scale){
-
+//falta
 }
 
 inline float Vec2::SqrMagnitude() const {
-  return 0.0f;
+  return (x * x + y * y);
 }
 
-
 inline float Vec2::Distance(const Vec2 a, const Vec2 b) {
-  return 0.0f;
+  Vec2 aux;
+  aux.x = a.x - b.x;
+  aux.y = a.y - b.y;
+  float ret = std::sqrt((aux.x * aux.x) + (aux.y * aux.y));
+  return ret;
 }
 
 inline Vec2 Vec2::Lerp(const Vec2 a, const Vec2 b, float t) {
@@ -195,7 +238,9 @@ inline Vec2 Vec2::LerpUnclamped(const Vec2 a, const Vec2 b, float t) {
 }
 
 inline float Vec2::DotProduct(Vec2 a, Vec2 b) {
-	return 0.0f;
+  float ret;
+  ret = (a.x * b.x) + (a.y * b.y);
+	return ret;
 }
 
 #endif 

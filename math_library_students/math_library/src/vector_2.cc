@@ -18,8 +18,11 @@ Vec2::Vec2(float x, float y) {
 }
 
 Vec2::Vec2(const Vec2& other) {
-	x = 42.0f;
-	y = 43.0f;
+	x = other.x;
+	y = other.y;
 }
 
-Vec2::~Vec2() {}
+Vec2::~Vec2(){}
+
+
+

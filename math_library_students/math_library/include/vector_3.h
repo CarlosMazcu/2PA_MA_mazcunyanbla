@@ -107,64 +107,108 @@ inline Vec3 Vec3::Reflect(const Vec3& direction, const Vec3& normal) {
 }
 
 inline Vec3 Vec3::operator+(const Vec3& other) const {
-	return Vec3();
+	Vec3 ret;
+	ret.x = x + other.x;
+	ret.y = y + other.y;
+	ret.z = z + other.z;
+	return ret;
+
 }
 
 inline Vec3 Vec3::operator+(float value) const {
-	return Vec3();
+	Vec3 ret;
+
+	ret.x = x + value;
+	ret.y = y + value;
+	ret.z = z + value;
+	return ret;
+
 }
 
 inline Vec3& Vec3::operator+=(const Vec3& other) {
+	x += other.x;
+	y += other.y;
+	z += other.z;
+
 	return *this;
 }
 
 inline Vec3& Vec3::operator+=(float value) {
+	x += value;
+	y += value;
+	z += value;
 	return *this;
 }
 
 inline Vec3 Vec3::operator-(const Vec3& other) const {
-	return Vec3();
+	Vec3 aux;
+	aux.x = x - other.x;
+	aux.y = y - other.y;
+	aux.y = z - other.z;
+	return aux;
 }
 
 inline Vec3 Vec3::operator-(float value) const {
-	return Vec3();
+	Vec3 aux;
+	aux.x = x - value;
+	aux.y = y - value;
+	aux.y = z - value;
+	return aux;
 }
 
 inline Vec3& Vec3::operator-=(const Vec3& other) {
-	return *this;
+	x -= other.x;
+	y -= other.y;
+	z -= other.z;
+	return *this;	
 }
 
 inline Vec3& Vec3::operator-=(float value) {
-	return *this;
+	x -= value;
+	y -= value;
+	z -= value;
+	return *this;	
 }
 
 inline bool Vec3::operator==(const Vec3& other) const {
-	return true;
+	return (x == other.x) && (y == other.y) && (z == other.z);
 }
 
 inline bool Vec3::operator!=(const Vec3& other) const {
-	return true;
+	return (x != other.x) && (y != other.y) && (z != other.z);
 }
 
-inline void Vec3::operator=(const Vec3& other) {	
+inline void Vec3::operator=(const Vec3& other) {
+	x = other.x;
+	y = other.y;	
+	z = other.z;	
 }
 
 inline void Vec3::operator=(float value) {	
+	x = value;
+	y = value;
+	z = value;
 }
 
 inline Vec3 Vec3::operator*(float value) const {
-	return Vec3();
+	return Vec3(x * value, y * value, z * value);
 }
 
 inline Vec3& Vec3::operator*=(float value) {	
-	return *this;
+  x *= value;
+  y *= value;
+  z *= value;
+  return *this;
 }
 
 inline Vec3 Vec3::operator/(float value) const {
-	return Vec3();
+	return Vec3(x/value, y/value, z/value);
 }
 
 inline Vec3& Vec3::operator/=(float value) {	
+	x /= value;
+	y /= value;
+	z /= value;
 	return *this;
 }
 
