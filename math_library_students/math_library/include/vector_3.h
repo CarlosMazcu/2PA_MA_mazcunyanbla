@@ -63,8 +63,8 @@ inline float Vec3::Magnitude() const {
 
 inline void Vec3::Normalize() {	
 
-	float inverseMagnitude = 1.0f / Magnitude();
-	*this *= inverseMagnitude;
+	float inverse_magnitude = 1.0f / Magnitude();
+	*this *= inverse_magnitude;
 }
 
 inline Vec3 Vec3::Normalized() const {

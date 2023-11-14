@@ -127,16 +127,16 @@ namespace UnitTest {
     //-----------------//
     test.x = 4.0f; test.y = 6.0f;
     copy = test / 2.0f;
-    Assert::AreEqual(2.0f, copy.x, 0.00001f, "Operator* X Failed", __FILE__, __LINE__);
-    Assert::AreEqual(3.0f, copy.y, 0.00001f, "Operator* Y Failed", __FILE__, __LINE__);
+    Assert::AreEqual(2.0f, copy.x, 0.00001f, "Operator/ X Failed", __FILE__, __LINE__);
+    Assert::AreEqual(3.0f, copy.y, 0.00001f, "Operator/ Y Failed", __FILE__, __LINE__);
 
     //------------------//
     // -- Operator/= -- //
     //-----------------//
     copy.x = 4.0f; copy.y = 6.0f;
     copy /= 2.0f;
-    Assert::AreEqual(2.0f, copy.x, 0.00001f, "Operator* X Failed", __FILE__, __LINE__);
-    Assert::AreEqual(3.0f, copy.y, 0.00001f, "Operator* Y Failed", __FILE__, __LINE__);
+    Assert::AreEqual(2.0f, copy.x, 0.00001f, "Operator/ X Failed", __FILE__, __LINE__);
+    Assert::AreEqual(3.0f, copy.y, 0.00001f, "Operator/ Y Failed", __FILE__, __LINE__);
 
     //Check Magnitude function.
     Assert::AreEqual(2.91547585f, another_test.Magnitude(), 0.000001f, "Magnitude Failed", __FILE__, __LINE__);

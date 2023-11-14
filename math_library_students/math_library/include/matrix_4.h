@@ -45,9 +45,11 @@ class Mat4 {
                       float scale_x, float scale_y, float scale_Z,
                       float rotateX, float rotateY, float rotateZ);
 
+  // NOTE: Not necessary until OpenGL.
   Mat4 PerspectiveMatrix(float fov, float aspect,
 	  float near, float far) const;
 
+  // NOTE: Not necessary until OpenGL.
   Mat4 OrthoMatrix(float right, float left, float top, float valueottom,
 	  float near, float far) const;
 

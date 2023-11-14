@@ -65,8 +65,16 @@ class Vec2 {
 };
 
 
+// Vec2 v = {0.0f, 1.0f};
+// Vec2 u = {2.0f, 3.0f};
+// Vec2 t = u + v;
 inline Vec2 Vec2::operator+(const Vec2& other) const {
-  return Vec2();
+  Vec2 ret;
+
+  ret.x = x + other.x;
+  ret.y = y + other.y;
+
+  return ret;
 }
 
 inline Vec2 Vec2::operator+(float value) {
@@ -111,25 +119,35 @@ inline Vec2& Vec2::operator-=(float value){
 }
 
 inline bool Vec2::operator==(const Vec2& value) const {
-  return false;
+  return ((x == value.x) && (y == value.y));
 }
 
 inline bool Vec2::operator!=(const Vec2& value) const {
   return true;
 }
 
-
+// Vec2 v = { 1.0f, 2.0f };
+// Vec2 u = v;
 inline void Vec2::operator=(const Vec2& other) {
+  x = other.x;
+  y = other.y;
 }
 
+// Vec2 v = 1.0f;
 inline void Vec2::operator=(float value) {
+  x = value;
+  y = value;
 }
 
 inline Vec2 Vec2::operator*(float value) const {
 	return Vec2();
 }
 
+// Vec2 v = { 1.0f, 2.0f };
+// v *= (-1.0f);  // Expected v: { -1.0f, -2.0f };
 inline Vec2& Vec2::operator*=(float value) {  
+  x *= value;
+  y *= value;
   return *this;
 }
 
@@ -166,13 +184,15 @@ inline float Vec2::Distance(const Vec2 a, const Vec2 b) {
 }
 
 inline Vec2 Vec2::Lerp(const Vec2 a, const Vec2 b, float t) {
-	return Vec2();
+  if (t > 1.0f || t < -1.0f) { t = 1.0f / t; }
+  if (t < 0.0f) { t *= -1.0f; }
+
+  return LerpUnclamped(a, b, t);
 }
 
 inline Vec2 Vec2::LerpUnclamped(const Vec2 a, const Vec2 b, float t) {
-	return Vec2();
+  return Vec2(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);
 }
-
 
 inline float Vec2::DotProduct(Vec2 a, Vec2 b) {
 	return 0.0f;
