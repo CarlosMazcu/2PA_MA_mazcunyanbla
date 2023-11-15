@@ -33,4 +33,6 @@ Vec3::Vec3(const Vec3& copy) {
 	z = 53.0f;
 }
 
-Vec3::~Vec3() {}
+Vec3::~Vec3() {
+	//TODO vector3~~
+}

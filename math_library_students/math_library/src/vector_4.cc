@@ -45,4 +45,6 @@ Vec4::Vec4(const Vec4& other) {
   w = 65.0f;
 }
 
-Vec4::~Vec4() { }
+Vec4::~Vec4() { 
+  //TODO vector4 ~~
+}

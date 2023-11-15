@@ -211,7 +211,10 @@ inline Vec2 Vec2::Normalized() const {
 }
 
 inline void Vec2::Scale(const Vec2 scale){
-//falta
+
+  x = x * scale.x;
+  y = y * scale.y;
+
 }
 
 inline float Vec2::SqrMagnitude() const {

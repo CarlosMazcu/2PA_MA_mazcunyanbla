@@ -3,6 +3,8 @@
 
 #include "math_utils.h"
 
+#include <cmath>
+
 class Vec3 {
  public:
 	Vec3();
@@ -58,7 +60,7 @@ class Vec3 {
 };
 
 inline float Vec3::Magnitude() const {
-	return 0.0f;
+	return std::sqrt(x * x + y * y + z * z);
 }
 
 inline void Vec3::Normalize() {	
@@ -68,41 +70,69 @@ inline void Vec3::Normalize() {
 }
 
 inline Vec3 Vec3::Normalized() const {
-	return Vec3();
+	Vec3 ret;
+	ret.x = (x) / (Magnitude());
+	ret.y = (y) / (Magnitude());
+	ret.z = (z) / (Magnitude());
+	return ret;
 }
 
 inline float Vec3::DotProduct(const Vec3& a, const Vec3& other)  {
-	return 0.0f;
+	float ret;
+	ret = (a.x * other.x) + (a.y * other.y) + (a.z * other.z);
+	return ret;
 }
 
 inline float Vec3::Angle(const Vec3& a, const Vec3& other)  {
+	//TODO angle
 	return 0.0f;
 }
 
 inline Vec3 Vec3::CrossProduct(const Vec3& a, const Vec3& other)  {
+	//TODO crossProduct
 	return Vec3();
 }
 
 inline float Vec3::SqrMagnitude() const {
-	return 0.0f;
+	return (x * x + y * y + z * z);
 }
 
-inline void Vec3::Scale(const Vec3& other) {	
+inline void Vec3::Scale(const Vec3& other) {
+	x = x * other.x;
+	y = y * other.y;
+	z = z * other.z;
 }
 
 inline Vec3 Vec3::Lerp(const Vec3& a, const Vec3& b, float t) {
-	return Vec3();
+	if (t > 1.0f || t < -1.0f)
+	{
+		t = 1.0f / t;
+	}
+	if (t < 0.0f)
+	{
+		t *= -1.0f;
+	}
+
+	return LerpUnclamped(a, b, t);
 }
 
 inline Vec3 Vec3::LerpUnclamped(const Vec3& a, const Vec3& b, float t) {
-	return Vec3();
+	return Vec3(a.x + (b.x - a.x) * t, 
+							a.y + (b.y - a.y) * t, 
+							a.z + (b.z - a.z) * t);
 }
 
 inline float Vec3::Distance(const Vec3& a, const Vec3& b) {
-	return 0.0f;
+	Vec3 aux;
+	aux.x = a.x - b.x;
+	aux.y = a.y - b.y;
+	aux.z = a.z - b.z;
+	float ret = std::sqrt((aux.x * aux.x) + (aux.y * aux.y) + (aux.z * aux.z));
+	return ret;
 }
 
 inline Vec3 Vec3::Reflect(const Vec3& direction, const Vec3& normal) {
+	//TODO reflect
 	return Vec3();
 }
 
@@ -144,7 +174,7 @@ inline Vec3 Vec3::operator-(const Vec3& other) const {
 	Vec3 aux;
 	aux.x = x - other.x;
 	aux.y = y - other.y;
-	aux.y = z - other.z;
+	aux.z = z - other.z;
 	return aux;
 }
 
@@ -152,7 +182,7 @@ inline Vec3 Vec3::operator-(float value) const {
 	Vec3 aux;
 	aux.x = x - value;
 	aux.y = y - value;
-	aux.y = z - value;
+	aux.z = z - value;
 	return aux;
 }
 

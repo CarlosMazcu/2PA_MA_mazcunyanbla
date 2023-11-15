@@ -70,50 +70,104 @@ public:
 
 
 inline Mat3 Mat3::operator+(const Mat3& other) const {
-	return Mat3();
+	Mat3 ret;
+	for(int i = 0; i < 9; i++)
+	{
+		ret.m[i] = m[i] + other.m[i];
+	}
+	return ret;
 }
 
 inline Mat3& Mat3::operator+=(const Mat3& other) {
+	for (int i = 0; i < 9; i++)
+	{
+		m[i] += other.m[i];
+	}
 	return (*this);
 }
 
 inline Mat3 Mat3::operator+(float value) const {
-	return Mat3();
+	Mat3 ret;
+	for (int i = 0; i < 9; i++)
+	{
+		ret.m[i] = m[i] + value;
+	}
+	return ret;
 }
 
-inline Mat3& Mat3::operator+=(float value) {	
+inline Mat3& Mat3::operator+=(float value) {
+	for (int i = 0; i < 9; i++)
+	{
+		m[i] += value;
+	}
 	return (*this);
 }
 
 inline Mat3 Mat3::operator-(const Mat3& other) const {
-	return Mat3();
+	Mat3 ret;
+	for (int i = 0; i < 9; i++)
+	{
+		ret.m[i] = m[i] - other.m[i];
+	}
+	return ret;
 }
 
 inline Mat3& Mat3::operator-=(const Mat3& other) {
+	for (int i = 0; i < 9; i++)
+	{
+		m[i] -= other.m[i];
+	}
 	return (*this);
 }
 
 inline Mat3 Mat3::operator-(float value) const {
-	return Mat3();
+	Mat3 ret;
+	for (int i = 0; i < 9; i++)
+	{
+		ret.m[i] = m[i] - value;
+	}
+	return ret;
 }
 
 inline Mat3& Mat3::operator-=(float value) {
+	for (int i = 0; i < 9; i++)
+	{
+		m[i] -= value;
+	}
 	return (*this);
 }
 
 inline Mat3 Mat3::operator*(float value) const {
-	return Mat3();
+	Mat3 ret;
+	for (int i = 0; i < 9; i++)
+	{
+		ret.m[i] = m[i] * value;
+	}
+	return ret;
 }
 
 inline Mat3& Mat3::operator*=(float value) {
+	for (int i = 0; i < 9; i++)
+	{
+		m[i] *= value;
+	}
 	return (*this);
 }
 
 inline Mat3 Mat3::operator/(float value) const {
-	return Mat3();
+	Mat3 ret;
+	for (int i = 0; i < 9; i++)
+	{
+		ret.m[i] = m[i] / value;
+	}
+	return ret;
 }
 
 inline Mat3& Mat3::operator/=(float value) {
+	for (int i = 0; i < 9; i++)
+	{
+		m[i] /= value;
+	}
 	return (*this);
 }
 
