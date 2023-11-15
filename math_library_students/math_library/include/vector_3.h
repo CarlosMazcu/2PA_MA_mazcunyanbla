@@ -104,22 +104,23 @@ inline void Vec3::Scale(const Vec3& other) {
 }
 
 inline Vec3 Vec3::Lerp(const Vec3& a, const Vec3& b, float t) {
-	if (t > 1.0f || t < -1.0f)
-	{
-		t = 1.0f / t;
-	}
-	if (t < 0.0f)
-	{
-		t *= -1.0f;
-	}
+	// if (t > 1.0f || t < -1.0f)
+	// {
+	// 	t = 1.0f / t;
+	// }
+	// if (t < 0.0f)
+	// {
+	// 	t *= -1.0f;
+	// }
+ t = MathUtils::Clamp(t,0.0f,1.0f);
 
 	return LerpUnclamped(a, b, t);
 }
 
 inline Vec3 Vec3::LerpUnclamped(const Vec3& a, const Vec3& b, float t) {
 	return Vec3(a.x + (b.x - a.x) * t, 
-							a.y + (b.y - a.y) * t, 
-							a.z + (b.z - a.z) * t);
+				a.y + (b.y - a.y) * t, 
+				a.z + (b.z - a.z) * t);
 }
 
 inline float Vec3::Distance(const Vec3& a, const Vec3& b) {
@@ -201,11 +202,11 @@ inline Vec3& Vec3::operator-=(float value) {
 }
 
 inline bool Vec3::operator==(const Vec3& other) const {
-	return (x == other.x) && (y == other.y) && (z == other.z);
+	return ((x == other.x) && (y == other.y) && (z == other.z));
 }
 
 inline bool Vec3::operator!=(const Vec3& other) const {
-	return (x != other.x) && (y != other.y) && (z != other.z);
+	return ((x != other.x) && (y != other.y) && (z != other.z));
 }
 
 inline void Vec3::operator=(const Vec3& other) {
