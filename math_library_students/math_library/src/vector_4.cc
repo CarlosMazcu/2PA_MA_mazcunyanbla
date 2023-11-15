@@ -3,18 +3,18 @@
 const Vec4 Vec4::one = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
 const Vec4 Vec4::zero = Vec4(0.0f, 0.0f, 0.0f, 0.0f);
 
-Vec4::Vec4() { 
-  x = 42.0f;
-	y = 43.0f;
-	z = 44.0f;
-  w = 45.0f;
+Vec4::Vec4() {
+  x = 0.0f;
+  y = 0.0f;
+  z = 0.0f;
+  w = 0.0f;
 }
 
 Vec4::Vec4(float x, float y, float z, float w) {
-  x = 46.0f;
-  y = 47.0f;
-  z = 48.0f;
-  w = 49.0f;
+  this->x = x;
+  this->y = y;
+  this->z = z;
+  this->w = w;
 }
 
 Vec4::Vec4(Vec3 a, float w) {
@@ -25,26 +25,25 @@ Vec4::Vec4(Vec3 a, float w) {
 }
 
 Vec4::Vec4(float a) {
-  x = 54.0f;
-  y = 55.0f;
-  z = 56.0f;
-  w = 57.0f;
+  x = a;
+  y = a;
+  z = a;
+  w = a;
 }
 
 Vec4::Vec4(float* values_array) {
-  x = 58.0f;
-  y = 59.0f;
-  z = 60.0f;
-  w = 61.0f;
+  x = values_array[0];
+  y = values_array[1];
+  z = values_array[2];
+  w = values_array[3];
 }
 
 Vec4::Vec4(const Vec4& other) {
-  x = 62.0f;
-  y = 63.0f;
-  z = 64.0f;
-  w = 65.0f;
+  x = other.x;
+  y = other.y;
+  z = other.z;
+  w = other.w;
 }
 
-Vec4::~Vec4() { 
-  //TODO vector4 ~~
+Vec4::~Vec4() {
 }

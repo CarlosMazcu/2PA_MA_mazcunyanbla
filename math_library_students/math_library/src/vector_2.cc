@@ -23,7 +23,7 @@ Vec2::Vec2(const Vec2& other) {
 }
 
 Vec2::~Vec2(){
-	//TODO vector2~~
+
 }
 
 
