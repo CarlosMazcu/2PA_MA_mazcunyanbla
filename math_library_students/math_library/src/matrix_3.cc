@@ -19,16 +19,17 @@ Mat3::Mat3(float* values_array) {
   m[6] = values_array[6]; m[5] = values_array[5]; m[8] = values_array[8];
 }
 
-Mat3::Mat3(Vec3 a, Vec3 b, Vec3 c) {
-  m[0] = a.x; m[1] = a.y; m[2] = a.z;
-  m[3] = b.x; m[4] = b.y; m[5] = b.z;
-  m[6] = c.x; m[7] = c.y; m[8] = c.z;
+Mat3::Mat3(Vec3 a, Vec3 b, Vec3 c)
+{
+  m[0] = a.x;  m[1] = a.y;  m[2] = a.z;
+  m[3] = b.x;  m[4] = b.y;  m[5] = b.z;
+  m[6] = c.x;  m[7] = c.y;  m[8] = c.z;
 }
 
 Mat3::Mat3(const Mat3& copy) {
-  m[0] = 78.0f; m[3] = 81.0f; m[6] = 84.0f;
-  m[1] = 79.0f; m[4] = 82.0f; m[7] = 85.0f;
-  m[2] = 80.0f; m[5] = 83.0f; m[8] = 86.0f;
+  m[0] = copy.m[0]; m[3] = copy.m[3]; m[6] = copy.m[6];
+  m[1] = copy.m[1]; m[4] = copy.m[4]; m[7] = copy.m[7];
+  m[2] = copy.m[2]; m[5] = copy.m[5]; m[8] = copy.m[8];
 }
 
 Mat3::~Mat3() {

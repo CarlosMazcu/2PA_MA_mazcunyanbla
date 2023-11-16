@@ -27,6 +27,7 @@ class Vec3 {
 	void operator=(const Vec3& other);
 	void operator=(float value);
 	Vec3 operator*(float value) const;
+	Vec3 operator*(const Vec3 &other);
 	Vec3& operator*=(float value);
 	Vec3 operator/(float value) const;
 	Vec3& operator/=(float value);
@@ -84,13 +85,27 @@ inline float Vec3::DotProduct(const Vec3& a, const Vec3& other)  {
 }
 
 inline float Vec3::Angle(const Vec3& a, const Vec3& other)  {
-	//TODO angle
-	return 0.0f;
+	float dotProduct = DotProduct(a, other);
+	if (a.Magnitude() > 0 && other.Magnitude() > 0)
+	{
+		float cosineTheta = dotProduct / (a.Magnitude() * other.Magnitude());
+		float angleInRadians = std::acos(cosineTheta);
+		return angleInRadians;
+	}
+	else
+	{
+		return 0.0f;
+	}
 }
 
 inline Vec3 Vec3::CrossProduct(const Vec3& a, const Vec3& other)  {
-	//TODO crossProduct
-	return Vec3();
+	Vec3 ret;
+		ret.x = a.y * other.z - a.z * other.y;
+		ret.y = a.z * other.x - a.x * other.z;
+		ret.z = a.x * other.y - a.y * other.x;
+
+		return ret;
+
 }
 
 inline float Vec3::SqrMagnitude() const {
@@ -104,15 +119,14 @@ inline void Vec3::Scale(const Vec3& other) {
 }
 
 inline Vec3 Vec3::Lerp(const Vec3& a, const Vec3& b, float t) {
-	// if (t > 1.0f || t < -1.0f)
-	// {
-	// 	t = 1.0f / t;
-	// }
-	// if (t < 0.0f)
-	// {
-	// 	t *= -1.0f;
-	// }
- t = MathUtils::Clamp(t,0.0f,1.0f);
+	if (t < 0.0f)
+	{
+		t = 0.0f;
+	}
+	else if (t > 1.0f)
+	{
+		t = 1.0f;
+	}
 
 	return LerpUnclamped(a, b, t);
 }
@@ -133,8 +147,8 @@ inline float Vec3::Distance(const Vec3& a, const Vec3& b) {
 }
 
 inline Vec3 Vec3::Reflect(const Vec3& direction, const Vec3& normal) {
-	//TODO reflect
-	return Vec3();
+	Vec3 reflected /* = direction - 2.0f * DotProduct(direction, normal) * normal */;
+	return reflected;
 }
 
 inline Vec3 Vec3::operator+(const Vec3& other) const {
@@ -202,11 +216,11 @@ inline Vec3& Vec3::operator-=(float value) {
 }
 
 inline bool Vec3::operator==(const Vec3& other) const {
-	return ((x == other.x) && (y == other.y) && (z == other.z));
+	return (this->x == other.x) && (this->y == other.y) && (this->z == other.z);
 }
 
 inline bool Vec3::operator!=(const Vec3& other) const {
-	return ((x != other.x) && (y != other.y) && (z != other.z));
+	return ((this->x != other.x) || (this->y != other.y) || (this->z != other.z));
 }
 
 inline void Vec3::operator=(const Vec3& other) {
@@ -223,6 +237,11 @@ inline void Vec3::operator=(float value) {
 
 inline Vec3 Vec3::operator*(float value) const {
 	return Vec3(x * value, y * value, z * value);
+}
+
+inline Vec3 Vec3::operator*(const Vec3 &other){
+
+	return Vec3(this->x * other.x, this->y * other.y, this->z * other.z);
 }
 
 inline Vec3& Vec3::operator*=(float value) {	

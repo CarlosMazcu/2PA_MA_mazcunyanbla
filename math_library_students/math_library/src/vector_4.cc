@@ -18,10 +18,10 @@ Vec4::Vec4(float x, float y, float z, float w) {
 }
 
 Vec4::Vec4(Vec3 a, float w) {
-  x = 50.0f;
-  y = 51.0f;
-  z = 52.0f;
-  w = 53.0f;
+  this->x = a.x;
+  this->y = a.y;
+  this->z = a.z;
+  this->w = w;
 }
 
 Vec4::Vec4(float a) {

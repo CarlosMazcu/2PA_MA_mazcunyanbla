@@ -88,7 +88,7 @@ inline float Vec4::Distance(const Vec4& a, const Vec4& b) {
 	aux.x = a.x - b.x;
 	aux.y = a.y - b.y;
 	aux.z = a.z - b.z;
-	aux.z = a.w - b.w;
+	aux.w = a.w - b.w;
 	float ret = std::sqrt((aux.x * aux.x) + (aux.y * aux.y) + 
 												(aux.z * aux.z) + (aux.w *aux.w));
 	return ret;
@@ -101,13 +101,13 @@ inline float Vec4::DotProduct(Vec4 a, Vec4 b) {
 }
 
 inline Vec4 Vec4::Lerp(const Vec4& a, const Vec4& b, float index) {
-	if (index > 1.0f || index < -1.0f)
-	{
-		index = 1.0f / index;
-	}
 	if (index < 0.0f)
 	{
-		index *= -1.0f;
+		index = 0.0f;
+	}
+	else if (index > 1.0f)
+	{
+		index = 1.0f;
 	}
 
 	return Vec4(a.x + (b.x - a.x) * index,
@@ -207,7 +207,7 @@ inline bool Vec4::operator==(const Vec4& other) {
 	return (x == other.x) && (y == other.y) && (z == other.z) && (w == other.w);
 }
 inline bool Vec4::operator!=(const Vec4& other) {
-	return (x != other.x) && (y != other.y) && (z != other.z) && (w != other.w);
+	return (x != other.x) || (y != other.y) || (z != other.z) || (w != other.w);
 }
 inline void Vec4::operator=(const Vec4& other) {
 	x = other.x;
