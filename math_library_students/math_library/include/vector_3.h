@@ -27,7 +27,6 @@ class Vec3 {
 	void operator=(const Vec3& other);
 	void operator=(float value);
 	Vec3 operator*(float value) const;
-	Vec3 operator*(const Vec3 &other);
 	Vec3& operator*=(float value);
 	Vec3 operator/(float value) const;
 	Vec3& operator/=(float value);
@@ -239,10 +238,6 @@ inline Vec3 Vec3::operator*(float value) const {
 	return Vec3(x * value, y * value, z * value);
 }
 
-inline Vec3 Vec3::operator*(const Vec3 &other){
-
-	return Vec3(this->x * other.x, this->y * other.y, this->z * other.z);
-}
 
 inline Vec3& Vec3::operator*=(float value) {	
   x *= value;

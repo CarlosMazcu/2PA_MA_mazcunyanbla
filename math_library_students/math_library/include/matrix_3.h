@@ -180,6 +180,9 @@ inline bool Mat3::operator!=(const Mat3& other) const {
 }
 
 inline void Mat3::operator=(const Mat3& other) {
+	for(int i = 0; i < 9; i++){
+		m[i] = other.m[i];
+	}
 }
 
 inline Mat3 Mat3::Identity() {

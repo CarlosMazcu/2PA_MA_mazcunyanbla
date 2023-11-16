@@ -22,8 +22,8 @@ Vec3::Vec3(float a, float b, float c) {
 }
 
 Vec3::Vec3(float a) {
-	x = a;
 	y = a;
+	x = a;
 	z = a;
 }
 
