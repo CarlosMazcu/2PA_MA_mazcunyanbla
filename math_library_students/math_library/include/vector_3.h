@@ -247,14 +247,22 @@ inline Vec3& Vec3::operator*=(float value) {
 }
 
 inline Vec3 Vec3::operator/(float value) const {
-	return Vec3(x/value, y/value, z/value);
+	if(value != 0){
+		return Vec3(x/value, y/value, z/value);
+	}else{
+		return Vec3();
+	}
 }
 
-inline Vec3& Vec3::operator/=(float value) {	
-	x /= value;
-	y /= value;
-	z /= value;
-	return *this;
+inline Vec3& Vec3::operator/=(float value) {
+	if(value != 0){	
+		x /= value;
+		y /= value;
+		z /= value;
+		return *this;
+	}else{
+		return Vec3();
+	}
 }
 
 #endif 

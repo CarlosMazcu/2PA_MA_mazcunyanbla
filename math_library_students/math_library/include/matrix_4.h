@@ -77,22 +77,104 @@ class Mat4 {
 
 
 inline Mat4 Mat4::Identity() {
-	return Mat4();
+	Mat4 ret_;
+	for(int i = 0; i < 16; i++)
+	{
+    if (i % 5 == 0)
+    {
+      ret_.m[i] = 1;
+    }
+    else
+    {
+      ret_.m[i] = 0;
+    }
+  }
+	
+	return ret_;
 }
 
 inline Mat4 Mat4::Multiply(const Mat4& other)const  {
-	return Mat4();
+
+  //CORREGIR
+  Mat4 ret_;
+
+  for (int i = 0; i < 4; ++i)
+  {
+    for (int j = 0; j < 4; ++j)
+    {
+      ret_.m[i * 4 + j] = 0.0f;
+      for (int k = 0; k < 4; ++k)
+      {
+        ret_.m[i * 4 + j] += m[i * 4 + k] * other.m[k * 4 + j];
+      }
+    }
+  }
+
+  return ret_;
 }
 
 inline float Mat4::Determinant() const {
 	
-	return 0.0f;
+	float ret_;
+	ret_ = (m[0] * m[5] * m[10] * m[15]) + (m[1] * m[6] * m[11] * m[12]) + (m[4] * m[9] * m[14] * m[3]) + (m[2] * m[7] * m[8] * m[13]) 
+        - (m[3] * m[6] * m[9] * m[12]) - (m[8] * m[5] * m[2] * m[15]) - (m[13] * m[10] * m[7] * m[0]) - (m[4] * m[1] * m[11] * m[14]);
+	
+	return ret_;
 }
 
 inline Mat4 Mat4::Adjoint() const {
-	
-	Mat4 result;
-	return result;
+	Mat4 adjoint;
+
+  adjoint.m[0]  = ((m[5] * m[10] * m[15]) + (m[6] * m[11] * m[13]) + (m[9] * m[14] * m[7])) -
+			((m[13] * m[10] * m[7]) + (m[9] * m[6] * m[15]) + (m[14] * m[11] * m[5]));//+
+
+  adjoint.m[1]  = ((m[4] * m[10] * m[15]) + (m[6] * m[11] * m[12]) + (m[8] * m[14] * m[7])) -
+			((m[12] * m[10] * m[7]) + (m[8] * m[6] * m[15]) + (m[14] * m[11] * m[4])) * (-1);//-
+
+  adjoint.m[2]  = ((m[4] * m[9] * m[15]) + (m[5] * m[11] * m[12]) + (m[8] * m[13] * m[7])) -
+			((m[12] * m[9] * m[7]) + (m[8] * m[5] * m[15]) + (m[13] * m[11] * m[4]));//+
+
+  adjoint.m[3]  = ((m[4] * m[9] * m[14]) + (m[5] * m[10] * m[12]) + (m[8] * m[13] * m[6])) -
+			((m[12] * m[9] * m[6]) + (m[8] * m[5] * m[14]) + (m[13] * m[10] * m[4])) * (-1);//-
+//----------------------------------------------------------------------------------------
+  adjoint.m[4]  = ((m[1] * m[10] * m[15]) + (m[2] * m[11] * m[13]) + (m[9] * m[14] * m[3])) -
+			((m[13] * m[10] * m[3]) + (m[9] * m[2] * m[15]) + (m[14] * m[11] * m[1])) * (-1);//-
+
+  adjoint.m[5]  = ((m[0] * m[10] * m[15]) + (m[2] * m[11] * m[12]) + (m[8] * m[14] * m[3])) -
+			((m[12] * m[10] * m[3]) + (m[8] * m[2] * m[15]) + (m[14] * m[11] * m[0]));//+
+
+  adjoint.m[6]  = ((m[0] * m[9] * m[15]) + (m[1] * m[11] * m[12]) + (m[8] * m[13] * m[3])) -
+			((m[12] * m[9] * m[3]) + (m[8] * m[1] * m[15]) + (m[13] * m[11] * m[0]))  * (-1);//-
+
+  adjoint.m[7]  = ((m[0] * m[9] * m[14]) + (m[1] * m[10] * m[12]) + (m[8] * m[13] * m[2])) -
+			((m[12] * m[9] * m[2]) + (m[8] * m[1] * m[14]) + (m[13] * m[10] * m[0]));//+
+//----------------------------------------------------------------------------------------
+  adjoint.m[8]  = ((m[1] * m[6] * m[15]) + (m[2] * m[7] * m[13]) + (m[5] * m[14] * m[3])) -
+			((m[13] * m[6] * m[3]) + (m[5] * m[2] * m[15]) + (m[14] * m[7] * m[1]));//+
+
+  adjoint.m[9]  = ((m[0] * m[6] * m[15]) + (m[2] * m[7] * m[12]) + (m[4] * m[14] * m[3])) -
+			((m[12] * m[6] * m[3]) + (m[4] * m[2] * m[15]) + (m[14] * m[7] * m[0])) * (-1);//-
+
+  adjoint.m[10] = ((m[0] * m[5] * m[15]) + (m[1] * m[7] * m[12]) + (m[4] * m[13] * m[3])) -
+			((m[12] * m[5] * m[3]) + (m[4] * m[1] * m[15]) + (m[13] * m[7] * m[0]));//+
+
+  adjoint.m[11] = ((m[0] * m[5] * m[14]) + (m[1] * m[6] * m[12]) + (m[4] * m[13] * m[2])) -
+			((m[12] * m[5] * m[2]) + (m[4] * m[1] * m[14]) + (m[13] * m[6] * m[0])) * (-1);//-
+//----------------------------------------------------------------------------------------
+  adjoint.m[12] = ((m[1] * m[6] * m[11]) + (m[2] * m[7] * m[9]) + (m[5] * m[10] * m[3])) -
+			((m[9] * m[6] * m[3]) + (m[5] * m[2] * m[11]) + (m[10] * m[7] * m[1])) * (-1);//-
+
+  adjoint.m[13] = ((m[0] * m[6] * m[11]) + (m[2] * m[7] * m[8]) + (m[4] * m[10] * m[3])) -
+			((m[8] * m[6] * m[3]) + (m[4] * m[2] * m[11]) + (m[10] * m[7] * m[0]));//+
+
+  adjoint.m[14] = ((m[0] * m[5] * m[11]) + (m[1] * m[7] * m[8]) + (m[4] * m[9] * m[3])) -
+			((m[8] * m[5] * m[3]) + (m[4] * m[1] * m[11]) + (m[9] * m[7] * m[0])) * (-1);//-
+
+  adjoint.m[15] = ((m[0] * m[5] * m[10]) + (m[1] * m[6] * m[8]) + (m[4] * m[9] * m[2])) -
+			((m[8] * m[5] * m[2]) + (m[4] * m[1] * m[10]) + (m[9] * m[6] * m[0]));//+
+//----------------------------------------------------------------------------------------
+  return adjoint;
+    
 }
 
 inline Vec4 Mat4::TransformVec4(const Vec4 &v) {
@@ -131,43 +213,143 @@ inline bool Mat4::GetInverse(Mat4* out) const {
 }
 
 inline Mat4 Mat4::Transpose() const {
-		
-	return Mat4();
+
+  Mat4 ret;
+
+  for (int i = 0; i < 4; ++i)
+  {
+    for (int j = 0; j < 4; ++j)
+    {
+      ret.m[i * 4 + j] = m[j * 4 + i];
+    }
+  }
+
+  return ret;
 }
 
 inline Mat4 Mat4::Translate(const Vec3& distance){
-	
-	return Mat4();
+//corregir
+  Mat4 ret = Identity();
+  ret.m[12] = distance.x;
+  ret.m[13] = distance.y;
+  ret.m[14] = distance.z;
+  return ret;
 }
 
 inline Mat4 Mat4::Translate(float x, float y, float z){
-	
-	return Mat4();
+//corregir
+  Mat4 ret = Identity();
+  ret.m[12] = x;
+  ret.m[13] = y;
+  ret.m[14] = z;
+  return ret;
 }
 
 inline Mat4 Mat4::Scale(const Vec3& scale){
-	
-	return Mat4();
+
+  Mat4 ret = Identity();
+  ret.m[0] = scale.x;
+  ret.m[5] = scale.y;
+  ret.m[10] = scale.z;
+  return ret;
 }
 
 inline Mat4 Mat4::Scale(float x, float y, float z){
-	
-	return Mat4();
+
+  Mat4 ret = Identity();
+  ret.m[0] = x;
+  ret.m[5] = y;
+  ret.m[10] = z;
+  return ret;
 }
 
 inline Mat4 Mat4::RotateX(float radians){
-	
-	return Mat4();
+  Mat4 result;
+
+  float cosTheta = cosf(radians);
+  float sinTheta = sinf(radians);
+
+  result.m[0]  = 1.0f;
+  result.m[1]  = 0.0f;
+  result.m[2]  = 0.0f;
+  result.m[3]  = 0.0f;
+
+  result.m[4]  = 0.0f;
+  result.m[5]  = cosTheta;
+  result.m[6]  = sinTheta;
+  result.m[7]  = 0.0f;
+
+  result.m[8]  = 0.0f;
+  result.m[9]  = -sinTheta;
+  result.m[10] = cosTheta;
+  result.m[11] = 0.0f;
+
+  result.m[12] = 0.0f;
+  result.m[13] = 0.0f;
+  result.m[14] = 0.0f;
+  result.m[15] = 1.0f;
+
+  return result;
+
 }
 
 inline Mat4 Mat4::RotateY(float radians){
-	
-	return Mat4();
+	  Mat4 result;
+
+  float cosTheta = cosf(radians);
+  float sinTheta = sinf(radians);
+
+  result.m[0] = cosTheta;
+  result.m[1] = 0.0f;
+  result.m[2] = -sinTheta;
+  result.m[3] = 0.0f;
+
+  result.m[4] = 0.0f;
+  result.m[5] = 1.0f;
+  result.m[6] = 0.0f;
+  result.m[7] = 0.0f;
+
+  result.m[8] = sinTheta;
+  result.m[9] = 0.0f;
+  result.m[10] = cosTheta;
+  result.m[11] = 0.0f;
+
+  result.m[12] = 0.0f;
+  result.m[13] = 0.0f;
+  result.m[14] = 0.0f;
+  result.m[15] = 1.0f;
+
+  return result;
+
 }
 
 inline Mat4 Mat4::RotateZ(float radians) {
-	
-	return Mat4();
+	  Mat4 result;
+
+  float cosTheta = cosf(radians);
+  float sinTheta = sinf(radians);
+
+  result.m[0] = cosTheta;
+  result.m[1] = sinTheta;
+  result.m[2] = 0.0f;
+  result.m[3] = 0.0f;
+
+  result.m[4] = -sinTheta;
+  result.m[5] = cosTheta;
+  result.m[6] = 0.0f;
+  result.m[7] = 0.0f;
+
+  result.m[8] = 0.0f;
+  result.m[9] = 0.0f;
+  result.m[10] = 1.0f;
+  result.m[11] = 0.0f;
+
+  result.m[12] = 0.0f;
+  result.m[13] = 0.0f;
+  result.m[14] = 0.0f;
+  result.m[15] = 1.0f;
+
+  return result;
 }
 
 inline Mat4 Mat4::GetTransform(const Vec3& translate,
@@ -185,11 +367,43 @@ inline Mat4 Mat4::GetTransform(float trans_x, float trans_y, float trans_z,
 }
 
 inline Vec4 Mat4::GetColumn(int colum) const {
-	return Vec4();
+  Vec4 ret;
+
+ 
+  if (colum >= 0 && colum < 4)
+  {
+    ret.x = m[colum];
+    ret.y = m[colum + 4];
+    ret.z = m[colum + 8];
+    ret.w = m[colum + 12];
+  }
+  else
+  {
+    
+    ret.x = ret.y = ret.z = ret.w = 0.0f;
+  }
+
+  return ret;
 }
 
 inline Vec4 Mat4::GetLine(int line) const {
-	return Vec4();
+  Vec4 ret;
+
+  if (line >= 0 && line < 4)
+  {
+    ret.x = m[line * 4];
+    ret.y = m[line * 4 + 1];
+    ret.z = m[line * 4 + 2];
+    ret.w = m[line * 4 + 3];
+  }
+  else
+  {
+    ret.x = 0;
+    ret.y = 0;
+    ret.z = 0;
+    ret.w = 0;
+    }
+  return ret;
 }
 
 inline Mat4 Mat4::PerspectiveMatrix(float fov, float aspect,
@@ -200,8 +414,16 @@ inline Mat4 Mat4::PerspectiveMatrix(float fov, float aspect,
 
 inline Mat4 Mat4::OrthoMatrix(float right, float left, float top, float valueottom,
 	float near, float far) const {
+  Mat4 result = Identity();
 
-	return Mat4();
+  result.m[0] = 2.0f / (right - left);
+  result.m[5] = 2.0f / (top - valueottom);
+  result.m[10] = -2.0f / (far - near);
+  result.m[12] = -(right + left) / (right - left);
+  result.m[13] = -(top + valueottom) / (top - valueottom);
+  result.m[14] = -(far + near) / (far - near);
+
+  return result;
 }
 
 inline Mat4 Mat4::operator+(const Mat4& other) const {

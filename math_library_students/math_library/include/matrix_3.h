@@ -156,19 +156,27 @@ inline Mat3& Mat3::operator*=(float value) {
 
 inline Mat3 Mat3::operator/(float value) const {
 	Mat3 ret;
-	for (int i = 0; i < 9; i++)
-	{
-		ret.m[i] = m[i] / value;
+	if(value != 0){
+		for (int i = 0; i < 9; i++)
+		{
+			ret.m[i] = m[i] / value;
+		}
+		return ret;
+	}else{
+		return Mat3();
 	}
-	return ret;
 }
 
 inline Mat3& Mat3::operator/=(float value) {
-	for (int i = 0; i < 9; i++)
-	{
-		m[i] /= value;
+	if(value != 0){
+		for (int i = 0; i < 9; i++)
+		{
+			m[i] /= value;
+		}
+		return (*this);
+	}else{
+		return Mat3();
 	}
-	return (*this);
 }
 
 inline bool Mat3::operator==(const Mat3& other) const {
@@ -212,62 +220,156 @@ inline Mat3 Mat3::Identity() {
 }
 
 inline float Mat3::Determinant() const {
-	float ret_ = 42.0f;
+	float ret_;
+	ret_ = ((m[0] * m[4] * m[8]) + (m[1] * m[5] * m[6]) + (m[2] * m[7] * m[3])) -
+			((m[6] * m[4] * m[2]) + (m[3] * m[1] * m[8]) + (m[7] * m[5] * m[0]));
 	
 	return ret_;
 }
 
 inline bool Mat3::GetInverse(Mat3& out) const {
-	return true;
+	if(out.Determinant() != 0){
+		out = (this->Adjoint().Transpose()) / this->Determinant();
+		return true;
+	}
+	return false;
 }
 
-inline bool Mat3::Inverse() {	
-	return true;
+inline bool Mat3::Inverse(){
+	if(this->Determinant() != 0){
+
+		return true;
+	}
+	return false;
+		
 }
 
-inline Mat3 Mat3::Translate(const Vec2& mov_vector) {	
-	return Mat3();
+inline Mat3 Mat3::Translate(const Vec2& mov_vector) {
+	Mat3 ret = ret.Identity();
+
+	ret.m[6] = mov_vector.x;
+	ret.m[7] = mov_vector.y;
+
+	return ret;
 }
 
 inline Mat3 Mat3::Translate(float x, float y) {
-	return Mat3();
+	Mat3 ret = ret.Identity();
+
+	ret.m[6] = x;
+	ret.m[7] = y;
+
+	return ret;
 }
-Mat3 Mat3::Rotate(float rotation){
+/* Mat3 Mat3::Rotate(float rotation){
 	Mat3 result;
 	result = result.Identity();
 	float angle_cos = cosf(rotation);
 	float angle_sin = sinf(rotation);
+
 	result.m[0] = angle_cos;
 	result.m[3] = -angle_sin;
 	result.m[1] = angle_sin;
 	result.m[4] = angle_cos;
-}
 
-Mat3 Scale(const Vec2 &scale){
+	return result;
+}
+ */
+/* Mat3 Scale(const Vec2 &scale){
+	return Mat3();
 
 }
 Mat3 Scale(float x, float y){
-
-}
-
-inline Mat3 Mat3::Multiply(const Mat3& other) const {
 	return Mat3();
+}
+ */
+inline Mat3 Mat3::Multiply(const Mat3& other) const {
+	Mat3 ret_;
+	for (int i = 0; i < 3; ++i)
+	{
+		for (int j = 0; j < 3; ++j)
+		{
+			ret_.m[i * 3 + j] = m[i * 3] * other.m[j] +
+								  m[i * 3 + 1] * other.m[3 + j] +
+								  m[i * 3 + 2] * other.m[6 + j];
+		}
+	}
+
+	return ret_;
 }
 
 inline Mat3 Mat3::Adjoint() const {
-	return Mat3();
+	Mat3 adjoint;
+
+    adjoint.m[0] = (m[4] * m[8]) - (m[5] * m[7]);
+    adjoint.m[1] = ((m[3] * m[8]) - (m[5] * m[6])) * -1;
+    adjoint.m[2] = (m[3] * m[7]) - (m[6] * m[4]);
+
+    adjoint.m[3] = ((m[1] * m[8]) - (m[2] * m[7])) * -1;
+    adjoint.m[4] = (m[0] * m[8]) - (m[2] * m[6]);
+    adjoint.m[5] = ((m[0] * m[7]) - (m[1] * m[6])) * -1;
+
+    adjoint.m[6] = (m[1] * m[5]) - (m[4] * m[2]);
+    adjoint.m[7] = ((m[0] * m[5]) - (m[2] * m[3])) * -1;
+    adjoint.m[8] = (m[0] * m[4]) - (m[1] * m[3]);
+
+    return adjoint;
 }
 
 inline Mat3 Mat3::Transpose() const {
-	return Mat3();
+	Mat3 traspose;
+	traspose.m[0] = m[0];
+	traspose.m[3] = m[1];
+	traspose.m[6] = m[2];
+
+	traspose.m[1] = m[3];
+	traspose.m[4] = m[4];
+	traspose.m[7] = m[5];
+	
+	traspose.m[2] = m[6];
+	traspose.m[5] = m[7];
+	traspose.m[8] = m[8];
+
+	return traspose;
 }
 
 inline Vec3 Mat3::GetColumn(int colum) const {
-	return Vec3();
+
+	Vec3 ret;
+
+	if (colum >= 0 && colum < 3)
+	{
+		ret.x = m[colum];
+		ret.y = m[colum + 3];
+		ret.z = m[colum + 6];
+	}
+	else
+	{
+		ret.x = 0;
+		ret.y = 0;
+		ret.z = 0;
+	}
+	return ret;
+
 }
 
 inline Vec3 Mat3::GetLine(int line) const {
-	return Vec3();
+	
+	Vec3 ret;
+
+	if (line >= 0 && line < 3)
+	{
+		ret.x = m[line * 3];
+		ret.y = m[line * 3 + 1];
+		ret.z = m[line * 3 + 2];
+
+	}else{
+		ret.x = 0;
+		ret.y = 0;
+		ret.z = 0;
+		
+	}
+		return ret;
 }
 
 inline Vec3 Mat3::TransformVec3(const Vec3& vec) {

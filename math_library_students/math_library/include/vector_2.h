@@ -182,15 +182,22 @@ inline Vec2& Vec2::operator*=(float value) {
 }
 
 inline Vec2 Vec2::operator/(float value) const {
-	return Vec2(x / value, y / value);
+  if(value != 0){
+	  return Vec2(x / value, y / value);
+  }else{
+    return Vec2();
+  }
 }
 
 inline Vec2& Vec2::operator/=(float value)
 {
-	x /= value;
-	y /= value;
-
-	return *this;
+  if(value != 0){
+	  x /= value;
+	  y /= value;
+	  return *this;
+  }else{
+    return Vec2();
+  }
 }
 
 inline float Vec2::Magnitude() const {
