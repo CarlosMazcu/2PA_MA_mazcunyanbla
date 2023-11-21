@@ -205,62 +205,134 @@ inline Mat4 Mat4::OrthoMatrix(float right, float left, float top, float valueott
 }
 
 inline Mat4 Mat4::operator+(const Mat4& other) const {
-	return Mat4();
+  Mat4 ret;
+  for (int i = 0; i < 16; i++)
+  {
+    ret.m[i] = m[i] + other.m[i];
+  }
+  return ret;
 }
 
 inline Mat4& Mat4::operator+=(const Mat4& other) {
-	return (*this);
+  for (int i = 0; i < 16; i++)
+  {
+    this->m[i] += other.m[i];
+  }
+  return (*this);
 }
 
 inline Mat4 Mat4::operator+(float value) const {
-	return Mat4();
+  Mat4 ret;
+  for (int i = 0; i < 16; i++)
+  {
+    ret.m[i] = m[i] + value;
+  }
+  return ret;
 }
 
-inline Mat4& Mat4::operator+=(float value) {	
-	return (*this);
+inline Mat4& Mat4::operator+=(float value) {
+  for (int i = 0; i < 16; i++)
+  {
+    this->m[i] += value;
+  }
+  return (*this);
 }
 
 inline Mat4 Mat4::operator-(const Mat4& other) const  {
-	return Mat4();
+  Mat4 ret;
+  for (int i = 0; i < 16; i++)
+  {
+    ret.m[i] = m[i] - other.m[i];
+  }
+  return ret;
 }
 
 inline Mat4& Mat4::operator-=(const Mat4& other) {
-	return (*this);
+  for (int i = 0; i < 16; i++)
+  {
+    m[i] -= other.m[i];
+  }
+  return (*this);
 }
 
 inline Mat4 Mat4::operator-(float value) const  {
-	return Mat4();
+  Mat4 ret;
+  for (int i = 0; i < 16; i++)
+  {
+    ret.m[i] = m[i] - value;
+  }
+  return ret;
 }
 
 inline Mat4& Mat4::operator-=(float value) {
-	return (*this);
+  for (int i = 0; i < 16; i++)
+  {
+    m[i] -= value;
+  }
+  return (*this);
 }
 
 inline Mat4& Mat4::operator*=(float value) {
-	return (*this);
+  for (int i = 0; i < 16; i++)
+  {
+    m[i] *= value;
+  }
+  return (*this);
 }
 
 inline Mat4 Mat4::operator*(float value) const  {
-	return Mat4();
+  Mat4 ret;
+  for (int i = 0; i < 16; i++)
+  {
+    ret.m[i] = m[i] * value;
+  }
+  return ret;
 }
 
 inline Mat4& Mat4::operator/=(float value) {
-	return (*this);
+  for (int i = 0; i < 16; i++)
+  {
+    m[i] /= value;
+  }
+  return (*this);
 }
 
 inline Mat4 Mat4::operator/(float value) const {
-	return Mat4();
+  Mat4 ret;
+  for (int i = 0; i < 16; i++)
+  {
+    ret.m[i] = m[i] / value;
+  }
+  return ret;
 }
 
 inline bool Mat4::operator==(const Mat4& other) {
-	return true;
+  for (int i = 0; i < 16; i++)
+  {
+    if (this->m[i] != other.m[i])
+    {
+      return false;
+    }
+  }
+  return true;
 }
 
 inline bool Mat4::operator!=(const Mat4& other) {
-	return false;
+  for (int i = 0; i < 16; i++)
+  {
+    if (this->m[i] != other.m[i])
+    {
+      return true;
+    }
+  }
+  return false;
 }
 
 inline void Mat4::operator=(const Mat4& other) {
+  for (int i = 0; i < 16; i++)
+  {
+    m[i] = other.m[i];
+  }
 }
 
 #endif

@@ -172,11 +172,23 @@ inline Mat3& Mat3::operator/=(float value) {
 }
 
 inline bool Mat3::operator==(const Mat3& other) const {
+	for(int i = 0; i < 9; i++){
+		if(this->m[i] != other.m[i]){
+			return false;
+		}
+	}
 	return true;
 }
 
 inline bool Mat3::operator!=(const Mat3& other) const {
-	return true;
+	for (int i = 0; i < 9; i++)
+	{
+		if (this->m[i] != other.m[i])
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 inline void Mat3::operator=(const Mat3& other) {
@@ -186,11 +198,23 @@ inline void Mat3::operator=(const Mat3& other) {
 }
 
 inline Mat3 Mat3::Identity() {
-	return Mat3();
+	Mat3 ret_;
+	for(int i = 0; i < 9; i++)
+	{
+		if(i == 0 || i == 4 || i == 8){
+			ret_.m[i] = 1;
+		}else{
+			ret_.m[i] = 0;
+		}
+	}
+	
+	return ret_;
 }
 
 inline float Mat3::Determinant() const {
-	return 42.0f;
+	float ret_ = 42.0f;
+	
+	return ret_;
 }
 
 inline bool Mat3::GetInverse(Mat3& out) const {
@@ -207,6 +231,23 @@ inline Mat3 Mat3::Translate(const Vec2& mov_vector) {
 
 inline Mat3 Mat3::Translate(float x, float y) {
 	return Mat3();
+}
+Mat3 Mat3::Rotate(float rotation){
+	Mat3 result;
+	result = result.Identity();
+	float angle_cos = cosf(rotation);
+	float angle_sin = sinf(rotation);
+	result.m[0] = angle_cos;
+	result.m[3] = -angle_sin;
+	result.m[1] = angle_sin;
+	result.m[4] = angle_cos;
+}
+
+Mat3 Scale(const Vec2 &scale){
+
+}
+Mat3 Scale(float x, float y){
+
 }
 
 inline Mat3 Mat3::Multiply(const Mat3& other) const {
