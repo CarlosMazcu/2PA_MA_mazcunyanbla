@@ -261,7 +261,7 @@ inline Mat3 Mat3::Translate(float x, float y) {
 
 	return ret;
 }
-/* Mat3 Mat3::Rotate(float rotation){
+ inline Mat3 Mat3::Rotate(float rotation){
 	Mat3 result;
 	result = result.Identity();
 	float angle_cos = cosf(rotation);
@@ -274,15 +274,15 @@ inline Mat3 Mat3::Translate(float x, float y) {
 
 	return result;
 }
- */
-/* Mat3 Scale(const Vec2 &scale){
+ 
+/* inline Mat3 Scale(const Vec2 &scale){
 	return Mat3();
 
 }
-Mat3 Scale(float x, float y){
+inline Mat3 Scale(float x, float y){
 	return Mat3();
-}
- */
+} */
+ 
 inline Mat3 Mat3::Multiply(const Mat3& other) const {
 	Mat3 ret_;
 	for (int i = 0; i < 3; ++i)

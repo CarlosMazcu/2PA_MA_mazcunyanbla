@@ -9,8 +9,8 @@
 #include <esat/input.h>
 #include <esat/time.h>
 
-#include "gtexture.h"
-
+#include "path.h"
+#include "entity.h"
 
 void RenderFPS() {
   static double last_time = esat::Time();
@@ -29,16 +29,44 @@ void RenderFPS() {
 void Test() {
   esat::WindowInit(640, 480);
   esat::DrawSetTextFont("../data/test.ttf");
-  Texture tex;
-  tex.init("C:/Users/mazcunyanbla/Documents/Texture/test.png");
+
+  std::vector<Path> entities;
+  Path curretn_path;
+  float origin_x = 0.0f;
+  float origin_y = 0.0f;
+  bool is_drawing = false;
 
   esat::WindowSetMouseVisibility(true);
   while (esat::WindowIsOpened() && !esat::IsSpecialKeyDown(esat::kSpecialKey_Escape)) {
+    //Input
+    float x = esat::MousePositionX();
+    float y = esat::MousePositionY();
+
+    //Update
+    if(true == esat::MouseButtonDown(0)){
+      if(false==is_drawing){
+        is_drawing = true;
+        curretn_path.addVertex({x, y});
+        origin_x = x;
+        origin_y = y;
+      }else{//true == is_drawing
+        is_drawing = false;
+        curretn_path.addVertex({x, origin_y});
+        curretn_path.addVertex({x, y});
+        curretn_path.addVertex({origin_x, y});
+        entities.push_back(curretn_path);
+        curretn_path = Path();//TODO Implement path reset
+      }
+    }
+    //Draw
     esat::DrawBegin();
     esat::DrawClear(0, 0, 0);
+    for(int i = 0; i < entities.size(); i++){
+      entities[i].draw();
+    }
     // single line...
-    esat::DrawSetStrokeColor(255, 255, 255);
-    RenderFPS();
+    //esat::DrawSetStrokeColor(255, 255, 255);
+    //RenderFPS();
     esat::DrawEnd();
     esat::WindowFrame();
   }

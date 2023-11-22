@@ -28,7 +28,10 @@ void Path::set_stroke_color(const Vec4& color){
 
 void Path::set_fill_color(const Vec4& color)
 {
-  //TODO
+  fill_color_.x = MathUtils::Clamp(color.x, 0.0f, 255.0f);
+  fill_color_.y = MathUtils::Clamp(color.y, 0.0f, 255.0f);
+  fill_color_.z = MathUtils::Clamp(color.z, 0.0f, 255.0f);
+  fill_color_.w = MathUtils::Clamp(color.w, 0.0f, 255.0f);
 }
 
 Vec4 Path::stroke_color() const
@@ -47,6 +50,8 @@ void Path::addVertex(const Vec2& v)
 
 void Path::draw(){
   if(true == enable_){
+    if( 0 == vertices_.size())
+    {
     //colors
     esat::DrawSetStrokeColor((unsigned char) stroke_color_.x,
                               (unsigned char) stroke_color_.y,
@@ -76,7 +81,8 @@ void Path::draw(){
     esat::DrawSolidPath((float*)transformed.data(), transformed.size(), true);
   }else{
     esat::DrawPath((float *)transformed.data(), transformed.size());
-  }
+       }
+    }
   }
 }
 

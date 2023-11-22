@@ -1,6 +1,6 @@
-/*
-
-*/
+//@file entity.h
+//@brief Base class for Entity
+//@author
 
 #ifndef __ENTITY_H__
 #define __ENTITY_H_ 1

@@ -1,6 +1,10 @@
 /*
 */
 
+//@file path.h
+//@brief Base class for Path
+//@author
+
 #ifndef __PATH_H__
 #define __PATH_H__ 1
 
