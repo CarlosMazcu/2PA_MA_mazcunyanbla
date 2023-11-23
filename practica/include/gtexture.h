@@ -9,9 +9,10 @@
 
 #include "esat/sprite.h"
 
+const unsigned int kMaxTextures = 16;
+
 class Texture{
  public:
-  Texture();
   ~Texture();
   
   void init(const char* fname);
@@ -23,14 +24,17 @@ class Texture{
   esat::SpriteHandle getSubSprite(int x, int y, int w, int h) const;
 
   void release();
+  static Texture *TextureFactory(int w, int h, uint8_t *data);
+  static Texture *TextureFactory(const char *fname);
+  static int total_textures;
 
- protected:
+protected:
   esat::SpriteHandle handle_; //for the atlas/entire texture
 
  private:
- Texture(const Texture& other) {}
-
+  Texture();
 
 };
+
 
 #endif

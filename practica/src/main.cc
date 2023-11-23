@@ -10,6 +10,7 @@
 #include <esat/time.h>
 
 #include "gtexture.h"
+#include "game_manager.h"
 
 
 void RenderFPS() {
@@ -29,8 +30,8 @@ void RenderFPS() {
 void Test() {
   esat::WindowInit(640, 480);
   esat::DrawSetTextFont("../data/test.ttf");
-  Texture tex;
-  tex.init("C:/Users/mazcunyanbla/Documents/Texture/test.png");
+  Texture *tex =Texture::TextureFactory("../data/texture.png");
+
 
   esat::WindowSetMouseVisibility(true);
   while (esat::WindowIsOpened() && !esat::IsSpecialKeyDown(esat::kSpecialKey_Escape)) {

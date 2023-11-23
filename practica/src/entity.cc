@@ -4,6 +4,8 @@
 
 #include "entity.h"
 
+uint64_t Entity::next_id_ = 0;
+
 Entity::Entity()
 {
   tag_ = 0;
@@ -11,6 +13,8 @@ Entity::Entity()
   position_ = {0.0f, 0.0f};
   rotation_ = 0.0f;
   scale_ = {1.0f, 1.0f};
+  id_ = Entity::next_id_;
+  Entity::next_id_ ++;
 }
 
 
@@ -21,6 +25,8 @@ Entity::Entity(const Entity& copy)
   position_ = copy.position_;
   rotation_ = copy.rotation_;
   scale_ = copy.scale_;
+  id_ = Entity::next_id_;
+  Entity::next_id_++;
 }
 
 Entity::Entity(int tag, bool enable, Vec2 pos, float rot, Vec2 scale) 
@@ -67,4 +73,8 @@ float Entity::rotation() const
 Vec2 Entity::scale() const
 {
     return scale_;
+}
+
+uint64_t Entity::id() const{
+  return id_;
 }

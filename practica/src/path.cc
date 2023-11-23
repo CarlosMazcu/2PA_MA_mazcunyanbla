@@ -1,6 +1,7 @@
 #include "path.h"
 #include "esat/draw.h"
-#include "matrix_3.h"
+#include "../deps/math_library/include/matrix_3.h"
+#include "../deps/math_library/include/vector_4.h"
 #include "math_utils.h"
 
 Path::Path()

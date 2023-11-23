@@ -3,6 +3,8 @@
 //@author
 #include "gtexture.h"
 
+int Texture::total_textures = 0;
+
 Texture::Texture(){
   handle_ = nullptr;
 }
@@ -11,6 +13,7 @@ Texture::~Texture(){
   if(nullptr != handle_){
     release();
   }
+  Texture::total_textures--;
 }
 
 void Texture::init(const char* fname){
@@ -66,5 +69,34 @@ void Texture::release(){
   if(nullptr != handle_){
     esat::SpriteRelease(handle_);
     handle_ = nullptr;
+  }
+}
+
+Texture *Texture::TextureFactory(int w, int h, uint8_t *data)
+{
+  if(Texture::total_textures < kMaxTextures)
+  {
+    Texture* p_texture = new Texture();
+    p_texture->init(w, h, data);
+    Texture::total_textures++;
+    return p_texture;
+  }else
+  {
+    return nullptr;
+  }
+}
+
+Texture *Texture::TextureFactory(const char *fname)
+{
+  if (Texture::total_textures < kMaxTextures)
+  {
+    Texture *p_texture = new Texture();
+    p_texture->init(fname);
+    Texture::total_textures++;
+    return p_texture;
+  }
+  else
+  {
+    return nullptr;
   }
 }

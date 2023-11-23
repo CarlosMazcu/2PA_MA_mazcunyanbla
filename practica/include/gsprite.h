@@ -8,10 +8,8 @@
 #include "esat/sprite.h"
 #include "entity.h"
 #include "gtexture.h"
-#include "vector_2.h"
-#include "matrix_3.h"
-
-
+#include "../deps/math_library/include/vector_2.h"
+#include "../deps/math_library/include/matrix_3.h"
 
 class Sprite : public Entity
 {

@@ -146,8 +146,10 @@ inline float Vec3::Distance(const Vec3& a, const Vec3& b) {
 }
 
 inline Vec3 Vec3::Reflect(const Vec3& direction, const Vec3& normal) {
-	Vec3 reflected /* = direction - 2.0f * DotProduct(direction, normal) * normal */;
-	return reflected;
+	float dotProduct = 2.0f * Vec3::DotProduct(direction, normal);
+	Vec3 reflectionTerm = normal * dotProduct;
+	Vec3 reflectedVector = direction - reflectionTerm;
+	return reflectedVector;
 }
 
 inline Vec3 Vec3::operator+(const Vec3& other) const {
