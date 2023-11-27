@@ -28,9 +28,9 @@ class Entity{
     //attributes
     int tag_;
     bool enable_;
+    Vec2 position_;
 
   protected:
-    Vec2 position_;
     float rotation_;
     Vec2 scale_;
 

@@ -26,9 +26,9 @@ class Sprite : public Entity
   void draw();
 
   void release();
+  
  protected:
  esat::SpriteHandle handle_;
-        
 };
     
     

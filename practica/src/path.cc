@@ -2,7 +2,7 @@
 #include "esat/draw.h"
 #include "../deps/math_library/include/matrix_3.h"
 #include "../deps/math_library/include/vector_4.h"
-#include "math_utils.h"
+#include "../deps/math_library/include/math_utils.h"
 
 Path::Path()
 {

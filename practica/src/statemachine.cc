@@ -1,6 +1,6 @@
 
 
-#include "window.h"
+#include "statemachine.h"
 
 void welcomeWindow(TMachine *conf){
   ImGui::SetNextWindowSize(ImVec2(300, 400));
@@ -17,7 +17,7 @@ void welcomeWindow(TMachine *conf){
   ImGui::Separator();
   ImGui::Spacing();
   ImGui::SameLine(0.0f, 90.0f);
-  if (ImGui::Button("Transfor,", ImVec2(100.0f, 20.0f)))
+  if (ImGui::Button("Transform", ImVec2(100.0f, 20.0f)))
   {
 
   }

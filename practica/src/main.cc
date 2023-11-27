@@ -9,8 +9,7 @@
 #include <esat/input.h>
 #include <esat/time.h>
 
-#include "window.h"
-
+#include "statemachine.h"
 
 void RenderFPS() {
   static double last_time = esat::Time();

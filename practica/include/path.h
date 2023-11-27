@@ -12,6 +12,8 @@
 #include "entity.h"
 
 #include "../deps/math_library/include/vector_4.h"
+#include "math_utils.h"
+
 
 class Path : public Entity
 {
