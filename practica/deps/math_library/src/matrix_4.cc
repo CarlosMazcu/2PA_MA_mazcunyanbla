@@ -13,6 +13,7 @@ Mat4::Mat4(float array[16]) {
 	}
 }
 
+
 Mat4::Mat4(float value) {
 	for (int i = 0; i < 16; ++i) {
 		m[i] = value;

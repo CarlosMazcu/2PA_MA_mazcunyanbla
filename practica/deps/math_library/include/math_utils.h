@@ -16,15 +16,6 @@ inline MathUtils::MathUtils(const MathUtils& copy) {}
 inline MathUtils::~MathUtils(){}
 
 inline float MathUtils::Clamp(float value, float minVal, float maxVal) {
-	
-	if(value > maxVal){
-		return maxVal;
-	}
-
-	if(value < minVal)
-	{
-		return minVal;
-	}
-	return value;
+	return 0.0f;
 }
 #endif

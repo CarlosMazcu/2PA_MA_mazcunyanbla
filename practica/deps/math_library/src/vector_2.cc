@@ -17,6 +17,7 @@ Vec2::Vec2(float x, float y) {
 	this->y = y;
 }
 
+
 Vec2::Vec2(const Vec2& other) {
 	x = other.x;
 	y = other.y;

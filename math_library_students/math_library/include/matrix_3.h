@@ -237,7 +237,8 @@ inline bool Mat3::GetInverse(Mat3& out) const {
 
 inline bool Mat3::Inverse(){
 	if(this->Determinant() != 0){
-
+		
+		*this = (this->Adjoint().Transpose() / this->Determinant());
 		return true;
 	}
 	return false;
@@ -275,13 +276,23 @@ inline Mat3 Mat3::Translate(float x, float y) {
 	return result;
 }
  
-/* inline Mat3 Scale(const Vec2 &scale){
-	return Mat3();
-
+inline Mat3 Mat3::Scale(const Vec2 &scale){
+	Mat3 result;
+	result = result.Identity();
+	result.m[0] *= scale.x;
+	result.m[4] *= scale.y;
+	result.m[8] = 1.0f;
+	return result;
 }
-inline Mat3 Scale(float x, float y){
-	return Mat3();
-} */
+inline Mat3 Mat3::Scale(float x, float y){
+	Mat3 result;
+	result = result.Identity();
+	result.m[0] *= x;
+	result.m[4] *= y;
+	result.m[8] = 1.0f;
+
+	return result;
+}
  
 inline Mat3 Mat3::Multiply(const Mat3& other) const {
 	Mat3 ret_;

@@ -15,6 +15,7 @@ Vec3::Vec3() {
 	z = 0.0f;
 }
 
+
 Vec3::Vec3(float a, float b, float c) {
 	this->x = a;
 	this->y = b;

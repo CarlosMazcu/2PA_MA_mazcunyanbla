@@ -7,6 +7,7 @@ Mat3::Mat3() {
   m[6] = 0.0f; m[7] = 0.0f; m[8] = 0.0f;
 }
 
+
 Mat3::Mat3(float value) {
   m[0] = value; m[1] = value; m[2] = value;
   m[3] = value; m[4] = value; m[5] = value;

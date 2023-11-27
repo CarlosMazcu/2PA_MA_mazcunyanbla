@@ -5,6 +5,12 @@
 #include "vector_4.h"
 #include "matrix_3.h"
 
+/*
+[0]  [1]  [2]  [3]
+[4]  [5]  [6]  [7]
+[8]  [9]  [10] [11]
+[12] [13] [14] [15]
+*/
 class Mat4 {
  public:
 
@@ -21,7 +27,7 @@ class Mat4 {
   Mat4 Adjoint() const;
 
   Vec4 TransformVec4(const Vec4 &v);
-	Vec3 TransformVec3(const Vec3 &r);
+  Vec3 TransformVec3(const Vec3 &r);
 
   bool GetInverse(Mat4* out) const;
   bool Inverse();
@@ -94,87 +100,70 @@ inline Mat4 Mat4::Identity() {
 }
 
 inline Mat4 Mat4::Multiply(const Mat4& other)const  {
+  Mat4 result;
 
-  //CORREGIR
-  Mat4 ret_;
-
-  for (int i = 0; i < 4; ++i)
+  for (int col = 0; col < 4; ++col)
   {
-    for (int j = 0; j < 4; ++j)
+    for (int row = 0; row < 4; ++row)
     {
-      ret_.m[i * 4 + j] = 0.0f;
-      for (int k = 0; k < 4; ++k)
-      {
-        ret_.m[i * 4 + j] += m[i * 4 + k] * other.m[k * 4 + j];
-      }
+      result.m[col * 4 + row] =
+          m[row] * other.m[col * 4] +
+          m[row + 4] * other.m[col * 4 + 1] +
+          m[row + 8] * other.m[col * 4 + 2] +
+          m[row + 12] * other.m[col * 4 + 3];
     }
   }
 
-  return ret_;
+  return result;
 }
 
 inline float Mat4::Determinant() const {
 	
-	float ret_;
-	ret_ = (m[0] * m[5] * m[10] * m[15]) + (m[1] * m[6] * m[11] * m[12]) + (m[4] * m[9] * m[14] * m[3]) + (m[2] * m[7] * m[8] * m[13]) 
-        - (m[3] * m[6] * m[9] * m[12]) - (m[8] * m[5] * m[2] * m[15]) - (m[13] * m[10] * m[7] * m[0]) - (m[4] * m[1] * m[11] * m[14]);
-	
-	return ret_;
+float det = 0.0f;
+
+det += m[0] * (m[5] * (m[10] * m[15] - m[14] * m[11]) -
+                      m[6] * (m[9] * m[15] - m[13] * m[11]) +
+                      m[7] * (m[9] * m[14] - m[13] * m[10]));
+
+det -= m[1] * (m[4] * (m[10] * m[15] - m[14] * m[11]) -
+                      m[6] * (m[8] * m[15] - m[12] * m[11]) +
+                      m[7] * (m[8] * m[14] - m[12] * m[10]));
+
+det += m[2] * (m[4] * (m[9] * m[15] - m[13] * m[11]) -
+                      m[5] * (m[8] * m[15] - m[12] * m[11]) +
+                      m[7] * (m[8] * m[13] - m[12] * m[9]));
+
+det -= m[3] * (m[4] * (m[9] * m[14] - m[13] * m[10]) -
+                      m[5] * (m[8] * m[14] - m[12] * m[10]) +
+                      m[6] * (m[8] * m[13] - m[12] * m[9]));
+
+return det;
 }
 
 inline Mat4 Mat4::Adjoint() const {
-	Mat4 adjoint;
+  Mat4 adjoint;
 
-  adjoint.m[0]  = ((m[5] * m[10] * m[15]) + (m[6] * m[11] * m[13]) + (m[9] * m[14] * m[7])) -
-			((m[13] * m[10] * m[7]) + (m[9] * m[6] * m[15]) + (m[14] * m[11] * m[5]));//+
+  adjoint.m[0] = m[5] * (m[10] * m[15] - m[11] * m[14]) - m[9] * (m[6] * m[15] - m[7] * m[14]) + m[13] * (m[6] * m[11] - m[7] * m[10]);
+  adjoint.m[4] = -(m[4] * (m[10] * m[15] - m[11] * m[14]) - m[8] * (m[6] * m[15] - m[7] * m[14]) + m[12] * (m[6] * m[11] - m[7] * m[10]));
+  adjoint.m[8] = m[4] * (m[9] * m[15] - m[11] * m[13]) - m[8] * (m[5] * m[15] - m[7] * m[13]) + m[12] * (m[5] * m[11] - m[7] * m[9]);
+  adjoint.m[12] = -(m[4] * (m[9] * m[14] - m[10] * m[13]) - m[8] * (m[5] * m[14] - m[6] * m[13]) + m[12] * (m[5] * m[10] - m[6] * m[9]));
 
-  adjoint.m[1]  = ((m[4] * m[10] * m[15]) + (m[6] * m[11] * m[12]) + (m[8] * m[14] * m[7])) -
-			((m[12] * m[10] * m[7]) + (m[8] * m[6] * m[15]) + (m[14] * m[11] * m[4])) * (-1);//-
+  adjoint.m[1] = -(m[1] * (m[10] * m[15] - m[11] * m[14]) - m[9] * (m[2] * m[15] - m[3] * m[14]) + m[13] * (m[2] * m[11] - m[3] * m[10]));
+  adjoint.m[5] = m[0] * (m[10] * m[15] - m[11] * m[14]) - m[8] * (m[2] * m[15] - m[3] * m[14]) + m[12] * (m[2] * m[11] - m[3] * m[10]);
+  adjoint.m[9] = -(m[0] * (m[9] * m[15] - m[11] * m[13]) - m[8] * (m[1] * m[15] - m[3] * m[13]) + m[12] * (m[1] * m[11] - m[3] * m[9]));
+  adjoint.m[13] = m[0] * (m[9] * m[14] - m[10] * m[13]) - m[8] * (m[1] * m[14] - m[2] * m[13]) + m[12] * (m[1] * m[10] - m[2] * m[9]);
 
-  adjoint.m[2]  = ((m[4] * m[9] * m[15]) + (m[5] * m[11] * m[12]) + (m[8] * m[13] * m[7])) -
-			((m[12] * m[9] * m[7]) + (m[8] * m[5] * m[15]) + (m[13] * m[11] * m[4]));//+
+  adjoint.m[2] = m[1] * (m[6] * m[15] - m[7] * m[14]) - m[5] * (m[2] * m[15] - m[3] * m[14]) + m[13] * (m[2] * m[7] - m[3] * m[6]);
+  adjoint.m[6] = -(m[0] * (m[6] * m[15] - m[7] * m[14]) - m[4] * (m[2] * m[15] - m[3] * m[14]) + m[12] * (m[2] * m[7] - m[3] * m[6]));
+  adjoint.m[10] = m[0] * (m[5] * m[15] - m[7] * m[13]) - m[4] * (m[1] * m[15] - m[3] * m[13]) + m[12] * (m[1] * m[7] - m[3] * m[5]);
+  adjoint.m[14] = -(m[0] * (m[5] * m[14] - m[6] * m[13]) - m[4] * (m[1] * m[14] - m[2] * m[13]) + m[12] * (m[1] * m[6] - m[2] * m[5]));
 
-  adjoint.m[3]  = ((m[4] * m[9] * m[14]) + (m[5] * m[10] * m[12]) + (m[8] * m[13] * m[6])) -
-			((m[12] * m[9] * m[6]) + (m[8] * m[5] * m[14]) + (m[13] * m[10] * m[4])) * (-1);//-
-//----------------------------------------------------------------------------------------
-  adjoint.m[4]  = ((m[1] * m[10] * m[15]) + (m[2] * m[11] * m[13]) + (m[9] * m[14] * m[3])) -
-			((m[13] * m[10] * m[3]) + (m[9] * m[2] * m[15]) + (m[14] * m[11] * m[1])) * (-1);//-
+  adjoint.m[3] = -(m[1] * (m[6] * m[11] - m[7] * m[10]) - m[5] * (m[2] * m[11] - m[3] * m[10]) + m[9] * (m[2] * m[7] - m[3] * m[6]));
+  adjoint.m[7] = m[0] * (m[6] * m[11] - m[7] * m[10]) - m[4] * (m[2] * m[11] - m[3] * m[10]) + m[8] * (m[2] * m[7] - m[3] * m[6]);
+  adjoint.m[11] = -(m[0] * (m[5] * m[11] - m[7] * m[9]) - m[4] * (m[1] * m[11] - m[3] * m[9]) + m[8] * (m[1] * m[7] - m[3] * m[5]));
+  adjoint.m[15] = m[0] * (m[5] * m[10] - m[6] * m[9]) - m[4] * (m[1] * m[10] - m[2] * m[9]) + m[8] * (m[1] * m[6] - m[2] * m[5]);
 
-  adjoint.m[5]  = ((m[0] * m[10] * m[15]) + (m[2] * m[11] * m[12]) + (m[8] * m[14] * m[3])) -
-			((m[12] * m[10] * m[3]) + (m[8] * m[2] * m[15]) + (m[14] * m[11] * m[0]));//+
-
-  adjoint.m[6]  = ((m[0] * m[9] * m[15]) + (m[1] * m[11] * m[12]) + (m[8] * m[13] * m[3])) -
-			((m[12] * m[9] * m[3]) + (m[8] * m[1] * m[15]) + (m[13] * m[11] * m[0]))  * (-1);//-
-
-  adjoint.m[7]  = ((m[0] * m[9] * m[14]) + (m[1] * m[10] * m[12]) + (m[8] * m[13] * m[2])) -
-			((m[12] * m[9] * m[2]) + (m[8] * m[1] * m[14]) + (m[13] * m[10] * m[0]));//+
-//----------------------------------------------------------------------------------------
-  adjoint.m[8]  = ((m[1] * m[6] * m[15]) + (m[2] * m[7] * m[13]) + (m[5] * m[14] * m[3])) -
-			((m[13] * m[6] * m[3]) + (m[5] * m[2] * m[15]) + (m[14] * m[7] * m[1]));//+
-
-  adjoint.m[9]  = ((m[0] * m[6] * m[15]) + (m[2] * m[7] * m[12]) + (m[4] * m[14] * m[3])) -
-			((m[12] * m[6] * m[3]) + (m[4] * m[2] * m[15]) + (m[14] * m[7] * m[0])) * (-1);//-
-
-  adjoint.m[10] = ((m[0] * m[5] * m[15]) + (m[1] * m[7] * m[12]) + (m[4] * m[13] * m[3])) -
-			((m[12] * m[5] * m[3]) + (m[4] * m[1] * m[15]) + (m[13] * m[7] * m[0]));//+
-
-  adjoint.m[11] = ((m[0] * m[5] * m[14]) + (m[1] * m[6] * m[12]) + (m[4] * m[13] * m[2])) -
-			((m[12] * m[5] * m[2]) + (m[4] * m[1] * m[14]) + (m[13] * m[6] * m[0])) * (-1);//-
-//----------------------------------------------------------------------------------------
-  adjoint.m[12] = ((m[1] * m[6] * m[11]) + (m[2] * m[7] * m[9]) + (m[5] * m[10] * m[3])) -
-			((m[9] * m[6] * m[3]) + (m[5] * m[2] * m[11]) + (m[10] * m[7] * m[1])) * (-1);//-
-
-  adjoint.m[13] = ((m[0] * m[6] * m[11]) + (m[2] * m[7] * m[8]) + (m[4] * m[10] * m[3])) -
-			((m[8] * m[6] * m[3]) + (m[4] * m[2] * m[11]) + (m[10] * m[7] * m[0]));//+
-
-  adjoint.m[14] = ((m[0] * m[5] * m[11]) + (m[1] * m[7] * m[8]) + (m[4] * m[9] * m[3])) -
-			((m[8] * m[5] * m[3]) + (m[4] * m[1] * m[11]) + (m[9] * m[7] * m[0])) * (-1);//-
-
-  adjoint.m[15] = ((m[0] * m[5] * m[10]) + (m[1] * m[6] * m[8]) + (m[4] * m[9] * m[2])) -
-			((m[8] * m[5] * m[2]) + (m[4] * m[1] * m[10]) + (m[9] * m[6] * m[0]));//+
-//----------------------------------------------------------------------------------------
   return adjoint;
-    
 }
 
 inline Vec4 Mat4::TransformVec4(const Vec4 &v) {
@@ -203,13 +192,38 @@ inline Vec3 Mat4::TransformVec3(const Vec3 &r) {
   return k;
 }
 
-inline bool Mat4::Inverse() {
-	return true;
+inline bool Mat4::Inverse()
+{
+  Mat4 inverse;
+  if (GetInverse(&inverse))
+  {
+    for (int i = 0; i < 16; ++i)
+    {
+      m[i] = inverse.m[i];
+    }
+    return true;
+  }
+  else
+  {
+    return false;
+  }
 }
 
 inline bool Mat4::GetInverse(Mat4* out) const {
-	return true;
+  float det = Determinant();
 
+  if (det == 0.0f)
+  {
+
+   return false;
+  }
+  Mat4 adjoint = Adjoint();
+  for (int i = 0; i < 16; ++i)
+  {
+   out->m[i] = adjoint.m[i] / det;
+  }
+
+  return true;  
 }
 
 inline Mat4 Mat4::Transpose() const {
@@ -238,11 +252,18 @@ inline Mat4 Mat4::Translate(const Vec3& distance){
 
 inline Mat4 Mat4::Translate(float x, float y, float z){
 //corregir
-  Mat4 ret = Identity();
-  ret.m[12] = x;
-  ret.m[13] = y;
-  ret.m[14] = z;
-  return ret;
+Mat4 translationMatrix;
+
+translationMatrix.m[0] = 1.0f;
+translationMatrix.m[5] = 1.0f;
+translationMatrix.m[10] = 1.0f;
+translationMatrix.m[15] = 1.0f;
+
+translationMatrix.m[3] = x;
+translationMatrix.m[7] = y;
+translationMatrix.m[11] = z;
+
+return translationMatrix;
 }
 
 inline Mat4 Mat4::Scale(const Vec3& scale){
@@ -356,14 +377,31 @@ inline Mat4 Mat4::GetTransform(const Vec3& translate,
 								const Vec3& scale,
 								float rotateX, float rotateY,
 								float rotateZ)   {
-	return Mat4();
+  Mat4 translationMatrix = Translate(translate.x, translate.y, translate.z);
+  Mat4 scaleMatrix = Scale(scale.x, scale.y, scale.z);
+  Mat4 rotationXMatrix = RotateX(rotateX);
+  Mat4 rotationYMatrix = RotateY(rotateY);
+  Mat4 rotationZMatrix = RotateZ(rotateZ);
+
+  // Realiza las transformaciones en el orden deseado
+  Mat4 transformationMatrix = translationMatrix.Multiply(scaleMatrix).Multiply(rotationXMatrix).Multiply(rotationYMatrix).Multiply(rotationZMatrix);
+
+  return transformationMatrix;
 }
 
 inline Mat4 Mat4::GetTransform(float trans_x, float trans_y, float trans_z,
 	float scale_x, float scale_y, float scale_Z,
 	float rotateX, float rotateY, float rotateZ)  {
-	
-	return Mat4();
+  Mat4 translationMatrix = Translate(trans_x, trans_y, trans_z);
+  Mat4 scaleMatrix = Scale(scale_x, scale_y, scale_Z);
+  Mat4 rotationXMatrix = RotateX(rotateX);
+  Mat4 rotationYMatrix = RotateY(rotateY);
+  Mat4 rotationZMatrix = RotateZ(rotateZ);
+
+  // Realiza las transformaciones en el orden deseado
+  Mat4 transformationMatrix = translationMatrix.Multiply(scaleMatrix).Multiply(rotationXMatrix).Multiply(rotationYMatrix).Multiply(rotationZMatrix);
+
+  return transformationMatrix;
 }
 
 inline Vec4 Mat4::GetColumn(int colum) const {
