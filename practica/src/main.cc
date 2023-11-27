@@ -9,8 +9,7 @@
 #include <esat/input.h>
 #include <esat/time.h>
 
-#include "gtexture.h"
-#include "game_manager.h"
+#include "window.h"
 
 
 void RenderFPS() {
@@ -30,14 +29,14 @@ void RenderFPS() {
 void Test() {
   esat::WindowInit(640, 480);
   esat::DrawSetTextFont("../data/test.ttf");
-  Texture *tex =Texture::TextureFactory("../data/texture.png");
-
+  TMachine config;
 
   esat::WindowSetMouseVisibility(true);
-  while (esat::WindowIsOpened() && !esat::IsSpecialKeyDown(esat::kSpecialKey_Escape)) {
+  while (esat::WindowIsOpened() && !esat::IsSpecialKeyDown(esat::kSpecialKey_Escape) ||
+        esat::WindowIsOpened() && config.exit == true ){
     esat::DrawBegin();
     esat::DrawClear(0, 0, 0);
-    // single line...
+   
     esat::DrawSetStrokeColor(255, 255, 255);
     RenderFPS();
     esat::DrawEnd();
