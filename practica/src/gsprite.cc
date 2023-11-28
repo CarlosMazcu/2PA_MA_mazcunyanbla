@@ -34,6 +34,14 @@ void Sprite::init(const Texture& texture, int x, int y, int w, int h){
   handle_ = texture.getSubSprite(x,y,w,h);
 }
 
+void Sprite::init(const char* fname){
+  if(nullptr != handle_)
+  {
+    release();
+  }
+  handle_ = esat::SpriteFromFile(fname);
+}
+
 int Sprite::width() const
 {
   if(nullptr != handle_){

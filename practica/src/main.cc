@@ -1,15 +1,5 @@
-#include <cmath>
-#include <sstream>
-#include <iostream>
-#include <iomanip>
+#include "include.h"
 
-#include <esat/window.h>
-#include <esat/draw.h>
-#include <esat/sprite.h>
-#include <esat/input.h>
-#include <esat/time.h>
-
-#include "app_window.h"
 
 void RenderFPS() {
   static double last_time = esat::Time();
@@ -26,28 +16,24 @@ void RenderFPS() {
 
 
 void Test() {
-GameManager &GM = GameManager::Instance();
+  GameManager &GM = GameManager::Instance();
+  windowManager(0); 
   esat::WindowInit(640, 480);
   esat::DrawSetTextFont("../data/test.ttf");
-
+  Sprite sp0;
+  sp0.init("../data/parallax/mountains.png");
+  sp0.Entity::position_ = {0.0f, 0.0f};
   esat::WindowSetMouseVisibility(true);
   while (esat::WindowIsOpened() && !esat::IsSpecialKeyDown(esat::kSpecialKey_Escape) ||
-        esat::WindowIsOpened() && GM.exit == true ){
+        esat::WindowIsOpened() && GM.window_bool.exit == true ){
     esat::DrawBegin();
     esat::DrawClear(0, 0, 0);
     //HERE COMES GAME CLASS
-    if (GM.welcome)
-    {
-      welcomeWindow();
-    }
-    if(GM.credits)
-    {
-      creditsWindow();
-    }
+    sp0.draw();
     
-
+    stateMachine();
     esat::DrawSetStrokeColor(255, 255, 255);
-    RenderFPS();
+    /* RenderFPS(); */
     esat::DrawEnd();
     esat::WindowFrame();
   }

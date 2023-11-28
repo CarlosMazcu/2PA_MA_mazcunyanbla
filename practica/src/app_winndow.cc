@@ -9,63 +9,7 @@
  * 
  */
 #include "app_window.h"
-
-
-void welcomeWindow()
-{
-GameManager &GM = GameManager::Instance();
-    ImGui::SetNextWindowSize(ImVec2(300, 400));
-    ImGui::SetNextWindowPos(ImVec2(150, 200));
-
-    ImGui::Begin("WELCOME", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground);
-
-    ImGui::Spacing();
-    ImGui::SameLine(0.0f, 90.0f);
-    if (ImGui::Button("Parallax", ImVec2(100.0f, 20.0f)))
-    {
-    }
-    ImGui::Separator();
-    ImGui::Spacing();
-    ImGui::SameLine(0.0f, 90.0f);
-    if (ImGui::Button("Transform", ImVec2(100.0f, 20.0f)))
-    {
-    }
-    ImGui::Separator();
-    ImGui::Spacing();
-    ImGui::SameLine(0.0f, 90.0f);
-    if (ImGui::Button("[...]", ImVec2(100.0f, 20.0f)))
-    {
-    }
-    ImGui::Separator();
-    ImGui::Spacing();
-    ImGui::SameLine(0.0f, 90.0f);
-    if (ImGui::Button("Credits", ImVec2(100.0f, 20.0f)))
-    {
-        GM.window_bool.welcome = false;
-        // GM.credits = true;
-    }
-    for (int i = 0; i < 45; i++)
-    {
-        ImGui::Spacing();
-    }
-    ImGui::SameLine(0.0f, 90.0f);
-
-    if (ImGui::Button("Exit", ImVec2(100.0f, 20.0f)))
-    {
-        // GM.exit = true;
-    }
-    ImGui::End();
-}
-
-void creditsWindow()
-{
-    GameManager &GM = GameManager::Instance();
-    ImGui::SetNextWindowSize(ImVec2(300, 400));
-    ImGui::SetNextWindowPos(ImVec2(150, 200));
-    ImGui::Begin("CREDITS", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground);
-
-    ImGui::End();
-}
+/* #include "gsprite.h" */
 
 
 void windowManager(int n)
@@ -111,4 +55,98 @@ void windowManager(int n)
     default:
         break;
     }
+}
+
+void welcomeWindow()
+{
+    GameManager &GM = GameManager::Instance();
+    ImGui::SetNextWindowSize(ImVec2(300, 400));
+    ImGui::SetNextWindowPos(ImVec2(150, 200));
+
+    ImGui::Begin("WELCOME", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground);
+
+    ImGui::Spacing();
+    ImGui::SameLine(0.0f, 90.0f);
+    if (ImGui::Button("Parallax", ImVec2(100.0f, 20.0f)))
+    {
+       windowManager(2);
+
+    }
+    ImGui::Separator();
+    ImGui::Spacing();
+    ImGui::SameLine(0.0f, 90.0f);
+    if (ImGui::Button("Transform", ImVec2(100.0f, 20.0f)))
+    {
+    }
+    ImGui::Separator();
+    ImGui::Spacing();
+    ImGui::SameLine(0.0f, 90.0f);
+    if (ImGui::Button("[...]", ImVec2(100.0f, 20.0f)))
+    {
+    }
+    ImGui::Separator();
+    ImGui::Spacing();
+    ImGui::SameLine(0.0f, 90.0f);
+    if (ImGui::Button("Credits", ImVec2(100.0f, 20.0f)))
+    {
+        windowManager(1);
+        // GM.credits = true;
+    }
+    for (int i = 0; i < 10; i++)
+    {
+        ImGui::Spacing();
+    }
+    ImGui::SameLine(0.0f, 90.0f);
+
+    if (ImGui::Button("Exit", ImVec2(100.0f, 20.0f)))
+    {
+        windowManager(4);
+    }
+    ImGui::End();
+}
+
+void creditsWindow()
+{
+    GameManager &GM = GameManager::Instance();
+    ImGui::SetNextWindowSize(ImVec2(300, 400));
+    ImGui::SetNextWindowPos(ImVec2(150, 200));
+    ImGui::Begin("CREDITS", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground);
+    if (ImGui::Button("Return", ImVec2(100.0f, 20.0f)))
+    {
+       windowManager(0);
+    }
+    ImGui::End();
+}
+
+void parallaxWindow()
+{
+    GameManager &GM = GameManager::Instance();
+    ImGui::SetNextWindowSize(ImVec2(300, 400));
+    ImGui::SetNextWindowPos(ImVec2(150, 200));
+    ImGui::Begin("PARALLAX", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground);
+    if (ImGui::Button("Return", ImVec2(100.0f, 20.0f)))
+    {
+       windowManager(0);
+    }
+    ImGui::End();
+   
+}
+
+void stateMachine()
+{
+    GameManager &GM = GameManager::Instance();
+
+    if (GM.window_bool.welcome)
+    {
+      welcomeWindow();
+    }
+    if(GM.window_bool.credits)
+    {
+      creditsWindow();
+    }
+    if(GM.window_bool.parallax)
+    {
+      parallaxWindow();
+    }
+
 }

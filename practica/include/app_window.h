@@ -14,10 +14,16 @@
 
 #include "esat_extra/imgui.h"
 #include "game_manager.h"
+/* #include "gsprite.h" */
 
+void windowManager(int n);
 
 void welcomeWindow();
 
 void creditsWindow();
+
+void parallaxWindow();
+
+void stateMachine();
 
 #endif

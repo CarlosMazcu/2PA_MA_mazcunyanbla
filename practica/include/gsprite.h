@@ -22,6 +22,7 @@ class Sprite : public Entity
   int height() const;
 
   void init(const Texture& texture, int x, int y, int w, int h);
+  void init(const char *fname);
   
   void draw();
 
