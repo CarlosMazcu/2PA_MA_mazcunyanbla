@@ -9,11 +9,12 @@
  * 
  */
 
-#ifndef __WINDOW_CLASS__
-#define __WINDOW_CLASS__ 1
+#ifndef __APP_WINDOW__
+#define __APP_WINDOW__ 1
 
 #include "esat_extra/imgui.h"
 #include "game_manager.h"
+
 
 void welcomeWindow();
 

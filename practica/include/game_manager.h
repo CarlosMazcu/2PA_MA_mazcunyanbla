@@ -25,9 +25,22 @@ class GameManager{
     return *instance_;
   }
   // all globals go here
- 
-    bool welcome, parallax, transform, exit;
+  struct TWindow
+  {
+    bool welcome, parallax, transform, exit, credits;
+  };
   
+  TWindow window_bool;
+
+  enum
+  {
+    kWelcomeWindow = 0,
+    kParallaxWindow = 1,
+    kTransformWindow = 2,
+    kExitWindow = 3,
+    kCreditsWindow = 4,
+  };
+
  private:
   GameManager(){}; //this MAY change :)
   GameManager(const GameManager& other){};

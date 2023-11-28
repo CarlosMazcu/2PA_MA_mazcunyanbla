@@ -9,7 +9,7 @@
 #include <esat/input.h>
 #include <esat/time.h>
 
-#include "window_class.h"
+#include "app_window.h"
 
 void RenderFPS() {
   static double last_time = esat::Time();
@@ -39,6 +39,10 @@ GameManager &GM = GameManager::Instance();
     if (GM.welcome)
     {
       welcomeWindow();
+    }
+    if(GM.credits)
+    {
+      creditsWindow();
     }
     
 

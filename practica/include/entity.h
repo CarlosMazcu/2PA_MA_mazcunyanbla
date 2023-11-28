@@ -7,6 +7,8 @@
 
 #include "../deps/math_library/include/vector_2.h"
 #include <stdint.h>
+
+
 class Entity{
   public:
     Entity();
