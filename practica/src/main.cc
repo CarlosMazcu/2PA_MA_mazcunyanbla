@@ -9,7 +9,7 @@
 #include <esat/input.h>
 #include <esat/time.h>
 
-#include "statemachine.h"
+#include "window_class.h"
 
 void RenderFPS() {
   static double last_time = esat::Time();
@@ -26,16 +26,22 @@ void RenderFPS() {
 
 
 void Test() {
+GameManager &GM = GameManager::Instance();
   esat::WindowInit(640, 480);
   esat::DrawSetTextFont("../data/test.ttf");
-  TMachine config;
 
   esat::WindowSetMouseVisibility(true);
   while (esat::WindowIsOpened() && !esat::IsSpecialKeyDown(esat::kSpecialKey_Escape) ||
-        esat::WindowIsOpened() && config.exit == true ){
+        esat::WindowIsOpened() && GM.exit == true ){
     esat::DrawBegin();
     esat::DrawClear(0, 0, 0);
-   
+    //HERE COMES GAME CLASS
+    if (GM.welcome)
+    {
+      welcomeWindow();
+    }
+    
+
     esat::DrawSetStrokeColor(255, 255, 255);
     RenderFPS();
     esat::DrawEnd();
