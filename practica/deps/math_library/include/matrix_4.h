@@ -244,15 +244,15 @@ inline Mat4 Mat4::Transpose() const {
 inline Mat4 Mat4::Translate(const Vec3& distance){
 //corregir
   Mat4 ret = Identity();
-  ret.m[12] = distance.x;
-  ret.m[13] = distance.y;
-  ret.m[14] = distance.z;
+  ret.m[3] = distance.x;
+  ret.m[7] = distance.y;
+  ret.m[11] = distance.z;
   return ret;
 }
 
 inline Mat4 Mat4::Translate(float x, float y, float z){
 //corregir
-Mat4 translationMatrix;
+Mat4 translationMatrix = Identity();
 
 translationMatrix.m[0] = 1.0f;
 translationMatrix.m[5] = 1.0f;

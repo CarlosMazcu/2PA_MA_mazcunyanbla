@@ -3,6 +3,7 @@
 //
 
 #include "entity.h"
+#include "animation.h"
 
 uint64_t Entity::next_id_ = 0;
 
@@ -13,6 +14,8 @@ Entity::Entity()
   position_ = {0.0f, 0.0f};
   rotation_ = 0.0f;
   scale_ = {1.0f, 1.0f};
+  animation_ = nullptr;
+
   id_ = Entity::next_id_;
   Entity::next_id_ ++;
 }
@@ -25,6 +28,8 @@ Entity::Entity(const Entity& copy)
   position_ = copy.position_;
   rotation_ = copy.rotation_;
   scale_ = copy.scale_;
+  animation_ = nullptr;
+
   id_ = Entity::next_id_;
   Entity::next_id_++;
 }
@@ -38,6 +43,11 @@ Entity::Entity(int tag, bool enable, Vec2 pos, float rot, Vec2 scale)
     scale_ = scale;
 }
 
+Entity::~Entity()
+{
+  stopAnimation();
+}
+
 void Entity::init()
 {
   tag_ = 0;
@@ -45,6 +55,7 @@ void Entity::init()
   position_ = {0.0f, 0.0f};
   rotation_ = 0.0f;
   scale_ = {1.0f, 1.0f};
+  animation_ = nullptr;
     
 }
 
@@ -77,4 +88,31 @@ Vec2 Entity::scale() const
 
 uint64_t Entity::id() const{
   return id_;
+}
+
+void Entity::PlayAnimation(const AnimationConfig &ac)
+{
+  stopAnimation();
+  animation_ = new AnimationInstance(ac, this);
+}
+
+
+void Entity::update(float dt)
+{
+  if(true == enable_)
+  {
+    if(nullptr != animation_)
+    {
+      animation_->update(dt);
+    }
+  }
+}
+
+void Entity::stopAnimation()
+{
+  if(nullptr != animation_)
+  {
+    delete animation_;
+    animation_ = nullptr;
+  }
 }

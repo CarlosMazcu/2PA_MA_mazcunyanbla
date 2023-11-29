@@ -1,5 +1,5 @@
 /**
- * @file animtion.h
+ * @file animation.h
  * @author 
  * @brief 
  * @version 0.1
@@ -58,7 +58,7 @@ protected:
   //Movement related variables
   bool move_done_;
   float move_alpha_;
-  float move_elapsed;
+  float move_elapsed_;
   
 private:
   AnimationInstance(const AnimationInstance& other){}
