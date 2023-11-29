@@ -28,4 +28,14 @@ void parallaxWindow();
 
 void stateMachine();
 
+void themePurple();
+
+void themeLemonPie();
+
+void themeBoring();
+
+void darkTaronja();
+
+void themeBW();
+
 #endif
