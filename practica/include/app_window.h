@@ -16,6 +16,8 @@
 #include "game_manager.h"
 /* #include "gsprite.h" */
 
+void MainMenuBar();
+
 void windowManager(int n);
 
 void welcomeWindow();

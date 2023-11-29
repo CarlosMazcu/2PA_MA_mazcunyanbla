@@ -56,7 +56,18 @@ void windowManager(int n)
         break;
     }
 }
-
+void MainMenuBar()
+{
+    if(ImGui::BeginMainMenuBar()) 
+    {
+        if (ImGui::BeginMenu("Test"))
+        {
+            
+            ImGui::EndMenu();
+        }
+        ImGui::EndMainMenuBar();
+    }
+}
 void welcomeWindow()
 {
     GameManager &GM = GameManager::Instance();
@@ -67,7 +78,7 @@ void welcomeWindow()
 
     ImGui::Spacing();
     ImGui::SameLine(0.0f, 90.0f);
-    if (ImGui::Button("Parallax", ImVec2(100.0f, 20.0f)))
+    if (ImGui::Button("Start Animation", ImVec2(100.0f, 20.0f)))
     {
        windowManager(2);
 
@@ -75,18 +86,7 @@ void welcomeWindow()
     ImGui::Separator();
     ImGui::Spacing();
     ImGui::SameLine(0.0f, 90.0f);
-    if (ImGui::Button("Transform", ImVec2(100.0f, 20.0f)))
-    {
-    }
-    ImGui::Separator();
-    ImGui::Spacing();
-    ImGui::SameLine(0.0f, 90.0f);
-    if (ImGui::Button("[...]", ImVec2(100.0f, 20.0f)))
-    {
-    }
-    ImGui::Separator();
-    ImGui::Spacing();
-    ImGui::SameLine(0.0f, 90.0f);
+  
     if (ImGui::Button("Credits", ImVec2(100.0f, 20.0f)))
     {
         windowManager(1);
@@ -108,9 +108,11 @@ void welcomeWindow()
 void creditsWindow()
 {
     GameManager &GM = GameManager::Instance();
-    ImGui::SetNextWindowSize(ImVec2(300, 400));
-    ImGui::SetNextWindowPos(ImVec2(150, 200));
+    ImGui::SetNextWindowSize(ImVec2(600, 600));
+    ImGui::SetNextWindowPos(ImVec2(50,50));
     ImGui::Begin("CREDITS", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground);
+    
+    ImGui::Text("ESAT Academic Project made by Lucas Calatayud and Carlos Mazcuñan");
     if (ImGui::Button("Return", ImVec2(100.0f, 20.0f)))
     {
        windowManager(0);

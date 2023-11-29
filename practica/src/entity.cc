@@ -14,7 +14,7 @@ Entity::Entity()
   position_ = {0.0f, 0.0f};
   rotation_ = 0.0f;
   scale_ = {1.0f, 1.0f};
-  animation_ = nullptr;
+  // animation_ = nullptr;
 
   id_ = Entity::next_id_;
   Entity::next_id_ ++;
@@ -28,7 +28,7 @@ Entity::Entity(const Entity& copy)
   position_ = copy.position_;
   rotation_ = copy.rotation_;
   scale_ = copy.scale_;
-  animation_ = nullptr;
+  // animation_ = nullptr;
 
   id_ = Entity::next_id_;
   Entity::next_id_++;
@@ -43,21 +43,21 @@ Entity::Entity(int tag, bool enable, Vec2 pos, float rot, Vec2 scale)
     scale_ = scale;
 }
 
-Entity::~Entity()
-{
-  stopAnimation();
-}
+// Entity::~Entity()
+// {
+//   stopAnimation();
+// }
 
-void Entity::init()
-{
-  tag_ = 0;
-  enable_ = true;
-  position_ = {0.0f, 0.0f};
-  rotation_ = 0.0f;
-  scale_ = {1.0f, 1.0f};
-  animation_ = nullptr;
+// void Entity::init()
+// {
+//   tag_ = 0;
+//   enable_ = true;
+//   position_ = {0.0f, 0.0f};
+//   rotation_ = 0.0f;
+//   scale_ = {1.0f, 1.0f};
+//   // animation_ = nullptr;
     
-}
+// }
 
 void Entity::set_position(const Vec2& pos)
 {
@@ -90,29 +90,29 @@ uint64_t Entity::id() const{
   return id_;
 }
 
-void Entity::PlayAnimation(const AnimationConfig &ac)
-{
-  stopAnimation();
-  animation_ = new AnimationInstance(ac, this);
-}
+// void Entity::PlayAnimation(const AnimationConfig &ac)
+// {
+//   stopAnimation();
+//   animation_ = new AnimationInstance(ac, this);
+// }
 
 
-void Entity::update(float dt)
-{
-  if(true == enable_)
-  {
-    if(nullptr != animation_)
-    {
-      animation_->update(dt);
-    }
-  }
-}
+// void Entity::update(float dt)
+// {
+//   if(true == enable_)
+//   {
+//     if(nullptr != animation_)
+//     {
+//       animation_->update(dt);
+//     }
+//   }
+// }
 
-void Entity::stopAnimation()
-{
-  if(nullptr != animation_)
-  {
-    delete animation_;
-    animation_ = nullptr;
-  }
-}
+// void Entity::stopAnimation()
+// {
+//   if(nullptr != animation_)
+//   {
+//     delete animation_;
+//     animation_ = nullptr;
+//   }
+// }

@@ -1,0 +1,33 @@
+*CHARACTERS*
+
+Manektrik
+1.- x - 0   y - 0 w - 57 h - 46
+2.- x - 57  y - 0 w - 57 h - 46
+3.- x - 113 y - 0 w - 57 h - 46 
+4.- x - 175 y - 0 w - 57 h - 46
+
+Flygon
+x - 456 y - 0 w - 115 h - 40
+
+Volbeat
+1.- x - 236 y - 0 w - 24 h - 27
+2.- x - 266 y - 0 w - 30 h - 27
+
+Torchic Running
+1.- x - 301 y - 0 w - 17 h - 23
+2.- x - 324 y - 0 w - 16 h - 23
+3.- x - 344 y - 0 w - 16 h - 24
+4.- x - 364 y - 0 w - 19 h - 23
+
+Torchic fall
+1.- x - 389 y - 0 w - 24 h - 16
+2.- x - 418 y - 0 w - 24 h - 16 
+
+Grass (backgound)
+x - 12 y - 426 w - 240 h - 98
+
+trees 1
+x - 265 y - 409 w - 253 h - 43
+
+trees 2
+x - 526 y - 428 w - 220 h - 20 

@@ -1,6 +1,13 @@
-//@file gsprite.cc
-//@brief
-//@author
+/**
+ * @file gsprite.cc
+ * @author Lucas Calatayud (calatayudbri@esat-alumni.com)
+ * @brief 
+ * @version 0.1
+ * @date 2023-11-29
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 
 #include "gsprite.h"
 #include "vector_2.h"

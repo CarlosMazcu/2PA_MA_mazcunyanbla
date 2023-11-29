@@ -1,6 +1,13 @@
-//@file entity.h
-//@brief Base class for Entity
-//@author
+/**
+ * @file entity.h
+ * @author Lucas Calatayud (calatayudbri@esat-alumni.com)
+ * @brief 
+ * @version 0.1
+ * @date 2023-11-29
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 
 #ifndef __ENTITY_H__
 #define __ENTITY_H_ 1
@@ -8,7 +15,7 @@
 #include "../deps/math_library/include/vector_2.h"
 #include <stdint.h>
 
-struct AnimationConfig;
+// struct AnimationConfig;
 class AnimationInstance;
 
 class Entity{
@@ -16,12 +23,12 @@ class Entity{
     Entity();
     Entity(const Entity& copy);
     Entity(int tag, bool enable, Vec2 pos, float rot, Vec2 scale);
-    virtual ~Entity();
-    void init();
+    // virtual ~Entity();
+    // void init();
 
-    void PlayAnimation(const AnimationConfig &ac);
+    // void PlayAnimation(const AnimationConfig &ac);
 
-    void stopAnimation();
+    // void stopAnimation();
 
     void update(float dt);
 
@@ -44,7 +51,7 @@ class Entity{
   protected:
     float rotation_;
     Vec2 scale_;
-    AnimationInstance *animation_;
+    // AnimationInstance *animation_;
 
   private:
   uint64_t id_;
