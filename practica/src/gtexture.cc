@@ -2,6 +2,7 @@
 //@brief 
 //@author
 #include "gtexture.h"
+#include <stdio.h>
 
 int Texture::total_textures = 0;
 
@@ -33,6 +34,12 @@ void Texture::init(int w, int h, uint8_t *data)
   handle_ = esat::SpriteFromMemory(w, h , data);
 }
 
+void Texture::init(esat::SpriteHandle sp, int x, int y, int w, int h)
+{
+  handle_ = esat::SubSprite(sp, x, y, w, h);
+}
+
+
 int Texture::width()const{
   if(nullptr != handle_){
     return esat::SpriteWidth(handle_);
@@ -53,7 +60,7 @@ int Texture::height() const
   }
 }
 
-esat::SpriteHandle Texture::getSubSprite(int x, int y, int w, int h) const
+/* esat::SpriteHandle Texture::getSubSprite(int x, int y, int w, int h) const
 {
   if (nullptr != handle_)
   {
@@ -63,6 +70,12 @@ esat::SpriteHandle Texture::getSubSprite(int x, int y, int w, int h) const
   {
     return nullptr;
   }
+} */
+Texture Texture::getSubSprite(int x, int y, int w, int h) const
+{
+  Texture tr;
+  tr.init(handle_, x, y, w, h);
+  return tr; 
 }
 
 void Texture::release(){

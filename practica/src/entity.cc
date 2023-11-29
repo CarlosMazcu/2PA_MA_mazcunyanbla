@@ -48,16 +48,15 @@ Entity::Entity(int tag, bool enable, Vec2 pos, float rot, Vec2 scale)
 //   stopAnimation();
 // }
 
-// void Entity::init()
-// {
-//   tag_ = 0;
-//   enable_ = true;
-//   position_ = {0.0f, 0.0f};
-//   rotation_ = 0.0f;
-//   scale_ = {1.0f, 1.0f};
-//   // animation_ = nullptr;
-    
-// }
+void Entity::init()
+{
+  tag_ = 0;
+  enable_ = true;
+  position_ = {0.0f, 0.0f};
+  rotation_ = 0.0f;
+  scale_ = {1.0f, 1.0f};
+  // animation_ = nullptr; 
+}
 
 void Entity::set_position(const Vec2& pos)
 {

@@ -8,23 +8,23 @@
  * @copyright Copyright (c) 2023
  * 
  */
-
+#pragma once
 #ifndef __ENTITY_H__
-#define __ENTITY_H_ 1
+#define __ENTITY_H__ 1
 
 #include "../deps/math_library/include/vector_2.h"
 #include <stdint.h>
 
 // struct AnimationConfig;
-class AnimationInstance;
-
+/* class AnimationInstance;
+ */
 class Entity{
   public:
     Entity();
     Entity(const Entity& copy);
     Entity(int tag, bool enable, Vec2 pos, float rot, Vec2 scale);
     // virtual ~Entity();
-    // void init();
+    void init();
 
     // void PlayAnimation(const AnimationConfig &ac);
 

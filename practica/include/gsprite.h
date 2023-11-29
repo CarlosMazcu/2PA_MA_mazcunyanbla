@@ -21,15 +21,17 @@ class Sprite : public Entity
   int width() const;
   int height() const;
 
-  void init(const Texture& texture, int x, int y, int w, int h);
-  void init(const char *fname);
+
+
+  void init(Texture *texture, int x, int y, int w, int h);
+
   
   void draw();
 
-  void release();
+  /* void release(); */
   
  protected:
- esat::SpriteHandle handle_;
+ Texture *texture_handle_;
 };
     
     
