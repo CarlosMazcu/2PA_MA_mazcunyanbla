@@ -22,7 +22,7 @@ class Sprite : public Entity
   int height() const;
 
 
-  void init(Texture *texture, int x, int y, int w, int h);
+  void initSp(Texture *texture, int x, int y, int w, int h);
 
   
   void draw();
@@ -34,7 +34,6 @@ class Sprite : public Entity
 };
     
     
-
 
 
 #endif

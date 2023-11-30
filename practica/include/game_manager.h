@@ -32,7 +32,39 @@ class GameManager{
   
   TWindow window_bool;
 
-  Sprite sp[2];
+/*   struct TConst
+  {
+    const int kSpace = 2;
+    const int kClouds = 7;
+    const int kMountains = 7;
+    const int kSmallTrees = 7;
+    const int kBigTrees = 7;
+    const int kGrass = 4;
+
+  };
+
+  TConst kSprites;
+ */
+  struct TParallax
+  {
+    Sprite space[2];
+    Sprite clouds[6];
+    Sprite mountains[7];
+    Sprite smallTrees[7];
+    Sprite bigTrees[7];
+    Sprite grass[4];
+
+  };
+
+  struct TSprite
+  {
+    Sprite manektrik[4];
+    TParallax parallax;
+  };
+
+
+  TSprite all_sprites;
+
   enum
   {
     kWelcomeWindow = 0,
@@ -41,7 +73,8 @@ class GameManager{
     kExitWindow = 3,
     kCreditsWindow = 4,
   };
-
+  
+  Vec2 windowSize = {640.0f, 480.0f};
  private:
   GameManager(){}; //this MAY change :)
   GameManager(const GameManager& other){};

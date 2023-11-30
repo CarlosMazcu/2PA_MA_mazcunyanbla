@@ -31,23 +31,11 @@ void RenderFPS() {
 void Test() {
   GameManager &GM = GameManager::Instance();
   windowManager(0); 
-  esat::WindowInit(640, 480);
+  esat::WindowInit((int)GM.windowSize.x, (int)GM.windowSize.y);
   esat::DrawSetTextFont("../data/test.ttf");
   darkTaronja();
  
-  Texture *text;
-  text = text->TextureFactory("../data/parallax/Space_Background.png");
-  /* text->init(text->getHandle(), 0,0,57,46); */
-  /* Sprite sp_test; 
-
-  sp_test.position_ = {50.0f, 50.0f};
-  sp_test.texture_handle_ = text; */
-  for(int i = 0; i < 2; i++){
-    GM.sp[i].texture_handle_ = text;
-    GM.sp[i].position_ = {(float)(i * GM.sp[i].width()),  -(float)(GM.sp[i].height()/4)};
-  }
-/*   GM.sp[0].position_.x = 0.0f;
-  GM.sp[1].position_.x = (float)GM.sp[1].width(); */
+  initAllEntity();
 
 
 

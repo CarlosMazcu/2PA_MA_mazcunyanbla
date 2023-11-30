@@ -10,7 +10,7 @@
  */
 #include "app_window.h"
 /* #include "gsprite.h" */
-
+#include "esat/time.h"
 
 
 void windowManager(int n)
@@ -230,14 +230,36 @@ void parallaxWindow()
        windowManager(0);
     }
     ImGui::End();
-  
+   
+
+    //move parallax
     for(int i = 0; i < 2; i++){
-      GM.sp[i].position_.x+=0.025f;
-      GM.sp[i].draw();
-      if(GM.sp[i].position_.x >=(float)((GM.sp[i].width())))
+      
+      GM.all_sprites.parallax.space[i].position_.x += GM.all_sprites.parallax.space[i].speed_;
+      GM.all_sprites.parallax.space[i].draw();
+
+      if(GM.all_sprites.parallax.space[i].position_.x >=
+        (float)((GM.all_sprites.parallax.space[i].width())))
       {
-        GM.sp[i].position_.x = -GM.sp[i].width()+3;
+        GM.all_sprites.parallax.space[i].position_.x = 
+          -(float)(GM.all_sprites.parallax.space[i].width()+3);
       }
+    }
+    for(int i = 0; i < 6; i++)
+    {
+      GM.all_sprites.parallax.clouds[i].position_.x += GM.all_sprites.parallax.clouds[i].speed_;
+      GM.all_sprites.parallax.clouds[i].draw();
+
+      if((GM.all_sprites.parallax.clouds[i].position_.x + GM.all_sprites.parallax.clouds[i].width()) >= GM.windowSize.x)
+      {
+        if(i == 3){
+          GM.all_sprites.parallax.clouds[i].position_.x = GM.all_sprites.parallax.clouds[i - i].position_.x - GM.all_sprites.parallax.clouds[i].width();
+        }else{
+          GM.all_sprites.parallax.clouds[i].position_.x = GM.all_sprites.parallax.clouds[i + 1].position_.x - GM.all_sprites.parallax.clouds[i].width();
+        }
+
+      }
+
     }
     
     

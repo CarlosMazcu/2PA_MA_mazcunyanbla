@@ -32,7 +32,7 @@ Sprite::~Sprite()
   }
 }
 
-void Sprite::init(Texture *texture, int x, int y, int w, int h)
+void Sprite::initSp(Texture *texture, int x, int y, int w, int h)
 {
   if (nullptr == texture)
   {
@@ -79,7 +79,7 @@ void Sprite::draw(){
       // Draw the sprite with the matrix
       esat::DrawSpriteWithMatrix(texture_handle_->getHandle(), m.m);
     }else{
-      printf("\ntesture handle nullptr");
+      printf("\ntexture handle nullptr");
     }
   }
 }
@@ -91,3 +91,4 @@ void Sprite::draw(){
     handle_ = nullptr;
   }
 } */
+
