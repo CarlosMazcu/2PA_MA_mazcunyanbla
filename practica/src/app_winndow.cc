@@ -252,7 +252,7 @@ void parallaxWindow()
 
       if((GM.all_sprites.parallax.clouds[i].position_.x + GM.all_sprites.parallax.clouds[i].width()) >= GM.windowSize.x)
       {
-        if(i == 3){
+        if(i == 5){
           GM.all_sprites.parallax.clouds[i].position_.x = GM.all_sprites.parallax.clouds[i - i].position_.x - GM.all_sprites.parallax.clouds[i].width();
         }else{
           GM.all_sprites.parallax.clouds[i].position_.x = GM.all_sprites.parallax.clouds[i + 1].position_.x - GM.all_sprites.parallax.clouds[i].width();
