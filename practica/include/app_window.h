@@ -38,4 +38,8 @@ void darkTaronja();
 
 void themeBW();
 
+void aquamarineTheme();
+
+void hiBarbieTheme();
+
 #endif

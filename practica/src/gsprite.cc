@@ -68,7 +68,7 @@ int Sprite::height() const
 void Sprite::draw(){
   if (true == enable_)
   {
-    if (nullptr == texture_handle_)
+    if (nullptr != texture_handle_)
     {
       // Transform Matrix
       Mat3 m = Mat3::Identity();
@@ -78,6 +78,8 @@ void Sprite::draw(){
      
       // Draw the sprite with the matrix
       esat::DrawSpriteWithMatrix(texture_handle_->getHandle(), m.m);
+    }else{
+      printf("\ntesture handle nullptr");
     }
   }
 }

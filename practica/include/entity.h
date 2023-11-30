@@ -1,35 +1,36 @@
 /**
  * @file entity.h
  * @author Lucas Calatayud (calatayudbri@esat-alumni.com)
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2023-11-29
- * 
+ *
  * @copyright Copyright (c) 2023
- * 
+ *
  */
 #pragma once
+
 #ifndef __ENTITY_H__
-#define __ENTITY_H__ 1
+#define __ENTITY_H_ 1
 
 #include "../deps/math_library/include/vector_2.h"
 #include <stdint.h>
 
 // struct AnimationConfig;
 /* class AnimationInstance;
- */
+*/
 class Entity{
   public:
     Entity();
     Entity(const Entity& copy);
     Entity(int tag, bool enable, Vec2 pos, float rot, Vec2 scale);
-    // virtual ~Entity();
+// virtual ~Entity();
     void init();
 
-    // void PlayAnimation(const AnimationConfig &ac);
+// void PlayAnimation(const AnimationConfig &ac);
 
     // void stopAnimation();
-
+ 
     void update(float dt);
 
     uint64_t id() const;

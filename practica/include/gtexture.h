@@ -14,6 +14,7 @@ const unsigned int kMaxTextures = 16;
 class Texture{
  public:
   ~Texture();
+  Texture();
   
   void init(const char* fname);
   void init(int w, int h, uint8_t* data);
@@ -38,7 +39,6 @@ protected:
   esat::SpriteHandle handle_; //for the atlas/entire texture
 
  private:
-  Texture();
 
 };
 

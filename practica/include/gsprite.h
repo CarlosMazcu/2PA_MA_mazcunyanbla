@@ -22,7 +22,6 @@ class Sprite : public Entity
   int height() const;
 
 
-
   void init(Texture *texture, int x, int y, int w, int h);
 
   
@@ -30,8 +29,8 @@ class Sprite : public Entity
 
   /* void release(); */
   
- protected:
  Texture *texture_handle_;
+ protected:
 };
     
     

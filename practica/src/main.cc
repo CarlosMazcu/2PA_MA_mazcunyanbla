@@ -10,7 +10,8 @@
 #include <esat/time.h>
 
 #include "app_window.h"
-
+#include "gtexture.h"
+#include "gsprite.h"
 
 void RenderFPS() {
   static double last_time = esat::Time();
@@ -31,20 +32,28 @@ void Test() {
   windowManager(0); 
   esat::WindowInit(640, 480);
   esat::DrawSetTextFont("../data/test.ttf");
-  // Sprite sp0;
-  // sp0.init("../data/parallax/mountains.png");
-  // sp0.Entity::position_ = {0.0f, 0.0f};
+  Texture *test;
+  test->TextureFactory("C:/Users/mazcunyanbla/Documents/GitHub/2PA_MA_mazcunyanbla_calatayudbri/practica/data/SpriteSheet/characters_sheet.png");
+  Sprite sp_test;
+
+  sp_test.init(test, 0, 0, 57, 46);
+  sp_test.position_ = {50.0f, 50.0f};
+  
+
+
   esat::WindowSetMouseVisibility(true);
-  while (esat::WindowIsOpened() && !esat::IsSpecialKeyDown(esat::kSpecialKey_Escape) ||
-        esat::WindowIsOpened() && GM.window_bool.exit == true ){
+  while (esat::WindowIsOpened() && !esat::IsSpecialKeyDown(esat::kSpecialKey_Escape)
+          && false == GM.window_bool.exit){
     esat::DrawBegin();
     esat::DrawClear(0, 0, 0);
     //HERE COMES GAME CLASS
-    // sp0.draw();
+
     MainMenuBar();
-      ImGui::ShowDemoWindow();
+    ImGui::ShowDemoWindow();
+    sp_test.draw();
+
     
-      stateMachine();
+    stateMachine();
     esat::DrawSetStrokeColor(255, 255, 255);
     /* RenderFPS(); */
     esat::DrawEnd();
