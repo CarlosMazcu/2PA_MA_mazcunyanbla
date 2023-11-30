@@ -14,6 +14,7 @@
 
 #include "esat_extra/imgui.h"
 #include "game_manager.h"
+#include "gsprite.h"
 /* #include "gsprite.h" */
 
 void MainMenuBar();

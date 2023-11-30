@@ -12,7 +12,7 @@
 #ifndef __GAME_MANAGER_H__
 #define __GAME_MANAGER_H__ 1
 
-#include "path.h"
+#include "gsprite.h"
 
 class GameManager{
  public:
@@ -32,6 +32,7 @@ class GameManager{
   
   TWindow window_bool;
 
+  Sprite sp[2];
   enum
   {
     kWelcomeWindow = 0,

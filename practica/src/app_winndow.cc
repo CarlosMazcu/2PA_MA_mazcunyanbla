@@ -12,6 +12,7 @@
 /* #include "gsprite.h" */
 
 
+
 void windowManager(int n)
 {
     GameManager &GM = GameManager::Instance();
@@ -89,7 +90,7 @@ void MainMenuBar()
             one_time = false;
           }
         }
-        if(ImGui::Button("DarkTaronja", ImVec2(100.0f, 20.0f)))
+        if(ImGui::Button("ESATtheme", ImVec2(100.0f, 20.0f)))
         {
           if(one_time = true)
           {
@@ -229,6 +230,17 @@ void parallaxWindow()
        windowManager(0);
     }
     ImGui::End();
+  
+    for(int i = 0; i < 2; i++){
+      GM.sp[i].position_.x+=0.025f;
+      GM.sp[i].draw();
+      if(GM.sp[i].position_.x >=(float)((GM.sp[i].width())))
+      {
+        GM.sp[i].position_.x = -GM.sp[i].width()+3;
+      }
+    }
+    
+    
    
 }
 
