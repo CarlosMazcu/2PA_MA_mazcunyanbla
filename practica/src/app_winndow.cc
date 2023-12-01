@@ -11,6 +11,9 @@
 #include "app_window.h"
 /* #include "gsprite.h" */
 #include "esat/time.h"
+#include "esat/input.h"
+#include "stdio.h"
+
 
 
 void windowManager(int n)
@@ -166,7 +169,7 @@ void welcomeWindow()
     ImGui::SameLine(0.0f, 90.0f);
     if (ImGui::Button("Animation", ImVec2(100.0f, 20.0f)))
     {
-      initAllEntity();
+      initAllEntityParallax();
       windowManager(2);
 
     }
@@ -234,104 +237,14 @@ void parallaxWindow()
     windowManager(0);
   }
   ImGui::SameLine();
-  ImGui::SliderFloat("slider float", &GM.incrSpeed_, 0.0f, 1.0f, "%.3f");
+  ImGui::SliderFloat("slider float", &GM.incrSpeed_, 0.0f, 2.0f, "%.2f");
   ImGui::End();
-
+  //input
+  inputSpeed();
   // move parallax
-  // space
-  for (int i = 0; i < 2; i++)
-  {
-
-    GM.all_sprites.parallax.space[i].position_.x += ((GM.all_sprites.parallax.space[i].speed_ * GM.dt) * GM.incrSpeed_);
-    GM.all_sprites.parallax.space[i].draw();
-
-    if (GM.all_sprites.parallax.space[i].position_.x >=
-        (float)((GM.all_sprites.parallax.space[i].width())))
-    {
-      GM.all_sprites.parallax.space[i].position_.x =
-          -(float)(GM.all_sprites.parallax.space[i].width());
-    }
-    }
-    //clouds
-    for(int i = 0; i < 6; i++)
-    {
-      GM.all_sprites.parallax.clouds[i].position_.x += ((GM.all_sprites.parallax.clouds[i].speed_ * GM.dt) * GM.incrSpeed_);
-      GM.all_sprites.parallax.clouds[i].draw();
-
-      if((GM.all_sprites.parallax.clouds[i].position_.x + GM.all_sprites.parallax.clouds[i].width()) >= GM.windowSize.x)
-      {
-        if(i == 5){
-          GM.all_sprites.parallax.clouds[i].position_.x = GM.all_sprites.parallax.clouds[i - i].position_.x - GM.all_sprites.parallax.clouds[i].width();
-        }else{
-          GM.all_sprites.parallax.clouds[i].position_.x = GM.all_sprites.parallax.clouds[i + 1].position_.x - GM.all_sprites.parallax.clouds[i].width();
-        }
-      }
-    }
-    //mountains
-    for(int i = 0; i < 8; i++)
-    {
-      GM.all_sprites.parallax.mountains[i].position_.x += ((GM.all_sprites.parallax.mountains[i].speed_ * GM.dt) * GM.incrSpeed_);
-      GM.all_sprites.parallax.mountains[i].draw();
-      if ((GM.all_sprites.parallax.mountains[i].position_.x) >= GM.windowSize.x)
-      {
-        if (i == 7)
-        {
-          GM.all_sprites.parallax.mountains[i].position_.x = GM.all_sprites.parallax.mountains[i - i].position_.x - GM.all_sprites.parallax.mountains[i].width();
-        }
-        else
-        {
-          GM.all_sprites.parallax.mountains[i].position_.x = GM.all_sprites.parallax.mountains[i + 1].position_.x - GM.all_sprites.parallax.mountains[i].width();
-        }
-      }
-    }
-    //small trees
-    for (int i = 0; i < 8; i++)
-    {
-      GM.all_sprites.parallax.smallTrees[i].position_.x += ((GM.all_sprites.parallax.smallTrees[i].speed_ * GM.dt) * GM.incrSpeed_);
-      GM.all_sprites.parallax.smallTrees[i].draw();
-      if ((GM.all_sprites.parallax.smallTrees[i].position_.x) >= GM.windowSize.x)
-      {
-        if (i == 7)
-        {
-          GM.all_sprites.parallax.smallTrees[i].position_.x = GM.all_sprites.parallax.smallTrees[i - i].position_.x - GM.all_sprites.parallax.smallTrees[i].width();
-        }
-        else
-        {
-          GM.all_sprites.parallax.smallTrees[i].position_.x = GM.all_sprites.parallax.smallTrees[i + 1].position_.x - GM.all_sprites.parallax.smallTrees[i].width();
-        }
-      }
-    }
-    //big trees
-    for (int i = 0; i < 8; i++)
-    {
-      GM.all_sprites.parallax.bigTrees[i].position_.x += ((GM.all_sprites.parallax.bigTrees[i].speed_ * GM.dt) * GM.incrSpeed_);
-      GM.all_sprites.parallax.bigTrees[i].draw();
-      if ((GM.all_sprites.parallax.bigTrees[i].position_.x) >= GM.windowSize.x)
-      {
-        if (i == 7)
-        {
-          GM.all_sprites.parallax.bigTrees[i].position_.x = GM.all_sprites.parallax.bigTrees[i - i].position_.x - GM.all_sprites.parallax.bigTrees[i].width();
-        }
-        else
-        {
-          GM.all_sprites.parallax.bigTrees[i].position_.x = GM.all_sprites.parallax.bigTrees[i + 1].position_.x - GM.all_sprites.parallax.bigTrees[i].width();
-        }
-      }
-    }
-    //grass
-    for (int i = 0; i < 2; i++)
-    {
-
-      GM.all_sprites.parallax.grass[i].position_.x += ((GM.all_sprites.parallax.grass[i].speed_ * GM.dt) * GM.incrSpeed_);
-      GM.all_sprites.parallax.grass[i].draw();
-
-      if (GM.all_sprites.parallax.grass[i].position_.x >=
-          (float)((GM.all_sprites.parallax.grass[i].width())))
-      {
-        GM.all_sprites.parallax.grass[i].position_.x =
-            -(float)(GM.all_sprites.parallax.grass[i].width());
-      }
-    }
+  updateParallax();
+  //draw
+  drawParallax();
 }
 
 void stateMachine()
@@ -756,4 +669,20 @@ void hiBarbieTheme()
   colors[ImGuiCol_NavWindowingHighlight] = ImVec4(1.00f, 1.00f, 1.00f, 0.70f);
   colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.80f, 0.80f, 0.80f, 0.20f);
   colors[ImGuiCol_ModalWindowDimBg] = ImVec4(0.80f, 0.80f, 0.80f, 0.35f);
+}
+
+void inputSpeed()
+{
+  GameManager &GM = GameManager::Instance();
+  if(esat::IsSpecialKeyDown(esat::kSpecialKey_Right) && GM.incrSpeed_ <= 2.0f)
+  {
+    printf("\n%f", GM.incrSpeed_);
+    GM.incrSpeed_+=0.05f;
+  }
+  if(esat::IsSpecialKeyDown(esat::kSpecialKey_Left) && GM.incrSpeed_ >= 0.0f)
+  {
+    printf("\n%f", GM.incrSpeed_);
+    GM.incrSpeed_-=0.05f;
+  }
+
 }

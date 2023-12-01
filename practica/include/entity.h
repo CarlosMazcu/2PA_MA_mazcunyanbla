@@ -32,7 +32,7 @@ class Entity{
 
     // void stopAnimation();
  
-    void update(float dt);
+    /* void update(float dt); */
 
     uint64_t id() const;
 
@@ -50,6 +50,7 @@ class Entity{
     bool enable_;
     Vec2 position_;
     float speed_;
+    
 
   protected:
     float rotation_;
@@ -62,7 +63,11 @@ class Entity{
 };
 
 
-void initAllEntity();
+void initAllEntityParallax();
+
+void updateParallax();
+
+void drawParallax();
 
 
 #endif

@@ -43,4 +43,6 @@ void aquamarineTheme();
 
 void hiBarbieTheme();
 
+void inputSpeed();
+
 #endif

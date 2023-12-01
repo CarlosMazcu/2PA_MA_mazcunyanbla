@@ -15,6 +15,7 @@ Entity::Entity()
   position_ = {0.0f, 0.0f};
   rotation_ = 0.0f;
   scale_ = {1.0f, 1.0f};
+  speed_ = 1.0f;
   // animation_ = nullptr;
 
   id_ = Entity::next_id_;
@@ -92,7 +93,7 @@ uint64_t Entity::id() const{
   return id_;
 }
 
-void initAllEntity()
+void initAllEntityParallax()
 {
   GameManager &GM = GameManager::Instance();
   Texture *text;
@@ -150,7 +151,139 @@ void initAllEntity()
   }
 }
 
+void updateParallax()
+{
+  GameManager &GM = GameManager::Instance();
+  // space
+    for (int i = 0; i < 2; i++)
+  {
 
+    GM.all_sprites.parallax.space[i].position_.x += ((GM.all_sprites.parallax.space[i].speed_ * GM.dt) * GM.incrSpeed_);
+
+    if (GM.all_sprites.parallax.space[i].position_.x >=
+        (float)((GM.all_sprites.parallax.space[i].width())))
+    {
+      GM.all_sprites.parallax.space[i].position_.x =
+          -(float)(GM.all_sprites.parallax.space[i].width());
+    }
+    }
+    //clouds
+    for(int i = 0; i < 6; i++)
+    {
+      GM.all_sprites.parallax.clouds[i].position_.x += ((GM.all_sprites.parallax.clouds[i].speed_ * GM.dt) * GM.incrSpeed_);
+
+
+      if((GM.all_sprites.parallax.clouds[i].position_.x + GM.all_sprites.parallax.clouds[i].width()) >= GM.windowSize.x)
+      {
+        if(i == 5){
+          GM.all_sprites.parallax.clouds[i].position_.x = GM.all_sprites.parallax.clouds[i - i].position_.x - GM.all_sprites.parallax.clouds[i].width();
+        }else{
+          GM.all_sprites.parallax.clouds[i].position_.x = GM.all_sprites.parallax.clouds[i + 1].position_.x - GM.all_sprites.parallax.clouds[i].width();
+        }
+      }
+    }
+    //mountains
+    for(int i = 0; i < 8; i++)
+    {
+      GM.all_sprites.parallax.mountains[i].position_.x += ((GM.all_sprites.parallax.mountains[i].speed_ * GM.dt) * GM.incrSpeed_);
+      /* GM.all_sprites.parallax.mountains[i].draw(); */
+      if ((GM.all_sprites.parallax.mountains[i].position_.x) >= GM.windowSize.x)
+      {
+        if (i == 7)
+        {
+          GM.all_sprites.parallax.mountains[i].position_.x = GM.all_sprites.parallax.mountains[i - i].position_.x - GM.all_sprites.parallax.mountains[i].width();
+        }
+        else
+        {
+          GM.all_sprites.parallax.mountains[i].position_.x = GM.all_sprites.parallax.mountains[i + 1].position_.x - GM.all_sprites.parallax.mountains[i].width();
+        }
+      }
+    }
+    //small trees
+    for (int i = 0; i < 8; i++)
+    {
+      GM.all_sprites.parallax.smallTrees[i].position_.x += ((GM.all_sprites.parallax.smallTrees[i].speed_ * GM.dt) * GM.incrSpeed_);
+      /* GM.all_sprites.parallax.smallTrees[i].draw(); */
+      if ((GM.all_sprites.parallax.smallTrees[i].position_.x) >= GM.windowSize.x)
+      {
+        if (i == 7)
+        {
+          GM.all_sprites.parallax.smallTrees[i].position_.x = GM.all_sprites.parallax.smallTrees[i - i].position_.x - GM.all_sprites.parallax.smallTrees[i].width();
+        }
+        else
+        {
+          GM.all_sprites.parallax.smallTrees[i].position_.x = GM.all_sprites.parallax.smallTrees[i + 1].position_.x - GM.all_sprites.parallax.smallTrees[i].width();
+        }
+      }
+    }
+    //big trees
+    for (int i = 0; i < 8; i++)
+    {
+      GM.all_sprites.parallax.bigTrees[i].position_.x += ((GM.all_sprites.parallax.bigTrees[i].speed_ * GM.dt) * GM.incrSpeed_);
+      /* GM.all_sprites.parallax.bigTrees[i].draw(); */
+      if ((GM.all_sprites.parallax.bigTrees[i].position_.x) >= GM.windowSize.x)
+      {
+        if (i == 7)
+        {
+          GM.all_sprites.parallax.bigTrees[i].position_.x = GM.all_sprites.parallax.bigTrees[i - i].position_.x - GM.all_sprites.parallax.bigTrees[i].width();
+        }
+        else
+        {
+          GM.all_sprites.parallax.bigTrees[i].position_.x = GM.all_sprites.parallax.bigTrees[i + 1].position_.x - GM.all_sprites.parallax.bigTrees[i].width();
+        }
+      }
+    }
+    //grass
+    for (int i = 0; i < 2; i++)
+    {
+
+      GM.all_sprites.parallax.grass[i].position_.x += ((GM.all_sprites.parallax.grass[i].speed_ * GM.dt) * GM.incrSpeed_);
+     /*  GM.all_sprites.parallax.grass[i].draw(); */
+
+      if (GM.all_sprites.parallax.grass[i].position_.x >=
+          (float)((GM.all_sprites.parallax.grass[i].width())))
+      {
+        GM.all_sprites.parallax.grass[i].position_.x =
+            -(float)(GM.all_sprites.parallax.grass[i].width());
+      }
+    }
+
+}
+
+void drawParallax()
+{
+  GameManager &GM = GameManager::Instance();
+  //space
+  for (int i = 0; i < 2; i++)
+  {
+    GM.all_sprites.parallax.space[i].draw();
+  }
+  //clouds
+  for(int i = 0; i < 6; i++)
+  {
+    GM.all_sprites.parallax.clouds[i].draw();
+  }
+  //mountains
+  for(int i = 0; i < 8; i++)
+  {
+    GM.all_sprites.parallax.mountains[i].draw();
+  }
+  //small trees
+  for (int i = 0; i < 8; i++)
+  {
+    GM.all_sprites.parallax.smallTrees[i].draw();
+  }
+  //big trees
+  for (int i = 0; i < 8; i++)
+  {
+    GM.all_sprites.parallax.bigTrees[i].draw();
+  }
+  //grass
+  for (int i = 0; i < 2; i++)
+  {
+     GM.all_sprites.parallax.grass[i].draw();
+  }
+}
 // void Entity::PlayAnimation(const AnimationConfig &ac) 
 // {
 //   stopAnimation();

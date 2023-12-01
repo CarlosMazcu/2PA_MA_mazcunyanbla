@@ -62,9 +62,9 @@ class GameManager{
     TParallax parallax;
   };
 
-
   TSprite all_sprites;
   float incrSpeed_ = 1.0f;
+ 
 
   enum
   {
@@ -74,6 +74,8 @@ class GameManager{
     kExitWindow = 3,
     kCreditsWindow = 4,
   };
+
+
   
   Vec2 windowSize = {640.0f, 480.0f};
 
