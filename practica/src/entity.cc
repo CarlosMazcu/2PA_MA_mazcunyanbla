@@ -103,7 +103,7 @@ void initAllEntity()
   {
     GM.all_sprites.parallax.space[i].texture_handle_ = text;
     GM.all_sprites.parallax.space[i].Entity::init(0, true, {(float)(i * GM.all_sprites.parallax.space[i].width()), 
-                               -(float)(GM.all_sprites.parallax.space[i].height()/4)}, 0.0f, {1.0f, 1.0f}, 2.5f);
+                               -(float)(GM.all_sprites.parallax.space[i].height()/4)}, 0.0f, {1.0f, 1.0f}, 10.0f);
 
 
   }
@@ -113,12 +113,45 @@ void initAllEntity()
   {
     GM.all_sprites.parallax.clouds[i].texture_handle_ = text;
     GM.all_sprites.parallax.clouds[i].Entity::init(1, true, {(float)(i * GM.all_sprites.parallax.clouds->width()),
-                                                            50.0f}, 0.0f, {2.0f, 2.0f}, 1000.0f);
+                                                            60.0f}, 0.0f, {2.0f, 2.0f}, 20.0f);
   }
-
+  //mountains
+  text = text->TextureFactory("../data/parallax/mountain.png");
+  for(int i = 0; i < 8; i++)
+  {
+    GM.all_sprites.parallax.mountains[i].texture_handle_ = text;
+    GM.all_sprites.parallax.mountains[i].Entity::init(2, true, {(float)(i * GM.all_sprites.parallax.mountains->width()),
+                                                      230.0f}, 0.0f, {1.0f, 1.0f}, 60.0f);
+  }
+  //small trees
+  text = text->TextureFactory("../data/SpriteSheet/background_sheet.png");
+  text->init(text->getHandle(), 526, 428, 220, 20);
+  for(int i = 0; i < 8; i++)
+  {
+    GM.all_sprites.parallax.smallTrees[i].texture_handle_ = text;
+    GM.all_sprites.parallax.smallTrees[i].Entity::init(3, true, {(float)(i * GM.all_sprites.parallax.smallTrees->width()),
+                                                       360.0f}, 0.0f, {1.0f, 1.0f}, 100.0f);
+  }
+  //bigtrees
+  text = text->TextureFactory("../data/SpriteSheet/background_sheet.png");
+  text->init(text->getHandle(), 265, 409, 253, 43);
+  for (int i = 0; i < 8; i++)
+  {
+    GM.all_sprites.parallax.bigTrees[i].texture_handle_ = text;
+    GM.all_sprites.parallax.bigTrees[i].Entity::init(3, true, {(float)(i * GM.all_sprites.parallax.bigTrees->width()), 
+                                                      340.0f}, 0.0f, {1.0f, 1.0f}, 150.0f);
+  }
+  text = text->TextureFactory("../data/parallax/grass.png");
+  for (int i = 0; i < 2; i++)
+  {
+    GM.all_sprites.parallax.grass[i].texture_handle_ = text;
+    GM.all_sprites.parallax.grass[i].Entity::init(3, true, {(float)(i * GM.all_sprites.parallax.grass->width()), 
+                                                      375.0f}, 0.0f, {1.0f, 1.0f}, 230.0f);
+  }
 }
 
-// void Entity::PlayAnimation(const AnimationConfig &ac)
+
+// void Entity::PlayAnimation(const AnimationConfig &ac) 
 // {
 //   stopAnimation();
 //   animation_ = new AnimationInstance(ac, this);

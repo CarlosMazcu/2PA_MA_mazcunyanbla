@@ -49,10 +49,10 @@ class GameManager{
   {
     Sprite space[2];
     Sprite clouds[6];
-    Sprite mountains[7];
-    Sprite smallTrees[7];
-    Sprite bigTrees[7];
-    Sprite grass[4];
+    Sprite mountains[8];
+    Sprite smallTrees[8];
+    Sprite bigTrees[8];
+    Sprite grass[2];
 
   };
 
