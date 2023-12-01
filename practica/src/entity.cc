@@ -103,7 +103,7 @@ void initAllEntity()
   {
     GM.all_sprites.parallax.space[i].texture_handle_ = text;
     GM.all_sprites.parallax.space[i].Entity::init(0, true, {(float)(i * GM.all_sprites.parallax.space[i].width()), 
-                               -(float)(GM.all_sprites.parallax.space[i].height()/4)}, 0.0f, {1.0f, 1.0f}, 0.025f);
+                               -(float)(GM.all_sprites.parallax.space[i].height()/4)}, 0.0f, {1.0f, 1.0f}, 2.5f);
 
 
   }
@@ -113,7 +113,7 @@ void initAllEntity()
   {
     GM.all_sprites.parallax.clouds[i].texture_handle_ = text;
     GM.all_sprites.parallax.clouds[i].Entity::init(1, true, {(float)(i * GM.all_sprites.parallax.clouds->width()),
-                                                            50.0f}, 0.0f, {2.0f, 2.0f}, 0.075f);
+                                                            50.0f}, 0.0f, {2.0f, 2.0f}, 1000.0f);
   }
 
 }

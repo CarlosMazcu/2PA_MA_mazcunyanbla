@@ -75,6 +75,8 @@ class GameManager{
   };
   
   Vec2 windowSize = {640.0f, 480.0f};
+
+  float current_time, last_time, dt;
  private:
   GameManager(){}; //this MAY change :)
   GameManager(const GameManager& other){};

@@ -42,6 +42,8 @@ void Test() {
   esat::WindowSetMouseVisibility(true);
   while (esat::WindowIsOpened() && !esat::IsSpecialKeyDown(esat::kSpecialKey_Escape)
           && false == GM.window_bool.exit){
+    GM.current_time = esat::Time();
+    GM.dt = (GM.last_time - GM.current_time) / 1000.0f;
     esat::DrawBegin();
     esat::DrawClear(0, 0, 0);
     //HERE COMES GAME CLASS
@@ -55,6 +57,7 @@ void Test() {
     /* RenderFPS(); */
     esat::DrawEnd();
     esat::WindowFrame();
+    GM.last_time = esat::Time();
   }
   esat::WindowDestroy();
 }

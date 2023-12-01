@@ -235,7 +235,7 @@ void parallaxWindow()
     //move parallax
     for(int i = 0; i < 2; i++){
       
-      GM.all_sprites.parallax.space[i].position_.x += GM.all_sprites.parallax.space[i].speed_;
+      GM.all_sprites.parallax.space[i].position_.x += (GM.all_sprites.parallax.space[i].speed_ *GM.dt);
       GM.all_sprites.parallax.space[i].draw();
 
       if(GM.all_sprites.parallax.space[i].position_.x >=
@@ -247,7 +247,7 @@ void parallaxWindow()
     }
     for(int i = 0; i < 6; i++)
     {
-      GM.all_sprites.parallax.clouds[i].position_.x += GM.all_sprites.parallax.clouds[i].speed_;
+      GM.all_sprites.parallax.clouds[i].position_.x += (GM.all_sprites.parallax.clouds[i].speed_ * GM.dt);
       GM.all_sprites.parallax.clouds[i].draw();
 
       if((GM.all_sprites.parallax.clouds[i].position_.x + GM.all_sprites.parallax.clouds[i].width()) >= GM.windowSize.x)
