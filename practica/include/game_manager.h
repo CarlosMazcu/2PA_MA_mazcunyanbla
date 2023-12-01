@@ -64,6 +64,7 @@ class GameManager{
 
 
   TSprite all_sprites;
+  float incrSpeed_ = 1.0f;
 
   enum
   {

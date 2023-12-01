@@ -50,6 +50,7 @@ void windowManager(int n)
 
 void MainMenuBar()
 {
+  GameManager &GM = GameManager::Instance();
   static bool one_time = true;
   if(ImGui::BeginMainMenuBar()) 
   {
@@ -122,11 +123,12 @@ void MainMenuBar()
     if(ImGui::BeginMenu("Settings Info"))
     {
       if(ImGui::BeginMenu("Resolution")){
-          ImGui::Text("640x480");
+          ImGui::Text("%d x %d", (int)GM.windowSize.x, (int)GM.windowSize.y);
           ImGui::EndMenu();
       }
       if(ImGui::BeginMenu("Fps")){
-          ImGui::Text("%d");
+        float framerate = ImGui::GetIO().Framerate / 100.0f;
+          ImGui::Text("%0.2f", framerate);
           ImGui::EndMenu();
       }
       
@@ -224,34 +226,36 @@ void creditsWindow()
 void parallaxWindow()
 {
   GameManager &GM = GameManager::Instance();
-  ImGui::SetNextWindowSize(ImVec2(100.0f, 40.0f));
+  ImGui::SetNextWindowSize(ImVec2(300.0f, 40.0f));
   ImGui::SetNextWindowPos(ImVec2(5.0f, GM.windowSize.y - 50.0f));
   ImGui::Begin("PARALLAX", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground);
   if (ImGui::Button("Return", ImVec2(100.0f, 20.0f)))
   {
     windowManager(0);
-    }
-    ImGui::End();
-   
+  }
+  ImGui::SameLine();
+  ImGui::SliderFloat("slider float", &GM.incrSpeed_, 0.0f, 1.0f, "%.3f");
+  ImGui::End();
 
-    //move parallax
-    //space
-    for(int i = 0; i < 2; i++){
-      
-      GM.all_sprites.parallax.space[i].position_.x += (GM.all_sprites.parallax.space[i].speed_ *GM.dt);
-      GM.all_sprites.parallax.space[i].draw();
+  // move parallax
+  // space
+  for (int i = 0; i < 2; i++)
+  {
 
-      if(GM.all_sprites.parallax.space[i].position_.x >=
+    GM.all_sprites.parallax.space[i].position_.x += ((GM.all_sprites.parallax.space[i].speed_ * GM.dt) * GM.incrSpeed_);
+    GM.all_sprites.parallax.space[i].draw();
+
+    if (GM.all_sprites.parallax.space[i].position_.x >=
         (float)((GM.all_sprites.parallax.space[i].width())))
-      {
-        GM.all_sprites.parallax.space[i].position_.x = 
+    {
+      GM.all_sprites.parallax.space[i].position_.x =
           -(float)(GM.all_sprites.parallax.space[i].width());
-      }
+    }
     }
     //clouds
     for(int i = 0; i < 6; i++)
     {
-      GM.all_sprites.parallax.clouds[i].position_.x += (GM.all_sprites.parallax.clouds[i].speed_ * GM.dt);
+      GM.all_sprites.parallax.clouds[i].position_.x += ((GM.all_sprites.parallax.clouds[i].speed_ * GM.dt) * GM.incrSpeed_);
       GM.all_sprites.parallax.clouds[i].draw();
 
       if((GM.all_sprites.parallax.clouds[i].position_.x + GM.all_sprites.parallax.clouds[i].width()) >= GM.windowSize.x)
@@ -266,7 +270,7 @@ void parallaxWindow()
     //mountains
     for(int i = 0; i < 8; i++)
     {
-      GM.all_sprites.parallax.mountains[i].position_.x += (GM.all_sprites.parallax.mountains[i].speed_ * GM.dt);
+      GM.all_sprites.parallax.mountains[i].position_.x += ((GM.all_sprites.parallax.mountains[i].speed_ * GM.dt) * GM.incrSpeed_);
       GM.all_sprites.parallax.mountains[i].draw();
       if ((GM.all_sprites.parallax.mountains[i].position_.x) >= GM.windowSize.x)
       {
@@ -283,7 +287,7 @@ void parallaxWindow()
     //small trees
     for (int i = 0; i < 8; i++)
     {
-      GM.all_sprites.parallax.smallTrees[i].position_.x += (GM.all_sprites.parallax.smallTrees[i].speed_ * GM.dt);
+      GM.all_sprites.parallax.smallTrees[i].position_.x += ((GM.all_sprites.parallax.smallTrees[i].speed_ * GM.dt) * GM.incrSpeed_);
       GM.all_sprites.parallax.smallTrees[i].draw();
       if ((GM.all_sprites.parallax.smallTrees[i].position_.x) >= GM.windowSize.x)
       {
@@ -300,7 +304,7 @@ void parallaxWindow()
     //big trees
     for (int i = 0; i < 8; i++)
     {
-      GM.all_sprites.parallax.bigTrees[i].position_.x += (GM.all_sprites.parallax.bigTrees[i].speed_ * GM.dt);
+      GM.all_sprites.parallax.bigTrees[i].position_.x += ((GM.all_sprites.parallax.bigTrees[i].speed_ * GM.dt) * GM.incrSpeed_);
       GM.all_sprites.parallax.bigTrees[i].draw();
       if ((GM.all_sprites.parallax.bigTrees[i].position_.x) >= GM.windowSize.x)
       {
@@ -318,7 +322,7 @@ void parallaxWindow()
     for (int i = 0; i < 2; i++)
     {
 
-      GM.all_sprites.parallax.grass[i].position_.x += (GM.all_sprites.parallax.grass[i].speed_ * GM.dt);
+      GM.all_sprites.parallax.grass[i].position_.x += ((GM.all_sprites.parallax.grass[i].speed_ * GM.dt) * GM.incrSpeed_);
       GM.all_sprites.parallax.grass[i].draw();
 
       if (GM.all_sprites.parallax.grass[i].position_.x >=
