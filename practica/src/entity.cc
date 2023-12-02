@@ -105,8 +105,6 @@ void initAllEntityParallax()
     GM.all_sprites.parallax.space[i].texture_handle_ = text;
     GM.all_sprites.parallax.space[i].Entity::init(0, true, {(float)(i * GM.all_sprites.parallax.space[i].width()), 
                                -(float)(GM.all_sprites.parallax.space[i].height()/4)}, 0.0f, {1.0f, 1.0f}, 10.0f);
-
-
   }
   //Clouds
   text = text->TextureFactory("../data/parallax/near-clouds.png");
@@ -151,6 +149,20 @@ void initAllEntityParallax()
   }
 }
 
+void initAllEntityCharacter()
+{
+  GameManager &GM = GameManager::Instance();
+  Texture *text;
+
+  // Space background
+  text = text->TextureFactory("../data/parallax/main_character.png");
+  for (int i = 0; i < 2; i++)
+  {
+    GM.all_sprites.parallax.space[i].texture_handle_ = text;
+    GM.all_sprites.parallax.space[i].Entity::init(0, true, {(float)(i * GM.all_sprites.parallax.space[i].width()), -(float)(GM.all_sprites.parallax.space[i].height() / 4)}, 0.0f, {1.0f, 1.0f}, 10.0f);
+  }
+}
+
 void updateParallax()
 {
   GameManager &GM = GameManager::Instance();
@@ -158,7 +170,7 @@ void updateParallax()
     for (int i = 0; i < 2; i++)
   {
 
-    GM.all_sprites.parallax.space[i].position_.x += ((GM.all_sprites.parallax.space[i].speed_ * GM.dt) * GM.incrSpeed_);
+    GM.all_sprites.parallax.space[i].position_.x += ((GM.all_sprites.parallax.space[i].speed_ * GM.dt) * GM.incr_speed_);
 
     if (GM.all_sprites.parallax.space[i].position_.x >=
         (float)((GM.all_sprites.parallax.space[i].width())))
@@ -170,7 +182,7 @@ void updateParallax()
     //clouds
     for(int i = 0; i < 6; i++)
     {
-      GM.all_sprites.parallax.clouds[i].position_.x += ((GM.all_sprites.parallax.clouds[i].speed_ * GM.dt) * GM.incrSpeed_);
+      GM.all_sprites.parallax.clouds[i].position_.x += ((GM.all_sprites.parallax.clouds[i].speed_ * GM.dt) * GM.incr_speed_);
 
 
       if((GM.all_sprites.parallax.clouds[i].position_.x + GM.all_sprites.parallax.clouds[i].width()) >= GM.windowSize.x)
@@ -185,7 +197,7 @@ void updateParallax()
     //mountains
     for(int i = 0; i < 8; i++)
     {
-      GM.all_sprites.parallax.mountains[i].position_.x += ((GM.all_sprites.parallax.mountains[i].speed_ * GM.dt) * GM.incrSpeed_);
+      GM.all_sprites.parallax.mountains[i].position_.x += ((GM.all_sprites.parallax.mountains[i].speed_ * GM.dt) * GM.incr_speed_);
       /* GM.all_sprites.parallax.mountains[i].draw(); */
       if ((GM.all_sprites.parallax.mountains[i].position_.x) >= GM.windowSize.x)
       {
@@ -202,7 +214,7 @@ void updateParallax()
     //small trees
     for (int i = 0; i < 8; i++)
     {
-      GM.all_sprites.parallax.smallTrees[i].position_.x += ((GM.all_sprites.parallax.smallTrees[i].speed_ * GM.dt) * GM.incrSpeed_);
+      GM.all_sprites.parallax.smallTrees[i].position_.x += ((GM.all_sprites.parallax.smallTrees[i].speed_ * GM.dt) * GM.incr_speed_);
       /* GM.all_sprites.parallax.smallTrees[i].draw(); */
       if ((GM.all_sprites.parallax.smallTrees[i].position_.x) >= GM.windowSize.x)
       {
@@ -219,7 +231,7 @@ void updateParallax()
     //big trees
     for (int i = 0; i < 8; i++)
     {
-      GM.all_sprites.parallax.bigTrees[i].position_.x += ((GM.all_sprites.parallax.bigTrees[i].speed_ * GM.dt) * GM.incrSpeed_);
+      GM.all_sprites.parallax.bigTrees[i].position_.x += ((GM.all_sprites.parallax.bigTrees[i].speed_ * GM.dt) * GM.incr_speed_);
       /* GM.all_sprites.parallax.bigTrees[i].draw(); */
       if ((GM.all_sprites.parallax.bigTrees[i].position_.x) >= GM.windowSize.x)
       {
@@ -237,7 +249,7 @@ void updateParallax()
     for (int i = 0; i < 2; i++)
     {
 
-      GM.all_sprites.parallax.grass[i].position_.x += ((GM.all_sprites.parallax.grass[i].speed_ * GM.dt) * GM.incrSpeed_);
+      GM.all_sprites.parallax.grass[i].position_.x += ((GM.all_sprites.parallax.grass[i].speed_ * GM.dt) * GM.incr_speed_);
      /*  GM.all_sprites.parallax.grass[i].draw(); */
 
       if (GM.all_sprites.parallax.grass[i].position_.x >=
@@ -284,6 +296,9 @@ void drawParallax()
      GM.all_sprites.parallax.grass[i].draw();
   }
 }
+
+
+
 // void Entity::PlayAnimation(const AnimationConfig &ac) 
 // {
 //   stopAnimation();

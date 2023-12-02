@@ -13,6 +13,8 @@
 #define __GAME_MANAGER_H__ 1
 
 #include "gsprite.h"
+#include <esat_extra/soloud/soloud.h>
+#include <esat_extra/soloud/soloud_wav.h>
 
 class GameManager{
  public:
@@ -31,6 +33,7 @@ class GameManager{
   };
   
   TWindow window_bool;
+
 
 /*   struct TConst
   {
@@ -53,18 +56,19 @@ class GameManager{
     Sprite smallTrees[8];
     Sprite bigTrees[8];
     Sprite grass[2];
-
   };
 
   struct TSprite
   {
     Sprite manektrik[4];
     TParallax parallax;
+    Sprite maincharacter[8];
   };
 
   TSprite all_sprites;
-  float incrSpeed_ = 1.0f;
- 
+
+  float incr_speed_ = 1.0f;
+
 
   enum
   {
@@ -74,6 +78,15 @@ class GameManager{
     kExitWindow = 3,
     kCreditsWindow = 4,
   };
+
+  //audio variables
+  SoLoud::Soloud soloud_;
+  SoLoud::Wav sample_[4];
+  int controller_;
+  int change_sample_ = 0;
+  float volume_ = 1.0f;
+  float music_counter_;
+  float max_music_time_;
 
 
   

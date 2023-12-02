@@ -68,6 +68,7 @@ void MainMenuBar()
           if(one_time = true)
           {
             themeBoring();
+            ImGui::CloseCurrentPopup();
             one_time = false;
           }
         }
@@ -76,6 +77,7 @@ void MainMenuBar()
           if(one_time = true)
           {
             themePurple();
+            ImGui::CloseCurrentPopup();
             one_time = false;
           }
         }
@@ -84,6 +86,7 @@ void MainMenuBar()
           if(one_time = true)
           {
             themeLemonPie();
+            ImGui::CloseCurrentPopup();
             one_time = false;
           }
         }
@@ -92,6 +95,7 @@ void MainMenuBar()
           if(one_time = true)
           {
             themeBW();
+            ImGui::CloseCurrentPopup();
             one_time = false;
           }
         }
@@ -100,6 +104,7 @@ void MainMenuBar()
           if(one_time = true)
           {
             darkTaronja();
+            ImGui::CloseCurrentPopup();
             one_time = false;
           }
         }
@@ -108,6 +113,7 @@ void MainMenuBar()
           if (one_time = true)
           {
             aquamarineTheme();
+            ImGui::CloseCurrentPopup();
             one_time = false;
           }
         }
@@ -116,6 +122,7 @@ void MainMenuBar()
           if (one_time = true)
           {
             hiBarbieTheme();
+            ImGui::CloseCurrentPopup();
             one_time = false;
           }
         }
@@ -139,17 +146,34 @@ void MainMenuBar()
       ImGui::EndMenu();
     } 
     ImGui::Text("|");
-    if (ImGui::BeginMenu("Contact"))
+    if (ImGui::BeginMenu("Music"))
     {
-        if (ImGui::BeginMenu("Lucas Calatayud"))
+        if(ImGui::Button("Emerald", ImVec2(100.0f, 20.0f)))
         {
-            ImGui::Text("calatayudbri@esat-alumni.com");
-            ImGui::EndMenu();
+          GM.music_counter_ = 0.0f;
+          GM.change_sample_ = 0;
+          ImGui::CloseCurrentPopup();
         }
-        if (ImGui::BeginMenu("Carlos Mazcunan"))
+        if(ImGui::Button("Anime", ImVec2(100.0f, 20.0f)))
         {
-            ImGui::Text("mazcunyanbla@esat-alumni.com");
-            ImGui::EndMenu();
+          GM.music_counter_ = 0.0f;
+          GM.change_sample_ = 1;
+          ImGui::CloseCurrentPopup();
+
+        }
+        if(ImGui::Button("League", ImVec2(100.0f, 20.0f)))
+        {
+          GM.music_counter_ = 0.0f;
+          GM.change_sample_ = 2;
+          ImGui::CloseCurrentPopup();
+
+        }
+        if(ImGui::Button("Red/Blue", ImVec2(100.0f, 20.0f)))
+        {
+          GM.music_counter_ = 0.0f;
+          GM.change_sample_ = 3;
+          ImGui::CloseCurrentPopup();
+
         }
         ImGui::EndMenu();
     }
@@ -169,6 +193,7 @@ void welcomeWindow()
     ImGui::SameLine(0.0f, 90.0f);
     if (ImGui::Button("Animation", ImVec2(100.0f, 20.0f)))
     {
+      GM.music_counter_ = 0.0f;
       initAllEntityParallax();
       windowManager(2);
 
@@ -229,15 +254,57 @@ void creditsWindow()
 void parallaxWindow()
 {
   GameManager &GM = GameManager::Instance();
-  ImGui::SetNextWindowSize(ImVec2(300.0f, 40.0f));
-  ImGui::SetNextWindowPos(ImVec2(5.0f, GM.windowSize.y - 50.0f));
-  ImGui::Begin("PARALLAX", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground);
-  if (ImGui::Button("Return", ImVec2(100.0f, 20.0f)))
+  
+  if(GM.music_counter_ <= 0.0f)
   {
+    GM.soloud_.init();
+    GM.sample_[GM.change_sample_].stop();
+    switch (GM.change_sample_)
+    {
+    case 0:
+      GM.max_music_time_ = 72.0f;
+      GM.controller_ = GM.soloud_.play(GM.sample_[GM.change_sample_]);
+      break;
+    case 1:
+      GM.max_music_time_ = 204.0f;
+      GM.controller_ = GM.soloud_.play(GM.sample_[GM.change_sample_]);
+      break;
+    case 2:
+      GM.max_music_time_ = 84.0f;
+      GM.controller_ = GM.soloud_.play(GM.sample_[GM.change_sample_]);
+      break;
+    case 3:
+      GM.max_music_time_ = 120.0f;
+      GM.controller_ = GM.soloud_.play(GM.sample_[GM.change_sample_]);
+      break;
+    default:
+      break;
+    }
+  }
+  ImGui::SetNextWindowSize(ImVec2(400.0f, 120.0f));
+  ImGui::SetNextWindowPos(ImVec2(0.0f, 23.0f));
+  ImGui::Begin("Settings", nullptr, ImGuiWindowFlags_NoResize |ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground);
+  /* ImGui::SameLine(116.0f, 0.0f); */
+  ImGui::SliderFloat("Speed", &GM.incr_speed_, 0.0f, 2.0f, "%.2f");
+  ImGui::SliderFloat("Volume", &GM.volume_, 0.0f, 2.0f, "%.2f");
+  if (ImGui::Button("Return", ImVec2(84.0f, 20.0f)))
+  {
+    GM.incr_speed_ = 1.0f;
+    GM.volume_ = 1.0f;
+    GM.sample_[GM.change_sample_].stop();
+    GM.soloud_.deinit();
     windowManager(0);
   }
   ImGui::SameLine();
-  ImGui::SliderFloat("slider float", &GM.incrSpeed_, 0.0f, 2.0f, "%.2f");
+  if(ImGui::Button("STOP", ImVec2(80.0f, 20.0f)))
+  {
+    GM.incr_speed_ = 0.0f;
+  }
+  ImGui::SameLine();
+  if(ImGui::Button("RUN", ImVec2(80.0f, 20.0f)))
+  {
+    GM.incr_speed_ = 1.0f;
+  }
   ImGui::End();
   //input
   inputSpeed();
@@ -245,6 +312,16 @@ void parallaxWindow()
   updateParallax();
   //draw
   drawParallax();
+  //
+
+  GM.soloud_.setVolume(GM.controller_, GM.volume_); 
+  (GM.music_counter_) = GM.dt + (GM.music_counter_ );
+  if(GM.music_counter_ >= GM.max_music_time_)
+  {
+    GM.music_counter_ = 0.0f;
+  }
+  printf("\n%f", GM.music_counter_);
+
 }
 
 void stateMachine()
@@ -674,15 +751,15 @@ void hiBarbieTheme()
 void inputSpeed()
 {
   GameManager &GM = GameManager::Instance();
-  if(esat::IsSpecialKeyDown(esat::kSpecialKey_Right) && GM.incrSpeed_ <= 2.0f)
+  if(esat::IsSpecialKeyDown(esat::kSpecialKey_Right) && GM.incr_speed_ <= 2.0f)
   {
-    printf("\n%f", GM.incrSpeed_);
-    GM.incrSpeed_+=0.05f;
+    printf("\n%f", GM.incr_speed_);
+    GM.incr_speed_+=0.05f;
   }
-  if(esat::IsSpecialKeyDown(esat::kSpecialKey_Left) && GM.incrSpeed_ >= 0.0f)
+  if(esat::IsSpecialKeyDown(esat::kSpecialKey_Left) && GM.incr_speed_ >= 0.0f)
   {
-    printf("\n%f", GM.incrSpeed_);
-    GM.incrSpeed_-=0.05f;
+    printf("\n%f", GM.incr_speed_);
+    GM.incr_speed_-=0.05f;
   }
 
 }
