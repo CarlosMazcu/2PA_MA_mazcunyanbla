@@ -45,4 +45,6 @@ void hiBarbieTheme();
 
 void inputSpeed();
 
+void sampleName();
+
 #endif

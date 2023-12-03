@@ -15,7 +15,7 @@
 
 #include "../deps/math_library/include/vector_2.h"
 #include <stdint.h>
-
+#include <string>
 
 // struct AnimationConfig;
 /* class AnimationInstance;

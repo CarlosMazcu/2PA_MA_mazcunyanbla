@@ -14,8 +14,6 @@
 #include "esat/input.h"
 #include "stdio.h"
 
-
-
 void windowManager(int n)
 {
     GameManager &GM = GameManager::Instance();
@@ -184,6 +182,7 @@ void MainMenuBar()
 void welcomeWindow()
 {
     GameManager &GM = GameManager::Instance();
+    sampleName();
     ImGui::SetNextWindowSize(ImVec2(300, 400));
     ImGui::SetNextWindowPos(ImVec2(160, 200));
 
@@ -207,7 +206,14 @@ void welcomeWindow()
         windowManager(1);
         // GM.credits = true;
     }
-    for (int i = 0; i < 30; i++)
+    for (int i = 0; i < 8; i++)
+    {
+        ImGui::Spacing();
+    }
+    ImGui::SameLine(0.0f, 40.0f);
+    GM.sample_name_ = "test";
+    ImGui::Text("Sample Selected: %s", GM.sample_name_);
+    for (int i = 0; i < 10; i++)
     {
         ImGui::Spacing();
     }
@@ -760,6 +766,29 @@ void inputSpeed()
   {
     printf("\n%f", GM.incr_speed_);
     GM.incr_speed_-=0.05f;
+  }
+
+}
+
+void sampleName()
+{
+  GameManager &GM = GameManager::Instance();
+  switch (GM.change_sample_)
+  {
+  case 0:
+    GM.sample_name_ = "Emerald intro";
+    break;
+  case 1: 
+    GM.sample_name_ = "Anime intro";
+    break;
+  case 2:
+    GM.sample_name_ = "League";
+    break;
+  case 3:
+    GM.sample_name_ = "1st Gen Intro";
+  default:
+    GM.sample_name_ = "Anyone Selected";
+    break;
   }
 
 }
