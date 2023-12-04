@@ -183,9 +183,18 @@ void initAllEntityCharacter()
     text_volbeat->init(text_volbeat->getHandle(), 236 + (i * 30), 0, 24 + (i * 6), 27);
 
     GM.all_sprites.volbeat[i].texture_handle_ = text_volbeat;
-    GM.all_sprites.volbeat[i].Entity::init(8, true, {i * 27.0f, 140.0f}, 0.0f, {1.0f, 1.0f}, 20.0f);
+    GM.all_sprites.volbeat[i].Entity::init(8, true, {i * 27.0f, 160.0f}, 0.0f, {1.0f, 1.0f}, 20.0f);
   }
-  
+  //torchic
+  for(int i = 0; i < 5; i++)
+  {
+    Texture *text_torchic;
+    text_torchic = text_torchic->TextureFactory("../data/SpriteSheet/characters_sheet.png");
+    text_torchic->init(text_torchic->getHandle(), 300 + (i * 25), 0, 24, 24);
+
+    GM.all_sprites.torchic[i].texture_handle_ = text_torchic;
+    GM.all_sprites.torchic[i].Entity::init(9, true, {i * 30.0f, 200.0f}, 0.0f, {1.0f, 1.0f}, 20.f);
+  }
 }
 
 void updateParallax()
@@ -333,6 +342,10 @@ void drawSprites()
   for(int i = 0; i < 2; i++)
   {
     GM.all_sprites.volbeat[i].draw();
+  }
+  for(int i = 0; i < 5; i++)
+  {
+    GM.all_sprites.torchic[i].draw();
   }
 }
 

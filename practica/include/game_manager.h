@@ -63,6 +63,7 @@ class GameManager{
     Sprite manektrik[4];
     Sprite maincharacter[8];
     Sprite volbeat[2];
+    Sprite torchic[5];
     TParallax parallax;
   };
 
