@@ -35,19 +35,6 @@ class GameManager{
   TWindow window_bool;
 
 
-/*   struct TConst
-  {
-    const int kSpace = 2;
-    const int kClouds = 7;
-    const int kMountains = 7;
-    const int kSmallTrees = 7;
-    const int kBigTrees = 7;
-    const int kGrass = 4;
-
-  };
-
-  TConst kSprites;
- */
   struct TParallax
   {
     Sprite space[2];
@@ -64,6 +51,7 @@ class GameManager{
     Sprite maincharacter[8];
     Sprite volbeat[2];
     Sprite torchic[5];
+    Sprite flygon;
     TParallax parallax;
   };
 

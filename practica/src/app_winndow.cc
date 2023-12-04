@@ -202,13 +202,17 @@ void welcomeWindow()
     if (ImGui::Button("Animation", ImVec2(100.0f, 20.0f)))
     {
       GM.music_counter_ = 0.0f;
+
       initAllEntityParallax();
       initAllEntityCharacter();
       GM.soloud_.init();
       windowManager(2);
 
     }
+    ImGui::Spacing();
+    ImGui::Spacing();
     ImGui::Separator();
+    ImGui::Spacing();
     ImGui::Spacing();
     ImGui::SameLine(0.0f, 90.0f);
   
@@ -221,9 +225,10 @@ void welcomeWindow()
     {
         ImGui::Spacing();
     }
-    ImGui::SameLine(0.0f, 40.0f);
-    GM.sample_name_ = "test";
-    ImGui::Text("Sample Selected: %s", GM.sample_name_);
+    ImGui::SameLine(0.0f, 65.0f);
+
+    ImGui::TextColored(ImVec4(255, 0, 0, 1),"Sample: %s", GM.sample_name_.c_str());
+
     for (int i = 0; i < 10; i++)
     {
         ImGui::Spacing();
@@ -336,7 +341,6 @@ void parallaxWindow()
   {
     GM.music_counter_ = 0.0f;
   }
-  printf("\nCounter:[%f] Index:[%d] Delta:[%f]", GM.music_counter_, GM.change_sample_, GM.dt);
 
 }
 
@@ -796,6 +800,7 @@ void sampleName()
     break;
   case 3:
     GM.sample_name_ = "1st Gen Intro";
+    break;
   default:
     GM.sample_name_ = "Anyone Selected";
     break;

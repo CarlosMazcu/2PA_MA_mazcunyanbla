@@ -159,10 +159,10 @@ void initAllEntityCharacter()
   {
     Texture *text_main_character;
     text_main_character = text_main_character->TextureFactory("../data/SpriteSheet/main_character.png");
-    text_main_character->init(text_main_character->getHandle(), 367 + (61 * i), 132, 44, 44);
+    text_main_character->init(text_main_character->getHandle(), 367 + (61 * i), 130, 44, 45);
 
     GM.all_sprites.maincharacter[i].texture_handle_ = text_main_character;
-    GM.all_sprites.maincharacter[i].Entity::init(6, true, {i * 61.0f, 100.0f}, 0.0f, {1.0f, 1.0f}, 20.0f);
+    GM.all_sprites.maincharacter[i].Entity::init(6, true, {61.0f, 100.0f}, 0.0f, {1.5f, 1.5f}, 20.0f);
   }
 
   // manektrik
@@ -173,7 +173,7 @@ void initAllEntityCharacter()
     text_manektrik->init(text_manektrik->getHandle(), i * 57, 0, 57, 46);
 
     GM.all_sprites.manektrik[i].texture_handle_ = text_manektrik;
-    GM.all_sprites.manektrik[i].Entity::init(7, true, {i * 57.0f, 50.0f}, 0.0f, {1.0f, 1.0f}, 20.0f);
+    GM.all_sprites.manektrik[i].Entity::init(7, true, {100.0f, 200.0f}, 0.0f, {1.5f, 1.5f}, 20.0f);
   }
   //volbeat
   for (int i = 0; i < 2; i++)
@@ -183,7 +183,7 @@ void initAllEntityCharacter()
     text_volbeat->init(text_volbeat->getHandle(), 236 + (i * 30), 0, 24 + (i * 6), 27);
 
     GM.all_sprites.volbeat[i].texture_handle_ = text_volbeat;
-    GM.all_sprites.volbeat[i].Entity::init(8, true, {i * 27.0f, 160.0f}, 0.0f, {1.0f, 1.0f}, 20.0f);
+    GM.all_sprites.volbeat[i].Entity::init(8, true, {27.0f, 160.0f}, 0.0f, {1.5f, 1.5f}, 20.0f);
   }
   //torchic
   for(int i = 0; i < 5; i++)
@@ -193,8 +193,16 @@ void initAllEntityCharacter()
     text_torchic->init(text_torchic->getHandle(), 300 + (i * 25), 0, 24, 24);
 
     GM.all_sprites.torchic[i].texture_handle_ = text_torchic;
-    GM.all_sprites.torchic[i].Entity::init(9, true, {i * 30.0f, 200.0f}, 0.0f, {1.0f, 1.0f}, 20.f);
+    GM.all_sprites.torchic[i].Entity::init(9, true, {/* i *  */30.0f, 200.0f}, 0.0f, {1.5f, 1.5f}, 20.f);
   }
+
+  Texture *text_flygon;
+  text_flygon = text_flygon->TextureFactory("../data/SpriteSheet/characters_sheet.png");
+  text_flygon->init(text_flygon->getHandle(), 462, 0, 114, 40);
+
+  GM.all_sprites.flygon.texture_handle_ = text_flygon;
+  GM.all_sprites.flygon.Entity::init(10, true, {0.0f, 250.0f}, 0.0f, {1.5f, 1.5f}, 20.0f);
+
 }
 
 void updateParallax()
@@ -279,8 +287,7 @@ void updateParallax()
     //grass
     for (int i = 0; i < 2; i++)
     {
-
-      GM.all_sprites.parallax.grass[i].position_.x += ((GM.all_sprites.parallax.grass[i].speed_ * GM.dt) * GM.incr_speed_) ;
+      GM.all_sprites.parallax.grass[i].position_.x += ((GM.all_sprites.parallax.grass[i].speed_ * GM.dt) * GM.incr_speed_);
 
       if (GM.all_sprites.parallax.grass[i].position_.x >=
           (float)((GM.all_sprites.parallax.grass[i].width())))
@@ -330,26 +337,141 @@ void drawParallax()
 void drawSprites()
 {
   GameManager &GM = GameManager::Instance();
-  for(int i = 0; i < 8; i++)
-  {
-    GM.all_sprites.maincharacter[i].draw();
-    
-  }
-  for (int i = 0; i < 4; i++)
-  {
-    GM.all_sprites.manektrik[i].draw();
-  }
-  for(int i = 0; i < 2; i++)
-  {
-    GM.all_sprites.volbeat[i].draw();
-  }
-  for(int i = 0; i < 5; i++)
-  {
-    GM.all_sprites.torchic[i].draw();
-  }
+  
+  animManektrik();
+  animMainCharacter();
+  animVolbeat();
+  GM.all_sprites.flygon.draw();
+  animTorchic();
 }
 
+void animManektrik()
+{
+  GameManager &GM = GameManager::Instance();
 
+  static float counter = 0.0f;
+
+  if(counter >= 0.0f && counter <= 0.1f)
+  {
+    GM.all_sprites.manektrik[0].draw();
+  }
+  if(counter > 0.1f && counter <= 0.2f)
+  {
+    GM.all_sprites.manektrik[1].draw();
+  }
+  if(counter > 0.2f && counter <= 0.3f)
+  {
+    GM.all_sprites.manektrik[2].draw();
+  }
+  if(counter > 0.3f && counter <= 0.4f)
+  {
+    GM.all_sprites.manektrik[3].draw();
+  }
+  
+  if(counter > 0.4f)
+  {
+    counter = 0.0f;
+  }
+  counter += (GM.dt * GM.incr_speed_);
+}
+
+void animMainCharacter()
+{
+  GameManager &GM = GameManager::Instance();
+  static float counter = 0.0f;
+
+  if(counter >= 0.0f && counter <= 0.1f)
+  {
+    GM.all_sprites.maincharacter[0].draw();
+  }
+  if(counter > 0.1f && counter <= 0.2f)
+  {
+    GM.all_sprites.maincharacter[1].draw();
+  }
+  if(counter > 0.2f && counter <= 0.3f)
+  {
+    GM.all_sprites.maincharacter[2].draw();
+  }
+  if(counter > 0.3f && counter <= 0.4f)
+  {
+    GM.all_sprites.maincharacter[3].draw();
+  }
+  if(counter > 0.4f && counter <= 0.5f)
+  {
+    GM.all_sprites.maincharacter[4].draw();
+  }
+  if(counter > 0.5f && counter <= 0.6f)
+  {
+    GM.all_sprites.maincharacter[5].draw();
+  }
+  if(counter > 0.6f && counter <= 0.7f)
+  {
+    GM.all_sprites.maincharacter[6].draw();
+  }
+  /* if(counter > 0.7f && counter <= 0.8f)
+  {
+    GM.all_sprites.maincharacter[7].draw();
+  } */
+  
+  if(counter > 0.7f)
+  {
+    counter = 0.0f;
+  }
+  counter += (GM.dt * GM.incr_speed_);
+}
+
+void animVolbeat()
+{
+  GameManager &GM = GameManager::Instance();
+  static float counter = 0.0f;
+
+  if(counter >= 0.0f && counter <= 0.1f)
+  {
+    GM.all_sprites.volbeat[0].draw();
+  }
+  if(counter > 0.1f && counter <= 0.2f)
+  {
+    GM.all_sprites.volbeat[1].draw();
+  }
+  if(counter > 0.2f)
+  {
+    counter = 0.0f;
+  }
+  counter += (GM.dt * GM.incr_speed_);
+}
+
+void animTorchic()
+{
+  GameManager &GM = GameManager::Instance();
+  static float counter = 0.0f;
+
+  if(counter >= 0.0f && counter <= 0.1f)
+  {
+    GM.all_sprites.torchic[0].draw();
+  }
+  if(counter > 0.1f && counter <= 0.2f)
+  {
+    GM.all_sprites.torchic[1].draw();
+  }
+  if(counter > 0.2f && counter <= 0.3f)
+  {
+    GM.all_sprites.torchic[2].draw();
+  }
+  if(counter > 0.3f && counter <= 0.4f)
+  {
+    GM.all_sprites.torchic[3].draw();
+  }
+  if(counter > 0.4f && counter <= 0.5f)
+  {
+    GM.all_sprites.torchic[4].draw();
+  }
+
+  if(counter > 0.5f)
+  {
+    counter = 0.0f;
+  }
+  counter += (GM.dt * GM.incr_speed_);
+}
 
 // void Entity::PlayAnimation(const AnimationConfig &ac) 
 // {

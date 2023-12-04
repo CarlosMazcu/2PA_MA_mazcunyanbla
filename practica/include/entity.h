@@ -73,5 +73,13 @@ void drawParallax();
 
 void drawSprites();
 
+void animManektrik();
+
+void animMainCharacter();
+
+void animVolbeat();
+
+void animTorchic();
+
 
 #endif
