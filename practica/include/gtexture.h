@@ -9,7 +9,7 @@
 
 #include "esat/sprite.h"
 
-const unsigned int kMaxTextures = 16;
+const unsigned int kMaxTextures = 20;
 
 class Texture{
  public:

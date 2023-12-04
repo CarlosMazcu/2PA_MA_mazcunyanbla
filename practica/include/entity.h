@@ -65,9 +65,13 @@ class Entity{
 
 void initAllEntityParallax();
 
+void initAllEntityCharacter();
+
 void updateParallax();
 
 void drawParallax();
+
+void drawSprites();
 
 
 #endif

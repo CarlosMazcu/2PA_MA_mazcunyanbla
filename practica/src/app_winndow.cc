@@ -194,6 +194,8 @@ void welcomeWindow()
     {
       GM.music_counter_ = 0.0f;
       initAllEntityParallax();
+      initAllEntityCharacter();
+      GM.soloud_.init();
       windowManager(2);
 
     }
@@ -210,9 +212,9 @@ void welcomeWindow()
     {
         ImGui::Spacing();
     }
-    ImGui::SameLine(0.0f, 40.0f);
+/*     ImGui::SameLine(0.0f, 40.0f);
     GM.sample_name_ = "test";
-    ImGui::Text("Sample Selected: %s", GM.sample_name_);
+    ImGui::Text("Sample Selected: %s", GM.sample_name_); */
     for (int i = 0; i < 10; i++)
     {
         ImGui::Spacing();
@@ -260,46 +262,44 @@ void creditsWindow()
 void parallaxWindow()
 {
   GameManager &GM = GameManager::Instance();
-/*   GM.soloud_.init();
 
-  if(GM.music_counter_ <= 0.0f)
-  {
-    GM.sample_[GM.change_sample_].stop();
-    switch (GM.change_sample_)
-    {
-    case 0:
-      GM.max_music_time_ = 72.0f;
-      GM.controller_ = GM.soloud_.play(GM.sample_[GM.change_sample_]);
-      break;
-    case 1:
-      GM.max_music_time_ = 204.0f;
-      GM.controller_ = GM.soloud_.play(GM.sample_[GM.change_sample_]);
-      break;
-    case 2:
-      GM.max_music_time_ = 84.0f;
-      GM.controller_ = GM.soloud_.play(GM.sample_[GM.change_sample_]);
-      break;
-    case 3:
-      GM.max_music_time_ = 120.0f;
-      GM.controller_ = GM.soloud_.play(GM.sample_[GM.change_sample_]);
-      break;
-    default:
-      break;
-    }
-  } */
-  ImGui::SetNextWindowSize(ImVec2(400.0f, 120.0f));
-  ImGui::SetNextWindowPos(ImVec2(0.0f, 23.0f));
-  ImGui::Begin("Settings", nullptr, ImGuiWindowFlags_NoResize |ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground);
-  /* ImGui::SameLine(116.0f, 0.0f); */
-  ImGui::SliderFloat("Speed", &GM.incr_speed_, 0.0f, 2.0f, "%.2f");
-  ImGui::SliderFloat("Volume", &GM.volume_, 0.0f, 2.0f, "%.2f");
-  if (ImGui::Button("Return", ImVec2(84.0f, 20.0f)))
-  {
-    GM.incr_speed_ = 1.0f;
-    GM.volume_ = 1.0f;
-/*     GM.sample_[GM.change_sample_].stop();
-    GM.soloud_.deinit(); */
-    windowManager(0);
+  /* if(GM.music_counter_ <= 0.0f)
+ {
+   GM.sample_[GM.change_sample_].stop();
+   switch (GM.change_sample_)
+   {
+   case 0:
+     GM.max_music_time_ = 72.0f;
+     GM.controller_ = GM.soloud_.play(GM.sample_[GM.change_sample_]);
+     break;
+   case 1:
+     GM.max_music_time_ = 204.0f;
+     GM.controller_ = GM.soloud_.play(GM.sample_[GM.change_sample_]);
+     break;
+   case 2:
+     GM.max_music_time_ = 84.0f;
+     GM.controller_ = GM.soloud_.play(GM.sample_[GM.change_sample_]);
+     break;
+   case 3:
+     GM.max_music_time_ = 120.0f;
+     GM.controller_ = GM.soloud_.play(GM.sample_[GM.change_sample_]);
+     break;
+   default:
+     break;
+   }
+ } */
+ ImGui::SetNextWindowSize(ImVec2(400.0f, 120.0f));
+ ImGui::SetNextWindowPos(ImVec2(0.0f, 23.0f));
+ ImGui::Begin("Settings", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground);
+ ImGui::SliderFloat("Speed", &GM.incr_speed_, 0.0f, 2.0f, "%.2f");
+ ImGui::SliderFloat("Volume", &GM.volume_, 0.0f, 2.0f, "%.2f");
+ if (ImGui::Button("Return", ImVec2(84.0f, 20.0f)))
+ {
+   GM.incr_speed_ = 1.0f;
+   GM.volume_ = 1.0f;
+   /* GM.sample_[GM.change_sample_].stop(); */
+   GM.soloud_.deinit();
+   windowManager(0);
   }
   ImGui::SameLine();
   if(ImGui::Button("STOP", ImVec2(80.0f, 20.0f)))
@@ -318,9 +318,10 @@ void parallaxWindow()
   updateParallax();
   //draw
   drawParallax();
+  drawSprites();
   //
 
-/*   GM.soloud_.setVolume(GM.controller_, GM.volume_);  */
+  /* GM.soloud_.setVolume(GM.controller_, GM.volume_);  */
   (GM.music_counter_) = GM.dt + (GM.music_counter_ );
   if(GM.music_counter_ >= GM.max_music_time_)
   {

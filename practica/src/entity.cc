@@ -137,14 +137,14 @@ void initAllEntityParallax()
   for (int i = 0; i < 8; i++)
   {
     GM.all_sprites.parallax.bigTrees[i].texture_handle_ = text;
-    GM.all_sprites.parallax.bigTrees[i].Entity::init(3, true, {(float)(i * GM.all_sprites.parallax.bigTrees->width()), 
+    GM.all_sprites.parallax.bigTrees[i].Entity::init(4, true, {(float)(i * GM.all_sprites.parallax.bigTrees->width()), 
                                                       340.0f}, 0.0f, {1.0f, 1.0f}, 150.0f);
   }
   text = text->TextureFactory("../data/parallax/grass.png");
   for (int i = 0; i < 2; i++)
   {
     GM.all_sprites.parallax.grass[i].texture_handle_ = text;
-    GM.all_sprites.parallax.grass[i].Entity::init(3, true, {(float)(i * GM.all_sprites.parallax.grass->width()), 
+    GM.all_sprites.parallax.grass[i].Entity::init(5, true, {(float)(i * GM.all_sprites.parallax.grass->width()), 
                                                       375.0f}, 0.0f, {1.0f, 1.0f}, 230.0f);
   }
 }
@@ -152,15 +152,40 @@ void initAllEntityParallax()
 void initAllEntityCharacter()
 {
   GameManager &GM = GameManager::Instance();
-  Texture *text;
 
-  // Space background
-  text = text->TextureFactory("../data/parallax/main_character.png");
+  
+  // main character
+  for (int i = 0; i < 8; i++)
+  {
+    Texture *text_main_character;
+    text_main_character = text_main_character->TextureFactory("../data/SpriteSheet/main_character.png");
+    text_main_character->init(text_main_character->getHandle(), 367 + (61 * i), 132, 44, 44);
+
+    GM.all_sprites.maincharacter[i].texture_handle_ = text_main_character;
+    GM.all_sprites.maincharacter[i].Entity::init(6, true, {i * 61.0f, 100.0f}, 0.0f, {1.0f, 1.0f}, 20.0f);
+  }
+
+  // manektrik
+  for (int i = 0; i < 4; i++)
+  {
+    Texture *text_manektrik;
+    text_manektrik = text_manektrik->TextureFactory("../data/SpriteSheet/characters_sheet.png");
+    text_manektrik->init(text_manektrik->getHandle(), i * 57, 0, 57, 46);
+
+    GM.all_sprites.manektrik[i].texture_handle_ = text_manektrik;
+    GM.all_sprites.manektrik[i].Entity::init(7, true, {i * 57.0f, 50.0f}, 0.0f, {1.0f, 1.0f}, 20.0f);
+  }
+  //volbeat
   for (int i = 0; i < 2; i++)
   {
-    GM.all_sprites.parallax.space[i].texture_handle_ = text;
-    GM.all_sprites.parallax.space[i].Entity::init(0, true, {(float)(i * GM.all_sprites.parallax.space[i].width()), -(float)(GM.all_sprites.parallax.space[i].height() / 4)}, 0.0f, {1.0f, 1.0f}, 10.0f);
+    Texture *text_volbeat;
+    text_volbeat = text_volbeat->TextureFactory("../data/SpriteSheet/characters_sheet.png");
+    text_volbeat->init(text_volbeat->getHandle(), 236 + (i * 30), 0, 24 + (i * 6), 27);
+
+    GM.all_sprites.volbeat[i].texture_handle_ = text_volbeat;
+    GM.all_sprites.volbeat[i].Entity::init(8, true, {i * 27.0f, 140.0f}, 0.0f, {1.0f, 1.0f}, 20.0f);
   }
+  
 }
 
 void updateParallax()
@@ -182,10 +207,10 @@ void updateParallax()
     //clouds
     for(int i = 0; i < 6; i++)
     {
+      //move
       GM.all_sprites.parallax.clouds[i].position_.x += ((GM.all_sprites.parallax.clouds[i].speed_ * GM.dt) * GM.incr_speed_);
-
-
-      if((GM.all_sprites.parallax.clouds[i].position_.x + GM.all_sprites.parallax.clouds[i].width()) >= GM.windowSize.x)
+      //teleport
+      if((GM.all_sprites.parallax.clouds[i].position_.x) >= GM.windowSize.x)
       {
         if(i == 5){
           GM.all_sprites.parallax.clouds[i].position_.x = GM.all_sprites.parallax.clouds[i - i].position_.x - GM.all_sprites.parallax.clouds[i].width();
@@ -198,7 +223,6 @@ void updateParallax()
     for(int i = 0; i < 8; i++)
     {
       GM.all_sprites.parallax.mountains[i].position_.x += ((GM.all_sprites.parallax.mountains[i].speed_ * GM.dt) * GM.incr_speed_);
-      /* GM.all_sprites.parallax.mountains[i].draw(); */
       if ((GM.all_sprites.parallax.mountains[i].position_.x) >= GM.windowSize.x)
       {
         if (i == 7)
@@ -215,7 +239,6 @@ void updateParallax()
     for (int i = 0; i < 8; i++)
     {
       GM.all_sprites.parallax.smallTrees[i].position_.x += ((GM.all_sprites.parallax.smallTrees[i].speed_ * GM.dt) * GM.incr_speed_);
-      /* GM.all_sprites.parallax.smallTrees[i].draw(); */
       if ((GM.all_sprites.parallax.smallTrees[i].position_.x) >= GM.windowSize.x)
       {
         if (i == 7)
@@ -232,7 +255,6 @@ void updateParallax()
     for (int i = 0; i < 8; i++)
     {
       GM.all_sprites.parallax.bigTrees[i].position_.x += ((GM.all_sprites.parallax.bigTrees[i].speed_ * GM.dt) * GM.incr_speed_);
-      /* GM.all_sprites.parallax.bigTrees[i].draw(); */
       if ((GM.all_sprites.parallax.bigTrees[i].position_.x) >= GM.windowSize.x)
       {
         if (i == 7)
@@ -249,8 +271,7 @@ void updateParallax()
     for (int i = 0; i < 2; i++)
     {
 
-      GM.all_sprites.parallax.grass[i].position_.x += ((GM.all_sprites.parallax.grass[i].speed_ * GM.dt) * GM.incr_speed_);
-     /*  GM.all_sprites.parallax.grass[i].draw(); */
+      GM.all_sprites.parallax.grass[i].position_.x += ((GM.all_sprites.parallax.grass[i].speed_ * GM.dt) * GM.incr_speed_) ;
 
       if (GM.all_sprites.parallax.grass[i].position_.x >=
           (float)((GM.all_sprites.parallax.grass[i].width())))
@@ -294,6 +315,24 @@ void drawParallax()
   for (int i = 0; i < 2; i++)
   {
      GM.all_sprites.parallax.grass[i].draw();
+  }
+}
+
+void drawSprites()
+{
+  GameManager &GM = GameManager::Instance();
+  for(int i = 0; i < 8; i++)
+  {
+    GM.all_sprites.maincharacter[i].draw();
+    
+  }
+  for (int i = 0; i < 4; i++)
+  {
+    GM.all_sprites.manektrik[i].draw();
+  }
+  for(int i = 0; i < 2; i++)
+  {
+    GM.all_sprites.volbeat[i].draw();
   }
 }
 

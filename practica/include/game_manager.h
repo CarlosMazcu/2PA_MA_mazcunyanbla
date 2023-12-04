@@ -61,8 +61,9 @@ class GameManager{
   struct TSprite
   {
     Sprite manektrik[4];
-    TParallax parallax;
     Sprite maincharacter[8];
+    Sprite volbeat[2];
+    TParallax parallax;
   };
 
   TSprite all_sprites;
