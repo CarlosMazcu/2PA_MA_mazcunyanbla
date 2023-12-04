@@ -16,7 +16,8 @@
 #include "gtexture.h"
 #include "gsprite.h"
 
-
+//TODO release sprites when click RETURN button in parallax window
+//TODO check music
 
 /* void RenderFPS() {
   static double last_time = esat::Time();
@@ -41,7 +42,7 @@ void Test() {
 
   windowManager(0); 
   esat::WindowInit((int)GM.windowSize.x, (int)GM.windowSize.y);
-  esat::DrawSetTextFont("../data/test.ttf");
+/*   esat::DrawSetTextFont("../data/test.ttf"); */
   darkTaronja();
 
   esat::WindowSetMouseVisibility(true);
@@ -65,7 +66,6 @@ void Test() {
     esat::WindowFrame();
     GM.last_time = esat::Time();
   }
-
   esat::WindowDestroy();
 }
 
