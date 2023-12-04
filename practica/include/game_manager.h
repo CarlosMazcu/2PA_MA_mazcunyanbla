@@ -84,7 +84,7 @@ class GameManager{
   SoLoud::Soloud soloud_;
   SoLoud::Wav sample_[4];
   int controller_;
-  int change_sample_ = 0;
+  int change_sample_;
   float volume_ = 1.0f;
   float music_counter_;
   float max_music_time_;

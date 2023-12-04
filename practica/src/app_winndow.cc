@@ -63,7 +63,7 @@ void MainMenuBar()
     {
         if(ImGui::Button("BoringDefault", ImVec2(100.0f, 20.0f)))
         {
-          if(one_time = true)
+          if(one_time == true)
           {
             themeBoring();
             ImGui::CloseCurrentPopup();
@@ -72,7 +72,7 @@ void MainMenuBar()
         }
         if(ImGui::Button("DarkPurple", ImVec2(100.0f, 20.0f)))
         {
-          if(one_time = true)
+          if(one_time == true)
           {
             themePurple();
             ImGui::CloseCurrentPopup();
@@ -81,7 +81,7 @@ void MainMenuBar()
         }
         if(ImGui::Button("LemonPie", ImVec2(100.0f, 20.0f)))
         {
-          if(one_time = true)
+          if(one_time == true)
           {
             themeLemonPie();
             ImGui::CloseCurrentPopup();
@@ -90,7 +90,7 @@ void MainMenuBar()
         }
         if(ImGui::Button("B & W", ImVec2(100.0f, 20.0f)))
         {
-          if(one_time = true)
+          if(one_time == true)
           {
             themeBW();
             ImGui::CloseCurrentPopup();
@@ -99,7 +99,7 @@ void MainMenuBar()
         }
         if(ImGui::Button("ESATtheme", ImVec2(100.0f, 20.0f)))
         {
-          if(one_time = true)
+          if(one_time == true)
           {
             darkTaronja();
             ImGui::CloseCurrentPopup();
@@ -108,7 +108,7 @@ void MainMenuBar()
         }
         if (ImGui::Button("AkuaMarine", ImVec2(100.0f, 20.0f)))
         {
-          if (one_time = true)
+          if (one_time == true)
           {
             aquamarineTheme();
             ImGui::CloseCurrentPopup();
@@ -117,7 +117,7 @@ void MainMenuBar()
         }
         if (ImGui::Button("HiBarbie", ImVec2(100.0f, 20.0f)))
         {
-          if (one_time = true)
+          if (one_time == true)
           {
             hiBarbieTheme();
             ImGui::CloseCurrentPopup();
@@ -149,19 +149,26 @@ void MainMenuBar()
         if(ImGui::Button("Emerald", ImVec2(100.0f, 20.0f)))
         {
           GM.music_counter_ = 0.0f;
+          GM.sample_[GM.change_sample_].stop();
+
           GM.change_sample_ = 0;
           ImGui::CloseCurrentPopup();
         }
         if(ImGui::Button("Anime", ImVec2(100.0f, 20.0f)))
         {
           GM.music_counter_ = 0.0f;
+          GM.sample_[GM.change_sample_].stop();
+
           GM.change_sample_ = 1;
           ImGui::CloseCurrentPopup();
 
         }
         if(ImGui::Button("League", ImVec2(100.0f, 20.0f)))
         {
+
           GM.music_counter_ = 0.0f;
+          GM.sample_[GM.change_sample_].stop();
+
           GM.change_sample_ = 2;
           ImGui::CloseCurrentPopup();
 
@@ -169,6 +176,8 @@ void MainMenuBar()
         if(ImGui::Button("Red/Blue", ImVec2(100.0f, 20.0f)))
         {
           GM.music_counter_ = 0.0f;
+          GM.sample_[GM.change_sample_].stop();
+
           GM.change_sample_ = 3;
           ImGui::CloseCurrentPopup();
 
@@ -212,9 +221,9 @@ void welcomeWindow()
     {
         ImGui::Spacing();
     }
-/*     ImGui::SameLine(0.0f, 40.0f);
+    ImGui::SameLine(0.0f, 40.0f);
     GM.sample_name_ = "test";
-    ImGui::Text("Sample Selected: %s", GM.sample_name_); */
+    ImGui::Text("Sample Selected: %s", GM.sample_name_);
     for (int i = 0; i < 10; i++)
     {
         ImGui::Spacing();
@@ -263,7 +272,7 @@ void parallaxWindow()
 {
   GameManager &GM = GameManager::Instance();
 
-  /* if(GM.music_counter_ <= 0.0f)
+  if(GM.music_counter_ <= 0.0f)
  {
    GM.sample_[GM.change_sample_].stop();
    switch (GM.change_sample_)
@@ -287,7 +296,7 @@ void parallaxWindow()
    default:
      break;
    }
- } */
+ }
  ImGui::SetNextWindowSize(ImVec2(400.0f, 120.0f));
  ImGui::SetNextWindowPos(ImVec2(0.0f, 23.0f));
  ImGui::Begin("Settings", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground);
@@ -297,7 +306,7 @@ void parallaxWindow()
  {
    GM.incr_speed_ = 1.0f;
    GM.volume_ = 1.0f;
-   /* GM.sample_[GM.change_sample_].stop(); */
+   GM.sample_[GM.change_sample_].stop();
    GM.soloud_.deinit();
    windowManager(0);
   }
@@ -321,13 +330,13 @@ void parallaxWindow()
   drawSprites();
   //
 
-  /* GM.soloud_.setVolume(GM.controller_, GM.volume_);  */
-  (GM.music_counter_) = GM.dt + (GM.music_counter_ );
+  GM.soloud_.setVolume(GM.controller_, GM.volume_); 
+  GM.music_counter_ += GM.dt;
   if(GM.music_counter_ >= GM.max_music_time_)
   {
     GM.music_counter_ = 0.0f;
   }
-  printf("\n%f", GM.music_counter_);
+  printf("\nCounter:[%f] Index:[%d] Delta:[%f]", GM.music_counter_, GM.change_sample_, GM.dt);
 
 }
 

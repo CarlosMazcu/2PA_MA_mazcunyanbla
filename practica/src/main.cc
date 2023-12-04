@@ -35,15 +35,17 @@
 
 void Test() {
   GameManager &GM = GameManager::Instance();
-/*   GM.sample_[0].load("../data/music/emerald.ogg");
+  GM.sample_[0].load("../data/music/emerald.ogg");
   GM.sample_[1].load("../data/music/anime.ogg");
   GM.sample_[2].load("../data/music/league.wav");
-  GM.sample_[3].load("../data/music/red.ogg"); */
+  GM.sample_[3].load("../data/music/red.ogg");
 
   windowManager(0); 
   esat::WindowInit((int)GM.windowSize.x, (int)GM.windowSize.y);
 /*   esat::DrawSetTextFont("../data/test.ttf"); */
   darkTaronja();
+  GM.change_sample_ = 0;
+  GM.max_music_time_ = 72.0f;
 
   esat::WindowSetMouseVisibility(true);
   while (esat::WindowIsOpened() && !esat::IsSpecialKeyDown(esat::kSpecialKey_Escape)

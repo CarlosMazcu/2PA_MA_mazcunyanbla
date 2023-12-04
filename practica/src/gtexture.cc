@@ -101,15 +101,15 @@ Texture *Texture::TextureFactory(int w, int h, uint8_t *data)
 
 Texture *Texture::TextureFactory(const char *fname)
 {
-  if (Texture::total_textures < kMaxTextures)
-  {
+/*   if (Texture::total_textures < kMaxTextures)
+  { */
     Texture *p_texture = new Texture();
     p_texture->init(fname);
     Texture::total_textures++;
     return p_texture;
-  }
+ /*  }
   else
   {
     return nullptr;
-  }
+  } */
 }
