@@ -62,7 +62,7 @@ class Entity{
   static uint64_t next_id_;
 };
 
-
+//TODO move to game class
 void initAllEntityParallax();
 
 void initAllEntityCharacter();

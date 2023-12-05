@@ -209,18 +209,17 @@ void updateParallax()
 {
   GameManager &GM = GameManager::Instance();
   // space
-    for (int i = 0; i < 2; i++)
+  GM.all_sprites.parallax.space[0].position_.x += ((GM.all_sprites.parallax.space[0].speed_ * GM.dt) * GM.incr_speed_);
+  GM.all_sprites.parallax.space[1].position_.x = GM.all_sprites.parallax.space[0].position_.x - GM.all_sprites.parallax.space[0].width() + 1;
+  for (int i = 0; i < 2; i++)
   {
-
-    GM.all_sprites.parallax.space[i].position_.x += ((GM.all_sprites.parallax.space[i].speed_ * GM.dt) * GM.incr_speed_);
-
     if (GM.all_sprites.parallax.space[i].position_.x >=
         (float)((GM.all_sprites.parallax.space[i].width())))
     {
       GM.all_sprites.parallax.space[i].position_.x =
           -(float)(GM.all_sprites.parallax.space[i].width());
     }
-    }
+  }
     //clouds
     for(int i = 0; i < 6; i++)
     {
@@ -285,9 +284,24 @@ void updateParallax()
       }
     }
     //grass
+    int first_pos = 0;
+    if (GM.all_sprites.parallax.grass[0].position_.x > GM.all_sprites.parallax.grass[1].position_.x){first_pos = 0;}
+    if (GM.all_sprites.parallax.grass[0].position_.x < GM.all_sprites.parallax.grass[1].position_.x){first_pos = 1;}
+/*       for (int i = 0; i < 2; i++)
+      { */
+        if (0 == first_pos)
+        {
+          GM.all_sprites.parallax.grass[0].position_.x += ((GM.all_sprites.parallax.grass[0].speed_ * GM.dt) * GM.incr_speed_);
+          GM.all_sprites.parallax.grass[0 + 1].position_.x = GM.all_sprites.parallax.grass[0].position_.x - GM.all_sprites.parallax.grass[1].width() + 2;
+        }else if( 1 == first_pos)
+        {
+          GM.all_sprites.parallax.grass[1].position_.x += ((GM.all_sprites.parallax.grass[1].speed_ * GM.dt) * GM.incr_speed_);
+          GM.all_sprites.parallax.grass[0].position_.x = GM.all_sprites.parallax.grass[1].position_.x - GM.all_sprites.parallax.grass[1].width() + 2;
+        }
+/*       } */
     for (int i = 0; i < 2; i++)
     {
-      GM.all_sprites.parallax.grass[i].position_.x += ((GM.all_sprites.parallax.grass[i].speed_ * GM.dt) * GM.incr_speed_);
+/*       GM.all_sprites.parallax.grass[i].position_.x += ((GM.all_sprites.parallax.grass[i].speed_ * GM.dt) * GM.incr_speed_); */
 
       if (GM.all_sprites.parallax.grass[i].position_.x >=
           (float)((GM.all_sprites.parallax.grass[i].width())))
@@ -387,34 +401,36 @@ void animMainCharacter()
   {
     GM.all_sprites.maincharacter[0].draw();
   }
-  if(counter > 0.1f && counter <= 0.2f)
+  else if(counter > 0.1f && counter <= 0.2f)
   {
     GM.all_sprites.maincharacter[1].draw();
   }
-  if(counter > 0.2f && counter <= 0.3f)
+  else if(counter > 0.2f && counter <= 0.3f)
   {
     GM.all_sprites.maincharacter[2].draw();
   }
-  if(counter > 0.3f && counter <= 0.4f)
+  else if(counter > 0.3f && counter <= 0.4f)
   {
     GM.all_sprites.maincharacter[3].draw();
   }
-  if(counter > 0.4f && counter <= 0.5f)
+  else if(counter > 0.4f && counter <= 0.5f)
   {
     GM.all_sprites.maincharacter[4].draw();
   }
-  if(counter > 0.5f && counter <= 0.6f)
+  else if(counter > 0.5f && counter <= 0.6f)
   {
     GM.all_sprites.maincharacter[5].draw();
   }
-  if(counter > 0.6f && counter <= 0.7f)
+  else if(counter > 0.6f && counter <= 0.7f)
   {
     GM.all_sprites.maincharacter[6].draw();
   }
-  /* if(counter > 0.7f && counter <= 0.8f)
+  else if(counter > 0.7f && counter <= 0.8f)
   {
     GM.all_sprites.maincharacter[7].draw();
-  } */
+  }else{
+    GM.all_sprites.maincharacter[7].draw();
+  }
   
   if(counter > 0.7f)
   {
@@ -432,8 +448,10 @@ void animVolbeat()
   {
     GM.all_sprites.volbeat[0].draw();
   }
-  if(counter > 0.1f && counter <= 0.2f)
+  else if(counter > 0.1f && counter <= 0.2f)
   {
+    GM.all_sprites.volbeat[1].draw();
+  }else{
     GM.all_sprites.volbeat[1].draw();
   }
   if(counter > 0.2f)
@@ -452,20 +470,22 @@ void animTorchic()
   {
     GM.all_sprites.torchic[0].draw();
   }
-  if(counter > 0.1f && counter <= 0.2f)
+  else if(counter > 0.1f && counter <= 0.2f)
   {
     GM.all_sprites.torchic[1].draw();
   }
-  if(counter > 0.2f && counter <= 0.3f)
+  else if(counter > 0.2f && counter <= 0.3f)
   {
     GM.all_sprites.torchic[2].draw();
   }
-  if(counter > 0.3f && counter <= 0.4f)
+  else if(counter > 0.3f && counter <= 0.4f)
   {
     GM.all_sprites.torchic[3].draw();
   }
-  if(counter > 0.4f && counter <= 0.5f)
+  else if(counter > 0.4f && counter <= 0.5f)
   {
+    GM.all_sprites.torchic[4].draw();
+  }else{
     GM.all_sprites.torchic[4].draw();
   }
 

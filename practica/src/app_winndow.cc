@@ -367,6 +367,7 @@ void stateMachine()
     if(GM.window_bool.parallax)
     {
       parallaxWindow();
+      
     }
 
 }
