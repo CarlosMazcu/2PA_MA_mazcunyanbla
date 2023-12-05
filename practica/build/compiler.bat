@@ -13,7 +13,7 @@ REM COMPILE SOURCE CODE
 cl /nologo /Zi /GR- /EHs /W3 /MDd /D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\esat\include -I ..\deps\math_library\include /c ..\src\*.cc
 
 REM LINK PROGRAM
-cl /nologo /Zi /GR- /EHs /W1 /MDd /Fe:../bin/demo_d.exe *.obj ..\deps\esat\bin\ESAT_d.lib opengl32.lib user32.lib gdi32.lib shell32.lib /link /IGNORE:4099
+cl /nologo /Zi /GR- /EHs /W3 /MDd /Fe:../bin/demo_d.exe *.obj ..\deps\esat\bin\ESAT_d.lib opengl32.lib user32.lib gdi32.lib shell32.lib /link /IGNORE:4099
 
 if exist "../bin/demo_d.exe" (
   rem En caso de que la compilacion se haya realizado correctamente

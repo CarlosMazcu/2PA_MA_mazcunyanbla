@@ -355,16 +355,19 @@ void animManektrik()
   {
     GM.all_sprites.manektrik[0].draw();
   }
-  if(counter > 0.1f && counter <= 0.2f)
+  else if(counter > 0.1f && counter <= 0.2f)
   {
     GM.all_sprites.manektrik[1].draw();
   }
-  if(counter > 0.2f && counter <= 0.3f)
+  else if(counter > 0.2f && counter <= 0.3f)
   {
     GM.all_sprites.manektrik[2].draw();
   }
-  if(counter > 0.3f && counter <= 0.4f)
+  else if(counter > 0.3f && counter <= 0.4f)
   {
+    GM.all_sprites.manektrik[3].draw();
+  }
+  else {
     GM.all_sprites.manektrik[3].draw();
   }
   
