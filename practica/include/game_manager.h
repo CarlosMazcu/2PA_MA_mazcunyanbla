@@ -57,7 +57,7 @@ class GameManager{
 
   TSprite all_sprites;
 
-  float incr_speed_ = 1.0f;
+  float incr_speed_;
 
 
   enum
@@ -74,7 +74,7 @@ class GameManager{
   SoLoud::Wav sample_[4];
   int controller_;
   int change_sample_;
-  float volume_ = 1.0f;
+  float volume_;
   float music_counter_;
   float max_music_time_;
   std::string sample_name_; 

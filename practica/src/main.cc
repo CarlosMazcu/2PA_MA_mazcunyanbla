@@ -35,27 +35,30 @@
 
 void Test() {
   GameManager &GM = GameManager::Instance();
+  //load sample
   GM.sample_[0].load("../data/music/emerald.ogg");
   GM.sample_[1].load("../data/music/anime.ogg");
   GM.sample_[2].load("../data/music/league.wav");
   GM.sample_[3].load("../data/music/red.ogg");
-
+  //set state (welcome window)
   windowManager(0); 
+  //set window position
   esat::WindowInit((int)GM.windowSize.x, (int)GM.windowSize.y);
-/*   esat::DrawSetTextFont("../data/test.ttf"); */
+  //set theme
   darkTaronja();
+  //init some music variables and global speed
   GM.change_sample_ = 0;
   GM.max_music_time_ = 72.0f;
+  GM.volume_ = 1.0f;
+  GM.incr_speed_ = 1.0f;
 
   esat::WindowSetMouseVisibility(true);
   while (esat::WindowIsOpened() && !esat::IsSpecialKeyDown(esat::kSpecialKey_Escape)
           && false == GM.window_bool.exit){
     GM.dt = (GM.last_time - GM.current_time) / 1000.0f;
-    /* GM.dt = (GM.current_time - GM.last_time) / 1000.0f; */
-    GM.current_time = esat::Time();
+    GM.current_time = (float)esat::Time();
     esat::DrawBegin();
     esat::DrawClear(0, 0, 0);
-    //HERE COMES GAME CLASS
 
     MainMenuBar();
     ImGui::ShowDemoWindow();
@@ -63,10 +66,9 @@ void Test() {
     stateMachine();
 
     esat::DrawSetStrokeColor(255, 255, 255);
-    /* RenderFPS(); */
     esat::DrawEnd();
     esat::WindowFrame();
-    GM.last_time = esat::Time();
+    GM.last_time = (float)esat::Time();
   }
   esat::WindowDestroy();
 }

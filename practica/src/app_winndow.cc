@@ -219,13 +219,13 @@ void welcomeWindow()
     if (ImGui::Button("Credits", ImVec2(100.0f, 20.0f)))
     {
         windowManager(1);
-        // GM.credits = true;
     }
+
     for (int i = 0; i < 8; i++)
     {
         ImGui::Spacing();
     }
-    ImGui::SameLine(0.0f, 65.0f);
+    ImGui::SameLine(0.0f, 90.0f - (float)strlen(GM.sample_name_.c_str()));
 
     ImGui::TextColored(ImVec4(255, 0, 0, 1),"Sample: %s", GM.sample_name_.c_str());
 
@@ -312,7 +312,7 @@ void parallaxWindow()
    GM.incr_speed_ = 1.0f;
    GM.volume_ = 1.0f;
    GM.sample_[GM.change_sample_].stop();
-   GM.soloud_.deinit();
+   /* GM.soloud_.deinit(); */
    windowManager(0);
   }
   ImGui::SameLine();
