@@ -40,7 +40,7 @@ class Entity{
     void set_position(const Vec2& pos);
     void set_rotation(const float rads);
     void set_scale(const Vec2& scale);
-
+    virtual void draw();
     Vec2 position() const;
     float rotation() const;
     Vec2 scale() const;

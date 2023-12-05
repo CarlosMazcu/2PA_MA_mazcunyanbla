@@ -25,7 +25,7 @@ class Sprite : public Entity
   void initSp(Texture *texture, int x, int y, int w, int h);
 
   
-  void draw();
+  void draw() override;
 
   /* void release(); */
   

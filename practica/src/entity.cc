@@ -473,6 +473,7 @@ void animTorchic()
   counter += (GM.dt * GM.incr_speed_);
 }
 
+void Entity::draw(){}
 // void Entity::PlayAnimation(const AnimationConfig &ac) 
 // {
 //   stopAnimation();
