@@ -78,6 +78,7 @@ class GameManager{
   float music_counter_;
   float max_music_time_;
   std::string sample_name_; 
+  bool available_audio;
 
 
 

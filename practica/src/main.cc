@@ -39,7 +39,7 @@ void Test() {
   GM.sample_[0].load("../data/music/emerald.ogg");
   GM.sample_[1].load("../data/music/anime.ogg");
   GM.sample_[2].load("../data/music/league.wav");
-  GM.sample_[3].load("../data/music/red.ogg");
+/*   GM.sample_[3].load("../data/music/red.ogg"); */
   //set state (welcome window)
   windowManager(0); 
   //set window position
@@ -50,7 +50,12 @@ void Test() {
   GM.change_sample_ = 0;
   GM.max_music_time_ = 72.0f;
   GM.volume_ = 1.0f;
+  GM.available_audio = true;
   GM.incr_speed_ = 1.0f;
+  if (7 == GM.soloud_.init())
+  {
+    GM.available_audio = false;
+  }
 
   esat::WindowSetMouseVisibility(true);
   while (esat::WindowIsOpened() && !esat::IsSpecialKeyDown(esat::kSpecialKey_Escape)
@@ -71,6 +76,11 @@ void Test() {
     GM.last_time = (float)esat::Time();
   }
   esat::WindowDestroy();
+
+  if(GM.available_audio)
+  {
+    GM.soloud_.deinit();
+  }
 }
 
 int esat::main(int argc, char **argv) {
