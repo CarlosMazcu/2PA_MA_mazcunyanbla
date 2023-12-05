@@ -129,7 +129,7 @@ void initAllEntityParallax()
   {
     GM.all_sprites.parallax.smallTrees[i].texture_handle_ = text;
     GM.all_sprites.parallax.smallTrees[i].Entity::init(3, true, {(float)(i * GM.all_sprites.parallax.smallTrees->width()),
-                                                       360.0f}, 0.0f, {1.0f, 1.0f}, 100.0f);
+                                                       350.0f}, 0.0f, {1.0f, 1.0f}, 100.0f);
   }
   //bigtrees
   text = text->TextureFactory("../data/SpriteSheet/background_sheet.png");
@@ -138,14 +138,14 @@ void initAllEntityParallax()
   {
     GM.all_sprites.parallax.bigTrees[i].texture_handle_ = text;
     GM.all_sprites.parallax.bigTrees[i].Entity::init(4, true, {(float)(i * GM.all_sprites.parallax.bigTrees->width()), 
-                                                      340.0f}, 0.0f, {1.0f, 1.0f}, 150.0f);
+                                                      330.0f}, 0.0f, {1.0f, 1.0f}, 150.0f);
   }
   text = text->TextureFactory("../data/parallax/grass.png");
   for (int i = 0; i < 2; i++)
   {
     GM.all_sprites.parallax.grass[i].texture_handle_ = text;
     GM.all_sprites.parallax.grass[i].Entity::init(5, true, {(float)(i * GM.all_sprites.parallax.grass->width()), 
-                                                      375.0f}, 0.0f, {1.0f, 1.0f}, 230.0f);
+                                                      300.0f}, 0.0f, {1.2f, 1.2f}, 230.0f);
   }
 }
 
@@ -220,6 +220,8 @@ void updateParallax()
           -(float)(GM.all_sprites.parallax.space[i].width());
     }
   }
+
+  
     //clouds
     for(int i = 0; i < 6; i++)
     {
@@ -287,22 +289,18 @@ void updateParallax()
     int first_pos = 0;
     if (GM.all_sprites.parallax.grass[0].position_.x > GM.all_sprites.parallax.grass[1].position_.x){first_pos = 0;}
     if (GM.all_sprites.parallax.grass[0].position_.x < GM.all_sprites.parallax.grass[1].position_.x){first_pos = 1;}
-/*       for (int i = 0; i < 2; i++)
-      { */
-        if (0 == first_pos)
-        {
-          GM.all_sprites.parallax.grass[0].position_.x += ((GM.all_sprites.parallax.grass[0].speed_ * GM.dt) * GM.incr_speed_);
-          GM.all_sprites.parallax.grass[0 + 1].position_.x = GM.all_sprites.parallax.grass[0].position_.x - GM.all_sprites.parallax.grass[1].width() + 2;
-        }else if( 1 == first_pos)
-        {
-          GM.all_sprites.parallax.grass[1].position_.x += ((GM.all_sprites.parallax.grass[1].speed_ * GM.dt) * GM.incr_speed_);
-          GM.all_sprites.parallax.grass[0].position_.x = GM.all_sprites.parallax.grass[1].position_.x - GM.all_sprites.parallax.grass[1].width() + 2;
-        }
-/*       } */
+    if (0 == first_pos)
+    {
+      GM.all_sprites.parallax.grass[0].position_.x += ((GM.all_sprites.parallax.grass[0].speed_ * GM.dt) * GM.incr_speed_);
+      GM.all_sprites.parallax.grass[0 + 1].position_.x = GM.all_sprites.parallax.grass[0].position_.x - GM.all_sprites.parallax.grass[1].width() + 2;
+    }else if( 1 == first_pos)
+    {
+      GM.all_sprites.parallax.grass[1].position_.x += ((GM.all_sprites.parallax.grass[1].speed_ * GM.dt) * GM.incr_speed_);
+      GM.all_sprites.parallax.grass[0].position_.x = GM.all_sprites.parallax.grass[1].position_.x - GM.all_sprites.parallax.grass[1].width() + 2;
+    }
+
     for (int i = 0; i < 2; i++)
     {
-/*       GM.all_sprites.parallax.grass[i].position_.x += ((GM.all_sprites.parallax.grass[i].speed_ * GM.dt) * GM.incr_speed_); */
-
       if (GM.all_sprites.parallax.grass[i].position_.x >=
           (float)((GM.all_sprites.parallax.grass[i].width())))
       {
