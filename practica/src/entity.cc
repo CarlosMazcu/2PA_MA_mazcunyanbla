@@ -16,6 +16,9 @@ Entity::Entity()
   rotation_ = 0.0f;
   scale_ = {1.0f, 1.0f};
   speed_ = 1.0f;
+
+  origin_rotation_ = 0.0f;
+  origin_pos_ = {0.0f, 0.0f};
   // animation_ = nullptr;
 
   id_ = Entity::next_id_;

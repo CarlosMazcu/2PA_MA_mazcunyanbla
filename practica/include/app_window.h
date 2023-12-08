@@ -27,6 +27,10 @@ void creditsWindow();
 
 void parallaxWindow();
 
+void initPath();
+
+void pathWindow();
+
 void stateMachine();
 
 void themePurple();

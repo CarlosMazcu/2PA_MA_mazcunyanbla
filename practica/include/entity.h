@@ -48,13 +48,19 @@ class Entity{
     //attributes
     int tag_;
     bool enable_;
+
     Vec2 position_;
+    
+    float rotation_;
+    Vec2 scale_;
+
+    float origin_rotation_;
+    Vec2 origin_pos_;
+    
     float speed_;
     
 
   protected:
-    float rotation_;
-    Vec2 scale_;
     // AnimationInstance *animation_;
 
   private:

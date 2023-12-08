@@ -24,25 +24,25 @@ void windowManager(int n)
       GM.window_bool.credits = false;
       GM.window_bool.exit = false;
       GM.window_bool.parallax = false;
-      GM.window_bool.transform = false;
+      GM.window_bool.path = false;
       break;
     case 1:
         GM.window_bool.welcome = false;
         GM.window_bool.credits = true;
         GM.window_bool.parallax = false;
-        GM.window_bool.transform = false;
+        GM.window_bool.path = false;
         break;
     case 2:
         GM.window_bool.welcome = false;
         GM.window_bool.credits = false;
         GM.window_bool.parallax = true;
-        GM.window_bool.transform = false;
+        GM.window_bool.path = false;
         break;
     case 3:
         GM.window_bool.welcome = false;
         GM.window_bool.credits = false;
         GM.window_bool.parallax = false;
-        GM.window_bool.transform = true;
+        GM.window_bool.path = true;
         break;
     default:
         break;
@@ -216,6 +216,17 @@ void welcomeWindow()
     ImGui::Spacing();
     ImGui::Spacing();
     ImGui::SameLine(0.0f, 90.0f);
+    if(ImGui::Button("Path", ImVec2(100.0f, 20.0f)))
+    {
+      initPath();
+      windowManager(3);
+    }
+    ImGui::Spacing();
+    ImGui::Spacing();
+    ImGui::Separator();
+    ImGui::Spacing();
+    ImGui::Spacing();
+    ImGui::SameLine(0.0f, 90.0f);
   
     if (ImGui::Button("Credits", ImVec2(100.0f, 20.0f)))
     {
@@ -353,6 +364,52 @@ void parallaxWindow()
   }
 }
 
+void initPath()
+{
+  GameManager &GM = GameManager::Instance();
+  GM.strk_color_[0] = GM.mypath_.stroke_color().x;
+  GM.strk_color_[1] = GM.mypath_.stroke_color().y;
+  GM.strk_color_[2] = GM.mypath_.stroke_color().z;
+  GM.strk_color_[3] = GM.mypath_.stroke_color().w;
+
+  GM.f_color_[0] = GM.mypath_.fill_color().x;
+  GM.f_color_[1] = GM.mypath_.fill_color().y;
+  GM.f_color_[2] = GM.mypath_.fill_color().z;
+  GM.f_color_[3] = GM.mypath_.fill_color().w;
+
+  GM.mypath_.addVertex({3.0f, 0.0f});
+  GM.mypath_.addVertex({0.0f, 5.0f});
+  GM.mypath_.addVertex({6.0f, 5.0f});
+  GM.mypath_.Entity::init(12, true, {13.0f, 13.0f}, 0.0f, {20.0f, 20.0f},0.0f);
+}
+
+void pathWindow()
+{
+  GameManager &GM = GameManager::Instance();
+  ImGui::SetNextWindowSize(ImVec2(300, 220));
+  ImGui::SetNextWindowPos(ImVec2(170,25));
+  ImGui::Begin("Path", nullptr, ImGuiWindowFlags_NoResize);
+
+  ImGui::DragFloat2("Position", (float*)&GM.mypath_.Entity::position_, 0.5f, 0.0f, 600.0f, "%.0f");
+  ImGui::DragFloat2("Scale", (float*)&GM.mypath_.Entity::scale_, 0.5f, 0.2f, 600.0f, "%.0f");
+  ImGui::DragFloat("Rotation", (float*)&GM.mypath_.Entity::rotation_, 0.5f, 0.0f, 600.0f, "%.0f");
+ 
+  ImGui::InputInt("Vertex", &GM.mypath_.n_vertex_);
+  ImGui::DragFloat4("StrokeColor", GM.strk_color_, 1.0f, 0.0f, 255.0f, "%.f");
+  ImGui::DragFloat4("FillColor", GM.f_color_, 1.0f, 0.0f, 255.0f, "%.f");
+  ImGui::Checkbox("Solid", &GM.mypath_.solid_);
+  if (ImGui::Button("Return", ImVec2(100.0f, 20.0f)))
+  {
+    windowManager(0);
+  }
+  ImGui::End();
+  GM.mypath_.set_stroke_color(GM.strk_color_);
+  GM.mypath_.set_fill_color(GM.f_color_);
+  GM.mypath_.draw();
+
+
+}
+
 void stateMachine()
 {
     GameManager &GM = GameManager::Instance();
@@ -369,6 +426,10 @@ void stateMachine()
     {
       parallaxWindow();
       
+    }
+    if(GM.window_bool.path)
+    {
+      pathWindow();
     }
 
 }

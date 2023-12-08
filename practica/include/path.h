@@ -29,16 +29,18 @@ class Path : public Entity
     Vec4 fill_color() const;
 
     void addVertex(const Vec2& v);
+    void removeVertex(const Vec2& v);
 
     void draw();
 
     bool solid_;
+    int n_vertex_;
+    Vec4 stroke_color_;
   
   protected:
     //could have a Color class/struct, a packed int32 color, Vec4  
     // or array of 4 values
     // rgba {0.0f <--> 255.0f}
-    Vec4 stroke_color_;
     Vec4 fill_color_;
       /*8==========================================================D     
       <===========================================================3 */

@@ -56,6 +56,8 @@ void Test() {
     GM.available_audio = false;
   }
 
+
+
   esat::WindowSetMouseVisibility(true);
   while (esat::WindowIsOpened() && !esat::IsSpecialKeyDown(esat::kSpecialKey_Escape)
           && false == GM.window_bool.exit){

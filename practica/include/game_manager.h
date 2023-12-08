@@ -12,6 +12,7 @@
 #ifndef __GAME_MANAGER_H__
 #define __GAME_MANAGER_H__ 1
 
+#include "path.h"
 #include "gsprite.h"
 #include <esat_extra/soloud/soloud.h>
 #include <esat_extra/soloud/soloud_wav.h>
@@ -29,7 +30,7 @@ class GameManager{
   // all globals go here
   struct TWindow
   {
-    bool welcome, parallax, transform, exit, credits;
+    bool welcome, parallax, path, exit, credits;
   };
   
   TWindow window_bool;
@@ -80,9 +81,12 @@ class GameManager{
   std::string sample_name_; 
   bool available_audio;
 
+  Path mypath_;
 
 
-  
+  float strk_color_[4];
+  float f_color_[4];
+
   Vec2 windowSize = {640.0f, 480.0f};
 
   float current_time, last_time, dt;
