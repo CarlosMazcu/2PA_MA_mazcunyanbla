@@ -6,6 +6,7 @@
 #define __TEXTURE_H_ 1
 
 #include <stdint.h>
+#include <vector>
 
 #include "esat/sprite.h"
 
@@ -34,12 +35,12 @@ class Texture{
   {
       return handle_;
   }
-
-protected:
-  esat::SpriteHandle handle_; //for the atlas/entire texture
+  static void releaseAllSprites();
+ protected:
+  esat::SpriteHandle handle_;
 
  private:
-
+  static std::vector<esat::SpriteHandle*> sprite_vector_;
 };
 
 

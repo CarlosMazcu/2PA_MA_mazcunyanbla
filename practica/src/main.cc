@@ -17,7 +17,6 @@
 #include "gsprite.h"
 
 //TODO release sprites when click RETURN button in parallax window
-//TODO check music
 
 /* void RenderFPS() {
   static double last_time = esat::Time();
@@ -39,7 +38,7 @@ void Test() {
   GM.sample_[0].load("../data/music/emerald.ogg");
   GM.sample_[1].load("../data/music/anime.ogg");
   GM.sample_[2].load("../data/music/league.wav");
-/*   GM.sample_[3].load("../data/music/red.ogg"); */
+  GM.sample_[3].load("../data/music/red.ogg");
   //set state (welcome window)
   windowManager(0); 
   //set window position
@@ -76,7 +75,6 @@ void Test() {
     GM.last_time = (float)esat::Time();
   }
   esat::WindowDestroy();
-
   if(GM.available_audio)
   {
     GM.soloud_.deinit();

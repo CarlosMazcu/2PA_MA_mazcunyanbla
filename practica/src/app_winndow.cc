@@ -320,6 +320,7 @@ void parallaxWindow()
       GM.sample_[GM.change_sample_].stop();
       
     }
+    Texture::releaseAllSprites();
     windowManager(0);
   }
   ImGui::SameLine();

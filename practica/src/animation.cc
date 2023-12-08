@@ -74,13 +74,13 @@
 //     }
 // }
 
-// bool AnimationInstance::done() const
-// {
-//     return move_done_;
-// }
+// // bool AnimationInstance::done() const
+// // {
+// //     return move_done_;
+// // }
 
-// void AnimationInstance::progress(float *movement_alpha, float *movement_elpased){
-//     *movement_alpha = move_alpha_;
-//     *movement_elpased = move_elapsed_;
-// }
+// // void AnimationInstance::progress(float *movement_alpha, float *movement_elpased){
+// //     *movement_alpha = move_alpha_;
+// //     *movement_elpased = move_elapsed_;
+// // }
 

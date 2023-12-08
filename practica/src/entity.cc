@@ -164,7 +164,6 @@ void initAllEntityCharacter()
     GM.all_sprites.maincharacter[i].texture_handle_ = text_main_character;
     GM.all_sprites.maincharacter[i].Entity::init(6, true, {61.0f, 100.0f}, 0.0f, {1.5f, 1.5f}, 20.0f);
   }
-
   // manektrik
   for (int i = 0; i < 4; i++)
   {
@@ -193,7 +192,7 @@ void initAllEntityCharacter()
     text_torchic->init(text_torchic->getHandle(), 300 + (i * 25), 0, 24, 24);
 
     GM.all_sprites.torchic[i].texture_handle_ = text_torchic;
-    GM.all_sprites.torchic[i].Entity::init(9, true, {/* i *  */30.0f, 200.0f}, 0.0f, {1.5f, 1.5f}, 20.f);
+    GM.all_sprites.torchic[i].Entity::init(9, true, {30.0f, 200.0f}, 0.0f, {1.5f, 1.5f}, 20.f);
   }
 
   Texture *text_flygon;
@@ -422,14 +421,9 @@ void animMainCharacter()
   else if(counter > 0.6f && counter <= 0.7f)
   {
     GM.all_sprites.maincharacter[6].draw();
-  }
-  else if(counter > 0.7f && counter <= 0.8f)
-  {
-    GM.all_sprites.maincharacter[7].draw();
   }else{
     GM.all_sprites.maincharacter[7].draw();
   }
-  
   if(counter > 0.7f)
   {
     counter = 0.0f;
@@ -495,6 +489,7 @@ void animTorchic()
 }
 
 void Entity::draw(){}
+
 // void Entity::PlayAnimation(const AnimationConfig &ac) 
 // {
 //   stopAnimation();
