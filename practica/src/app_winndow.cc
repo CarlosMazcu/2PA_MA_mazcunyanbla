@@ -380,7 +380,10 @@ void initPath()
   GM.mypath_.addVertex({3.0f, 0.0f});
   GM.mypath_.addVertex({0.0f, 5.0f});
   GM.mypath_.addVertex({6.0f, 5.0f});
-  GM.mypath_.Entity::init(12, true, {13.0f, 13.0f}, 0.0f, {20.0f, 20.0f},0.0f);
+
+  GM.mypath_.Entity::init(12, true, {0.0f, 0.0f}, 0.0f, {20.0f, 20.0f},0.0f);
+  GM.total_vertex_ = GM.mypath_.n_vertex_;
+  
 }
 
 void pathWindow()
@@ -405,7 +408,12 @@ void pathWindow()
   ImGui::End();
   GM.mypath_.set_stroke_color(GM.strk_color_);
   GM.mypath_.set_fill_color(GM.f_color_);
+
   GM.mypath_.draw();
+  if(GM.mypath_.n_vertex_ > GM.total_vertex_)
+  {
+
+  }
 
 
 }

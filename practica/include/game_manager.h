@@ -82,6 +82,7 @@ class GameManager{
   bool available_audio;
 
   Path mypath_;
+  int total_vertex_;
 
 
   float strk_color_[4];

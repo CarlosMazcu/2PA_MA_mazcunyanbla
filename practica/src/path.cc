@@ -60,14 +60,14 @@ void Path::addVertex(const Vec2& v)
   vertices_.push_back(v);
 }
 
-void Path::removeVertex(const Vec2& v)
+void Path::removeVertex()
 {
   vertices_.pop_back();
 }
 
 void Path::draw(){
   if(true == enable_){
-    if( 3 <= vertices_.size())
+    if(3 <= vertices_.size())
     {
     //colors
     esat::DrawSetStrokeColor((unsigned char) stroke_color_.x,
