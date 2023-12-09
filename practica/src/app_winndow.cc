@@ -193,7 +193,7 @@ void welcomeWindow()
     GameManager &GM = GameManager::Instance();
     sampleName();
     ImGui::SetNextWindowSize(ImVec2(300, 400));
-    ImGui::SetNextWindowPos(ImVec2(160, 200));
+    ImGui::SetNextWindowPos(ImVec2(160, 130));
 
     ImGui::Begin("WELCOME", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | 
                 ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground);
@@ -364,6 +364,16 @@ void parallaxWindow()
   }
 }
 
+void updatePathVertex()
+{
+  GameManager &GM = GameManager::Instance();
+  float angle = 6.28f / GM.mypath_.n_vertex_;
+  for (int i = 0; i < GM.mypath_.n_vertex_; ++i)
+  {
+      GM.mypath_.addVertex({cosf(i * angle), sinf(i * angle)});
+  }
+}
+
 void initPath()
 {
   GameManager &GM = GameManager::Instance();
@@ -377,14 +387,14 @@ void initPath()
   GM.f_color_[2] = GM.mypath_.fill_color().z;
   GM.f_color_[3] = GM.mypath_.fill_color().w;
 
-  GM.mypath_.addVertex({3.0f, 0.0f});
-  GM.mypath_.addVertex({0.0f, 5.0f});
-  GM.mypath_.addVertex({6.0f, 5.0f});
+  GM.compare_vertex_ = GM.mypath_.n_vertex_;
 
+  updatePathVertex();
+  GM.mypath_.origin_pos_ = {300.0f, 300.0f};
   GM.mypath_.Entity::init(12, true, {0.0f, 0.0f}, 0.0f, {20.0f, 20.0f},0.0f);
-  GM.total_vertex_ = GM.mypath_.n_vertex_;
-  
 }
+
+
 
 void pathWindow()
 {
@@ -393,27 +403,37 @@ void pathWindow()
   ImGui::SetNextWindowPos(ImVec2(170,25));
   ImGui::Begin("Path", nullptr, ImGuiWindowFlags_NoResize);
 
-  ImGui::DragFloat2("Position", (float*)&GM.mypath_.Entity::position_, 0.5f, 0.0f, 600.0f, "%.0f");
+  ImGui::DragFloat2("Position", (float*)&GM.mypath_.Entity::origin_pos_, 0.5f, -600.0f, 1200.0f, "%.0f");
   ImGui::DragFloat2("Scale", (float*)&GM.mypath_.Entity::scale_, 0.5f, 0.2f, 600.0f, "%.0f");
-  ImGui::DragFloat("Rotation", (float*)&GM.mypath_.Entity::rotation_, 0.5f, 0.0f, 600.0f, "%.0f");
+  ImGui::DragFloat("Rotation", (float*)&GM.mypath_.Entity::rotation_, 0.1f, 0.0f, 600.0f, "%0.2f");
  
   ImGui::InputInt("Vertex", &GM.mypath_.n_vertex_);
-  ImGui::DragFloat4("StrokeColor", GM.strk_color_, 1.0f, 0.0f, 255.0f, "%.f");
-  ImGui::DragFloat4("FillColor", GM.f_color_, 1.0f, 0.0f, 255.0f, "%.f");
+  if(GM.mypath_.n_vertex_ < 3)
+  {
+    GM.mypath_.n_vertex_ = 3;
+  }
+  ImGui::DragFloat4("StrokeColor", GM.strk_color_, 1.0f, 0.0f, 255.0f, "%.0f");
+  ImGui::DragFloat4("FillColor", GM.f_color_, 1.0f, 0.0f, 255.0f, "%.0f");
   ImGui::Checkbox("Solid", &GM.mypath_.solid_);
   if (ImGui::Button("Return", ImVec2(100.0f, 20.0f)))
   {
     windowManager(0);
   }
   ImGui::End();
+  if(GM.mypath_.n_vertex_ > GM.compare_vertex_)
+  {
+    GM.mypath_.removeAllVertex();
+    updatePathVertex();
+    GM.compare_vertex_++;
+  }else if(GM.mypath_.n_vertex_ < GM.compare_vertex_)
+  {
+    GM.mypath_.removeAllVertex();
+    updatePathVertex();
+    GM.compare_vertex_--;
+  }
   GM.mypath_.set_stroke_color(GM.strk_color_);
   GM.mypath_.set_fill_color(GM.f_color_);
-
   GM.mypath_.draw();
-  if(GM.mypath_.n_vertex_ > GM.total_vertex_)
-  {
-
-  }
 
 
 }

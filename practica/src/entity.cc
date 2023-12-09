@@ -61,7 +61,6 @@ void Entity::init(int tag, bool enable, Vec2 pos, float rot, Vec2 scale, float s
   rotation_ = rot;
   scale_ = scale;
   speed_ = speed;
-
   // animation_ = nullptr; 
 }
 

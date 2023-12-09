@@ -29,7 +29,8 @@ class Path : public Entity
     Vec4 fill_color() const;
 
     void addVertex(const Vec2& v);
-    void removeVertex();
+    void removeEndVertex();
+    void removeAllVertex();
 
     void draw();
 

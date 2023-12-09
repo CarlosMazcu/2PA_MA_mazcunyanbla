@@ -60,9 +60,14 @@ void Path::addVertex(const Vec2& v)
   vertices_.push_back(v);
 }
 
-void Path::removeVertex()
+void Path::removeEndVertex()
 {
   vertices_.pop_back();
+}
+
+void Path::removeAllVertex()
+{
+    vertices_.clear();
 }
 
 void Path::draw(){
@@ -81,10 +86,11 @@ void Path::draw(){
 
   //Transform Matrix
   Mat3 m = Mat3::Identity();
-  m = Mat3::Scale(scale_.x, scale_.y).Multiply(m);
-
   m = Mat3::Rotate(origin_rotation_).Multiply(m);
   m = Mat3::Translate(origin_pos_.x, origin_pos_.y).Multiply(m);
+  
+  m = Mat3::Scale(scale_.x, scale_.y).Multiply(m);
+
 
   m = Mat3::Rotate(rotation_).Multiply(m);
   m = Mat3::Translate(position_.x, position_.y).Multiply(m);
