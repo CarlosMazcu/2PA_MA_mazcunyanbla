@@ -88,7 +88,7 @@ void Path::draw(){
   Mat3 m = Mat3::Identity();
   m = Mat3::Rotate(origin_rotation_).Multiply(m);
   m = Mat3::Translate(origin_pos_.x, origin_pos_.y).Multiply(m);
-  
+
   m = Mat3::Scale(scale_.x, scale_.y).Multiply(m);
 
 
@@ -98,7 +98,7 @@ void Path::draw(){
 
   //TransformVec2
   std::vector<Vec2> transformed;
-  for(int i = 0; i < vertices_.size(); i++)
+  for(int i = 0; i < (int)vertices_.size(); i++)
   {
     transformed.push_back(m.TransformVec2(vertices_[i]));
   }

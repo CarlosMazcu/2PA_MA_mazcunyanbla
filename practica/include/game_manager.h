@@ -83,7 +83,9 @@ class GameManager{
 
   Path mypath_;
   int compare_vertex_;
-
+/*   bool use_gravity;
+  float gravity;
+ */
 
   float strk_color_[4];
   float f_color_[4];

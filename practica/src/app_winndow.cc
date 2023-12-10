@@ -388,7 +388,10 @@ void initPath()
   GM.f_color_[3] = GM.mypath_.fill_color().w;
 
   GM.compare_vertex_ = GM.mypath_.n_vertex_;
+/*   GM.use_gravity = false;
+  GM.gravity = 9.81f; */
 
+  GM.mypath_.removeAllVertex();
   updatePathVertex();
   GM.mypath_.origin_pos_ = {300.0f, 300.0f};
   GM.mypath_.Entity::init(12, true, {0.0f, 0.0f}, 0.0f, {20.0f, 20.0f},0.0f);
@@ -415,6 +418,8 @@ void pathWindow()
   ImGui::DragFloat4("StrokeColor", GM.strk_color_, 1.0f, 0.0f, 255.0f, "%.0f");
   ImGui::DragFloat4("FillColor", GM.f_color_, 1.0f, 0.0f, 255.0f, "%.0f");
   ImGui::Checkbox("Solid", &GM.mypath_.solid_);
+/*   ImGui::Checkbox("Gravity", &GM.use_gravity); */
+  
   if (ImGui::Button("Return", ImVec2(100.0f, 20.0f)))
   {
     windowManager(0);
@@ -431,12 +436,23 @@ void pathWindow()
     updatePathVertex();
     GM.compare_vertex_--;
   }
+  
+/*   if (GM.use_gravity)
+  {
+    for (int i = 0; i < GM.mypath_.n_vertex_; ++i)
+    {
+      if(GM.mypath_.position().y <= GM.windowSize.y){
+        GM.mypath_.origin_pos_.y += (GM.gravity * GM.dt);
+      }
+    }
+  }
+   */
   GM.mypath_.set_stroke_color(GM.strk_color_);
   GM.mypath_.set_fill_color(GM.f_color_);
   GM.mypath_.draw();
-
-
 }
+
+
 
 void stateMachine()
 {

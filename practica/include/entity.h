@@ -13,9 +13,10 @@
 #ifndef __ENTITY_H__
 #define __ENTITY_H_ 1
 
-#include "../deps/math_library/include/vector_2.h"
 #include <stdint.h>
 #include <string>
+#include "../deps/math_library/include/vector_2.h"
+/* #include "animation.h" */
 
 // struct AnimationConfig;
 /* class AnimationInstance;
@@ -61,11 +62,11 @@ class Entity{
     
 
   protected:
-    // AnimationInstance *animation_;
+/*     AnimationInstance *animation_; */
 
   private:
-  uint64_t id_;
-  static uint64_t next_id_;
+    uint64_t id_;
+    static uint64_t next_id_;
 };
 
 //TODO move to game class

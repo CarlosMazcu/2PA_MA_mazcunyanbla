@@ -43,12 +43,12 @@ class Path : public Entity
     // or array of 4 values
     // rgba {0.0f <--> 255.0f}
     Vec4 fill_color_;
+    std::vector<Vec2> vertices_;
       /*8==========================================================D     
       <===========================================================3 */
     // store vertices: could be a list, dynamic vector, reallocated array,
     // pool, ADT_Vector
     //DINAMIC VECTOR 
-    std::vector<Vec2> vertices_;
 };
 
     

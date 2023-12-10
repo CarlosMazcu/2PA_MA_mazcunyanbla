@@ -135,7 +135,7 @@ return p_texture;
 
 void Texture::releaseAllSprites()
 {
-  for(int i = 0; i < sprite_vector_.size(); i++)
+  for(int i = 0; i < (int)sprite_vector_.size(); i++)
   {
     printf("\n%p",sprite_vector_[i]);
     esat::SpriteRelease(*sprite_vector_[i]);
