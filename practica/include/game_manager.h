@@ -56,6 +56,17 @@ class GameManager{
     TParallax parallax;
   };
 
+  struct TAnimationConfig
+  {
+    AnimationConfig ac_manektrik_;
+    AnimationConfig ac_maincharacter_;
+    AnimationConfig ac_volbeat_;
+    AnimationConfig ac_torchic_;
+    AnimationConfig ac_flygon_;
+  };
+
+  TAnimationConfig all_config_;
+
   TSprite all_sprites;
 
   float incr_speed_;
@@ -83,9 +94,6 @@ class GameManager{
 
   Path mypath_;
   int compare_vertex_;
-/*   bool use_gravity;
-  float gravity;
- */
 
   float strk_color_[4];
   float f_color_[4];

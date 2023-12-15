@@ -14,9 +14,8 @@
 
 #include <stdint.h>
 #include "vector_2.h"
-#include "entity.h"
 
-
+class Entity;
 //Animation Config
 struct AnimationConfig
 {
@@ -53,14 +52,21 @@ public:
 
     //For debugging
     void progress(float* movement_alpha, float* movement_elapsed);
+   AnimationConfig config_;
+
 
  protected:
-   AnimationConfig config_;
    Entity* target_;
    //Movement related variables
    bool move_done_;
    float move_alpha_;
    float move_elapsed_;
+
+   //scale related variables
+
+   bool scale_done_;
+   float scale_alpha_;
+   float scale_elapsed_;
   
  private:
    AnimationInstance(const AnimationInstance& other){} 

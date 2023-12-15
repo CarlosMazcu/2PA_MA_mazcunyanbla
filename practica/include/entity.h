@@ -16,24 +16,24 @@
 #include <stdint.h>
 #include <string>
 #include "../deps/math_library/include/vector_2.h"
-/* #include "animation.h" */
+#include "animation.h"
 
-// struct AnimationConfig;
-/* class AnimationInstance;
-*/
+struct AnimationConfig;
+class AnimationInstance;
+
 class Entity{
   public:
     Entity();
     Entity(const Entity& copy);
     Entity(int tag, bool enable, Vec2 pos, float rot, Vec2 scale);
-// virtual ~Entity();
+    /* virtual ~Entity(); */
     void init(int tag, bool enable, Vec2 pos, float rot, Vec2 scale, float speed);
 
-// void PlayAnimation(const AnimationConfig &ac);
+    void PlayAnimation(const AnimationConfig &ac);
 
-    // void stopAnimation();
+    void stopAnimation();
  
-    /* void update(float dt); */
+    void update(float dt);
 
     uint64_t id() const;
 
@@ -49,6 +49,7 @@ class Entity{
     //attributes
     int tag_;
     bool enable_;
+    int phase_;
 
     Vec2 position_;
     
@@ -59,10 +60,10 @@ class Entity{
     Vec2 origin_pos_;
     
     float speed_;
+    AnimationInstance *animation_;
     
 
   protected:
-/*     AnimationInstance *animation_; */
 
   private:
     uint64_t id_;
