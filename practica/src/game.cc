@@ -54,7 +54,7 @@ void initAnimationConfigMainCharacter()
 {
   GameManager &GM = GameManager::Instance();
   GM.all_config_.ac_maincharacter_ = {
-      1, 0, 0, {630.0f / 1.5f, 200.0f}, {600.0f / 1.5f, 200.0f}, 1.0f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+      1, 0, 0, {630.0f / 1.5f, 210.0f}, {600.0f / 1.5f, 210.0f}, 1.0f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
 
   for (int i = 0; i < 8; i++)
   {
@@ -564,14 +564,14 @@ void updateAnimationMainCharacter()
         {
         case 0:
           GM.all_config_.ac_maincharacter_ = {
-              1, 0, 0, {630.0f  /1.5f, 200.0f}, {600.0f  /1.5f, 200.0f}, 1.0f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+              1, 0, 0, {630.0f  /1.5f, 210.0f}, {600.0f  /1.5f, 210.0f}, 1.0f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
 
           GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
                                                                          &GM.all_sprites.maincharacter[i]);
           break;
         case 1:
           GM.all_config_.ac_maincharacter_ = {
-              1, 0, 0, {600.0f  /1.5f, 200.0f}, {580.0f  /1.5f, 250.0f}, 1.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+              1, 0, 0, {600.0f  /1.5f, 210.0f}, {580.0f  /1.5f, 250.0f}, 1.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
 
           GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
                                                                          &GM.all_sprites.maincharacter[i]);
@@ -585,35 +585,35 @@ void updateAnimationMainCharacter()
           break;
         case 3:
           GM.all_config_.ac_maincharacter_ = {
-              1, 0, 0, {580.0f /1.5f, 250.0f}, {50.0f /1.5f, 200.0f}, 3.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+              1, 0, 0, {580.0f /1.5f, 250.0f}, {50.0f /1.5f, 210.0f}, 1.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
 
           GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
                                                                          &GM.all_sprites.maincharacter[i]);
           break;
         case 4:
           GM.all_config_.ac_maincharacter_ = {
-            1, 0, 0, {50.0f /1.5f, 200.0f}, {510.0f /1.5f, 200.0f}, 3.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+            1, 0, 0, {50.0f /1.5f, 210.0f}, {510.0f /1.5f, 210.0f}, 3.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
 
           GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
                                                                          &GM.all_sprites.maincharacter[i]);
           break;
         case 5:
           GM.all_config_.ac_maincharacter_ = {
-              1, 0, 0, {510.0f /1.5f, 200.0f}, {510.0f /1.5f, 200.0f}, 2.3f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+              1, 0, 0, {510.0f /1.5f, 210.0f}, {510.0f /1.5f, 210.0f}, 2.3f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
 
           GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
                                                                          &GM.all_sprites.maincharacter[i]);
           break;
         case 6:
           GM.all_config_.ac_maincharacter_ = {
-              1, 0, 0, {510.0f /1.5f, 200.0f}, {-120.0f /1.5f, 200.0f}, 3.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+              1, 0, 0, {510.0f /1.5f, 210.0f}, {-120.0f /1.5f, 210.0f}, 3.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
 
           GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
                                                                          &GM.all_sprites.maincharacter[i]);
           break;
         case 7:
           GM.all_config_.ac_maincharacter_ = {
-              1, 0, 0, {-120.0f /1.5f, 200.0f}, {-120.0f /1.5f, 200.0f}, 4.8f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+              1, 0, 0, {-120.0f /1.5f, 210.0f}, {-120.0f /1.5f, 210.0f}, 6.8f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
 
           GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
                                                                          &GM.all_sprites.maincharacter[i]);
