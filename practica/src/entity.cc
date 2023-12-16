@@ -352,11 +352,11 @@ void drawSprites()
 {
   GameManager &GM = GameManager::Instance();
   
-  animManektrik();
+  animTorchic();
   animMainCharacter();
   animVolbeat();
   GM.all_sprites.flygon.draw();
-  animTorchic();
+  animManektrik();
 }
 
 void animManektrik()
