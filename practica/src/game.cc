@@ -6,6 +6,8 @@ void initAllAnimationConfig()
   initAnimationConfigFlygon();
   initAnimationConfigManektrik();
   initAnimationConfigMainCharacter();
+  initAnimationConfigVolbeat();
+  initAnimationConfigTorchic();
 }
 
 void updateAllAnimation()
@@ -14,6 +16,8 @@ void updateAllAnimation()
   updateAnimationFlygon();
   updateAnimationManektrik();
   updateAnimationMainCharacter();
+  updateAnimationVolbeat();
+  updateAnimationTorchic();
 }
 
 void initAnimationConfigFlygon()
@@ -49,15 +53,141 @@ void initAnimationConfigManektrik()
 void initAnimationConfigMainCharacter()
 {
   GameManager &GM = GameManager::Instance();
+  GM.all_config_.ac_maincharacter_ = {
+      1, 0, 0, {600.0f*0.75f, 250.0f}, {580.0f * 0.75f, 250.0f}, 1.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
 
-    GM.all_config_.ac_maincharacter_ = {
-      1,0,0, 
-          {GM.windowSize.x, (GM.windowSize.y / 2)}, {(GM.windowSize.x + GM.all_sprites.maincharacter[0].width()), (GM.windowSize.y / 2)}, 2.5f,
-          0.0f,0.0f,0.0f,{1.0f,1.0f},{1.0f,1.0f},0.0f};
-  for(int i = 0; i < 8; i++)
+  for (int i = 0; i < 8; i++)
   {
     GM.all_sprites.maincharacter[i].phase_ = 0;
-    GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,&GM.all_sprites.maincharacter[i]);
+    GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
+                                                                   &GM.all_sprites.maincharacter[i]);
+  }
+}
+
+void initAnimationConfigVolbeat()
+{
+  GameManager &GM = GameManager::Instance();
+  GM.all_config_.ac_volbeat_ = {
+                1, 0, 0,
+                {GM.windowSize.x * 0.75f, 225.0f},{GM.windowSize.x * 0.75f, 225.0f},2.5f,
+                0.0f,0.0f,0.0f,
+                {1.0f, 1.0f},{1.0f,1.0f}, 0.0f };
+  for(int i = 0; i < 2; i++)
+  {
+    GM.all_sprites.volbeat[i].phase_ = 0;
+    GM.all_sprites.volbeat[i].animation_ = new AnimationInstance(GM.all_config_.ac_volbeat_,
+                                                                &GM.all_sprites.volbeat[i]);
+  }
+}
+
+void initAnimationConfigTorchic()
+{
+  GameManager &GM = GameManager::Instance();
+  GM.all_config_.ac_torchic_ = {
+      1, 0, 0,
+      {GM.windowSize.x, 250.0f},
+      {600.0f, 250.0f},3.5f,
+      0.0f,0.0f,0.0f,
+      {1.0f, 1.0f},{1.0f, 1.0f},0.0f};
+      for (int i = 0; i < 5; i++)
+      {
+        GM.all_sprites.torchic[i].phase_ = 0;
+        GM.all_sprites.torchic[i].animation_ = new AnimationInstance(GM.all_config_.ac_torchic_,&GM.all_sprites.torchic[i]);
+      }
+}
+
+
+void updateAnimationVolbeat()
+{
+  GameManager &GM = GameManager::Instance();
+  for(int i = 0; i < 2; i++){
+    if(GM.all_sprites.volbeat[i].animation_->config_.is_moving == 0)
+    {
+      GM.all_sprites.volbeat[i].phase_++;
+
+      if(GM.all_sprites.volbeat[i].phase_ > 6)
+      {
+        GM.all_sprites.volbeat[i].phase_ = 0;
+      }
+
+      switch (GM.all_sprites.volbeat[i].phase_)
+      {
+      case 0:
+        GM.all_config_.ac_volbeat_ = {
+                1, 0, 0,
+                {GM.windowSize.x * 0.75f, 225.0f},{GM.windowSize.x * 0.75f, 225.0f},2.5f,
+                0.0f,0.0f,0.0f,
+                {1.0f, 1.0f},{1.0f,1.0f}, 0.0f };
+
+        GM.all_sprites.volbeat[i].animation_ = new AnimationInstance(GM.all_config_.ac_volbeat_,
+                                                                       &GM.all_sprites.volbeat[i]);
+        break;
+      case 1:
+        GM.all_config_.ac_volbeat_ = {
+                1, 0, 0,
+                {GM.windowSize.x * 0.75f, 225.0f},{130.0f * 1.5f, 225.0f},1.0f,
+                0.0f,0.0f,0.0f,
+                {1.0f, 1.0f},{1.0f,1.0f}, 0.0f};
+        
+        GM.all_sprites.volbeat[i].animation_ = new AnimationInstance(GM.all_config_.ac_volbeat_,
+                                                                       &GM.all_sprites.volbeat[i]);
+        break;
+      case 2:
+        GM.all_config_.ac_volbeat_ = {
+                1, 0, 0,
+                {130.0f * 1.5f, 225.0f},{140.0f * 1.5f, 235.0f},0.5f,
+                0.0f,0.0f,0.0f,
+                {1.0f, 1.0f},{1.0f,1.0f}, 0.0f};
+        
+        GM.all_sprites.volbeat[i].animation_ = new AnimationInstance(GM.all_config_.ac_volbeat_,
+                                                                       &GM.all_sprites.volbeat[i]);
+        break;
+      case 3:
+        GM.all_config_.ac_volbeat_ = {
+                1, 0, 0,
+                {140.0f * 1.5f, 235.0f},{160.0f * 1.5f, 210.0f},1.0f,
+                0.0f,0.0f,0.0f,
+                {1.0f, 1.0f},{1.0f,1.0f}, 1.0f};
+          
+        GM.all_sprites.volbeat[i].animation_ = new AnimationInstance(GM.all_config_.ac_volbeat_,
+                                                                       &GM.all_sprites.volbeat[i]);
+        break;
+      case 4:
+        GM.all_config_.ac_volbeat_ = {
+                1, 0, 0,
+                {160.0f * 1.5f, 210.0f},{160.0f * 1.5f, 210.0f},1.5f,
+                0.0f,0.0f,0.0f,
+                {1.0f, 1.0f},{1.5f,1.5f}, 1.5f};
+          
+        GM.all_sprites.volbeat[i].animation_ = new AnimationInstance(GM.all_config_.ac_volbeat_,
+                                                                       &GM.all_sprites.volbeat[i]);
+        break;
+      case 5:
+        GM.all_config_.ac_volbeat_ = {
+                1, 0, 0,
+                {160.0f * 2.25f, 210.0f},{400.0f * 2.25f, 240.0f},1.5f,
+                0.0f,0.0f,0.0f,
+                {1.0f, 1.0f},{1.0f,1.0f}, 1.0f};
+          
+        GM.all_sprites.volbeat[i].animation_ = new AnimationInstance(GM.all_config_.ac_volbeat_,
+                                                                       &GM.all_sprites.volbeat[i]);
+        break;
+      case 6:
+        GM.all_config_.ac_volbeat_ = {
+                1, 0, 0,
+                {400.0f * 2.25f, 240.0f},{GM.windowSize.x * 2.25f, 240.0f},2.0f,
+                0.0f,0.0f,0.0f,
+                {1.0f, 1.0f},{0.5f,0.5f}, 1.0f};
+          
+        GM.all_sprites.volbeat[i].animation_ = new AnimationInstance(GM.all_config_.ac_volbeat_,
+                                                                       &GM.all_sprites.volbeat[i]);
+        break;
+      default:
+        break;
+      }
+
+    }
+    GM.all_sprites.volbeat[i].animation_->update((GM.dt) * (GM.incr_speed_));
   }
 }
 
@@ -261,38 +391,114 @@ void updateAnimationManektrik()
 void updateAnimationMainCharacter()
 {
     //5 fases
-  GameManager &GM = GameManager::Instance();
-  for(int i = 0; i < 8; i++)
-  {
-  if(0 == GM.all_sprites.maincharacter[i].animation_->config_.is_moving)
-  {
-    GM.all_sprites.maincharacter[i].phase_++;
+    GameManager &GM = GameManager::Instance();
+    for (int i = 0; i < 8; i++)
+    {
+      if (GM.all_sprites.maincharacter[i].animation_->config_.is_moving == 0)
+      {
+        GM.all_sprites.maincharacter[i].phase_++;
+        if (GM.all_sprites.maincharacter[i].phase_ > 5)
+        {
+          GM.all_sprites.maincharacter[i].phase_ = 0;
+        }
 
-  if(GM.all_sprites.maincharacter[i].phase_ > 1)
-  {
-    GM.all_sprites.maincharacter[i].phase_ = 0;
-  }
-  
-  switch (GM.all_sprites.maincharacter[i].phase_)
-  {
-    case 0:
-      GM.all_config_.ac_maincharacter_ = {
-          1, 0, 0, {300.0f, 120.0f}, {0.0f, 120.0f}, 5.5f,
-          0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
-
-      GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_, &GM.all_sprites.maincharacter[i]);
-      break;
-        case 1:
-
+        switch (GM.all_sprites.maincharacter[i].phase_)
+        {
+        case 0:
           GM.all_config_.ac_maincharacter_ = {
-              1, 0, 0, {0.0f,120.0f}, {300.0f,120.0f},5.5f, 
-              0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+              1, 0, 0, {600.0f * 0.75f, 200.0f}, {580.0f * 0.75f, 200.0f}, 1.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
 
-          GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_, &GM.all_sprites.maincharacter[i]);
+          GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
+                                                                         &GM.all_sprites.maincharacter[i]);
+          break;
+        case 1:
+          GM.all_config_.ac_maincharacter_ = {
+              1, 0, 0, {580.0f* 0.75f, 200.0f}, {580.0f* 0.75f, 250.0f}, 3.0f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+
+          GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
+                                                                         &GM.all_sprites.maincharacter[i]);
+          break;
+        case 2:
+          GM.all_config_.ac_maincharacter_ = {
+              1, 0, 0, {580.0f* 0.75f, 250.0f}, {50.0f* 0.75f, 200.0f}, 3.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+
+          GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
+                                                                         &GM.all_sprites.maincharacter[i]);
+          break;
+        case 3:
+          GM.all_config_.ac_maincharacter_ = {
+            1, 0, 0, {50.0f* 0.75f, 200.0f}, {510.0f* 0.75f, 200.0f}, 3.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+
+          GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
+                                                                         &GM.all_sprites.maincharacter[i]);
+          break;
+        case 4:
+          GM.all_config_.ac_maincharacter_ = {
+              1, 0, 0, {510.0f* 0.75f, 200.0f}, {510.0f* 0.75f, 200.0f}, 2.3f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+
+          GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
+                                                                         &GM.all_sprites.maincharacter[i]);
+          break;
+        case 5:
+          GM.all_config_.ac_maincharacter_ = {
+              1, 0, 0, {510.0f* 0.75f, 200.0f}, {-120.0f* 0.75f, 200.0f}, 3.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+
+          GM.all_sprites.maincharacter[i].animation_ = new AnimationInstance(GM.all_config_.ac_maincharacter_,
+                                                                         &GM.all_sprites.maincharacter[i]);
           break;
         
+        }
+      }
+      GM.all_sprites.maincharacter[i].animation_->update((GM.dt) * (GM.incr_speed_));
+    }
+}
+
+void updateAnimationTorchic()
+{
+  GameManager &GM = GameManager::Instance();
+  for(int i = 0; i < 5; i++)
+  {
+    if (GM.all_sprites.torchic[i].animation_->config_.is_moving == 0)
+    {
+      GM.all_sprites.torchic[i].phase_++;
+      if(GM.all_sprites.torchic[i].phase_ > 5)
+      {
+        GM.all_sprites.torchic[i].phase_ = 0;
+      }
+      switch (GM.all_sprites.torchic[i].phase_)
+      {
+      case 0:
+        GM.all_config_.ac_torchic_ = {
+            1, 0, 0, {GM.windowSize.x * 1.5f, 250.0f}, {600.0f * 1.5f, 250.0f}, 2.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+        break;
+      
+      case 1:
+        GM.all_config_.ac_torchic_ = {
+            1, 0, 0, {600.0f * 1.5f, 250.0f}, {620.0f * 1.5f, 250.0f}, 3.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+            break;
+      case 2:
+        GM.all_config_.ac_torchic_ = {
+            1, 0, 0, {620.0f * 1.5f, 250.0f}, {630.0f * 1.5f, 250.0f}, 3.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+        break;
+        case 3:
+        GM.torchic_fall = true;
+          GM.all_config_.ac_torchic_ = {
+              1, 0, 0, {630.0f * 1.5f, 250.0f}, {630.0f * 1.5f, 250.0f}, 3.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+        GM.torchic_lying = true;
+        break;
+        case 4:
+          GM.all_config_.ac_torchic_ = {
+              1, 0, 0, {630.0f * 1.5f, 250.0f}, {680.0f * 1.5f, 250.0f}, 3.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+        break;
+
+        case 5:
+          GM.torchic_fall = false;
+          GM.all_config_.ac_torchic_ = {
+              1, 0, 0, {680.0f * 1.5f, 250.0f}, {-50.0f * 1.5f, 250.0f}, 3.5f, 0.0f, 0.0f, 0.0f, {1.0f, 1.0f}, {1.0f, 1.0f}, 0.0f};
+          GM.torchic_lying = false;
+          break;
       }
     }
+    GM.all_sprites.torchic[i].animation_->update((GM.dt) * (GM.incr_speed_));
   }
-  GM.all_sprites.maincharacter->animation_->update((GM.dt) * (GM.incr_speed_));
 }

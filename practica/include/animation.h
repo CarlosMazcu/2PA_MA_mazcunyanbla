@@ -63,10 +63,14 @@ public:
    float move_elapsed_;
 
    //scale related variables
-
    bool scale_done_;
    float scale_alpha_;
    float scale_elapsed_;
+
+   //rotate variables
+   bool rotate_done_;
+   float rotate_alpha_;
+   float rotate_elapsed_;
   
  private:
    AnimationInstance(const AnimationInstance& other){} 

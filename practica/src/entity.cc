@@ -195,6 +195,8 @@ void initAllEntityCharacter()
     GM.all_sprites.torchic[i].texture_handle_ = text_torchic;
     GM.all_sprites.torchic[i].Entity::init(9, true, {30.0f, 200.0f}, 0.0f, {1.5f, 1.5f}, 20.f);
   }
+  GM.torchic_fall = false;
+  GM.torchic_lying = false;
 
   Texture *text_flygon;
   text_flygon = text_flygon->TextureFactory("../data/SpriteSheet/characters_sheet.png");
@@ -423,7 +425,7 @@ void animMainCharacter()
   {
     GM.all_sprites.maincharacter[6].draw();
   }else{
-    GM.all_sprites.maincharacter[7].draw();
+    GM.all_sprites.maincharacter[6].draw();
   }
   if(counter > 0.7f)
   {
@@ -459,30 +461,38 @@ void animTorchic()
   GameManager &GM = GameManager::Instance();
   static float counter = 0.0f;
 
-  if(counter >= 0.0f && counter <= 0.1f)
+  if(!GM.torchic_fall && !GM.torchic_lying){
+    if(counter >= 0.0f && counter <= 0.1f)
+    {
+      GM.all_sprites.torchic[0].draw();
+    }
+    else if(counter > 0.1f && counter <= 0.2f)
+    {
+      GM.all_sprites.torchic[1].draw();
+    }
+    else if(counter > 0.2f && counter <= 0.3f)
+    {
+      GM.all_sprites.torchic[2].draw();
+    }
+  }else if(GM.torchic_fall && !GM.torchic_lying){
+    if(counter > 0.0f && counter <= 0.1f)
+    {
+      GM.all_sprites.torchic[3].draw();
+    }
+    else if(counter > 0.1f && counter <= 0.2f)
+    {
+      GM.all_sprites.torchic[4].draw();
+    }else if(counter > 0.1f && counter <= 0.3f){
+      GM.all_sprites.torchic[3].draw();
+    }else{
+      GM.all_sprites.torchic[4].draw();
+    }
+  }else if(GM.torchic_fall && GM.torchic_lying)
   {
-    GM.all_sprites.torchic[0].draw();
-  }
-  else if(counter > 0.1f && counter <= 0.2f)
-  {
-    GM.all_sprites.torchic[1].draw();
-  }
-  else if(counter > 0.2f && counter <= 0.3f)
-  {
-    GM.all_sprites.torchic[2].draw();
-  }
-  else if(counter > 0.3f && counter <= 0.4f)
-  {
-    GM.all_sprites.torchic[3].draw();
-  }
-  else if(counter > 0.4f && counter <= 0.5f)
-  {
-    GM.all_sprites.torchic[4].draw();
-  }else{
-    GM.all_sprites.torchic[4].draw();
+      GM.all_sprites.torchic[4].draw();
   }
 
-  if(counter > 0.5f)
+  if(counter > 0.3f)
   {
     counter = 0.0f;
   }

@@ -91,7 +91,6 @@ class GameManager{
   float max_music_time_;
   std::string sample_name_; 
   bool available_audio;
-
   Path mypath_;
   int compare_vertex_;
 
@@ -100,6 +99,9 @@ class GameManager{
 
   Vec2 windowSize = {640.0f, 480.0f};
 
+  bool torchic_fall;
+  bool torchic_lying;
+  
   float current_time, last_time, dt;
  private:
   GameManager(){}; //this MAY change :)

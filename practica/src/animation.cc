@@ -35,6 +35,11 @@ AnimationInstance::AnimationInstance()
     scale_done_ = true;
     scale_alpha_ = 1.0f;
     scale_elapsed_ = 0.0f;
+
+    //rotate
+    rotate_done_ = true;
+    rotate_alpha_ = 1.0f;
+    rotate_elapsed_ = 0.0f;
 }
 
 
@@ -55,7 +60,7 @@ AnimationInstance::AnimationInstance(const AnimationConfig& ac, Entity* entity)
     //scale
     if(1 == config_.is_scaling)
     {
-        scale_done_ = true;
+        scale_done_ = false;
         scale_alpha_ = 0.0f;
         scale_elapsed_ = 0.0f;
     }else{
@@ -63,10 +68,29 @@ AnimationInstance::AnimationInstance(const AnimationConfig& ac, Entity* entity)
         scale_alpha_ = 1.0f;
         scale_elapsed_ = 0.0f;
     }
+    //rotate
+    if(1 == config_.is_rotating)
+    {
+        rotate_done_ = false;
+        rotate_alpha_ = 0.0f;
+        rotate_elapsed_ = 0.0f;
+    }else{
+        rotate_done_ = true;
+        rotate_alpha_ = 1.0f;
+        rotate_elapsed_ = 0.0f;
+    }
+
 }
 
 AnimationInstance::~AnimationInstance(){
     target_ = nullptr;
+}
+
+float LerpFloat(float x, float y, float t)
+{
+    if(t > 1.0f || t < -1.0f){ t = 1.0f/t;}
+    if(t < 0.0f){ t *= -1.0f;}
+    return (x + (y - x) * t);
 }
 
 void AnimationInstance::update(float dt)
@@ -97,22 +121,37 @@ void AnimationInstance::update(float dt)
     if(1 == config_.is_scaling)
     {
         scale_elapsed_ += dt;
-        //check if movement has arrived
+        //check if scale has arrived
         if(scale_elapsed_ >= config_.move_duration)
         {
-            //Movement has finished
+            //scale has finished
             target_->set_scale(config_.scale_to);
             scale_alpha_ = 1.0f;
             scale_done_ = true;
             config_.is_scaling = 0;
         }else{
-            //The movement is not completed yet
-            //Update the Entity's  position
+            //The scale is not completed yet
+            //Update the Entity's  scale
             //LERP
             scale_alpha_ = scale_elapsed_ / config_.scale_duration;
             Vec2 new_scale;
             new_scale = Vec2::Lerp(config_.scale_from,config_.scale_to, scale_alpha_);
             target_->set_scale(new_scale); 
+        }
+    }
+    if(1 == config_.is_rotating)
+    {
+        rotate_elapsed_+= dt;
+        if(rotate_elapsed_ >= config_.rotate_duration)
+        {
+            target_->set_rotation(config_.rotate_to);
+            rotate_alpha_ = 1.0f;
+            rotate_done_ = true;
+            config_.is_rotating = 0;
+        }else{
+            rotate_alpha_ = rotate_elapsed_ / config_.rotate_duration;
+            float new_rotate = LerpFloat(config_.rotate_from, config_.rotate_to, rotate_alpha_);
+            target_->set_rotation(new_rotate);
         }
     }
 }
