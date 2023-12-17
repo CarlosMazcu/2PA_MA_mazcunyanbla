@@ -1,3 +1,14 @@
+/**
+ * @file game.cc
+ * @author Carlos Mazcuñán Blanes <mazcunyanbla@esat-alumni.com>
+ * @brief source code for game.h 
+ * 
+ * @version 1.5
+ * @date 2023-12-3
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #include "game.h"
 
 game::game(){}
@@ -41,7 +52,6 @@ void game::gameLoop()
     esat::DrawClear(0, 0, 0);
 
     MainMenuBar();
-    ImGui::ShowDemoWindow();
 
     stateMachine();
 
@@ -73,7 +83,6 @@ void initAllAnimationConfig()
 
 void updateAllAnimation()
 {
-  GameManager &GM = GameManager::Instance();
   updateAnimationFlygon();
   updateAnimationManektrik();
   updateAnimationMainCharacter();
@@ -319,11 +328,11 @@ void updateAnimationVolbeat()
                                                                        &GM.all_sprites.volbeat[i]);
         break;
       case 15:
-        GM.all_sprites.volbeat[i].origin_pos_ = /* GM.all_sprites.volbeat[i].position(); */{170.0f, 240.0f * 1.5f};
+        GM.all_sprites.volbeat[i].origin_pos_ = {170.0f, 240.0f * 1.5f};
         GM.all_config_.ac_volbeat_ = {
                 1, 1, 0,
-                {0.0f, 0.0f},{0.0f, 0.0f},1.5f,
-                0.0f,(3.14159265f * 2.0f) * 2.0f,1.5f,
+                {0.0f, 0.0f},{-80.0f, 0.0f},1.5f,
+                0.0f,(3.14159265f * 2.0f)/*  * 2.0f */,1.5f,
                 {1.0f, 1.0f},{1.0f,1.0f}, 1.0f};
           
         GM.all_sprites.volbeat[i].animation_ = new AnimationInstance(GM.all_config_.ac_volbeat_,
@@ -333,7 +342,7 @@ void updateAnimationVolbeat()
         GM.all_sprites.volbeat[i].origin_pos_ = {0.0f, 0.0f};
         GM.all_config_.ac_volbeat_ = {
                 1, 0, 0,
-                {170.0f / 1.5f, 240.0f},{-120.0f / 1.5f, 240.0f},1.5f,
+                {170.0f / 1.5f - 80.0f, 240.0f},{-120.0f / 1.5f, 240.0f},1.5f,
                 0.0f,0.0f,0.0f,
                 {1.0f, 1.0f},{1.0f,1.0f}, 1.0f};
           
@@ -774,7 +783,6 @@ void updateAnimationTorchic()
     GM.all_sprites.torchic[i].animation_->update((GM.dt) * (GM.incr_speed_));
   }
 }
-
 
 void initAllEntityParallax()
 {

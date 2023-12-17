@@ -1,3 +1,14 @@
+/**
+ * @file animation.cc
+ * @author Lucas Calatayud Briva <calatayudbri@esat-alumni.com>
+ * @brief Source code for methods of Animation Class.
+ * @version 1.7
+ * @date 2023-11-28
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #include "animation.h"
 #include "entity.h"
 

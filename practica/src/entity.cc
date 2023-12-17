@@ -1,6 +1,13 @@
-//
-//
-//
+/**
+ * @file entity.cc
+ * @author Lucas Calatayud (calatayudbri@esat-alumni.com)
+ * @brief source code for entity.h
+ * @version 0.1
+ * @date 2023-11-29
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 
 #include "entity.h"
 #include "game_manager.h"

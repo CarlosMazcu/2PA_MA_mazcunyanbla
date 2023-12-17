@@ -1,7 +1,7 @@
 /**
  * @file game_manager.cc
- * @author your name (you@domain.com)
- * @brief 
+ * @author Lucas Calatayud Briva <calatayudbri@esat-alumni.com>
+ * @brief Source code to manage game manager
  * @version 0.1
  * @date 2023-11-28
  * 

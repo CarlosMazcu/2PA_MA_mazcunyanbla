@@ -1,6 +1,13 @@
-//@file gtexture.cc
-//@brief 
-//@author
+/**
+ * @file gtexture.cc
+ * @author Carlos Mazcuñán Blanes <mazcunyanbla@esat-alumni.com>
+ * @brief source code for texture class
+ * @version 0.5
+ * @date 2023-11-29
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "gtexture.h"
 #include <stdio.h>
 #include <algorithm>
@@ -9,7 +16,7 @@ int Texture::total_textures = 0;
 
 std::vector<esat::SpriteHandle*> Texture::sprite_vector_;
 
-static bool AddToVector(std::vector<esat::SpriteHandle*> &vec, esat::SpriteHandle* img ){
+/* static bool AddToVector(std::vector<esat::SpriteHandle*> &vec, esat::SpriteHandle* img ){
   if (std::find(vec.begin(), vec.end(), img) != vec.end())
   {
     printf("encontrado\n");
@@ -18,7 +25,7 @@ static bool AddToVector(std::vector<esat::SpriteHandle*> &vec, esat::SpriteHandl
   vec.push_back(img);
   return true;
 
-}
+} */
 
 Texture::Texture(){
   handle_ = nullptr;
@@ -38,7 +45,6 @@ void Texture::init(const char* fname){
     release();
   }
   handle_ = esat::SpriteFromFile(fname);
-  AddToVector(sprite_vector_, &handle_);
 }
 
 void Texture::init(int w, int h, uint8_t *data)
@@ -48,14 +54,11 @@ void Texture::init(int w, int h, uint8_t *data)
     release();
   }
   handle_ = esat::SpriteFromMemory(w, h , data);
-  AddToVector(sprite_vector_, &handle_);
 }
 
 void Texture::init(esat::SpriteHandle sp, int x, int y, int w, int h)
 {
   handle_ = esat::SubSprite(sp, x, y, w, h);
-  AddToVector(sprite_vector_, &handle_);
-
 }
 
 
@@ -106,31 +109,19 @@ void Texture::release(){
 
 Texture *Texture::TextureFactory(int w, int h, uint8_t *data)
 {
-  if(Texture::total_textures < kMaxTextures)
-  {
-    Texture* p_texture = new Texture();
-    p_texture->init(w, h, data);
-    Texture::total_textures++;
-    return p_texture;
-  }else
-  {
-    return nullptr;
-  }
+
+  Texture* p_texture = new Texture();
+  p_texture->init(w, h, data);
+  Texture::total_textures++;
+  return p_texture;
 }
 
 Texture *Texture::TextureFactory(const char *fname)
 {
-/*   if (Texture::total_textures < kMaxTextures)
-  { */
-Texture *p_texture = new Texture();
-p_texture->init(fname);
-Texture::total_textures++;
-return p_texture;
- /*  }
-  else
-  {
-    return nullptr;
-  } */
+  Texture *p_texture = new Texture();
+  p_texture->init(fname);
+  Texture::total_textures++;
+  return p_texture;
 }
 
 void Texture::releaseAllSprites()
@@ -141,4 +132,9 @@ void Texture::releaseAllSprites()
     esat::SpriteRelease(*sprite_vector_[i]);
   }
   sprite_vector_.clear();
+}
+
+esat::SpriteHandle Texture::getHandle()
+{
+    return handle_;
 }

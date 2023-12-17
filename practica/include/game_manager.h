@@ -1,7 +1,7 @@
 /**
  * @file game_manager.h
- * @author your name (you@domain.com)
- * @brief 
+ * @author Lucas Calatayud Briva <calatayudbri@esat-alumni.com>
+ * @brief header with game manager class that manage variables of general scope
  * @version 0.1
  * @date 2023-11-28
  * 

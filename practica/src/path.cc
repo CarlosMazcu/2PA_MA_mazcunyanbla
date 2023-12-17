@@ -1,3 +1,13 @@
+/**
+ * @file path.cc
+ * @author Lucas Calatayud (calatayudbri@esat-alumni.com)
+ * @brief source code for path class
+ * @version 0.5
+ * @date 2023-11-29
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "path.h"
 #include "esat/draw.h"
 #include "../deps/math_library/include/matrix_3.h"
@@ -19,27 +29,17 @@ Path::Path(const Path& other)
   fill_color_ = other.fill_color_;
   vertices_ = other.vertices_;
   n_vertex_ = other.n_vertex_;
-
 }
 
 void Path::set_stroke_color(const Vec4& color){
-  //clamp color components {0.0f ---> 255.0f}
- /*  stroke_color_.x = MathUtils::Clamp(color.x, 0.0f, 255.0f);
-  stroke_color_.y = MathUtils::Clamp(color.y, 0.0f, 255.0f);
-  stroke_color_.z = MathUtils::Clamp(color.z, 0.0f, 255.0f);
-  stroke_color_.w = MathUtils::Clamp(color.w, 0.0f, 255.0f); */
-stroke_color_.x = color.x;
-stroke_color_.y = color.y;
-stroke_color_.z = color.z;
-stroke_color_.w = color.w;
+  stroke_color_.x = color.x;
+  stroke_color_.y = color.y;
+  stroke_color_.z = color.z;
+  stroke_color_.w = color.w;
 }
 
 void Path::set_fill_color(const Vec4& color)
 {
-/*   fill_color_.x = MathUtils::Clamp(color.x, 0.0f, 255.0f);
-  fill_color_.y = MathUtils::Clamp(color.y, 0.0f, 255.0f);
-  fill_color_.z = MathUtils::Clamp(color.z, 0.0f, 255.0f);
-  fill_color_.w = MathUtils::Clamp(color.w, 0.0f, 255.0f); */
   fill_color_.x = color.x;
   fill_color_.y = color.y;
   fill_color_.z = color.z;

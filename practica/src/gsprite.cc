@@ -1,8 +1,8 @@
 /**
  * @file gsprite.cc
- * @author Lucas Calatayud (calatayudbri@esat-alumni.com)
- * @brief 
- * @version 0.1
+ * @author Carlos Mazcuñán Blanes <mazcunyanbla@esat-alumni.com>
+ * @brief Source code for gsprite.h
+ * @version 0.5
  * @date 2023-11-29
  * 
  * @copyright Copyright (c) 2023
@@ -28,7 +28,7 @@ Sprite::~Sprite()
 {
   if(nullptr != texture_handle_)
   {
-  /*   release(); */
+    release();
   }
 }
 
@@ -39,7 +39,6 @@ void Sprite::initSp(Texture *texture, int x, int y, int w, int h)
     printf("Error texture");
     return;
   }
-  /* handle_ = texture.getSubSprite(x,y,w,h); */
   texture_handle_ = texture;
   texture_handle_->getHandle(); 
 }
@@ -49,20 +48,11 @@ void Sprite::initSp(Texture *texture, int x, int y, int w, int h)
 int Sprite::width() const
 {
   return texture_handle_->width();
-/*   if(nullptr != handle_){
-    return esat::SpriteWidth(handle_);
-  }
-  return 0; */
 }
 
 int Sprite::height() const
 {
   return texture_handle_->height();
-/*   if (nullptr != handle_)
-  {
-    return esat::SpriteHeight(handle_);
-  }
-  return 0; */
 }
 
 void Sprite::draw(){
@@ -86,11 +76,11 @@ void Sprite::draw(){
   }
 }
 
-/* void Sprite::release(){
-  if(nullptr != handle_)
+void Sprite::release(){
+  if(nullptr != texture_handle_)
   {
-    esat::SpriteRelease(handle_);
-    handle_ = nullptr;
+    esat::SpriteRelease(texture_handle_);
+    texture_handle_ = nullptr;
   }
-} */
+}
 
