@@ -72,6 +72,8 @@ void Sprite::draw(){
     {
       // Transform Matrix
       Mat3 m = Mat3::Identity();
+      m = Mat3::Rotate(origin_rotation_).Multiply(m);
+      m = Mat3::Translate(origin_pos_.x, origin_pos_.y).Multiply(m);
       m = Mat3::Scale(scale_.x, scale_.y).Multiply(m);
       m = Mat3::Rotate(rotation_).Multiply(m);
       m = Mat3::Translate(position_.x, position_.y).Multiply(m);

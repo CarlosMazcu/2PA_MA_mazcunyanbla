@@ -13,6 +13,7 @@
 #include "esat/time.h"
 #include "esat/input.h"
 #include "stdio.h"
+
 #include "game.h"
 
 void windowManager(int n)
@@ -351,8 +352,6 @@ void parallaxWindow()
   // move parallax
   updateParallax();
   updateAllAnimation();
-
-
   // draw
   drawParallax();
   drawSprites();
@@ -397,8 +396,6 @@ void initPath()
   GM.mypath_.origin_pos_ = {300.0f, 300.0f};
   GM.mypath_.Entity::init(12, true, {0.0f, 0.0f}, 0.0f, {20.0f, 20.0f},0.0f);
 }
-
-
 
 void pathWindow()
 {

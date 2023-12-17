@@ -70,24 +70,7 @@ class Entity{
     static uint64_t next_id_;
 };
 
-//TODO move to game class
-void initAllEntityParallax();
 
-void initAllEntityCharacter();
-
-void updateParallax();
-
-void drawParallax();
-
-void drawSprites();
-
-void animManektrik();
-
-void animMainCharacter();
-
-void animVolbeat();
-
-void animTorchic();
 
 
 #endif

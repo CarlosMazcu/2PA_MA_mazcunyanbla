@@ -91,7 +91,6 @@ void Path::draw(){
 
   m = Mat3::Scale(scale_.x, scale_.y).Multiply(m);
 
-
   m = Mat3::Rotate(rotation_).Multiply(m);
   m = Mat3::Translate(position_.x, position_.y).Multiply(m);
   //Transform vertices
