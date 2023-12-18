@@ -1,0 +1,127 @@
+\hypertarget{class_game_manager}{}\doxysection{Game\+Manager Class Reference}
+\label{class_game_manager}\index{GameManager@{GameManager}}
+
+
+Singleton class managing the game state, entities, and audio.  
+
+
+
+
+{\ttfamily \#include $<$game\+\_\+manager.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_game_manager_1_1_t_animation_config}{T\+Animation\+Config}}
+\item 
+struct \mbox{\hyperlink{struct_game_manager_1_1_t_parallax}{T\+Parallax}}
+\item 
+struct \mbox{\hyperlink{struct_game_manager_1_1_t_sprite}{T\+Sprite}}
+\item 
+struct \mbox{\hyperlink{struct_game_manager_1_1_t_window}{T\+Window}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_manager_ad8ef384f89985b242b529a7aadf5f753}\label{class_game_manager_ad8ef384f89985b242b529a7aadf5f753}} 
+enum \{ \newline
+{\bfseries k\+Welcome\+Window} = 0, 
+{\bfseries k\+Parallax\+Window} = 1, 
+{\bfseries k\+Transform\+Window} = 2, 
+{\bfseries k\+Exit\+Window} = 3, 
+\newline
+{\bfseries k\+Credits\+Window} = 4
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_manager_a137f3d22762082713a43057ced7937f0}\label{class_game_manager_a137f3d22762082713a43057ced7937f0}} 
+static \mbox{\hyperlink{class_game_manager}{Game\+Manager}} \& {\bfseries Instance} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_manager_a04fc09f9b6aa173e948d03965d3c7ffa}\label{class_game_manager_a04fc09f9b6aa173e948d03965d3c7ffa}} 
+\mbox{\hyperlink{struct_game_manager_1_1_t_window}{T\+Window}} {\bfseries window\+\_\+bool}
+\item 
+\mbox{\Hypertarget{class_game_manager_a13ba0f8338d8dbbeecb348bca0b5d24c}\label{class_game_manager_a13ba0f8338d8dbbeecb348bca0b5d24c}} 
+\mbox{\hyperlink{struct_game_manager_1_1_t_animation_config}{T\+Animation\+Config}} {\bfseries all\+\_\+config\+\_\+}
+\item 
+\mbox{\Hypertarget{class_game_manager_a9fbae915bc7d420680871049577682a5}\label{class_game_manager_a9fbae915bc7d420680871049577682a5}} 
+\mbox{\hyperlink{struct_game_manager_1_1_t_sprite}{T\+Sprite}} {\bfseries all\+\_\+sprites}
+\item 
+\mbox{\Hypertarget{class_game_manager_a5bf2ec08275a1be20f34e169728dbc8d}\label{class_game_manager_a5bf2ec08275a1be20f34e169728dbc8d}} 
+float {\bfseries incr\+\_\+speed\+\_\+}
+\item 
+\mbox{\Hypertarget{class_game_manager_aee8f4961d56ff6fb8593b99585d30920}\label{class_game_manager_aee8f4961d56ff6fb8593b99585d30920}} 
+So\+Loud\+::\+Soloud {\bfseries soloud\+\_\+}
+\item 
+\mbox{\Hypertarget{class_game_manager_a74460ed08ae9c3d774fadde84c2c1b81}\label{class_game_manager_a74460ed08ae9c3d774fadde84c2c1b81}} 
+So\+Loud\+::\+Wav {\bfseries sample\+\_\+} \mbox{[}4\mbox{]}
+\item 
+\mbox{\Hypertarget{class_game_manager_a61313328b64d95e84f9a81c793e0635b}\label{class_game_manager_a61313328b64d95e84f9a81c793e0635b}} 
+int {\bfseries controller\+\_\+}
+\item 
+\mbox{\Hypertarget{class_game_manager_a2b9d9c6cd8b75aec9727345417cdecfb}\label{class_game_manager_a2b9d9c6cd8b75aec9727345417cdecfb}} 
+int {\bfseries change\+\_\+sample\+\_\+}
+\item 
+\mbox{\Hypertarget{class_game_manager_ad414cd805d4014eaa1a2bafafba05744}\label{class_game_manager_ad414cd805d4014eaa1a2bafafba05744}} 
+float {\bfseries volume\+\_\+}
+\item 
+\mbox{\Hypertarget{class_game_manager_a3f7cb23882afb2aa258eb07b3f674a72}\label{class_game_manager_a3f7cb23882afb2aa258eb07b3f674a72}} 
+float {\bfseries music\+\_\+counter\+\_\+}
+\item 
+\mbox{\Hypertarget{class_game_manager_a7739ae486af0d9d5758072354514af13}\label{class_game_manager_a7739ae486af0d9d5758072354514af13}} 
+float {\bfseries max\+\_\+music\+\_\+time\+\_\+}
+\item 
+\mbox{\Hypertarget{class_game_manager_a1a46f149bb8786cb112c221ec72977a7}\label{class_game_manager_a1a46f149bb8786cb112c221ec72977a7}} 
+std\+::string {\bfseries sample\+\_\+name\+\_\+}
+\item 
+\mbox{\Hypertarget{class_game_manager_adc512697ff32f2d84c532f0e18ee1705}\label{class_game_manager_adc512697ff32f2d84c532f0e18ee1705}} 
+bool {\bfseries available\+\_\+audio}
+\item 
+\mbox{\Hypertarget{class_game_manager_a769262b551e59752e1a3b804a24ae8e1}\label{class_game_manager_a769262b551e59752e1a3b804a24ae8e1}} 
+\mbox{\hyperlink{class_path}{Path}} {\bfseries mypath\+\_\+}
+\item 
+\mbox{\Hypertarget{class_game_manager_ab25a391c0522e9c3b61bf3536de7f6d7}\label{class_game_manager_ab25a391c0522e9c3b61bf3536de7f6d7}} 
+int {\bfseries compare\+\_\+vertex\+\_\+}
+\item 
+\mbox{\Hypertarget{class_game_manager_acea7bb67db44b83752f508c8ef7866d9}\label{class_game_manager_acea7bb67db44b83752f508c8ef7866d9}} 
+float {\bfseries strk\+\_\+color\+\_\+} \mbox{[}4\mbox{]}
+\item 
+\mbox{\Hypertarget{class_game_manager_ad267bf40652bf2636229b2150c949483}\label{class_game_manager_ad267bf40652bf2636229b2150c949483}} 
+float {\bfseries f\+\_\+color\+\_\+} \mbox{[}4\mbox{]}
+\item 
+\mbox{\Hypertarget{class_game_manager_ab759b861d435461a5b40601cc137f972}\label{class_game_manager_ab759b861d435461a5b40601cc137f972}} 
+Vec2 {\bfseries window\+Size} = \{640.\+0f, 480.\+0f\}
+\item 
+\mbox{\Hypertarget{class_game_manager_ad8a5a4f94839720b21387ef204619c0c}\label{class_game_manager_ad8a5a4f94839720b21387ef204619c0c}} 
+bool {\bfseries torchic\+\_\+fall}
+\item 
+\mbox{\Hypertarget{class_game_manager_a3b4d22097f0e5b142e662286c433d254}\label{class_game_manager_a3b4d22097f0e5b142e662286c433d254}} 
+bool {\bfseries torchic\+\_\+lying}
+\item 
+\mbox{\Hypertarget{class_game_manager_a348b42ca6b0c9968590d3f89332e0892}\label{class_game_manager_a348b42ca6b0c9968590d3f89332e0892}} 
+float {\bfseries current\+\_\+time}
+\item 
+\mbox{\Hypertarget{class_game_manager_a86f05ecafc9a9353857e26c8960da8cd}\label{class_game_manager_a86f05ecafc9a9353857e26c8960da8cd}} 
+float {\bfseries last\+\_\+time}
+\item 
+\mbox{\Hypertarget{class_game_manager_ac2ef114c441539daec74e1c8c457a48f}\label{class_game_manager_ac2ef114c441539daec74e1c8c457a48f}} 
+float {\bfseries dt}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton class managing the game state, entities, and audio. 
+
+The \mbox{\hyperlink{class_game_manager}{Game\+Manager}} class is a singleton responsible for managing the overall game state, including window states, sprites, animations, audio, and various settings. 
+
+Definition at line 26 of file game\+\_\+manager.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{game__manager_8h}{game\+\_\+manager.\+h}}\end{DoxyCompactItemize}

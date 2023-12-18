@@ -17,6 +17,12 @@
 #include <esat_extra/soloud/soloud.h>
 #include <esat_extra/soloud/soloud_wav.h>
 
+/**
+ * @brief Singleton class managing the game state, entities, and audio.
+ *
+ * The GameManager class is a singleton responsible for managing the overall game state,
+ * including window states, sprites, animations, audio, and various settings.
+ */
 class GameManager{
  public:
   static GameManager& Instance()

@@ -24,6 +24,12 @@
 struct AnimationConfig;
 class AnimationInstance;
 
+/**
+ * @brief Base class for game entities.
+ *
+ * The Entity class represents a basic game entity with properties such as position, scale, rotation, and visibility.
+ * Derived classes can inherit from this class to create specific types of entities.
+ */
 class Entity{
   public:
     /**

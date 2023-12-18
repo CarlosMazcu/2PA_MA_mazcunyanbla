@@ -1,0 +1,223 @@
+\hypertarget{class_path}{}\doxysection{Path Class Reference}
+\label{class_path}\index{Path@{Path}}
+
+
+Class representing a path entity in the game.  
+
+
+
+
+{\ttfamily \#include $<$path.\+h$>$}
+
+Inheritance diagram for Path\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_path}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_path_af26cfab021ddf49af73da3b2beca85ac}{Path}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \mbox{\hyperlink{class_path}{Path}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_path_a0208ff3549e5de3be8d906d774cea709}{Path}} (const \mbox{\hyperlink{class_path}{Path}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor for the \mbox{\hyperlink{class_path}{Path}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_path_a731b9c72e49eaa48c2c86356c0d3a55a}{set\+\_\+stroke\+\_\+color}} (const Vec4 \&color)
+\begin{DoxyCompactList}\small\item\em Set the stroke color of the \mbox{\hyperlink{class_path}{Path}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_path_a5ff67772db7c7fc63eb7fd6b78193ae5}{set\+\_\+fill\+\_\+color}} (const Vec4 \&color)
+\begin{DoxyCompactList}\small\item\em Set the fill color of the \mbox{\hyperlink{class_path}{Path}}. \end{DoxyCompactList}\item 
+Vec4 \mbox{\hyperlink{class_path_a8d312482a482dcdbfc4e5f12287c22e1}{stroke\+\_\+color}} () const
+\begin{DoxyCompactList}\small\item\em Get the stroke color of the \mbox{\hyperlink{class_path}{Path}}. \end{DoxyCompactList}\item 
+Vec4 \mbox{\hyperlink{class_path_a32492a9efcef8df7b458a83b4e9c7053}{fill\+\_\+color}} () const
+\begin{DoxyCompactList}\small\item\em Get the fill color of the \mbox{\hyperlink{class_path}{Path}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_path_ab4775fd37d5c143857a23fb0ae43b573}{add\+Vertex}} (const Vec2 \&v)
+\begin{DoxyCompactList}\small\item\em Add a vertex to the \mbox{\hyperlink{class_path}{Path}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_path_a376c59290cf38d80e454cfc6aa1edd86}{remove\+End\+Vertex}} ()
+\begin{DoxyCompactList}\small\item\em Remove the last vertex from the \mbox{\hyperlink{class_path}{Path}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_path_a156a21ef8774c092165c3fc8d6b03cdd}{remove\+All\+Vertex}} ()
+\begin{DoxyCompactList}\small\item\em Remove all vertices from the \mbox{\hyperlink{class_path}{Path}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_path_a44c5c139fada63bc08efe1fe28ca264a}{draw}} ()
+\begin{DoxyCompactList}\small\item\em Draw the \mbox{\hyperlink{class_path}{Path}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_path_ae69e9d678c682a8cd6fddb10f90068f2}\label{class_path_ae69e9d678c682a8cd6fddb10f90068f2}} 
+bool {\bfseries solid\+\_\+}
+\item 
+\mbox{\Hypertarget{class_path_a9d9fe84a045cc1bba5fd4bc2521cecc5}\label{class_path_a9d9fe84a045cc1bba5fd4bc2521cecc5}} 
+int {\bfseries n\+\_\+vertex\+\_\+}
+\item 
+\mbox{\Hypertarget{class_path_a7725323f110daebc48092bdd29d1053e}\label{class_path_a7725323f110daebc48092bdd29d1053e}} 
+Vec4 {\bfseries stroke\+\_\+color\+\_\+}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_path_a34766a59d892ef5fb51aaa8ca350d644}\label{class_path_a34766a59d892ef5fb51aaa8ca350d644}} 
+Vec4 {\bfseries fill\+\_\+color\+\_\+}
+\item 
+\mbox{\Hypertarget{class_path_a127e21f41194f3f93bc746b7a23be551}\label{class_path_a127e21f41194f3f93bc746b7a23be551}} 
+std\+::vector$<$ Vec2 $>$ {\bfseries vertices\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a path entity in the game. 
+
+The \mbox{\hyperlink{class_path}{Path}} class extends the functionality of the base \mbox{\hyperlink{class_entity}{Entity}} class to represent a path entity, which is defined by a series of vertices and can have stroke and fill colors. 
+
+Definition at line 26 of file path.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_path_af26cfab021ddf49af73da3b2beca85ac}\label{class_path_af26cfab021ddf49af73da3b2beca85ac}} 
+\index{Path@{Path}!Path@{Path}}
+\index{Path@{Path}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{Path()}{Path()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Path\+::\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for the \mbox{\hyperlink{class_path}{Path}} class. 
+
+A constructor that initializes a \mbox{\hyperlink{class_path}{Path}} object with default values. The path is solid by default, and the stroke and fill colors are set to white and red, respectively. The number of vertices is set to 3. \mbox{\Hypertarget{class_path_a0208ff3549e5de3be8d906d774cea709}\label{class_path_a0208ff3549e5de3be8d906d774cea709}} 
+\index{Path@{Path}!Path@{Path}}
+\index{Path@{Path}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{Path()}{Path()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Path\+::\+Path (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_path}{Path}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Copy constructor for the \mbox{\hyperlink{class_path}{Path}} class. 
+
+This constructor creates a new \mbox{\hyperlink{class_path}{Path}} object by copying the attributes from another \mbox{\hyperlink{class_path}{Path}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \mbox{\hyperlink{class_path}{Path}} object to be copied. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_path_ab4775fd37d5c143857a23fb0ae43b573}\label{class_path_ab4775fd37d5c143857a23fb0ae43b573}} 
+\index{Path@{Path}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}}
+{\footnotesize\ttfamily void Path\+::add\+Vertex (\begin{DoxyParamCaption}\item[{const Vec2 \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Add a vertex to the \mbox{\hyperlink{class_path}{Path}}. 
+
+Adds a vertex to the end of the vertex list (std\+::vector$<$\+Vec2$>$) of the \mbox{\hyperlink{class_path}{Path}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The Vec2 representing the coordinates of the new vertex. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_path_a44c5c139fada63bc08efe1fe28ca264a}\label{class_path_a44c5c139fada63bc08efe1fe28ca264a}} 
+\index{Path@{Path}!draw@{draw}}
+\index{draw@{draw}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Path\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw the \mbox{\hyperlink{class_path}{Path}}. 
+
+This method draws the \mbox{\hyperlink{class_path}{Path}} based on its current properties and vertices. If the \mbox{\hyperlink{class_path}{Path}} has at least three vertices, it sets the stroke and fill colors, applies the transformation matrix, and draws the transformed vertices. The drawing is either a solid path or an outline based on the {\ttfamily solid\+\_\+} property. 
+
+Reimplemented from \mbox{\hyperlink{class_entity_a2e550ef5a8d44094c1c7d48978f76582}{Entity}}.
+
+\mbox{\Hypertarget{class_path_a32492a9efcef8df7b458a83b4e9c7053}\label{class_path_a32492a9efcef8df7b458a83b4e9c7053}} 
+\index{Path@{Path}!fill\_color@{fill\_color}}
+\index{fill\_color@{fill\_color}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{fill\_color()}{fill\_color()}}
+{\footnotesize\ttfamily Vec4 Path\+::fill\+\_\+color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the fill color of the \mbox{\hyperlink{class_path}{Path}}. 
+
+Returns the fill color of the \mbox{\hyperlink{class_path}{Path}} as a Vec4 representing the R\+G\+BA color.
+
+\begin{DoxyReturn}{Returns}
+The fill color of the \mbox{\hyperlink{class_path}{Path}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_path_a156a21ef8774c092165c3fc8d6b03cdd}\label{class_path_a156a21ef8774c092165c3fc8d6b03cdd}} 
+\index{Path@{Path}!removeAllVertex@{removeAllVertex}}
+\index{removeAllVertex@{removeAllVertex}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{removeAllVertex()}{removeAllVertex()}}
+{\footnotesize\ttfamily void Path\+::remove\+All\+Vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remove all vertices from the \mbox{\hyperlink{class_path}{Path}}. 
+
+Clears the entire vertex list (std\+::vector$<$\+Vec2$>$) of the \mbox{\hyperlink{class_path}{Path}}, removing all vertices. \mbox{\Hypertarget{class_path_a376c59290cf38d80e454cfc6aa1edd86}\label{class_path_a376c59290cf38d80e454cfc6aa1edd86}} 
+\index{Path@{Path}!removeEndVertex@{removeEndVertex}}
+\index{removeEndVertex@{removeEndVertex}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{removeEndVertex()}{removeEndVertex()}}
+{\footnotesize\ttfamily void Path\+::remove\+End\+Vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remove the last vertex from the \mbox{\hyperlink{class_path}{Path}}. 
+
+Removes the last vertex from the vertex list (std\+::vector$<$\+Vec2$>$) of the \mbox{\hyperlink{class_path}{Path}}. If the vertex list is empty, no action is taken. \mbox{\Hypertarget{class_path_a5ff67772db7c7fc63eb7fd6b78193ae5}\label{class_path_a5ff67772db7c7fc63eb7fd6b78193ae5}} 
+\index{Path@{Path}!set\_fill\_color@{set\_fill\_color}}
+\index{set\_fill\_color@{set\_fill\_color}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{set\_fill\_color()}{set\_fill\_color()}}
+{\footnotesize\ttfamily void Path\+::set\+\_\+fill\+\_\+color (\begin{DoxyParamCaption}\item[{const Vec4 \&}]{color }\end{DoxyParamCaption})}
+
+
+
+Set the fill color of the \mbox{\hyperlink{class_path}{Path}}. 
+
+This method sets the fill color of the \mbox{\hyperlink{class_path}{Path}} to the specified R\+G\+BA color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The Vec4 representing the R\+G\+BA color to set as the fill color. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_path_a731b9c72e49eaa48c2c86356c0d3a55a}\label{class_path_a731b9c72e49eaa48c2c86356c0d3a55a}} 
+\index{Path@{Path}!set\_stroke\_color@{set\_stroke\_color}}
+\index{set\_stroke\_color@{set\_stroke\_color}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{set\_stroke\_color()}{set\_stroke\_color()}}
+{\footnotesize\ttfamily void Path\+::set\+\_\+stroke\+\_\+color (\begin{DoxyParamCaption}\item[{const Vec4 \&}]{color }\end{DoxyParamCaption})}
+
+
+
+Set the stroke color of the \mbox{\hyperlink{class_path}{Path}}. 
+
+Sets the stroke color of the \mbox{\hyperlink{class_path}{Path}} to the specified R\+G\+BA color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The Vec4 representing the R\+G\+BA color to set as the stroke color. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_path_a8d312482a482dcdbfc4e5f12287c22e1}\label{class_path_a8d312482a482dcdbfc4e5f12287c22e1}} 
+\index{Path@{Path}!stroke\_color@{stroke\_color}}
+\index{stroke\_color@{stroke\_color}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{stroke\_color()}{stroke\_color()}}
+{\footnotesize\ttfamily Vec4 Path\+::stroke\+\_\+color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the stroke color of the \mbox{\hyperlink{class_path}{Path}}. 
+
+Returns the stroke color of the \mbox{\hyperlink{class_path}{Path}} as a Vec4 representing the R\+G\+BA color.
+
+\begin{DoxyReturn}{Returns}
+The stroke color of the \mbox{\hyperlink{class_path}{Path}}. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{path_8h}{path.\+h}}\end{DoxyCompactItemize}

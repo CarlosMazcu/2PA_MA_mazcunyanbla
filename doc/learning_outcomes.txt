@@ -1,0 +1,27 @@
+P1 - This can be found in the documentation in the "Algorithms" section (page 3)
+
+P2 - This can be found in the documentation in the "Algorithms" section (page 4)
+
+P3 - This can be found in the documentation in the "Programming Paradigms" section (pages 5,6,7,8)
+
+P4 - This can be found in the documentation in the "Implementation and Debugging" section corresponding to the first paragraph (page 9)
+
+P5 - This can be found in the documentation in the "Implementation and Debugging" section (page 9)
+
+P6 - This can be found in the documentation in the "Implementation and Debugging" section corresponding to the last two paragraphs (page 9)
+
+M1 - This can be found in the documentation in the "Algorithms" section (page 4) and some of the challenges we have faced are in the conclusion (page 15)
+
+M2 - This can be found in the documentation in the "Programming Paradigms" section (pages 5,6,7,8)
+
+M3 - This can be found in the documentation in the "Implementation and Debugging" section (page 9)
+
+M4 - This can be found in the documentation in the "Implementation and Debugging" section (page 9)
+
+D1 - This can be found in the documentation in the "Algorithms" section (page 4)
+
+D2 - This can be found in the documentation in the "Programming Paradigms" section (pages 5,6,7,8)
+
+D3 - This can be found in the documentation in the "Implementation and Debugging" section corresponding to the second paragraphs (page 9)
+
+D4 - This can be found in the documentation in the "Implementation and Debugging" section corresponding to the last two paragraphs (page 9)

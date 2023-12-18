@@ -18,6 +18,11 @@
 
 const unsigned int kMaxTextures = 20;
 
+/**
+* @brief Default constructor for Texture.
+*
+* Initializes an instance of Texture with default values.
+*/
 class Texture{
  public:
   /**

@@ -36,7 +36,12 @@
 #include "entity.h"
 #include "path.h"
 #include "game_manager.h"
-
+/**
+ * @brief Class representing the main game logic and loop.
+ *
+ * The Game class encapsulates the main game logic, including initialization,
+ * the main game loop, and cleanup.
+ */
 class game
 {
  public:

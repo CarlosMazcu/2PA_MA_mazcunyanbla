@@ -16,7 +16,12 @@
 
 #include "../deps/math_library/include/vector_4.h"
 #include "math_utils.h"
-
+/**
+ * @brief Class representing a path entity in the game.
+ *
+ * The Path class extends the functionality of the base Entity class to represent a path entity,
+ * which is defined by a series of vertices and can have stroke and fill colors.
+ */
 
 class Path : public Entity
 {

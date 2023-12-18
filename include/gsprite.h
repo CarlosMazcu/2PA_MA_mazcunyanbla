@@ -18,7 +18,12 @@
 #include "gtexture.h"
 #include "../deps/math_library/include/vector_2.h"
 #include "../deps/math_library/include/matrix_3.h"
-
+/**
+ * @brief Class representing a sprite entity in the game.
+ *
+ * The Sprite class extends the functionality of the base Entity class to represent a sprite entity,
+ * which is associated with a texture for rendering.
+ */
 class Sprite : public Entity
 {
  public:

@@ -1,0 +1,349 @@
+\hypertarget{class_entity}{}\doxysection{Entity Class Reference}
+\label{class_entity}\index{Entity@{Entity}}
+
+
+Base class for game entities.  
+
+
+
+
+{\ttfamily \#include $<$entity.\+h$>$}
+
+Inheritance diagram for Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_entity}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{class_entity}{Entity}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_entity_a59decaeeea522b7128a19e1bbc3e1321}{Entity}} (const \mbox{\hyperlink{class_entity}{Entity}} \&copy)
+\begin{DoxyCompactList}\small\item\em Copy constructor for the \mbox{\hyperlink{class_entity}{Entity}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_entity_a9cedbdf66ac4e9710f2e1b9766e29c2c}{Entity}} (int tag, bool enable, Vec2 pos, float rot, Vec2 \mbox{\hyperlink{class_entity_a670434507dce26abfb80f84d3c63cb59}{scale}})
+\begin{DoxyCompactList}\small\item\em Parameterized constructor for the \mbox{\hyperlink{class_entity}{Entity}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a6d3db9ad8e60278c7f84c03e1fdf2bd5}{init}} (int tag, bool enable, Vec2 pos, float rot, Vec2 \mbox{\hyperlink{class_entity_a670434507dce26abfb80f84d3c63cb59}{scale}}, float speed)
+\begin{DoxyCompactList}\small\item\em Initialize the \mbox{\hyperlink{class_entity}{Entity}} with specified values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a1d7bcf97882a32084aff1429fdea9c89}{Play\+Animation}} (const \mbox{\hyperlink{struct_animation_config}{Animation\+Config}} \&ac)
+\begin{DoxyCompactList}\small\item\em Play an animation on the \mbox{\hyperlink{class_entity}{Entity}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a62b6ba072cf015d77fdcc51283810564}{stop\+Animation}} ()
+\begin{DoxyCompactList}\small\item\em Stop the currently playing animation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a21ab7babefa5e4525535a76cef1415f2}{update}} (float dt)
+\begin{DoxyCompactList}\small\item\em Update the \mbox{\hyperlink{class_entity}{Entity}} based on the elapsed time. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{class_entity_a9ba9794f42263481731852042ab9de8e}{id}} () const
+\begin{DoxyCompactList}\small\item\em Get the unique identifier of the \mbox{\hyperlink{class_entity}{Entity}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a492592f62dd86cecab30784b1471cd31}{set\+\_\+position}} (const Vec2 \&pos)
+\begin{DoxyCompactList}\small\item\em Set the position of the \mbox{\hyperlink{class_entity}{Entity}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_aa94efc933450cf7b58eab73f725c404d}{set\+\_\+rotation}} (const float rads)
+\begin{DoxyCompactList}\small\item\em Set the rotation angle of the \mbox{\hyperlink{class_entity}{Entity}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a46d7d52d005f81461605672748682717}{set\+\_\+scale}} (const Vec2 \&\mbox{\hyperlink{class_entity_a670434507dce26abfb80f84d3c63cb59}{scale}})
+\begin{DoxyCompactList}\small\item\em Set the scale of the \mbox{\hyperlink{class_entity}{Entity}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a2e550ef5a8d44094c1c7d48978f76582}{draw}} ()
+\begin{DoxyCompactList}\small\item\em Draw the \mbox{\hyperlink{class_entity}{Entity}}. \end{DoxyCompactList}\item 
+Vec2 \mbox{\hyperlink{class_entity_a3987cef1ec4f973d94f45c56a4615cb9}{position}} () const
+\begin{DoxyCompactList}\small\item\em Get the current position of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_ac89bc7a3e2da66cd47f2d5c78e12d44b}{rotation}} () const
+\begin{DoxyCompactList}\small\item\em Get the current rotation angle of the entity. \end{DoxyCompactList}\item 
+Vec2 \mbox{\hyperlink{class_entity_a670434507dce26abfb80f84d3c63cb59}{scale}} () const
+\begin{DoxyCompactList}\small\item\em Get the current scale of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_entity_aa9f75ea7b1041547a1b610a9b2f064c0}\label{class_entity_aa9f75ea7b1041547a1b610a9b2f064c0}} 
+int {\bfseries tag\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_a5606c7f48296c0b5307a5df3fc4a01c0}\label{class_entity_a5606c7f48296c0b5307a5df3fc4a01c0}} 
+bool {\bfseries enable\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_aa9cd10a9af58e2418bf470bb7a823efb}\label{class_entity_aa9cd10a9af58e2418bf470bb7a823efb}} 
+int {\bfseries phase\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_a0e2649bfbba941460cd9354193fd46ad}\label{class_entity_a0e2649bfbba941460cd9354193fd46ad}} 
+Vec2 {\bfseries position\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_afef865e740edb19fa9ed87a55404d2e6}\label{class_entity_afef865e740edb19fa9ed87a55404d2e6}} 
+float {\bfseries rotation\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_a169b63891bd5e9d9cc4eba253a1eb33e}\label{class_entity_a169b63891bd5e9d9cc4eba253a1eb33e}} 
+Vec2 {\bfseries scale\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_ab0e47a84b8f2762b4342eb923ffbf910}\label{class_entity_ab0e47a84b8f2762b4342eb923ffbf910}} 
+float {\bfseries origin\+\_\+rotation\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_a5263f7bbb55d63032f2ba7898d4e12d5}\label{class_entity_a5263f7bbb55d63032f2ba7898d4e12d5}} 
+Vec2 {\bfseries origin\+\_\+pos\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_a7a7e23238d85b38df7033bcbc641cdc3}\label{class_entity_a7a7e23238d85b38df7033bcbc641cdc3}} 
+float {\bfseries speed\+\_\+}
+\item 
+\mbox{\Hypertarget{class_entity_a01817469ddfdbff254d7514be4bac8b4}\label{class_entity_a01817469ddfdbff254d7514be4bac8b4}} 
+\mbox{\hyperlink{class_animation_instance}{Animation\+Instance}} $\ast$ {\bfseries animation\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for game entities. 
+
+The \mbox{\hyperlink{class_entity}{Entity}} class represents a basic game entity with properties such as position, scale, rotation, and visibility. Derived classes can inherit from this class to create specific types of entities. 
+
+Definition at line 33 of file entity.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_entity_a980f368aa07ce358583982821533a54a}\label{class_entity_a980f368aa07ce358583982821533a54a}} 
+\index{Entity@{Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Entity\+::\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \mbox{\hyperlink{class_entity}{Entity}} class. 
+
+This constructor initializes an instance of the \mbox{\hyperlink{class_entity}{Entity}} class with default values. \mbox{\Hypertarget{class_entity_a59decaeeea522b7128a19e1bbc3e1321}\label{class_entity_a59decaeeea522b7128a19e1bbc3e1321}} 
+\index{Entity@{Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_entity}{Entity}} \&}]{copy }\end{DoxyParamCaption})}
+
+
+
+Copy constructor for the \mbox{\hyperlink{class_entity}{Entity}} class. 
+
+This constructor creates a new instance of the \mbox{\hyperlink{class_entity}{Entity}} class by copying the values from an existing instance (copy). 
+\begin{DoxyParams}{Parameters}
+{\em copy} & The \mbox{\hyperlink{class_entity}{Entity}} object to be copied. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entity_a9cedbdf66ac4e9710f2e1b9766e29c2c}\label{class_entity_a9cedbdf66ac4e9710f2e1b9766e29c2c}} 
+\index{Entity@{Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{int}]{tag,  }\item[{bool}]{enable,  }\item[{Vec2}]{pos,  }\item[{float}]{rot,  }\item[{Vec2}]{scale }\end{DoxyParamCaption})}
+
+
+
+Parameterized constructor for the \mbox{\hyperlink{class_entity}{Entity}} class. 
+
+This constructor creates an instance of the \mbox{\hyperlink{class_entity}{Entity}} class with specified values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tag} & The tag to assign to the entity. \\
+\hline
+{\em enable} & A boolean indicating whether the entity is enabled or disabled. \\
+\hline
+{\em pos} & The initial position (Vec2) of the entity. \\
+\hline
+{\em rot} & The initial rotation angle of the entity. \\
+\hline
+{\em scale} & The initial scale (Vec2) of the entity. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_entity_a2e550ef5a8d44094c1c7d48978f76582}\label{class_entity_a2e550ef5a8d44094c1c7d48978f76582}} 
+\index{Entity@{Entity}!draw@{draw}}
+\index{draw@{draw}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily virtual void Entity\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw the \mbox{\hyperlink{class_entity}{Entity}}. 
+
+This method is responsible for drawing the visual representation of the \mbox{\hyperlink{class_entity}{Entity}}. The actual drawing implementation details are expected to be defined in derived classes or other components. 
+
+Reimplemented in \mbox{\hyperlink{class_sprite_a51988f16dbb89517ebf3030995325891}{Sprite}}, and \mbox{\hyperlink{class_path_a44c5c139fada63bc08efe1fe28ca264a}{Path}}.
+
+\mbox{\Hypertarget{class_entity_a9ba9794f42263481731852042ab9de8e}\label{class_entity_a9ba9794f42263481731852042ab9de8e}} 
+\index{Entity@{Entity}!id@{id}}
+\index{id@{id}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{id()}{id()}}
+{\footnotesize\ttfamily uint64\+\_\+t Entity\+::id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the unique identifier of the \mbox{\hyperlink{class_entity}{Entity}}. 
+
+Returns the unique identifier assigned to the \mbox{\hyperlink{class_entity}{Entity}}.
+
+\begin{DoxyReturn}{Returns}
+The unique identifier of the \mbox{\hyperlink{class_entity}{Entity}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entity_a6d3db9ad8e60278c7f84c03e1fdf2bd5}\label{class_entity_a6d3db9ad8e60278c7f84c03e1fdf2bd5}} 
+\index{Entity@{Entity}!init@{init}}
+\index{init@{init}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Entity\+::init (\begin{DoxyParamCaption}\item[{int}]{tag,  }\item[{bool}]{enable,  }\item[{Vec2}]{pos,  }\item[{float}]{rot,  }\item[{Vec2}]{scale,  }\item[{float}]{speed }\end{DoxyParamCaption})}
+
+
+
+Initialize the \mbox{\hyperlink{class_entity}{Entity}} with specified values. 
+
+This method initializes the attributes of the \mbox{\hyperlink{class_entity}{Entity}} with the specified values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tag} & The tag to assign to the entity. \\
+\hline
+{\em enable} & A boolean indicating whether the entity is enabled or disabled. \\
+\hline
+{\em pos} & The initial position (Vec2) of the entity. \\
+\hline
+{\em rot} & The initial rotation angle of the entity. \\
+\hline
+{\em scale} & The initial scale (Vec2) of the entity. \\
+\hline
+{\em speed} & The speed of the entity. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entity_a1d7bcf97882a32084aff1429fdea9c89}\label{class_entity_a1d7bcf97882a32084aff1429fdea9c89}} 
+\index{Entity@{Entity}!PlayAnimation@{PlayAnimation}}
+\index{PlayAnimation@{PlayAnimation}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{PlayAnimation()}{PlayAnimation()}}
+{\footnotesize\ttfamily void Entity\+::\+Play\+Animation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_animation_config}{Animation\+Config}} \&}]{ac }\end{DoxyParamCaption})}
+
+
+
+Play an animation on the \mbox{\hyperlink{class_entity}{Entity}}. 
+
+This method stops any currently playing animation and starts a new animation with the specified configuration.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ac} & The \mbox{\hyperlink{struct_animation_config}{Animation\+Config}} object specifying the configuration of the animation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entity_a3987cef1ec4f973d94f45c56a4615cb9}\label{class_entity_a3987cef1ec4f973d94f45c56a4615cb9}} 
+\index{Entity@{Entity}!position@{position}}
+\index{position@{position}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{position()}{position()}}
+{\footnotesize\ttfamily Vec2 Entity\+::position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the current position of the entity. 
+
+Returns a Vec2 object representing the current coordinates of the entity.
+
+\begin{DoxyReturn}{Returns}
+Vec2 object with the current coordinates of the entity. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entity_ac89bc7a3e2da66cd47f2d5c78e12d44b}\label{class_entity_ac89bc7a3e2da66cd47f2d5c78e12d44b}} 
+\index{Entity@{Entity}!rotation@{rotation}}
+\index{rotation@{rotation}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{rotation()}{rotation()}}
+{\footnotesize\ttfamily float Entity\+::rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the current rotation angle of the entity. 
+
+Returns the current rotation angle of the entity in radians.
+
+\begin{DoxyReturn}{Returns}
+Current rotation angle of the entity in radians. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entity_a670434507dce26abfb80f84d3c63cb59}\label{class_entity_a670434507dce26abfb80f84d3c63cb59}} 
+\index{Entity@{Entity}!scale@{scale}}
+\index{scale@{scale}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}}
+{\footnotesize\ttfamily Vec2 Entity\+::scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the current scale of the entity. 
+
+This method returns a Vec2 object representing the current scale values of the entity.
+
+\begin{DoxyReturn}{Returns}
+Vec2 object with the current scale values of the entity. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entity_a492592f62dd86cecab30784b1471cd31}\label{class_entity_a492592f62dd86cecab30784b1471cd31}} 
+\index{Entity@{Entity}!set\_position@{set\_position}}
+\index{set\_position@{set\_position}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}}
+{\footnotesize\ttfamily void Entity\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{const Vec2 \&}]{pos }\end{DoxyParamCaption})}
+
+
+
+Set the position of the \mbox{\hyperlink{class_entity}{Entity}}. 
+
+This method sets the position of the \mbox{\hyperlink{class_entity}{Entity}} to the specified Vec2 coordinates.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The Vec2 coordinates to set as the new position of the \mbox{\hyperlink{class_entity}{Entity}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entity_aa94efc933450cf7b58eab73f725c404d}\label{class_entity_aa94efc933450cf7b58eab73f725c404d}} 
+\index{Entity@{Entity}!set\_rotation@{set\_rotation}}
+\index{set\_rotation@{set\_rotation}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{set\_rotation()}{set\_rotation()}}
+{\footnotesize\ttfamily void Entity\+::set\+\_\+rotation (\begin{DoxyParamCaption}\item[{const float}]{rads }\end{DoxyParamCaption})}
+
+
+
+Set the rotation angle of the \mbox{\hyperlink{class_entity}{Entity}}. 
+
+Sets the rotation angle of the \mbox{\hyperlink{class_entity}{Entity}} to the specified value in radians.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rads} & The rotation angle in radians to set for the \mbox{\hyperlink{class_entity}{Entity}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entity_a46d7d52d005f81461605672748682717}\label{class_entity_a46d7d52d005f81461605672748682717}} 
+\index{Entity@{Entity}!set\_scale@{set\_scale}}
+\index{set\_scale@{set\_scale}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{set\_scale()}{set\_scale()}}
+{\footnotesize\ttfamily void Entity\+::set\+\_\+scale (\begin{DoxyParamCaption}\item[{const Vec2 \&}]{scale }\end{DoxyParamCaption})}
+
+
+
+Set the scale of the \mbox{\hyperlink{class_entity}{Entity}}. 
+
+Sets the scale of the \mbox{\hyperlink{class_entity}{Entity}} to the specified Vec2 values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale} & The Vec2 values representing the new scale of the \mbox{\hyperlink{class_entity}{Entity}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entity_a62b6ba072cf015d77fdcc51283810564}\label{class_entity_a62b6ba072cf015d77fdcc51283810564}} 
+\index{Entity@{Entity}!stopAnimation@{stopAnimation}}
+\index{stopAnimation@{stopAnimation}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{stopAnimation()}{stopAnimation()}}
+{\footnotesize\ttfamily void Entity\+::stop\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stop the currently playing animation. 
+
+This method stops the currently playing animation, if any, by deleting the associated \mbox{\hyperlink{class_animation_instance}{Animation\+Instance}} object and setting the animation pointer to nullptr. \mbox{\Hypertarget{class_entity_a21ab7babefa5e4525535a76cef1415f2}\label{class_entity_a21ab7babefa5e4525535a76cef1415f2}} 
+\index{Entity@{Entity}!update@{update}}
+\index{update@{update}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Entity\+::update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})}
+
+
+
+Update the \mbox{\hyperlink{class_entity}{Entity}} based on the elapsed time. 
+
+Updates the state of the \mbox{\hyperlink{class_entity}{Entity}}, taking into account the elapsed time (dt). If the entity is enabled and has an active animation, the animation is updated.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & The elapsed time since the last update, in seconds. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{entity_8h}{entity.\+h}}\end{DoxyCompactItemize}

@@ -16,6 +16,11 @@
 #include "vector_2.h"
 
 class Entity;
+/**
+ * @brief Animation Configuration structure.
+ *
+ * Holds flags and parameters for movement, rotation, and scaling animations.
+ */
 //Animation Config
 struct AnimationConfig
 {
@@ -36,9 +41,18 @@ struct AnimationConfig
     Vec2 scale_to;
     float scale_duration;
 };
-
+/**
+ * @brief Initializes an AnimationConfig structure with default values.
+ *
+ * @param ac AnimationConfig structure to be initialized.
+ */
 void InitAnimationConfig(AnimationConfig& ac);
 
+/**
+ * @brief Animation Instance class.
+ *
+ * Manages animation state and logic for movement, rotation, and scaling animations.
+ */
 //Animation Instance
 class AnimationInstance
 {
