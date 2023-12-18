@@ -34,5 +34,5 @@
 *.pdb
 
 # Folders
-practica/doc/html/*
-practica/doc/html/*
+doc/html/*
+doc/html/*
