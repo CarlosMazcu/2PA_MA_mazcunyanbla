@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +54,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('gtexture_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,11 +85,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">gtexture.h</div>  </div>
@@ -79,7 +99,7 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;esat/sprite.h&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> kMaxTextures = 20;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="gtexture_8h.html#aaa042473ef15a1dbc7916516f3d630f7">   19</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="gtexture_8h.html#aaa042473ef15a1dbc7916516f3d630f7">kMaxTextures</a> = 20;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_texture.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_texture.html">Texture</a>{</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; <span class="keyword">public</span>:</div>
@@ -95,11 +115,11 @@ $(function() {
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_texture.html#a16c096defe40a38d6f22bd08b63eb826">release</a>();</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keyword">static</span> <a class="code" href="class_texture.html">Texture</a> *<a class="code" href="class_texture.html#a64e208bce19fe6c49dbaa6d347d41ac6">TextureFactory</a>(<span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, uint8_t *data);</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="keyword">static</span> <a class="code" href="class_texture.html">Texture</a> *<a class="code" href="class_texture.html#a64e208bce19fe6c49dbaa6d347d41ac6">TextureFactory</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *fname);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> total_textures;</div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="class_texture.html#a4818e0687440fb5c4d22476fd7bd68ed">  145</a></span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_texture.html#a4818e0687440fb5c4d22476fd7bd68ed">total_textures</a>;</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  esat::SpriteHandle <a class="code" href="class_texture.html#a31a293aa943849858f2f1d4653b91b4b">getHandle</a>();</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_texture.html#afed8a8ab5f051630a04eee00f31055e7">releaseAllSprites</a>();</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  esat::SpriteHandle handle_;</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="class_texture.html#a07260de3ed955cd41ea6ae77a93618ce">  162</a></span>&#160;  esat::SpriteHandle <a class="code" href="class_texture.html#a07260de3ed955cd41ea6ae77a93618ce">handle_</a>;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="keyword">static</span> std::vector&lt;esat::SpriteHandle*&gt; sprite_vector_;</div>
@@ -110,22 +130,29 @@ $(function() {
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <div class="ttc" id="aclass_texture_html_a280f6b36ebf824ff1b5ceb2222988969"><div class="ttname"><a href="class_texture.html#a280f6b36ebf824ff1b5ceb2222988969">Texture::height</a></div><div class="ttdeci">int height() const</div><div class="ttdoc">Get the height of the Texture.</div></div>
 <div class="ttc" id="aclass_texture_html_a16c096defe40a38d6f22bd08b63eb826"><div class="ttname"><a href="class_texture.html#a16c096defe40a38d6f22bd08b63eb826">Texture::release</a></div><div class="ttdeci">void release()</div><div class="ttdoc">Release resources associated with the Texture.</div></div>
 <div class="ttc" id="aclass_texture_html_ad3933448623daf728237fc91774aa0a5"><div class="ttname"><a href="class_texture.html#ad3933448623daf728237fc91774aa0a5">Texture::init</a></div><div class="ttdeci">void init(const char *fname)</div><div class="ttdoc">Initialize the Texture from a file.</div></div>
-<div class="ttc" id="aclass_texture_html"><div class="ttname"><a href="class_texture.html">Texture</a></div><div class="ttdoc">Default constructor for Texture.</div><div class="ttdef"><b>Definition:</b> <a href="gtexture_8h_source.html#l00026">gtexture.h:26</a></div></div>
+<div class="ttc" id="aclass_texture_html"><div class="ttname"><a href="class_texture.html">Texture</a></div><div class="ttdoc">Default constructor for Texture.</div><div class="ttdef"><b>Definition:</b> gtexture.h:26</div></div>
 <div class="ttc" id="aclass_texture_html_a6c275e3f186675ff6ed73ccf970e552f"><div class="ttname"><a href="class_texture.html#a6c275e3f186675ff6ed73ccf970e552f">Texture::Texture</a></div><div class="ttdeci">Texture()</div><div class="ttdoc">Default constructor for the Texture class.</div></div>
 <div class="ttc" id="aclass_texture_html_a09c4bcb7462f64c1d20fa69dba3cee8a"><div class="ttname"><a href="class_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a">Texture::~Texture</a></div><div class="ttdeci">~Texture()</div><div class="ttdoc">Destructor for the Texture class.</div></div>
+<div class="ttc" id="aclass_texture_html_a4818e0687440fb5c4d22476fd7bd68ed"><div class="ttname"><a href="class_texture.html#a4818e0687440fb5c4d22476fd7bd68ed">Texture::total_textures</a></div><div class="ttdeci">static int total_textures</div><div class="ttdef"><b>Definition:</b> gtexture.h:145</div></div>
 <div class="ttc" id="aclass_texture_html_a31a293aa943849858f2f1d4653b91b4b"><div class="ttname"><a href="class_texture.html#a31a293aa943849858f2f1d4653b91b4b">Texture::getHandle</a></div><div class="ttdeci">esat::SpriteHandle getHandle()</div><div class="ttdoc">Get the handle of the underlying sprite.</div></div>
+<div class="ttc" id="aclass_texture_html_a07260de3ed955cd41ea6ae77a93618ce"><div class="ttname"><a href="class_texture.html#a07260de3ed955cd41ea6ae77a93618ce">Texture::handle_</a></div><div class="ttdeci">esat::SpriteHandle handle_</div><div class="ttdef"><b>Definition:</b> gtexture.h:162</div></div>
+<div class="ttc" id="agtexture_8h_html_aaa042473ef15a1dbc7916516f3d630f7"><div class="ttname"><a href="gtexture_8h.html#aaa042473ef15a1dbc7916516f3d630f7">kMaxTextures</a></div><div class="ttdeci">const unsigned int kMaxTextures</div><div class="ttdef"><b>Definition:</b> gtexture.h:19</div></div>
 <div class="ttc" id="aclass_texture_html_a424f4c946ca5bbe4a4d7ddad768dcdd9"><div class="ttname"><a href="class_texture.html#a424f4c946ca5bbe4a4d7ddad768dcdd9">Texture::getSubSprite</a></div><div class="ttdeci">Texture getSubSprite(int x, int y, int w, int h) const</div><div class="ttdoc">Get a sub-sprite of the Texture.</div></div>
 <div class="ttc" id="aclass_texture_html_afed8a8ab5f051630a04eee00f31055e7"><div class="ttname"><a href="class_texture.html#afed8a8ab5f051630a04eee00f31055e7">Texture::releaseAllSprites</a></div><div class="ttdeci">static void releaseAllSprites()</div><div class="ttdoc">Release all sprites associated with the Texture.</div></div>
 <div class="ttc" id="aclass_texture_html_a944933dbc1980fb01e7d23b08b97280a"><div class="ttname"><a href="class_texture.html#a944933dbc1980fb01e7d23b08b97280a">Texture::width</a></div><div class="ttdeci">int width() const</div><div class="ttdoc">Get the width of the Texture.</div></div>
 <div class="ttc" id="aclass_texture_html_a64e208bce19fe6c49dbaa6d347d41ac6"><div class="ttname"><a href="class_texture.html#a64e208bce19fe6c49dbaa6d347d41ac6">Texture::TextureFactory</a></div><div class="ttdeci">static Texture * TextureFactory(int w, int h, uint8_t *data)</div><div class="ttdoc">Create a new Texture using the TextureFactory.</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="gtexture_8h.html">gtexture.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +54,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('path_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,11 +85,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">path.h</div>  </div>
@@ -94,39 +114,48 @@ $(function() {
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#a156a21ef8774c092165c3fc8d6b03cdd">removeAllVertex</a>();</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#a44c5c139fada63bc08efe1fe28ca264a">draw</a>();</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">bool</span> solid_;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">int</span> n_vertex_;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    Vec4 stroke_color_;</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="class_path.html#ae69e9d678c682a8cd6fddb10f90068f2">  109</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_path.html#ae69e9d678c682a8cd6fddb10f90068f2">solid_</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="class_path.html#a9d9fe84a045cc1bba5fd4bc2521cecc5">  110</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_path.html#a9d9fe84a045cc1bba5fd4bc2521cecc5">n_vertex_</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="class_path.html#a7725323f110daebc48092bdd29d1053e">  111</a></span>&#160;    Vec4 <a class="code" href="class_path.html#a7725323f110daebc48092bdd29d1053e">stroke_color_</a>;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  </div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">//could have a Color class/struct, a packed int32 color, Vec4  </span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">// or array of 4 values</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">// rgba {0.0f &lt;--&gt; 255.0f}</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    Vec4 fill_color_;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    std::vector&lt;Vec2&gt; vertices_;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="class_path.html#a34766a59d892ef5fb51aaa8ca350d644">  117</a></span>&#160;    Vec4 <a class="code" href="class_path.html#a34766a59d892ef5fb51aaa8ca350d644">fill_color_</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="class_path.html#a127e21f41194f3f93bc746b7a23be551">  118</a></span>&#160;    std::vector&lt;Vec2&gt; <a class="code" href="class_path.html#a127e21f41194f3f93bc746b7a23be551">vertices_</a>;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;};</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    </div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <div class="ttc" id="aentity_8h_html"><div class="ttname"><a href="entity_8h.html">entity.h</a></div><div class="ttdoc">header with entity class</div></div>
+<div class="ttc" id="aclass_path_html_a127e21f41194f3f93bc746b7a23be551"><div class="ttname"><a href="class_path.html#a127e21f41194f3f93bc746b7a23be551">Path::vertices_</a></div><div class="ttdeci">std::vector&lt; Vec2 &gt; vertices_</div><div class="ttdef"><b>Definition:</b> path.h:118</div></div>
 <div class="ttc" id="aclass_path_html_a8d312482a482dcdbfc4e5f12287c22e1"><div class="ttname"><a href="class_path.html#a8d312482a482dcdbfc4e5f12287c22e1">Path::stroke_color</a></div><div class="ttdeci">Vec4 stroke_color() const</div><div class="ttdoc">Get the stroke color of the Path.</div></div>
+<div class="ttc" id="aclass_path_html_a34766a59d892ef5fb51aaa8ca350d644"><div class="ttname"><a href="class_path.html#a34766a59d892ef5fb51aaa8ca350d644">Path::fill_color_</a></div><div class="ttdeci">Vec4 fill_color_</div><div class="ttdef"><b>Definition:</b> path.h:117</div></div>
 <div class="ttc" id="aclass_path_html_a376c59290cf38d80e454cfc6aa1edd86"><div class="ttname"><a href="class_path.html#a376c59290cf38d80e454cfc6aa1edd86">Path::removeEndVertex</a></div><div class="ttdeci">void removeEndVertex()</div><div class="ttdoc">Remove the last vertex from the Path.</div></div>
+<div class="ttc" id="aclass_path_html_a9d9fe84a045cc1bba5fd4bc2521cecc5"><div class="ttname"><a href="class_path.html#a9d9fe84a045cc1bba5fd4bc2521cecc5">Path::n_vertex_</a></div><div class="ttdeci">int n_vertex_</div><div class="ttdef"><b>Definition:</b> path.h:110</div></div>
 <div class="ttc" id="aclass_path_html_a156a21ef8774c092165c3fc8d6b03cdd"><div class="ttname"><a href="class_path.html#a156a21ef8774c092165c3fc8d6b03cdd">Path::removeAllVertex</a></div><div class="ttdeci">void removeAllVertex()</div><div class="ttdoc">Remove all vertices from the Path.</div></div>
+<div class="ttc" id="aclass_path_html_a7725323f110daebc48092bdd29d1053e"><div class="ttname"><a href="class_path.html#a7725323f110daebc48092bdd29d1053e">Path::stroke_color_</a></div><div class="ttdeci">Vec4 stroke_color_</div><div class="ttdef"><b>Definition:</b> path.h:111</div></div>
 <div class="ttc" id="aclass_path_html_ab4775fd37d5c143857a23fb0ae43b573"><div class="ttname"><a href="class_path.html#ab4775fd37d5c143857a23fb0ae43b573">Path::addVertex</a></div><div class="ttdeci">void addVertex(const Vec2 &amp;v)</div><div class="ttdoc">Add a vertex to the Path.</div></div>
 <div class="ttc" id="aclass_path_html_a731b9c72e49eaa48c2c86356c0d3a55a"><div class="ttname"><a href="class_path.html#a731b9c72e49eaa48c2c86356c0d3a55a">Path::set_stroke_color</a></div><div class="ttdeci">void set_stroke_color(const Vec4 &amp;color)</div><div class="ttdoc">Set the stroke color of the Path.</div></div>
 <div class="ttc" id="aclass_path_html_a5ff67772db7c7fc63eb7fd6b78193ae5"><div class="ttname"><a href="class_path.html#a5ff67772db7c7fc63eb7fd6b78193ae5">Path::set_fill_color</a></div><div class="ttdeci">void set_fill_color(const Vec4 &amp;color)</div><div class="ttdoc">Set the fill color of the Path.</div></div>
 <div class="ttc" id="aclass_path_html_a44c5c139fada63bc08efe1fe28ca264a"><div class="ttname"><a href="class_path.html#a44c5c139fada63bc08efe1fe28ca264a">Path::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdoc">Draw the Path.</div></div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Base class for game entities.</div><div class="ttdef"><b>Definition:</b> <a href="entity_8h_source.html#l00033">entity.h:33</a></div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Base class for game entities.</div><div class="ttdef"><b>Definition:</b> entity.h:33</div></div>
 <div class="ttc" id="aclass_path_html_af26cfab021ddf49af73da3b2beca85ac"><div class="ttname"><a href="class_path.html#af26cfab021ddf49af73da3b2beca85ac">Path::Path</a></div><div class="ttdeci">Path()</div><div class="ttdoc">Default constructor for the Path class.</div></div>
-<div class="ttc" id="aclass_path_html"><div class="ttname"><a href="class_path.html">Path</a></div><div class="ttdoc">Class representing a path entity in the game.</div><div class="ttdef"><b>Definition:</b> <a href="path_8h_source.html#l00026">path.h:26</a></div></div>
+<div class="ttc" id="aclass_path_html"><div class="ttname"><a href="class_path.html">Path</a></div><div class="ttdoc">Class representing a path entity in the game.</div><div class="ttdef"><b>Definition:</b> path.h:26</div></div>
 <div class="ttc" id="aclass_path_html_a32492a9efcef8df7b458a83b4e9c7053"><div class="ttname"><a href="class_path.html#a32492a9efcef8df7b458a83b4e9c7053">Path::fill_color</a></div><div class="ttdeci">Vec4 fill_color() const</div><div class="ttdoc">Get the fill color of the Path.</div></div>
+<div class="ttc" id="aclass_path_html_ae69e9d678c682a8cd6fddb10f90068f2"><div class="ttname"><a href="class_path.html#ae69e9d678c682a8cd6fddb10f90068f2">Path::solid_</a></div><div class="ttdeci">bool solid_</div><div class="ttdef"><b>Definition:</b> path.h:109</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="path_8h.html">path.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

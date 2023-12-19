@@ -1,17 +1,13 @@
 var searchData=
 [
-  ['id_31',['id',['../class_entity.html#a9ba9794f42263481731852042ab9de8e',1,'Entity']]],
-  ['init_32',['init',['../class_entity.html#a6d3db9ad8e60278c7f84c03e1fdf2bd5',1,'Entity::init()'],['../classgame.html#ac1c1df7d822f92c4ffe0e26d87564f3a',1,'game::init()'],['../class_texture.html#ad3933448623daf728237fc91774aa0a5',1,'Texture::init(const char *fname)'],['../class_texture.html#a0a6924ccf87ca14a80dc9f7ce89a900d',1,'Texture::init(int w, int h, uint8_t *data)'],['../class_texture.html#ae5ed2e5239a65eec39c437a03bc9f88a',1,'Texture::init(esat::SpriteHandle sp, int x, int y, int w, int h)']]],
-  ['initallanimationconfig_33',['initAllAnimationConfig',['../game_8h.html#a0b012f76833dc43beadc859ee28e43a4',1,'game.h']]],
-  ['initallentitycharacter_34',['initAllEntityCharacter',['../game_8h.html#afaf06a0d2427ce4688168c2c16e91a68',1,'game.h']]],
-  ['initallentityparallax_35',['initAllEntityParallax',['../game_8h.html#a178f85a4c8f4bb10ecef6d026f270125',1,'game.h']]],
-  ['initanimationconfig_36',['InitAnimationConfig',['../animation_8h.html#acd27edfe563478757335b418e6cacea7',1,'animation.h']]],
-  ['initanimationconfigflygon_37',['initAnimationConfigFlygon',['../game_8h.html#a1303d60e6beb36ae2536154899df7751',1,'game.h']]],
-  ['initanimationconfigmaincharacter_38',['initAnimationConfigMainCharacter',['../game_8h.html#a5d791198326fe47ce570503921a44112',1,'game.h']]],
-  ['initanimationconfigmanektrik_39',['initAnimationConfigManektrik',['../game_8h.html#a259a4b73559951554b13854ac714a293',1,'game.h']]],
-  ['initanimationconfigtorchic_40',['initAnimationConfigTorchic',['../game_8h.html#a58f9f4841e447c4ffdc9fd4975cb6574',1,'game.h']]],
-  ['initanimationconfigvolbeat_41',['initAnimationConfigVolbeat',['../game_8h.html#a8bdf8a85941d49c5b7af11088aa2b68b',1,'game.h']]],
-  ['initpath_42',['initPath',['../app__window_8h.html#a5735db73f27a183bc55eca482b8a932d',1,'app_window.h']]],
-  ['initsp_43',['initSp',['../class_sprite.html#ad41ae0bc022231468cacae5ecec51e08',1,'Sprite']]],
-  ['inputspeed_44',['inputSpeed',['../app__window_8h.html#af7e5fb582dee88f70cd8d11b860f8476',1,'app_window.h']]]
+  ['game_44',['game',['../classgame.html',1,'game'],['../classgame.html#ad9c102127b5038f880067ad6c9198d38',1,'game::game()']]],
+  ['game_2eh_45',['game.h',['../game_8h.html',1,'']]],
+  ['game_5fmanager_2eh_46',['game_manager.h',['../game__manager_8h.html',1,'']]],
+  ['gameloop_47',['gameLoop',['../classgame.html#aed876a3cca683254db8b88b0967848a3',1,'game']]],
+  ['gamemanager_48',['GameManager',['../class_game_manager.html',1,'']]],
+  ['gethandle_49',['getHandle',['../class_texture.html#a31a293aa943849858f2f1d4653b91b4b',1,'Texture']]],
+  ['getsubsprite_50',['getSubSprite',['../class_texture.html#a424f4c946ca5bbe4a4d7ddad768dcdd9',1,'Texture']]],
+  ['grass_51',['grass',['../struct_game_manager_1_1_t_parallax.html#a14854e6fdf24671e3dcd516c5ea0f313',1,'GameManager::TParallax']]],
+  ['gsprite_2eh_52',['gsprite.h',['../gsprite_8h.html',1,'']]],
+  ['gtexture_2eh_53',['gtexture.h',['../gtexture_8h.html',1,'']]]
 ];

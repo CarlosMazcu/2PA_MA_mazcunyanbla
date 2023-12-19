@@ -1,0 +1,25 @@
+var game_8h =
+[
+    [ "game", "classgame.html", "classgame" ],
+    [ "animMainCharacter", "game_8h.html#a341e8c48eb40a0f50241222b1f51d6ed", null ],
+    [ "animManektrik", "game_8h.html#ade79b8e984c492d2de3933d1848ee2bd", null ],
+    [ "animTorchic", "game_8h.html#a60eb2949d05fefc4f716a8587e6f40db", null ],
+    [ "animVolbeat", "game_8h.html#ad8fc3074fc67ffb8c28754a554ac87c6", null ],
+    [ "drawParallax", "game_8h.html#a235c59f3f607d28a437f8b04bb7e2a51", null ],
+    [ "drawSprites", "game_8h.html#a5ab10bb9d9f7006ec97e868a384ccf66", null ],
+    [ "initAllAnimationConfig", "game_8h.html#a0b012f76833dc43beadc859ee28e43a4", null ],
+    [ "initAllEntityCharacter", "game_8h.html#afaf06a0d2427ce4688168c2c16e91a68", null ],
+    [ "initAllEntityParallax", "game_8h.html#a178f85a4c8f4bb10ecef6d026f270125", null ],
+    [ "initAnimationConfigFlygon", "game_8h.html#a1303d60e6beb36ae2536154899df7751", null ],
+    [ "initAnimationConfigMainCharacter", "game_8h.html#a5d791198326fe47ce570503921a44112", null ],
+    [ "initAnimationConfigManektrik", "game_8h.html#a259a4b73559951554b13854ac714a293", null ],
+    [ "initAnimationConfigTorchic", "game_8h.html#a58f9f4841e447c4ffdc9fd4975cb6574", null ],
+    [ "initAnimationConfigVolbeat", "game_8h.html#a8bdf8a85941d49c5b7af11088aa2b68b", null ],
+    [ "updateAllAnimation", "game_8h.html#a5d78c69da1dda70b9707c7f11ccf2759", null ],
+    [ "updateAnimationFlygon", "game_8h.html#a7df3788eb40c3109301463e238b75ce1", null ],
+    [ "updateAnimationMainCharacter", "game_8h.html#aad3b88d43dd47503bedaf4b6004fa4fa", null ],
+    [ "updateAnimationManektrik", "game_8h.html#add338fc8bdc8d146e2ffb5fcc5c39643", null ],
+    [ "updateAnimationTorchic", "game_8h.html#aa0accd4d89a175330cb1af4e94d844f3", null ],
+    [ "updateAnimationVolbeat", "game_8h.html#af8b3c919dcfa5daa50003c96553ed4e7", null ],
+    [ "updateParallax", "game_8h.html#adeec297c331b16b05c99e60784348141", null ]
+];

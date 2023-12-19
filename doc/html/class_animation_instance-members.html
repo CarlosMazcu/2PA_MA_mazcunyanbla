@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +54,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_animation_instance.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,7 +85,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">AnimationInstance Member List</div>  </div>
@@ -71,27 +95,30 @@ $(function() {
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="class_animation_instance.html#a6d0c23cc1c9ea13b37c4bff479654036">AnimationInstance</a>()</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_animation_instance.html#a4a0d5904688d6299906670157ee68891">AnimationInstance</a>(const AnimationConfig &amp;ac, Entity *entity)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>config_</b> (defined in <a class="el" href="class_animation_instance.html">AnimationInstance</a>)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_animation_instance.html#a6ee995e9fa58e08655e19e0853dd36ab">config_</a></td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_animation_instance.html#ad4c2584bc8824c992b795782177b22dd">done</a>() const</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>move_alpha_</b> (defined in <a class="el" href="class_animation_instance.html">AnimationInstance</a>)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>move_done_</b> (defined in <a class="el" href="class_animation_instance.html">AnimationInstance</a>)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>move_elapsed_</b> (defined in <a class="el" href="class_animation_instance.html">AnimationInstance</a>)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_animation_instance.html#a4e553ac88f98c83c856cf53a34195356">move_alpha_</a></td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_animation_instance.html#a47ed348df0e860a33b1c7146d0cc5382">move_done_</a></td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_animation_instance.html#ae5fdff7fd2acec1b788d03b77d505c03">move_elapsed_</a></td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_animation_instance.html#a95e2b2faf8eadc6814795ee85d10244e">progress</a>(float *movement_alpha, float *movement_elapsed)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>rotate_alpha_</b> (defined in <a class="el" href="class_animation_instance.html">AnimationInstance</a>)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>rotate_done_</b> (defined in <a class="el" href="class_animation_instance.html">AnimationInstance</a>)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>rotate_elapsed_</b> (defined in <a class="el" href="class_animation_instance.html">AnimationInstance</a>)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>scale_alpha_</b> (defined in <a class="el" href="class_animation_instance.html">AnimationInstance</a>)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>scale_done_</b> (defined in <a class="el" href="class_animation_instance.html">AnimationInstance</a>)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>scale_elapsed_</b> (defined in <a class="el" href="class_animation_instance.html">AnimationInstance</a>)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>target_</b> (defined in <a class="el" href="class_animation_instance.html">AnimationInstance</a>)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_animation_instance.html#a75e4befbe850e805495372012f70bcc6">rotate_alpha_</a></td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_animation_instance.html#aade63a9573432a422d8ae58ea01be88b">rotate_done_</a></td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_animation_instance.html#aff604bee5bf40f131cb3b42d095e9281">rotate_elapsed_</a></td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_animation_instance.html#a4d5ae159d684d81e8c87d27df1c74b06">scale_alpha_</a></td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_animation_instance.html#a3828825cfa4854bba402c3c7c693a4a4">scale_done_</a></td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_animation_instance.html#a2230c76d6a561372f3ffa2599aae082d">scale_elapsed_</a></td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_animation_instance.html#a9716bbf92d3cdab942ae060c3dcf3b2a">target_</a></td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_animation_instance.html#adf6127d3d75a0caf6fb9323038a1be0b">update</a>(float dt)</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_animation_instance.html#a3a4f202c8156ff6d875fffb1dacf9d83">~AnimationInstance</a>()</td><td class="entry"><a class="el" href="class_animation_instance.html">AnimationInstance</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

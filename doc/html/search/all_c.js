@@ -1,13 +1,16 @@
 var searchData=
 [
-  ['tanimationconfig_69',['TAnimationConfig',['../struct_game_manager_1_1_t_animation_config.html',1,'GameManager']]],
-  ['texture_70',['Texture',['../class_texture.html',1,'Texture'],['../class_texture.html#a6c275e3f186675ff6ed73ccf970e552f',1,'Texture::Texture()']]],
-  ['texturefactory_71',['TextureFactory',['../class_texture.html#a64e208bce19fe6c49dbaa6d347d41ac6',1,'Texture::TextureFactory(int w, int h, uint8_t *data)'],['../class_texture.html#ae063d4474225b60f815401bd47092fdc',1,'Texture::TextureFactory(const char *fname)']]],
-  ['themeboring_72',['themeBoring',['../app__window_8h.html#acd9b2b532d6722665947ca6c55170e79',1,'app_window.h']]],
-  ['themebw_73',['themeBW',['../app__window_8h.html#a24c944ded194d1c03e60882ce31a9544',1,'app_window.h']]],
-  ['themelemonpie_74',['themeLemonPie',['../app__window_8h.html#a34b84cc0e34cee87238b60b754856ba6',1,'app_window.h']]],
-  ['themepurple_75',['themePurple',['../app__window_8h.html#a280f316945dfd5e3bbd185229718c5f8',1,'app_window.h']]],
-  ['tparallax_76',['TParallax',['../struct_game_manager_1_1_t_parallax.html',1,'GameManager']]],
-  ['tsprite_77',['TSprite',['../struct_game_manager_1_1_t_sprite.html',1,'GameManager']]],
-  ['twindow_78',['TWindow',['../struct_game_manager_1_1_t_window.html',1,'GameManager']]]
+  ['maincharacter_84',['maincharacter',['../struct_game_manager_1_1_t_sprite.html#a9d94f0c6ba8b21a8a6a23012a1e37676',1,'GameManager::TSprite']]],
+  ['mainmenubar_85',['MainMenuBar',['../app__window_8h.html#ade9f05cd4493e392b67e4f967c6e5b17',1,'app_window.h']]],
+  ['manektrik_86',['manektrik',['../struct_game_manager_1_1_t_sprite.html#a773e27d5a11818775e85d851ca674446',1,'GameManager::TSprite']]],
+  ['max_5fmusic_5ftime_5f_87',['max_music_time_',['../class_game_manager.html#a7739ae486af0d9d5758072354514af13',1,'GameManager']]],
+  ['mountains_88',['mountains',['../struct_game_manager_1_1_t_parallax.html#a923f3b40b823a6e97614a800eaedf1eb',1,'GameManager::TParallax']]],
+  ['move_5falpha_5f_89',['move_alpha_',['../class_animation_instance.html#a4e553ac88f98c83c856cf53a34195356',1,'AnimationInstance']]],
+  ['move_5fdone_5f_90',['move_done_',['../class_animation_instance.html#a47ed348df0e860a33b1c7146d0cc5382',1,'AnimationInstance']]],
+  ['move_5fduration_91',['move_duration',['../struct_animation_config.html#a924a0df8705600e4e4cd1024ab9a6630',1,'AnimationConfig']]],
+  ['move_5felapsed_5f_92',['move_elapsed_',['../class_animation_instance.html#ae5fdff7fd2acec1b788d03b77d505c03',1,'AnimationInstance']]],
+  ['move_5ffrom_93',['move_from',['../struct_animation_config.html#ab5589ce0123ad389f3949640f4838051',1,'AnimationConfig']]],
+  ['move_5fto_94',['move_to',['../struct_animation_config.html#a405156d88261395df7bae3a53c79e30d',1,'AnimationConfig']]],
+  ['music_5fcounter_5f_95',['music_counter_',['../class_game_manager.html#a3f7cb23882afb2aa258eb07b3f674a72',1,'GameManager']]],
+  ['mypath_5f_96',['mypath_',['../class_game_manager.html#a769262b551e59752e1a3b804a24ae8e1',1,'GameManager']]]
 ];

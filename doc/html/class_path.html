@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +54,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_path.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,7 +85,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -76,15 +100,8 @@ $(function() {
  <a href="class_path.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="path_8h_source.html">path.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Path:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_path.png" usemap="#Path_map" alt=""/>
-  <map id="Path_map" name="Path_map">
-<area href="class_entity.html" title="Base class for game entities." alt="Entity" shape="rect" coords="0,0,43,24"/>
-  </map>
-</div></div>
+
+<p>Inherits <a class="el" href="class_entity.html">Entity</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -164,61 +181,44 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ae69e9d678c682a8cd6fddb10f90068f2"><td class="memItemLeft" align="right" valign="top"><a id="ae69e9d678c682a8cd6fddb10f90068f2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>solid_</b></td></tr>
+<tr class="memitem:ae69e9d678c682a8cd6fddb10f90068f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path.html#ae69e9d678c682a8cd6fddb10f90068f2">solid_</a></td></tr>
 <tr class="separator:ae69e9d678c682a8cd6fddb10f90068f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d9fe84a045cc1bba5fd4bc2521cecc5"><td class="memItemLeft" align="right" valign="top"><a id="a9d9fe84a045cc1bba5fd4bc2521cecc5"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>n_vertex_</b></td></tr>
+<tr class="memitem:a9d9fe84a045cc1bba5fd4bc2521cecc5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path.html#a9d9fe84a045cc1bba5fd4bc2521cecc5">n_vertex_</a></td></tr>
 <tr class="separator:a9d9fe84a045cc1bba5fd4bc2521cecc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7725323f110daebc48092bdd29d1053e"><td class="memItemLeft" align="right" valign="top"><a id="a7725323f110daebc48092bdd29d1053e"></a>
-Vec4&#160;</td><td class="memItemRight" valign="bottom"><b>stroke_color_</b></td></tr>
+<tr class="memitem:a7725323f110daebc48092bdd29d1053e"><td class="memItemLeft" align="right" valign="top">Vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path.html#a7725323f110daebc48092bdd29d1053e">stroke_color_</a></td></tr>
 <tr class="separator:a7725323f110daebc48092bdd29d1053e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
-<tr class="memitem:aa9f75ea7b1041547a1b610a9b2f064c0 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="aa9f75ea7b1041547a1b610a9b2f064c0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>tag_</b></td></tr>
+<tr class="memitem:aa9f75ea7b1041547a1b610a9b2f064c0 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aa9f75ea7b1041547a1b610a9b2f064c0">tag_</a></td></tr>
 <tr class="separator:aa9f75ea7b1041547a1b610a9b2f064c0 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5606c7f48296c0b5307a5df3fc4a01c0 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a5606c7f48296c0b5307a5df3fc4a01c0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_</b></td></tr>
+<tr class="memitem:a5606c7f48296c0b5307a5df3fc4a01c0 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a5606c7f48296c0b5307a5df3fc4a01c0">enable_</a></td></tr>
 <tr class="separator:a5606c7f48296c0b5307a5df3fc4a01c0 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9cd10a9af58e2418bf470bb7a823efb inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="aa9cd10a9af58e2418bf470bb7a823efb"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>phase_</b></td></tr>
+<tr class="memitem:aa9cd10a9af58e2418bf470bb7a823efb inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aa9cd10a9af58e2418bf470bb7a823efb">phase_</a></td></tr>
 <tr class="separator:aa9cd10a9af58e2418bf470bb7a823efb inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e2649bfbba941460cd9354193fd46ad inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a0e2649bfbba941460cd9354193fd46ad"></a>
-Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>position_</b></td></tr>
+<tr class="memitem:a0e2649bfbba941460cd9354193fd46ad inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">Vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a0e2649bfbba941460cd9354193fd46ad">position_</a></td></tr>
 <tr class="separator:a0e2649bfbba941460cd9354193fd46ad inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afef865e740edb19fa9ed87a55404d2e6 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="afef865e740edb19fa9ed87a55404d2e6"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></tr>
+<tr class="memitem:afef865e740edb19fa9ed87a55404d2e6 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#afef865e740edb19fa9ed87a55404d2e6">rotation_</a></td></tr>
 <tr class="separator:afef865e740edb19fa9ed87a55404d2e6 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a169b63891bd5e9d9cc4eba253a1eb33e inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a169b63891bd5e9d9cc4eba253a1eb33e"></a>
-Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>scale_</b></td></tr>
+<tr class="memitem:a169b63891bd5e9d9cc4eba253a1eb33e inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">Vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a169b63891bd5e9d9cc4eba253a1eb33e">scale_</a></td></tr>
 <tr class="separator:a169b63891bd5e9d9cc4eba253a1eb33e inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0e47a84b8f2762b4342eb923ffbf910 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="ab0e47a84b8f2762b4342eb923ffbf910"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>origin_rotation_</b></td></tr>
+<tr class="memitem:ab0e47a84b8f2762b4342eb923ffbf910 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ab0e47a84b8f2762b4342eb923ffbf910">origin_rotation_</a></td></tr>
 <tr class="separator:ab0e47a84b8f2762b4342eb923ffbf910 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5263f7bbb55d63032f2ba7898d4e12d5 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a5263f7bbb55d63032f2ba7898d4e12d5"></a>
-Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>origin_pos_</b></td></tr>
+<tr class="memitem:a5263f7bbb55d63032f2ba7898d4e12d5 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">Vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a5263f7bbb55d63032f2ba7898d4e12d5">origin_pos_</a></td></tr>
 <tr class="separator:a5263f7bbb55d63032f2ba7898d4e12d5 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a7e23238d85b38df7033bcbc641cdc3 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a7a7e23238d85b38df7033bcbc641cdc3"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>speed_</b></td></tr>
+<tr class="memitem:a7a7e23238d85b38df7033bcbc641cdc3 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a7a7e23238d85b38df7033bcbc641cdc3">speed_</a></td></tr>
 <tr class="separator:a7a7e23238d85b38df7033bcbc641cdc3 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01817469ddfdbff254d7514be4bac8b4 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a01817469ddfdbff254d7514be4bac8b4"></a>
-<a class="el" href="class_animation_instance.html">AnimationInstance</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>animation_</b></td></tr>
+<tr class="memitem:a01817469ddfdbff254d7514be4bac8b4 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_animation_instance.html">AnimationInstance</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a01817469ddfdbff254d7514be4bac8b4">animation_</a></td></tr>
 <tr class="separator:a01817469ddfdbff254d7514be4bac8b4 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a34766a59d892ef5fb51aaa8ca350d644"><td class="memItemLeft" align="right" valign="top"><a id="a34766a59d892ef5fb51aaa8ca350d644"></a>
-Vec4&#160;</td><td class="memItemRight" valign="bottom"><b>fill_color_</b></td></tr>
+<tr class="memitem:a34766a59d892ef5fb51aaa8ca350d644"><td class="memItemLeft" align="right" valign="top">Vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path.html#a34766a59d892ef5fb51aaa8ca350d644">fill_color_</a></td></tr>
 <tr class="separator:a34766a59d892ef5fb51aaa8ca350d644"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a127e21f41194f3f93bc746b7a23be551"><td class="memItemLeft" align="right" valign="top"><a id="a127e21f41194f3f93bc746b7a23be551"></a>
-std::vector&lt; Vec2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>vertices_</b></td></tr>
+<tr class="memitem:a127e21f41194f3f93bc746b7a23be551"><td class="memItemLeft" align="right" valign="top">std::vector&lt; Vec2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path.html#a127e21f41194f3f93bc746b7a23be551">vertices_</a></td></tr>
 <tr class="separator:a127e21f41194f3f93bc746b7a23be551"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class representing a path entity in the game. </p>
 <p>The <a class="el" href="class_path.html" title="Class representing a path entity in the game.">Path</a> class extends the functionality of the base <a class="el" href="class_entity.html" title="Base class for game entities.">Entity</a> class to represent a path entity, which is defined by a series of vertices and can have stroke and fill colors. </p>
-
-<p class="definition">Definition at line <a class="el" href="path_8h_source.html#l00026">26</a> of file <a class="el" href="path_8h_source.html">path.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af26cfab021ddf49af73da3b2beca85ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af26cfab021ddf49af73da3b2beca85ac">&#9670;&nbsp;</a></span>Path() <span class="overload">[1/2]</span></h2>
@@ -461,15 +461,106 @@ std::vector&lt; Vec2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a34766a59d892ef5fb51aaa8ca350d644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34766a59d892ef5fb51aaa8ca350d644">&#9670;&nbsp;</a></span>fill_color_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vec4 Path::fill_color_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9d9fe84a045cc1bba5fd4bc2521cecc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d9fe84a045cc1bba5fd4bc2521cecc5">&#9670;&nbsp;</a></span>n_vertex_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Path::n_vertex_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae69e9d678c682a8cd6fddb10f90068f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae69e9d678c682a8cd6fddb10f90068f2">&#9670;&nbsp;</a></span>solid_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Path::solid_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7725323f110daebc48092bdd29d1053e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7725323f110daebc48092bdd29d1053e">&#9670;&nbsp;</a></span>stroke_color_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vec4 Path::stroke_color_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a127e21f41194f3f93bc746b7a23be551"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a127e21f41194f3f93bc746b7a23be551">&#9670;&nbsp;</a></span>vertices_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Vec2&gt; Path::vertices_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="path_8h_source.html">path.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_path.html">Path</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

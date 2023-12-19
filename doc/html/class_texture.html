@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +54,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_texture.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,7 +85,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -125,21 +149,17 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a4818e0687440fb5c4d22476fd7bd68ed"><td class="memItemLeft" align="right" valign="top"><a id="a4818e0687440fb5c4d22476fd7bd68ed"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>total_textures</b></td></tr>
+<tr class="memitem:a4818e0687440fb5c4d22476fd7bd68ed"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a4818e0687440fb5c4d22476fd7bd68ed">total_textures</a></td></tr>
 <tr class="separator:a4818e0687440fb5c4d22476fd7bd68ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a07260de3ed955cd41ea6ae77a93618ce"><td class="memItemLeft" align="right" valign="top"><a id="a07260de3ed955cd41ea6ae77a93618ce"></a>
-esat::SpriteHandle&#160;</td><td class="memItemRight" valign="bottom"><b>handle_</b></td></tr>
+<tr class="memitem:a07260de3ed955cd41ea6ae77a93618ce"><td class="memItemLeft" align="right" valign="top">esat::SpriteHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a07260de3ed955cd41ea6ae77a93618ce">handle_</a></td></tr>
 <tr class="separator:a07260de3ed955cd41ea6ae77a93618ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Default constructor for <a class="el" href="class_texture.html" title="Default constructor for Texture.">Texture</a>. </p>
 <p>Initializes an instance of <a class="el" href="class_texture.html" title="Default constructor for Texture.">Texture</a> with default values. </p>
-
-<p class="definition">Definition at line <a class="el" href="gtexture_8h_source.html#l00026">26</a> of file <a class="el" href="gtexture_8h_source.html">gtexture.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a09c4bcb7462f64c1d20fa69dba3cee8a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a09c4bcb7462f64c1d20fa69dba3cee8a">&#9670;&nbsp;</a></span>~Texture()</h2>
@@ -567,15 +587,64 @@ esat::SpriteHandle&#160;</td><td class="memItemRight" valign="bottom"><b>handle_
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a07260de3ed955cd41ea6ae77a93618ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07260de3ed955cd41ea6ae77a93618ce">&#9670;&nbsp;</a></span>handle_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">esat::SpriteHandle Texture::handle_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4818e0687440fb5c4d22476fd7bd68ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4818e0687440fb5c4d22476fd7bd68ed">&#9670;&nbsp;</a></span>total_textures</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Texture::total_textures</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="gtexture_8h_source.html">gtexture.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_texture.html">Texture</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

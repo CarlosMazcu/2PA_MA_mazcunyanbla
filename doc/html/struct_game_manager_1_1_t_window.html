@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +54,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('struct_game_manager_1_1_t_window.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,11 +85,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="class_game_manager.html">GameManager</a></li><li class="navelem"><a class="el" href="struct_game_manager_1_1_t_window.html">TWindow</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
@@ -73,37 +93,106 @@ $(function() {
 <div class="title">GameManager::TWindow Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="game__manager_8h_source.html">game_manager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aac69c55f216308fea402cfe3c3212288"><td class="memItemLeft" align="right" valign="top"><a id="aac69c55f216308fea402cfe3c3212288"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>welcome</b></td></tr>
+<tr class="memitem:aac69c55f216308fea402cfe3c3212288"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_manager_1_1_t_window.html#aac69c55f216308fea402cfe3c3212288">welcome</a></td></tr>
 <tr class="separator:aac69c55f216308fea402cfe3c3212288"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2879242f3deeceec7a4361db89f77f90"><td class="memItemLeft" align="right" valign="top"><a id="a2879242f3deeceec7a4361db89f77f90"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>parallax</b></td></tr>
+<tr class="memitem:a2879242f3deeceec7a4361db89f77f90"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_manager_1_1_t_window.html#a2879242f3deeceec7a4361db89f77f90">parallax</a></td></tr>
 <tr class="separator:a2879242f3deeceec7a4361db89f77f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03625430748428f4f68ba32a510f2709"><td class="memItemLeft" align="right" valign="top"><a id="a03625430748428f4f68ba32a510f2709"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>path</b></td></tr>
+<tr class="memitem:a03625430748428f4f68ba32a510f2709"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_manager_1_1_t_window.html#a03625430748428f4f68ba32a510f2709">path</a></td></tr>
 <tr class="separator:a03625430748428f4f68ba32a510f2709"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90c2182d80550a9f3f0e66e59bfc00d2"><td class="memItemLeft" align="right" valign="top"><a id="a90c2182d80550a9f3f0e66e59bfc00d2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>exit</b></td></tr>
+<tr class="memitem:a90c2182d80550a9f3f0e66e59bfc00d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_manager_1_1_t_window.html#a90c2182d80550a9f3f0e66e59bfc00d2">exit</a></td></tr>
 <tr class="separator:a90c2182d80550a9f3f0e66e59bfc00d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b310bc668f1bc4ca0cf5ba7899f2f45"><td class="memItemLeft" align="right" valign="top"><a id="a1b310bc668f1bc4ca0cf5ba7899f2f45"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>credits</b></td></tr>
+<tr class="memitem:a1b310bc668f1bc4ca0cf5ba7899f2f45"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_manager_1_1_t_window.html#a1b310bc668f1bc4ca0cf5ba7899f2f45">credits</a></td></tr>
 <tr class="separator:a1b310bc668f1bc4ca0cf5ba7899f2f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="game__manager_8h_source.html#l00037">37</a> of file <a class="el" href="game__manager_8h_source.html">game_manager.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1b310bc668f1bc4ca0cf5ba7899f2f45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b310bc668f1bc4ca0cf5ba7899f2f45">&#9670;&nbsp;</a></span>credits</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameManager::TWindow::credits</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90c2182d80550a9f3f0e66e59bfc00d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c2182d80550a9f3f0e66e59bfc00d2">&#9670;&nbsp;</a></span>exit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameManager::TWindow::exit</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2879242f3deeceec7a4361db89f77f90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2879242f3deeceec7a4361db89f77f90">&#9670;&nbsp;</a></span>parallax</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameManager::TWindow::parallax</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03625430748428f4f68ba32a510f2709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03625430748428f4f68ba32a510f2709">&#9670;&nbsp;</a></span>path</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameManager::TWindow::path</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac69c55f216308fea402cfe3c3212288"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac69c55f216308fea402cfe3c3212288">&#9670;&nbsp;</a></span>welcome</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameManager::TWindow::welcome</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/<a class="el" href="game__manager_8h_source.html">game_manager.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_game_manager.html">GameManager</a></li><li class="navelem"><a class="el" href="struct_game_manager_1_1_t_window.html">TWindow</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +54,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_sprite.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,7 +85,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Sprite Member List</div>  </div>
@@ -69,9 +93,9 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="class_sprite.html">Sprite</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>animation_</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a01817469ddfdbff254d7514be4bac8b4">animation_</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_sprite.html#a51988f16dbb89517ebf3030995325891">draw</a>() override</td><td class="entry"><a class="el" href="class_sprite.html">Sprite</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>enable_</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a5606c7f48296c0b5307a5df3fc4a01c0">enable_</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_entity.html#a980f368aa07ce358583982821533a54a">Entity</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a59decaeeea522b7128a19e1bbc3e1321">Entity</a>(const Entity &amp;copy)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_entity.html#a9cedbdf66ac4e9710f2e1b9766e29c2c">Entity</a>(int tag, bool enable, Vec2 pos, float rot, Vec2 scale)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
@@ -79,35 +103,38 @@ $(function() {
   <tr><td class="entry"><a class="el" href="class_entity.html#a9ba9794f42263481731852042ab9de8e">id</a>() const</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a6d3db9ad8e60278c7f84c03e1fdf2bd5">init</a>(int tag, bool enable, Vec2 pos, float rot, Vec2 scale, float speed)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_sprite.html#ad41ae0bc022231468cacae5ecec51e08">initSp</a>(Texture *texture, int x, int y, int w, int h)</td><td class="entry"><a class="el" href="class_sprite.html">Sprite</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>origin_pos_</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>origin_rotation_</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>phase_</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a5263f7bbb55d63032f2ba7898d4e12d5">origin_pos_</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_entity.html#ab0e47a84b8f2762b4342eb923ffbf910">origin_rotation_</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#aa9cd10a9af58e2418bf470bb7a823efb">phase_</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_entity.html#a1d7bcf97882a32084aff1429fdea9c89">PlayAnimation</a>(const AnimationConfig &amp;ac)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a3987cef1ec4f973d94f45c56a4615cb9">position</a>() const</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>position_</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_entity.html#a0e2649bfbba941460cd9354193fd46ad">position_</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_sprite.html#af339355dcf2af5b7d97f6a5d95f4a54b">release</a>()</td><td class="entry"><a class="el" href="class_sprite.html">Sprite</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_entity.html#ac89bc7a3e2da66cd47f2d5c78e12d44b">rotation</a>() const</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>rotation_</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#afef865e740edb19fa9ed87a55404d2e6">rotation_</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_entity.html#a670434507dce26abfb80f84d3c63cb59">scale</a>() const</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>scale_</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a169b63891bd5e9d9cc4eba253a1eb33e">scale_</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_entity.html#a492592f62dd86cecab30784b1471cd31">set_position</a>(const Vec2 &amp;pos)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_entity.html#aa94efc933450cf7b58eab73f725c404d">set_rotation</a>(const float rads)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_entity.html#a46d7d52d005f81461605672748682717">set_scale</a>(const Vec2 &amp;scale)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>speed_</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a7a7e23238d85b38df7033bcbc641cdc3">speed_</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_sprite.html#a12cba3ac1868418add3c4d95ce87e615">Sprite</a>()</td><td class="entry"><a class="el" href="class_sprite.html">Sprite</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_sprite.html#ac17f0e18a22c84234a659b1c0bbb69de">Sprite</a>(const Sprite &amp;other)</td><td class="entry"><a class="el" href="class_sprite.html">Sprite</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_entity.html#a62b6ba072cf015d77fdcc51283810564">stopAnimation</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>tag_</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>texture_handle_</b> (defined in <a class="el" href="class_sprite.html">Sprite</a>)</td><td class="entry"><a class="el" href="class_sprite.html">Sprite</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#aa9f75ea7b1041547a1b610a9b2f064c0">tag_</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_sprite.html#a16d4cc78698014e9fa37a66e99b1c625">texture_handle_</a></td><td class="entry"><a class="el" href="class_sprite.html">Sprite</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a21ab7babefa5e4525535a76cef1415f2">update</a>(float dt)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_sprite.html#ae54fdccd78b9b3c0e7698e31bc52d369">width</a>() const</td><td class="entry"><a class="el" href="class_sprite.html">Sprite</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_sprite.html#a8accab430f9d90ae5117b57d67e32b84">~Sprite</a>()</td><td class="entry"><a class="el" href="class_sprite.html">Sprite</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

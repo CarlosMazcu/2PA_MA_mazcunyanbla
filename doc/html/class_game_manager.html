@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +54,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_game_manager.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,7 +85,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
@@ -91,109 +115,458 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ad8ef384f89985b242b529a7aadf5f753"><td class="memItemLeft" align="right" valign="top"><a id="ad8ef384f89985b242b529a7aadf5f753"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<b>kWelcomeWindow</b> = 0, 
-<b>kParallaxWindow</b> = 1, 
-<b>kTransformWindow</b> = 2, 
-<b>kExitWindow</b> = 3, 
+<tr class="memitem:ad8ef384f89985b242b529a7aadf5f753"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<a class="el" href="class_game_manager.html#ad8ef384f89985b242b529a7aadf5f753acea1a175620b27255d17a7870885a529">kWelcomeWindow</a> = 0, 
+<a class="el" href="class_game_manager.html#ad8ef384f89985b242b529a7aadf5f753a8f3b44a1125cf753d5a2c61aef40ce5d">kParallaxWindow</a> = 1, 
+<a class="el" href="class_game_manager.html#ad8ef384f89985b242b529a7aadf5f753a6688c4599277f8462538ccecd43697bd">kTransformWindow</a> = 2, 
+<a class="el" href="class_game_manager.html#ad8ef384f89985b242b529a7aadf5f753a67f7ae0d3a0474595604db216ba9b818">kExitWindow</a> = 3, 
 <br />
-&#160;&#160;<b>kCreditsWindow</b> = 4
+&#160;&#160;<a class="el" href="class_game_manager.html#ad8ef384f89985b242b529a7aadf5f753adab889ad97cfd684f800010ec63f674c">kCreditsWindow</a> = 4
 <br />
  }</td></tr>
 <tr class="separator:ad8ef384f89985b242b529a7aadf5f753"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a137f3d22762082713a43057ced7937f0"><td class="memItemLeft" align="right" valign="top"><a id="a137f3d22762082713a43057ced7937f0"></a>
-static <a class="el" href="class_game_manager.html">GameManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Instance</b> ()</td></tr>
+<tr class="memitem:a137f3d22762082713a43057ced7937f0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_game_manager.html">GameManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a137f3d22762082713a43057ced7937f0">Instance</a> ()</td></tr>
 <tr class="separator:a137f3d22762082713a43057ced7937f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a04fc09f9b6aa173e948d03965d3c7ffa"><td class="memItemLeft" align="right" valign="top"><a id="a04fc09f9b6aa173e948d03965d3c7ffa"></a>
-<a class="el" href="struct_game_manager_1_1_t_window.html">TWindow</a>&#160;</td><td class="memItemRight" valign="bottom"><b>window_bool</b></td></tr>
+<tr class="memitem:a04fc09f9b6aa173e948d03965d3c7ffa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_game_manager_1_1_t_window.html">TWindow</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a04fc09f9b6aa173e948d03965d3c7ffa">window_bool</a></td></tr>
 <tr class="separator:a04fc09f9b6aa173e948d03965d3c7ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13ba0f8338d8dbbeecb348bca0b5d24c"><td class="memItemLeft" align="right" valign="top"><a id="a13ba0f8338d8dbbeecb348bca0b5d24c"></a>
-<a class="el" href="struct_game_manager_1_1_t_animation_config.html">TAnimationConfig</a>&#160;</td><td class="memItemRight" valign="bottom"><b>all_config_</b></td></tr>
+<tr class="memitem:a13ba0f8338d8dbbeecb348bca0b5d24c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_game_manager_1_1_t_animation_config.html">TAnimationConfig</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a13ba0f8338d8dbbeecb348bca0b5d24c">all_config_</a></td></tr>
 <tr class="separator:a13ba0f8338d8dbbeecb348bca0b5d24c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fbae915bc7d420680871049577682a5"><td class="memItemLeft" align="right" valign="top"><a id="a9fbae915bc7d420680871049577682a5"></a>
-<a class="el" href="struct_game_manager_1_1_t_sprite.html">TSprite</a>&#160;</td><td class="memItemRight" valign="bottom"><b>all_sprites</b></td></tr>
+<tr class="memitem:a9fbae915bc7d420680871049577682a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_game_manager_1_1_t_sprite.html">TSprite</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a9fbae915bc7d420680871049577682a5">all_sprites</a></td></tr>
 <tr class="separator:a9fbae915bc7d420680871049577682a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bf2ec08275a1be20f34e169728dbc8d"><td class="memItemLeft" align="right" valign="top"><a id="a5bf2ec08275a1be20f34e169728dbc8d"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>incr_speed_</b></td></tr>
+<tr class="memitem:a5bf2ec08275a1be20f34e169728dbc8d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a5bf2ec08275a1be20f34e169728dbc8d">incr_speed_</a></td></tr>
 <tr class="separator:a5bf2ec08275a1be20f34e169728dbc8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee8f4961d56ff6fb8593b99585d30920"><td class="memItemLeft" align="right" valign="top"><a id="aee8f4961d56ff6fb8593b99585d30920"></a>
-SoLoud::Soloud&#160;</td><td class="memItemRight" valign="bottom"><b>soloud_</b></td></tr>
+<tr class="memitem:aee8f4961d56ff6fb8593b99585d30920"><td class="memItemLeft" align="right" valign="top">SoLoud::Soloud&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#aee8f4961d56ff6fb8593b99585d30920">soloud_</a></td></tr>
 <tr class="separator:aee8f4961d56ff6fb8593b99585d30920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74460ed08ae9c3d774fadde84c2c1b81"><td class="memItemLeft" align="right" valign="top"><a id="a74460ed08ae9c3d774fadde84c2c1b81"></a>
-SoLoud::Wav&#160;</td><td class="memItemRight" valign="bottom"><b>sample_</b> [4]</td></tr>
+<tr class="memitem:a74460ed08ae9c3d774fadde84c2c1b81"><td class="memItemLeft" align="right" valign="top">SoLoud::Wav&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a74460ed08ae9c3d774fadde84c2c1b81">sample_</a> [4]</td></tr>
 <tr class="separator:a74460ed08ae9c3d774fadde84c2c1b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61313328b64d95e84f9a81c793e0635b"><td class="memItemLeft" align="right" valign="top"><a id="a61313328b64d95e84f9a81c793e0635b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>controller_</b></td></tr>
+<tr class="memitem:a61313328b64d95e84f9a81c793e0635b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a61313328b64d95e84f9a81c793e0635b">controller_</a></td></tr>
 <tr class="separator:a61313328b64d95e84f9a81c793e0635b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b9d9c6cd8b75aec9727345417cdecfb"><td class="memItemLeft" align="right" valign="top"><a id="a2b9d9c6cd8b75aec9727345417cdecfb"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>change_sample_</b></td></tr>
+<tr class="memitem:a2b9d9c6cd8b75aec9727345417cdecfb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a2b9d9c6cd8b75aec9727345417cdecfb">change_sample_</a></td></tr>
 <tr class="separator:a2b9d9c6cd8b75aec9727345417cdecfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad414cd805d4014eaa1a2bafafba05744"><td class="memItemLeft" align="right" valign="top"><a id="ad414cd805d4014eaa1a2bafafba05744"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>volume_</b></td></tr>
+<tr class="memitem:ad414cd805d4014eaa1a2bafafba05744"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#ad414cd805d4014eaa1a2bafafba05744">volume_</a></td></tr>
 <tr class="separator:ad414cd805d4014eaa1a2bafafba05744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f7cb23882afb2aa258eb07b3f674a72"><td class="memItemLeft" align="right" valign="top"><a id="a3f7cb23882afb2aa258eb07b3f674a72"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>music_counter_</b></td></tr>
+<tr class="memitem:a3f7cb23882afb2aa258eb07b3f674a72"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a3f7cb23882afb2aa258eb07b3f674a72">music_counter_</a></td></tr>
 <tr class="separator:a3f7cb23882afb2aa258eb07b3f674a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7739ae486af0d9d5758072354514af13"><td class="memItemLeft" align="right" valign="top"><a id="a7739ae486af0d9d5758072354514af13"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>max_music_time_</b></td></tr>
+<tr class="memitem:a7739ae486af0d9d5758072354514af13"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a7739ae486af0d9d5758072354514af13">max_music_time_</a></td></tr>
 <tr class="separator:a7739ae486af0d9d5758072354514af13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a46f149bb8786cb112c221ec72977a7"><td class="memItemLeft" align="right" valign="top"><a id="a1a46f149bb8786cb112c221ec72977a7"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>sample_name_</b></td></tr>
+<tr class="memitem:a1a46f149bb8786cb112c221ec72977a7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a1a46f149bb8786cb112c221ec72977a7">sample_name_</a></td></tr>
 <tr class="separator:a1a46f149bb8786cb112c221ec72977a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc512697ff32f2d84c532f0e18ee1705"><td class="memItemLeft" align="right" valign="top"><a id="adc512697ff32f2d84c532f0e18ee1705"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>available_audio</b></td></tr>
+<tr class="memitem:adc512697ff32f2d84c532f0e18ee1705"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#adc512697ff32f2d84c532f0e18ee1705">available_audio</a></td></tr>
 <tr class="separator:adc512697ff32f2d84c532f0e18ee1705"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a769262b551e59752e1a3b804a24ae8e1"><td class="memItemLeft" align="right" valign="top"><a id="a769262b551e59752e1a3b804a24ae8e1"></a>
-<a class="el" href="class_path.html">Path</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mypath_</b></td></tr>
+<tr class="memitem:a769262b551e59752e1a3b804a24ae8e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_path.html">Path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a769262b551e59752e1a3b804a24ae8e1">mypath_</a></td></tr>
 <tr class="separator:a769262b551e59752e1a3b804a24ae8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab25a391c0522e9c3b61bf3536de7f6d7"><td class="memItemLeft" align="right" valign="top"><a id="ab25a391c0522e9c3b61bf3536de7f6d7"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>compare_vertex_</b></td></tr>
+<tr class="memitem:ab25a391c0522e9c3b61bf3536de7f6d7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#ab25a391c0522e9c3b61bf3536de7f6d7">compare_vertex_</a></td></tr>
 <tr class="separator:ab25a391c0522e9c3b61bf3536de7f6d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acea7bb67db44b83752f508c8ef7866d9"><td class="memItemLeft" align="right" valign="top"><a id="acea7bb67db44b83752f508c8ef7866d9"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>strk_color_</b> [4]</td></tr>
+<tr class="memitem:acea7bb67db44b83752f508c8ef7866d9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#acea7bb67db44b83752f508c8ef7866d9">strk_color_</a> [4]</td></tr>
 <tr class="separator:acea7bb67db44b83752f508c8ef7866d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad267bf40652bf2636229b2150c949483"><td class="memItemLeft" align="right" valign="top"><a id="ad267bf40652bf2636229b2150c949483"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>f_color_</b> [4]</td></tr>
+<tr class="memitem:ad267bf40652bf2636229b2150c949483"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#ad267bf40652bf2636229b2150c949483">f_color_</a> [4]</td></tr>
 <tr class="separator:ad267bf40652bf2636229b2150c949483"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab759b861d435461a5b40601cc137f972"><td class="memItemLeft" align="right" valign="top"><a id="ab759b861d435461a5b40601cc137f972"></a>
-Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>windowSize</b> = {640.0f, 480.0f}</td></tr>
+<tr class="memitem:ab759b861d435461a5b40601cc137f972"><td class="memItemLeft" align="right" valign="top">Vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#ab759b861d435461a5b40601cc137f972">windowSize</a> = {640.0f, 480.0f}</td></tr>
 <tr class="separator:ab759b861d435461a5b40601cc137f972"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8a5a4f94839720b21387ef204619c0c"><td class="memItemLeft" align="right" valign="top"><a id="ad8a5a4f94839720b21387ef204619c0c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>torchic_fall</b></td></tr>
+<tr class="memitem:ad8a5a4f94839720b21387ef204619c0c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#ad8a5a4f94839720b21387ef204619c0c">torchic_fall</a></td></tr>
 <tr class="separator:ad8a5a4f94839720b21387ef204619c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b4d22097f0e5b142e662286c433d254"><td class="memItemLeft" align="right" valign="top"><a id="a3b4d22097f0e5b142e662286c433d254"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>torchic_lying</b></td></tr>
+<tr class="memitem:a3b4d22097f0e5b142e662286c433d254"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a3b4d22097f0e5b142e662286c433d254">torchic_lying</a></td></tr>
 <tr class="separator:a3b4d22097f0e5b142e662286c433d254"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a348b42ca6b0c9968590d3f89332e0892"><td class="memItemLeft" align="right" valign="top"><a id="a348b42ca6b0c9968590d3f89332e0892"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>current_time</b></td></tr>
+<tr class="memitem:a348b42ca6b0c9968590d3f89332e0892"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a348b42ca6b0c9968590d3f89332e0892">current_time</a></td></tr>
 <tr class="separator:a348b42ca6b0c9968590d3f89332e0892"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86f05ecafc9a9353857e26c8960da8cd"><td class="memItemLeft" align="right" valign="top"><a id="a86f05ecafc9a9353857e26c8960da8cd"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>last_time</b></td></tr>
+<tr class="memitem:a86f05ecafc9a9353857e26c8960da8cd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a86f05ecafc9a9353857e26c8960da8cd">last_time</a></td></tr>
 <tr class="separator:a86f05ecafc9a9353857e26c8960da8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2ef114c441539daec74e1c8c457a48f"><td class="memItemLeft" align="right" valign="top"><a id="ac2ef114c441539daec74e1c8c457a48f"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>dt</b></td></tr>
+<tr class="memitem:ac2ef114c441539daec74e1c8c457a48f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#ac2ef114c441539daec74e1c8c457a48f">dt</a></td></tr>
 <tr class="separator:ac2ef114c441539daec74e1c8c457a48f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Singleton class managing the game state, entities, and audio. </p>
 <p>The <a class="el" href="class_game_manager.html" title="Singleton class managing the game state, entities, and audio.">GameManager</a> class is a singleton responsible for managing the overall game state, including window states, sprites, animations, audio, and various settings. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ad8ef384f89985b242b529a7aadf5f753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8ef384f89985b242b529a7aadf5f753">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
-<p class="definition">Definition at line <a class="el" href="game__manager_8h_source.html#l00026">26</a> of file <a class="el" href="game__manager_8h_source.html">game_manager.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad8ef384f89985b242b529a7aadf5f753acea1a175620b27255d17a7870885a529"></a>kWelcomeWindow&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad8ef384f89985b242b529a7aadf5f753a8f3b44a1125cf753d5a2c61aef40ce5d"></a>kParallaxWindow&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad8ef384f89985b242b529a7aadf5f753a6688c4599277f8462538ccecd43697bd"></a>kTransformWindow&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad8ef384f89985b242b529a7aadf5f753a67f7ae0d3a0474595604db216ba9b818"></a>kExitWindow&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad8ef384f89985b242b529a7aadf5f753adab889ad97cfd684f800010ec63f674c"></a>kCreditsWindow&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a137f3d22762082713a43057ced7937f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a137f3d22762082713a43057ced7937f0">&#9670;&nbsp;</a></span>Instance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_game_manager.html">GameManager</a>&amp; GameManager::Instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a13ba0f8338d8dbbeecb348bca0b5d24c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13ba0f8338d8dbbeecb348bca0b5d24c">&#9670;&nbsp;</a></span>all_config_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_game_manager_1_1_t_animation_config.html">TAnimationConfig</a> GameManager::all_config_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9fbae915bc7d420680871049577682a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fbae915bc7d420680871049577682a5">&#9670;&nbsp;</a></span>all_sprites</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_game_manager_1_1_t_sprite.html">TSprite</a> GameManager::all_sprites</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc512697ff32f2d84c532f0e18ee1705"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc512697ff32f2d84c532f0e18ee1705">&#9670;&nbsp;</a></span>available_audio</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameManager::available_audio</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b9d9c6cd8b75aec9727345417cdecfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b9d9c6cd8b75aec9727345417cdecfb">&#9670;&nbsp;</a></span>change_sample_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameManager::change_sample_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab25a391c0522e9c3b61bf3536de7f6d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab25a391c0522e9c3b61bf3536de7f6d7">&#9670;&nbsp;</a></span>compare_vertex_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameManager::compare_vertex_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61313328b64d95e84f9a81c793e0635b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61313328b64d95e84f9a81c793e0635b">&#9670;&nbsp;</a></span>controller_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameManager::controller_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a348b42ca6b0c9968590d3f89332e0892"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a348b42ca6b0c9968590d3f89332e0892">&#9670;&nbsp;</a></span>current_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GameManager::current_time</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2ef114c441539daec74e1c8c457a48f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2ef114c441539daec74e1c8c457a48f">&#9670;&nbsp;</a></span>dt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GameManager::dt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad267bf40652bf2636229b2150c949483"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad267bf40652bf2636229b2150c949483">&#9670;&nbsp;</a></span>f_color_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GameManager::f_color_[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5bf2ec08275a1be20f34e169728dbc8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bf2ec08275a1be20f34e169728dbc8d">&#9670;&nbsp;</a></span>incr_speed_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GameManager::incr_speed_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a86f05ecafc9a9353857e26c8960da8cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86f05ecafc9a9353857e26c8960da8cd">&#9670;&nbsp;</a></span>last_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GameManager::last_time</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7739ae486af0d9d5758072354514af13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7739ae486af0d9d5758072354514af13">&#9670;&nbsp;</a></span>max_music_time_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GameManager::max_music_time_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f7cb23882afb2aa258eb07b3f674a72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f7cb23882afb2aa258eb07b3f674a72">&#9670;&nbsp;</a></span>music_counter_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GameManager::music_counter_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a769262b551e59752e1a3b804a24ae8e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a769262b551e59752e1a3b804a24ae8e1">&#9670;&nbsp;</a></span>mypath_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_path.html">Path</a> GameManager::mypath_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a74460ed08ae9c3d774fadde84c2c1b81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74460ed08ae9c3d774fadde84c2c1b81">&#9670;&nbsp;</a></span>sample_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SoLoud::Wav GameManager::sample_[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1a46f149bb8786cb112c221ec72977a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a46f149bb8786cb112c221ec72977a7">&#9670;&nbsp;</a></span>sample_name_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GameManager::sample_name_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aee8f4961d56ff6fb8593b99585d30920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee8f4961d56ff6fb8593b99585d30920">&#9670;&nbsp;</a></span>soloud_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SoLoud::Soloud GameManager::soloud_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acea7bb67db44b83752f508c8ef7866d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acea7bb67db44b83752f508c8ef7866d9">&#9670;&nbsp;</a></span>strk_color_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GameManager::strk_color_[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8a5a4f94839720b21387ef204619c0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8a5a4f94839720b21387ef204619c0c">&#9670;&nbsp;</a></span>torchic_fall</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameManager::torchic_fall</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b4d22097f0e5b142e662286c433d254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4d22097f0e5b142e662286c433d254">&#9670;&nbsp;</a></span>torchic_lying</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameManager::torchic_lying</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad414cd805d4014eaa1a2bafafba05744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad414cd805d4014eaa1a2bafafba05744">&#9670;&nbsp;</a></span>volume_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GameManager::volume_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04fc09f9b6aa173e948d03965d3c7ffa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04fc09f9b6aa173e948d03965d3c7ffa">&#9670;&nbsp;</a></span>window_bool</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_game_manager_1_1_t_window.html">TWindow</a> GameManager::window_bool</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab759b861d435461a5b40601cc137f972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab759b861d435461a5b40601cc137f972">&#9670;&nbsp;</a></span>windowSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vec2 GameManager::windowSize = {640.0f, 480.0f}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="game__manager_8h_source.html">game_manager.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_game_manager.html">GameManager</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

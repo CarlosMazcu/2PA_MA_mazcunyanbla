@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +54,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_sprite.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,7 +85,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -75,15 +99,8 @@ $(function() {
  <a href="class_sprite.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="gsprite_8h_source.html">gsprite.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Sprite:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_sprite.png" usemap="#Sprite_map" alt=""/>
-  <map id="Sprite_map" name="Sprite_map">
-<area href="class_entity.html" title="Base class for game entities." alt="Entity" shape="rect" coords="0,0,45,24"/>
-  </map>
-</div></div>
+
+<p>Inherits <a class="el" href="class_entity.html">Entity</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -157,46 +174,33 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a16d4cc78698014e9fa37a66e99b1c625"><td class="memItemLeft" align="right" valign="top"><a id="a16d4cc78698014e9fa37a66e99b1c625"></a>
-<a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>texture_handle_</b></td></tr>
+<tr class="memitem:a16d4cc78698014e9fa37a66e99b1c625"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite.html#a16d4cc78698014e9fa37a66e99b1c625">texture_handle_</a></td></tr>
 <tr class="separator:a16d4cc78698014e9fa37a66e99b1c625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
-<tr class="memitem:aa9f75ea7b1041547a1b610a9b2f064c0 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="aa9f75ea7b1041547a1b610a9b2f064c0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>tag_</b></td></tr>
+<tr class="memitem:aa9f75ea7b1041547a1b610a9b2f064c0 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aa9f75ea7b1041547a1b610a9b2f064c0">tag_</a></td></tr>
 <tr class="separator:aa9f75ea7b1041547a1b610a9b2f064c0 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5606c7f48296c0b5307a5df3fc4a01c0 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a5606c7f48296c0b5307a5df3fc4a01c0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_</b></td></tr>
+<tr class="memitem:a5606c7f48296c0b5307a5df3fc4a01c0 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a5606c7f48296c0b5307a5df3fc4a01c0">enable_</a></td></tr>
 <tr class="separator:a5606c7f48296c0b5307a5df3fc4a01c0 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9cd10a9af58e2418bf470bb7a823efb inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="aa9cd10a9af58e2418bf470bb7a823efb"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>phase_</b></td></tr>
+<tr class="memitem:aa9cd10a9af58e2418bf470bb7a823efb inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aa9cd10a9af58e2418bf470bb7a823efb">phase_</a></td></tr>
 <tr class="separator:aa9cd10a9af58e2418bf470bb7a823efb inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e2649bfbba941460cd9354193fd46ad inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a0e2649bfbba941460cd9354193fd46ad"></a>
-Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>position_</b></td></tr>
+<tr class="memitem:a0e2649bfbba941460cd9354193fd46ad inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">Vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a0e2649bfbba941460cd9354193fd46ad">position_</a></td></tr>
 <tr class="separator:a0e2649bfbba941460cd9354193fd46ad inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afef865e740edb19fa9ed87a55404d2e6 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="afef865e740edb19fa9ed87a55404d2e6"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></tr>
+<tr class="memitem:afef865e740edb19fa9ed87a55404d2e6 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#afef865e740edb19fa9ed87a55404d2e6">rotation_</a></td></tr>
 <tr class="separator:afef865e740edb19fa9ed87a55404d2e6 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a169b63891bd5e9d9cc4eba253a1eb33e inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a169b63891bd5e9d9cc4eba253a1eb33e"></a>
-Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>scale_</b></td></tr>
+<tr class="memitem:a169b63891bd5e9d9cc4eba253a1eb33e inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">Vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a169b63891bd5e9d9cc4eba253a1eb33e">scale_</a></td></tr>
 <tr class="separator:a169b63891bd5e9d9cc4eba253a1eb33e inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0e47a84b8f2762b4342eb923ffbf910 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="ab0e47a84b8f2762b4342eb923ffbf910"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>origin_rotation_</b></td></tr>
+<tr class="memitem:ab0e47a84b8f2762b4342eb923ffbf910 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ab0e47a84b8f2762b4342eb923ffbf910">origin_rotation_</a></td></tr>
 <tr class="separator:ab0e47a84b8f2762b4342eb923ffbf910 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5263f7bbb55d63032f2ba7898d4e12d5 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a5263f7bbb55d63032f2ba7898d4e12d5"></a>
-Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>origin_pos_</b></td></tr>
+<tr class="memitem:a5263f7bbb55d63032f2ba7898d4e12d5 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">Vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a5263f7bbb55d63032f2ba7898d4e12d5">origin_pos_</a></td></tr>
 <tr class="separator:a5263f7bbb55d63032f2ba7898d4e12d5 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a7e23238d85b38df7033bcbc641cdc3 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a7a7e23238d85b38df7033bcbc641cdc3"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>speed_</b></td></tr>
+<tr class="memitem:a7a7e23238d85b38df7033bcbc641cdc3 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a7a7e23238d85b38df7033bcbc641cdc3">speed_</a></td></tr>
 <tr class="separator:a7a7e23238d85b38df7033bcbc641cdc3 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01817469ddfdbff254d7514be4bac8b4 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a01817469ddfdbff254d7514be4bac8b4"></a>
-<a class="el" href="class_animation_instance.html">AnimationInstance</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>animation_</b></td></tr>
+<tr class="memitem:a01817469ddfdbff254d7514be4bac8b4 inherit pub_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_animation_instance.html">AnimationInstance</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a01817469ddfdbff254d7514be4bac8b4">animation_</a></td></tr>
 <tr class="separator:a01817469ddfdbff254d7514be4bac8b4 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class representing a sprite entity in the game. </p>
 <p>The <a class="el" href="class_sprite.html" title="Class representing a sprite entity in the game.">Sprite</a> class extends the functionality of the base <a class="el" href="class_entity.html" title="Base class for game entities.">Entity</a> class to represent a sprite entity, which is associated with a texture for rendering. </p>
-
-<p class="definition">Definition at line <a class="el" href="gsprite_8h_source.html#l00027">27</a> of file <a class="el" href="gsprite_8h_source.html">gsprite.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a12cba3ac1868418add3c4d95ce87e615"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12cba3ac1868418add3c4d95ce87e615">&#9670;&nbsp;</a></span>Sprite() <span class="overload">[1/2]</span></h2>
@@ -417,15 +421,34 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>speed_</b></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a16d4cc78698014e9fa37a66e99b1c625"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16d4cc78698014e9fa37a66e99b1c625">&#9670;&nbsp;</a></span>texture_handle_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_texture.html">Texture</a>* Sprite::texture_handle_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="gsprite_8h_source.html">gsprite.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_sprite.html">Sprite</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

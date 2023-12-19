@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +54,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('game_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,11 +85,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">game.h</div>  </div>
@@ -97,8 +117,8 @@ $(function() {
 <div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classgame.html">   45</a></span>&#160;<span class="keyword">class </span><a class="code" href="classgame.html">game</a></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="classgame.html">game</a>(<span class="comment">/* args */</span>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  ~<a class="code" href="classgame.html">game</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="classgame.html#ad9c102127b5038f880067ad6c9198d38">game</a>(<span class="comment">/* args */</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="classgame.html#ae87abd20c4d8a7906fa48e690a5f1d07">~game</a>();</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classgame.html#ac1c1df7d822f92c4ffe0e26d87564f3a">init</a>();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classgame.html#aed876a3cca683254db8b88b0967848a3">gameLoop</a>();</div>
@@ -130,6 +150,7 @@ $(function() {
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <div class="ttc" id="aclassgame_html_ab222b58a14061b5ce35e295475a1dfc8"><div class="ttname"><a href="classgame.html#ab222b58a14061b5ce35e295475a1dfc8">game::finish</a></div><div class="ttdeci">void finish()</div><div class="ttdoc">Finalize and clean up resources.</div></div>
 <div class="ttc" id="agame_8h_html_ad8fc3074fc67ffb8c28754a554ac87c6"><div class="ttname"><a href="game_8h.html#ad8fc3074fc67ffb8c28754a554ac87c6">animVolbeat</a></div><div class="ttdeci">void animVolbeat()</div><div class="ttdoc">Draw and animate Volbeat.</div></div>
 <div class="ttc" id="apath_8h_html"><div class="ttname"><a href="path_8h.html">path.h</a></div><div class="ttdoc">base class for path who inherit from entity class</div></div>
@@ -138,7 +159,8 @@ $(function() {
 <div class="ttc" id="agame_8h_html_a178f85a4c8f4bb10ecef6d026f270125"><div class="ttname"><a href="game_8h.html#a178f85a4c8f4bb10ecef6d026f270125">initAllEntityParallax</a></div><div class="ttdeci">void initAllEntityParallax()</div><div class="ttdoc">Initialize background.</div></div>
 <div class="ttc" id="aentity_8h_html"><div class="ttname"><a href="entity_8h.html">entity.h</a></div><div class="ttdoc">header with entity class</div></div>
 <div class="ttc" id="agame_8h_html_a1303d60e6beb36ae2536154899df7751"><div class="ttname"><a href="game_8h.html#a1303d60e6beb36ae2536154899df7751">initAnimationConfigFlygon</a></div><div class="ttdeci">void initAnimationConfigFlygon()</div><div class="ttdoc">Initialize animation configuration for Flygon.</div></div>
-<div class="ttc" id="aclassgame_html"><div class="ttname"><a href="classgame.html">game</a></div><div class="ttdoc">Class representing the main game logic and loop.</div><div class="ttdef"><b>Definition:</b> <a href="game_8h_source.html#l00045">game.h:45</a></div></div>
+<div class="ttc" id="aclassgame_html"><div class="ttname"><a href="classgame.html">game</a></div><div class="ttdoc">Class representing the main game logic and loop.</div><div class="ttdef"><b>Definition:</b> game.h:45</div></div>
+<div class="ttc" id="aclassgame_html_ad9c102127b5038f880067ad6c9198d38"><div class="ttname"><a href="classgame.html#ad9c102127b5038f880067ad6c9198d38">game::game</a></div><div class="ttdeci">game()</div></div>
 <div class="ttc" id="agame_8h_html_a341e8c48eb40a0f50241222b1f51d6ed"><div class="ttname"><a href="game_8h.html#a341e8c48eb40a0f50241222b1f51d6ed">animMainCharacter</a></div><div class="ttdeci">void animMainCharacter()</div><div class="ttdoc">Draw and animate the main character.</div></div>
 <div class="ttc" id="agame_8h_html_a235c59f3f607d28a437f8b04bb7e2a51"><div class="ttname"><a href="game_8h.html#a235c59f3f607d28a437f8b04bb7e2a51">drawParallax</a></div><div class="ttdeci">void drawParallax()</div><div class="ttdoc">Draw background.</div></div>
 <div class="ttc" id="agame_8h_html_a5ab10bb9d9f7006ec97e868a384ccf66"><div class="ttname"><a href="game_8h.html#a5ab10bb9d9f7006ec97e868a384ccf66">drawSprites</a></div><div class="ttdeci">void drawSprites()</div><div class="ttdoc">Draw sprites for various characters.</div></div>
@@ -149,6 +171,7 @@ $(function() {
 <div class="ttc" id="agame_8h_html_a58f9f4841e447c4ffdc9fd4975cb6574"><div class="ttname"><a href="game_8h.html#a58f9f4841e447c4ffdc9fd4975cb6574">initAnimationConfigTorchic</a></div><div class="ttdeci">void initAnimationConfigTorchic()</div><div class="ttdoc">Initialize animation configuration for Torchic.</div></div>
 <div class="ttc" id="agame_8h_html_af8b3c919dcfa5daa50003c96553ed4e7"><div class="ttname"><a href="game_8h.html#af8b3c919dcfa5daa50003c96553ed4e7">updateAnimationVolbeat</a></div><div class="ttdeci">void updateAnimationVolbeat()</div><div class="ttdoc">Update the animation for Volbeat.</div></div>
 <div class="ttc" id="agame_8h_html_a5d78c69da1dda70b9707c7f11ccf2759"><div class="ttname"><a href="game_8h.html#a5d78c69da1dda70b9707c7f11ccf2759">updateAllAnimation</a></div><div class="ttdeci">void updateAllAnimation()</div><div class="ttdoc">Update animations for various characters.</div></div>
+<div class="ttc" id="aclassgame_html_ae87abd20c4d8a7906fa48e690a5f1d07"><div class="ttname"><a href="classgame.html#ae87abd20c4d8a7906fa48e690a5f1d07">game::~game</a></div><div class="ttdeci">~game()</div></div>
 <div class="ttc" id="agame_8h_html_adeec297c331b16b05c99e60784348141"><div class="ttname"><a href="game_8h.html#adeec297c331b16b05c99e60784348141">updateParallax</a></div><div class="ttdeci">void updateParallax()</div><div class="ttdoc">Update background.</div></div>
 <div class="ttc" id="aapp__window_8h_html"><div class="ttname"><a href="app__window_8h.html">app_window.h</a></div><div class="ttdoc">Header that manage the windows and game states.</div></div>
 <div class="ttc" id="agame_8h_html_aad3b88d43dd47503bedaf4b6004fa4fa"><div class="ttname"><a href="game_8h.html#aad3b88d43dd47503bedaf4b6004fa4fa">updateAnimationMainCharacter</a></div><div class="ttdeci">void updateAnimationMainCharacter()</div><div class="ttdoc">Update the animation for the main character.</div></div>
@@ -162,10 +185,13 @@ $(function() {
 <div class="ttc" id="agame_8h_html_a8bdf8a85941d49c5b7af11088aa2b68b"><div class="ttname"><a href="game_8h.html#a8bdf8a85941d49c5b7af11088aa2b68b">initAnimationConfigVolbeat</a></div><div class="ttdeci">void initAnimationConfigVolbeat()</div><div class="ttdoc">Initialize animation configuration for Volbeat.</div></div>
 <div class="ttc" id="agame_8h_html_add338fc8bdc8d146e2ffb5fcc5c39643"><div class="ttname"><a href="game_8h.html#add338fc8bdc8d146e2ffb5fcc5c39643">updateAnimationManektrik</a></div><div class="ttdeci">void updateAnimationManektrik()</div><div class="ttdoc">Update the animation for Manektrik.</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="game_8h.html">game.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>

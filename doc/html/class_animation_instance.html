@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +54,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_animation_instance.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,7 +85,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -100,48 +124,35 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a6ee995e9fa58e08655e19e0853dd36ab"><td class="memItemLeft" align="right" valign="top"><a id="a6ee995e9fa58e08655e19e0853dd36ab"></a>
-<a class="el" href="struct_animation_config.html">AnimationConfig</a>&#160;</td><td class="memItemRight" valign="bottom"><b>config_</b></td></tr>
+<tr class="memitem:a6ee995e9fa58e08655e19e0853dd36ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_animation_config.html">AnimationConfig</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation_instance.html#a6ee995e9fa58e08655e19e0853dd36ab">config_</a></td></tr>
 <tr class="separator:a6ee995e9fa58e08655e19e0853dd36ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a9716bbf92d3cdab942ae060c3dcf3b2a"><td class="memItemLeft" align="right" valign="top"><a id="a9716bbf92d3cdab942ae060c3dcf3b2a"></a>
-<a class="el" href="class_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>target_</b></td></tr>
+<tr class="memitem:a9716bbf92d3cdab942ae060c3dcf3b2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation_instance.html#a9716bbf92d3cdab942ae060c3dcf3b2a">target_</a></td></tr>
 <tr class="separator:a9716bbf92d3cdab942ae060c3dcf3b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47ed348df0e860a33b1c7146d0cc5382"><td class="memItemLeft" align="right" valign="top"><a id="a47ed348df0e860a33b1c7146d0cc5382"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>move_done_</b></td></tr>
+<tr class="memitem:a47ed348df0e860a33b1c7146d0cc5382"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation_instance.html#a47ed348df0e860a33b1c7146d0cc5382">move_done_</a></td></tr>
 <tr class="separator:a47ed348df0e860a33b1c7146d0cc5382"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e553ac88f98c83c856cf53a34195356"><td class="memItemLeft" align="right" valign="top"><a id="a4e553ac88f98c83c856cf53a34195356"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>move_alpha_</b></td></tr>
+<tr class="memitem:a4e553ac88f98c83c856cf53a34195356"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation_instance.html#a4e553ac88f98c83c856cf53a34195356">move_alpha_</a></td></tr>
 <tr class="separator:a4e553ac88f98c83c856cf53a34195356"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5fdff7fd2acec1b788d03b77d505c03"><td class="memItemLeft" align="right" valign="top"><a id="ae5fdff7fd2acec1b788d03b77d505c03"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>move_elapsed_</b></td></tr>
+<tr class="memitem:ae5fdff7fd2acec1b788d03b77d505c03"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation_instance.html#ae5fdff7fd2acec1b788d03b77d505c03">move_elapsed_</a></td></tr>
 <tr class="separator:ae5fdff7fd2acec1b788d03b77d505c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3828825cfa4854bba402c3c7c693a4a4"><td class="memItemLeft" align="right" valign="top"><a id="a3828825cfa4854bba402c3c7c693a4a4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>scale_done_</b></td></tr>
+<tr class="memitem:a3828825cfa4854bba402c3c7c693a4a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation_instance.html#a3828825cfa4854bba402c3c7c693a4a4">scale_done_</a></td></tr>
 <tr class="separator:a3828825cfa4854bba402c3c7c693a4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d5ae159d684d81e8c87d27df1c74b06"><td class="memItemLeft" align="right" valign="top"><a id="a4d5ae159d684d81e8c87d27df1c74b06"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>scale_alpha_</b></td></tr>
+<tr class="memitem:a4d5ae159d684d81e8c87d27df1c74b06"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation_instance.html#a4d5ae159d684d81e8c87d27df1c74b06">scale_alpha_</a></td></tr>
 <tr class="separator:a4d5ae159d684d81e8c87d27df1c74b06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2230c76d6a561372f3ffa2599aae082d"><td class="memItemLeft" align="right" valign="top"><a id="a2230c76d6a561372f3ffa2599aae082d"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>scale_elapsed_</b></td></tr>
+<tr class="memitem:a2230c76d6a561372f3ffa2599aae082d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation_instance.html#a2230c76d6a561372f3ffa2599aae082d">scale_elapsed_</a></td></tr>
 <tr class="separator:a2230c76d6a561372f3ffa2599aae082d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aade63a9573432a422d8ae58ea01be88b"><td class="memItemLeft" align="right" valign="top"><a id="aade63a9573432a422d8ae58ea01be88b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>rotate_done_</b></td></tr>
+<tr class="memitem:aade63a9573432a422d8ae58ea01be88b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation_instance.html#aade63a9573432a422d8ae58ea01be88b">rotate_done_</a></td></tr>
 <tr class="separator:aade63a9573432a422d8ae58ea01be88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75e4befbe850e805495372012f70bcc6"><td class="memItemLeft" align="right" valign="top"><a id="a75e4befbe850e805495372012f70bcc6"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>rotate_alpha_</b></td></tr>
+<tr class="memitem:a75e4befbe850e805495372012f70bcc6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation_instance.html#a75e4befbe850e805495372012f70bcc6">rotate_alpha_</a></td></tr>
 <tr class="separator:a75e4befbe850e805495372012f70bcc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff604bee5bf40f131cb3b42d095e9281"><td class="memItemLeft" align="right" valign="top"><a id="aff604bee5bf40f131cb3b42d095e9281"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>rotate_elapsed_</b></td></tr>
+<tr class="memitem:aff604bee5bf40f131cb3b42d095e9281"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation_instance.html#aff604bee5bf40f131cb3b42d095e9281">rotate_elapsed_</a></td></tr>
 <tr class="separator:aff604bee5bf40f131cb3b42d095e9281"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Animation Instance class. </p>
 <p>Manages animation state and logic for movement, rotation, and scaling animations. </p>
-
-<p class="definition">Definition at line <a class="el" href="animation_8h_source.html#l00057">57</a> of file <a class="el" href="animation_8h_source.html">animation.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6d0c23cc1c9ea13b37c4bff479654036"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d0c23cc1c9ea13b37c4bff479654036">&#9670;&nbsp;</a></span>AnimationInstance() <span class="overload">[1/2]</span></h2>
@@ -308,15 +319,254 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotate_elapsed_</b><
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6ee995e9fa58e08655e19e0853dd36ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ee995e9fa58e08655e19e0853dd36ab">&#9670;&nbsp;</a></span>config_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_animation_config.html">AnimationConfig</a> AnimationInstance::config_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e553ac88f98c83c856cf53a34195356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e553ac88f98c83c856cf53a34195356">&#9670;&nbsp;</a></span>move_alpha_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AnimationInstance::move_alpha_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a47ed348df0e860a33b1c7146d0cc5382"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47ed348df0e860a33b1c7146d0cc5382">&#9670;&nbsp;</a></span>move_done_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AnimationInstance::move_done_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae5fdff7fd2acec1b788d03b77d505c03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5fdff7fd2acec1b788d03b77d505c03">&#9670;&nbsp;</a></span>move_elapsed_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AnimationInstance::move_elapsed_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75e4befbe850e805495372012f70bcc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75e4befbe850e805495372012f70bcc6">&#9670;&nbsp;</a></span>rotate_alpha_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AnimationInstance::rotate_alpha_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aade63a9573432a422d8ae58ea01be88b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aade63a9573432a422d8ae58ea01be88b">&#9670;&nbsp;</a></span>rotate_done_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AnimationInstance::rotate_done_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff604bee5bf40f131cb3b42d095e9281"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff604bee5bf40f131cb3b42d095e9281">&#9670;&nbsp;</a></span>rotate_elapsed_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AnimationInstance::rotate_elapsed_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d5ae159d684d81e8c87d27df1c74b06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d5ae159d684d81e8c87d27df1c74b06">&#9670;&nbsp;</a></span>scale_alpha_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AnimationInstance::scale_alpha_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3828825cfa4854bba402c3c7c693a4a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3828825cfa4854bba402c3c7c693a4a4">&#9670;&nbsp;</a></span>scale_done_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AnimationInstance::scale_done_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2230c76d6a561372f3ffa2599aae082d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2230c76d6a561372f3ffa2599aae082d">&#9670;&nbsp;</a></span>scale_elapsed_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AnimationInstance::scale_elapsed_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9716bbf92d3cdab942ae060c3dcf3b2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9716bbf92d3cdab942ae060c3dcf3b2a">&#9670;&nbsp;</a></span>target_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_entity.html">Entity</a>* AnimationInstance::target_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="animation_8h_source.html">animation.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.16
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_animation_instance.html">AnimationInstance</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
 </body>
 </html>
