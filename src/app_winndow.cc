@@ -355,7 +355,9 @@ void parallaxWindow()
   // draw
   drawParallax();
   drawSprites();
-  //
+  GM.star_.draw();
+
+  //audio
   if (GM.available_audio)
   {
     GM.soloud_.setVolume(GM.controller_, GM.volume_);
@@ -407,6 +409,7 @@ void pathWindow()
   ImGui::DragFloat2("Position", (float*)&GM.mypath_.Entity::origin_pos_, 0.5f, -600.0f, 1200.0f, "%.0f");
   ImGui::DragFloat2("Scale", (float*)&GM.mypath_.Entity::scale_, 0.5f, 0.2f, 600.0f, "%.0f");
   ImGui::DragFloat("Rotation", (float*)&GM.mypath_.Entity::rotation_, 0.1f, 0.0f, 600.0f, "%0.2f");
+
  
   ImGui::InputInt("Vertex", &GM.mypath_.n_vertex_);
   if(GM.mypath_.n_vertex_ < 3)

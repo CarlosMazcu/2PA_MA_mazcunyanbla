@@ -83,6 +83,31 @@ class game
 void initAllAnimationConfig();
 
 /**
+ * @brief Initializes the star entity for the game.
+ *
+ * This function sets up the vertices, properties, and attributes of a star
+ * entity in the game using the GameManager instance.
+ */
+void initStar();
+
+/**
+ * @brief Initializes the animation for the star entity in the game.
+ *
+ * This function sets up the animation parameters for the star entity,
+ * including phase, configuration, and an AnimationInstance.
+ */
+void initAnimationStar();
+
+/**
+ * @brief Updates the animation state of the star entity in the game.
+ *
+ * This function advances the animation phase of the star, and based on the
+ * current phase, it updates the animation configuration for the star entity.
+ * The animation is then updated using the AnimationInstance class.
+ */
+void updateStarAnimation();
+
+/**
  * @brief Update animations for various characters.
  *
  * This function updates animations for different characters

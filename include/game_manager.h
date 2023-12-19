@@ -62,6 +62,9 @@ class GameManager{
     TParallax parallax;
   };
 
+
+  Path star_;
+
   struct TAnimationConfig
   {
     AnimationConfig ac_manektrik_;
@@ -69,6 +72,7 @@ class GameManager{
     AnimationConfig ac_volbeat_;
     AnimationConfig ac_torchic_;
     AnimationConfig ac_flygon_;
+    AnimationConfig ac_star_;
   };
 
   TAnimationConfig all_config_;
@@ -97,6 +101,7 @@ class GameManager{
   float max_music_time_;
   std::string sample_name_; 
   bool available_audio;
+
   Path mypath_;
   int compare_vertex_;
 

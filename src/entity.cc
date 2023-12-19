@@ -27,6 +27,8 @@ Entity::Entity()
   origin_pos_ = {0.0f, 0.0f};
   animation_ = nullptr;
 
+  is_path_ = false;
+
   id_ = Entity::next_id_;
   Entity::next_id_ ++;
 }
@@ -41,6 +43,9 @@ Entity::Entity(const Entity& copy)
   scale_ = copy.scale_;
   animation_ = nullptr;
 
+  is_path_ = false;
+
+
   id_ = Entity::next_id_;
   Entity::next_id_++;
 }
@@ -52,6 +57,7 @@ Entity::Entity(int tag, bool enable, Vec2 pos, float rot, Vec2 scale)
     position_ = pos; 
     rotation_ = rot;
     scale_ = scale;
+
 }
 
 /* Entity::~Entity()
@@ -72,7 +78,14 @@ void Entity::init(int tag, bool enable, Vec2 pos, float rot, Vec2 scale, float s
 
 void Entity::set_position(const Vec2& pos)
 {
+  if(!is_path_)
+  {
     position_ = pos;
+  }
+  if(is_path_)
+  {
+    origin_pos_ = pos;
+  }
 }
 void Entity::set_rotation(const float rads)
 {

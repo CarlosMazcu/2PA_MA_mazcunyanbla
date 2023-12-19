@@ -181,6 +181,7 @@ class Entity{
     float speed_;
     AnimationInstance *animation_;
     
+    bool is_path_;
 
   protected:
 

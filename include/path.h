@@ -104,17 +104,17 @@ class Path : public Entity
     * applies the transformation matrix, and draws the transformed vertices.
     * The drawing is either a solid path or an outline based on the `solid_` property.
     */
-    void draw();
+    void draw() override;
 
     bool solid_;
     int n_vertex_;
     Vec4 stroke_color_;
+    Vec4 fill_color_;
   
   protected:
     //could have a Color class/struct, a packed int32 color, Vec4  
     // or array of 4 values
     // rgba {0.0f <--> 255.0f}
-    Vec4 fill_color_;
     std::vector<Vec2> vertices_;
 };
 

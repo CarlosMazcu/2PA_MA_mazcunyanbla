@@ -72,6 +72,7 @@ void game::finish()
   }
 }
 
+
 void initAllAnimationConfig()
 {
   initAnimationConfigFlygon();
@@ -79,6 +80,7 @@ void initAllAnimationConfig()
   initAnimationConfigMainCharacter();
   initAnimationConfigVolbeat();
   initAnimationConfigTorchic();
+  initAnimationStar();
 }
 
 void updateAllAnimation()
@@ -88,6 +90,25 @@ void updateAllAnimation()
   updateAnimationMainCharacter();
   updateAnimationVolbeat();
   updateAnimationTorchic();
+  updateStarAnimation();
+}
+
+void initStar()
+{
+  GameManager &GM = GameManager::Instance();
+  float angle = 6.28f / 10.0f;
+  for (int i = 0; i < 10; ++i)
+  {
+    if(i%2==0)
+    {
+      GM.star_.addVertex({cosf(i * angle), sinf(i * angle)});
+    }else{
+      GM.star_.addVertex({cosf(i * angle) * 0.55f, sinf(i * angle)  * 0.55f});
+    }
+  }
+  GM.star_.is_path_ = true;
+  GM.star_.fill_color_ = {255.0f, 255.0f, 255.0f,255.0f};
+  GM.star_.Entity::init(13, true, {0.0f, 0.0f}, 0.0f, {10.0f, 10.0f},0.0f);
 }
 
 void initAnimationConfigFlygon()
@@ -102,6 +123,20 @@ void initAnimationConfigFlygon()
 
   GM.all_sprites.flygon.animation_ = new AnimationInstance(GM.all_config_.ac_flygon_,
                                                                &GM.all_sprites.flygon);
+}
+
+void initAnimationStar(){
+  GameManager &GM = GameManager::Instance();
+  GM.star_.phase_ = 0;
+  GM.all_config_.ac_star_ = {
+            1, 0, 0, 
+            {-10.0f, 100.0f}, {(GM.windowSize.x + 50.0f), 100.0f}, 1.5f, 
+            0.0f, 0.0f, 0.0f, 
+            {1.0f, 1.0f}, {2.0f, 2.0f}, 2.5f};
+
+  GM.star_.animation_ = new AnimationInstance(GM.all_config_.ac_star_,
+                                                               &GM.star_);
+
 }
 
 void initAnimationConfigManektrik()
@@ -366,6 +401,78 @@ void updateAnimationVolbeat()
     }
     GM.all_sprites.volbeat[i].animation_->update((GM.dt) * (GM.incr_speed_));
   }
+}
+
+void updateStarAnimation(){
+  GameManager &GM = GameManager::Instance();
+  if(GM.star_.animation_->config_.is_moving == 0)
+  {
+    GM.star_.phase_++;
+    if(GM.star_.phase_ > 4)
+    {
+      GM.star_.phase_ = 0;
+    }
+    switch (GM.star_.phase_)
+    {
+    case 0:
+      GM.all_config_.ac_star_ = {
+                1, 1, 0, 
+                {-10.0f, 100.0f}, {(GM.windowSize.x + 50.0f), 100.0f}, 1.5f, 
+                0.0f, 3.14159265f * 4.0, 1.5f, 
+                {1.0f, 1.0f}, {2.0f, 2.0f}, 2.5f};
+
+      GM.star_.animation_ = new AnimationInstance(GM.all_config_.ac_star_,
+                                                               &GM.star_);
+      break;
+    case 1:
+      GM.all_config_.ac_star_ = {
+                1, 0, 0, 
+                {GM.windowSize.x, 100.0f}, {610.0f, 120.0f}, 0.1f, 
+                0.0f, (3.14159265f * 10.0f), 3.5f, 
+                {1.0f, 1.0f}, {2.0f, 2.0f}, 2.5f};
+
+      GM.star_.animation_ = new AnimationInstance(GM.all_config_.ac_star_,
+                                                               &GM.star_);
+      break;
+    case 2:
+      GM.all_config_.ac_star_ = {
+                1, 0, 0, 
+               {610.0f, 120.0f}, {580.0f, 90.0f}, 0.1f, 
+                0.0f, (3.14159265f * 10.0f), 3.5f, 
+                {1.0f, 1.0f}, {0.5f, 0.0f}, 2.5f};
+
+      GM.star_.animation_ = new AnimationInstance(GM.all_config_.ac_star_,
+                                                               &GM.star_);
+      break;
+    case 3:
+      GM.all_config_.ac_star_ = {
+                1, 1, 0, 
+               {580.0f, 90.0f}, {200.0f, 120.0f}, 1.0f, 
+                0.0f, (3.14159265f * 10.0f), 1.0f, 
+                {1.0f, 1.0f}, {2.0f, 2.0f}, 2.5f};
+
+      GM.star_.animation_ = new AnimationInstance(GM.all_config_.ac_star_,
+                                                               &GM.star_);
+      break;
+    case 4:
+      GM.all_config_.ac_star_ = {
+                1, 0, 0, 
+               {200.0f, 120.0f}, {-50.0f, 90.0f},1.0f, 
+                0.0f, (0.0f), 1.0f, 
+                {1.0f, 1.0f}, {2.0f, 2.0f}, 2.5f};
+
+      GM.star_.animation_ = new AnimationInstance(GM.all_config_.ac_star_,
+                                                               &GM.star_);
+      break;
+
+    
+    
+    default:
+      break;
+    }
+  }
+  GM.star_.animation_->update((GM.dt) * (GM.incr_speed_));
+
 }
 
 void updateAnimationFlygon()
@@ -885,15 +992,19 @@ void initAllEntityCharacter()
     GM.all_sprites.torchic[i].texture_handle_ = text_torchic;
     GM.all_sprites.torchic[i].Entity::init(9, true, {30.0f, 200.0f}, 0.0f, {1.5f, 1.5f}, 20.f);
   }
+  
   GM.torchic_fall = false;
   GM.torchic_lying = false;
-
+  //flygon
   Texture *text_flygon;
   text_flygon = text_flygon->TextureFactory("../data/SpriteSheet/characters_sheet.png");
   text_flygon->init(text_flygon->getHandle(), 462, 0, 114, 40);
-
   GM.all_sprites.flygon.texture_handle_ = text_flygon;
   GM.all_sprites.flygon.Entity::init(10, true, {0.0f, 250.0f}, 0.0f, {1.5f, 1.5f}, 20.0f);
+  
+  initStar();
+
+
 
 }
 
@@ -1162,6 +1273,8 @@ void animTorchic()
     }
     else if(counter > 0.2f && counter <= 0.3f)
     {
+      GM.all_sprites.torchic[2].draw();
+    }else{
       GM.all_sprites.torchic[2].draw();
     }
   }else if(GM.torchic_fall && !GM.torchic_lying){
