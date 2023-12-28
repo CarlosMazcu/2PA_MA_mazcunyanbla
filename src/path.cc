@@ -72,6 +72,7 @@ void Path::removeAllVertex()
 
 void Path::draw(){
   if(true == enable_){
+    // GUSTAVO: ???
     if(3 <= vertices_.size())
     {
     //colors

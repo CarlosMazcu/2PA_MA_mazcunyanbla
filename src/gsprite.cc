@@ -40,6 +40,7 @@ void Sprite::initSp(Texture *texture, int x, int y, int w, int h)
     return;
   }
   texture_handle_ = texture;
+  // GUSTAVO: ???
   texture_handle_->getHandle(); 
 }
 

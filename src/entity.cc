@@ -82,6 +82,7 @@ void Entity::set_position(const Vec2& pos)
   {
     position_ = pos;
   }
+  // GUSTAVO: "else" ?
   if(is_path_)
   {
     origin_pos_ = pos;

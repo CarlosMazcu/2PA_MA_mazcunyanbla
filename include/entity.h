@@ -170,6 +170,7 @@ class Entity{
     bool enable_;
     int phase_;
 
+    // GUSTAVO: Why are these public?
     Vec2 position_;
     
     float rotation_;
@@ -181,6 +182,7 @@ class Entity{
     float speed_;
     AnimationInstance *animation_;
     
+    // GUSTAVO: ???
     bool is_path_;
 
   protected:

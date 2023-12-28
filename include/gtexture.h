@@ -157,11 +157,13 @@ class Texture{
   * Releases all sprites associated with the Texture by calling `esat::SpriteRelease`
   * for each sprite in the sprite vector. After releasing the sprites, the sprite vector is cleared.
   */
+  // GUSTAVO: No, if it is a static method, it would affect all Texture objects.
   static void releaseAllSprites();
  protected:
   esat::SpriteHandle handle_;
 
  private:
+  // GUSTAVO: This doesn't seem to be used.
   static std::vector<esat::SpriteHandle*> sprite_vector_;
 };
 

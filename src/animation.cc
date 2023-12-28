@@ -97,6 +97,7 @@ AnimationInstance::~AnimationInstance(){
     target_ = nullptr;
 }
 
+// GUSTAVO: This would rather be at MathUtils::Lerp
 float LerpFloat(float x, float y, float t)
 {
     if(t > 1.0f || t < -1.0f){ t = 1.0f/t;}

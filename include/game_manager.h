@@ -108,6 +108,7 @@ class GameManager{
   float strk_color_[4];
   float f_color_[4];
 
+  // GUSTAVO: Please don't initialize values here.
   Vec2 windowSize = {640.0f, 480.0f};
 
   bool torchic_fall;
@@ -115,6 +116,7 @@ class GameManager{
   
   float current_time, last_time, dt;
  private:
+  // GUSTAVO: Why is the constructor empty now?
   GameManager(){}; //this MAY change :)
   GameManager(const GameManager& other){};
 
